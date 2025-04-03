@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e46d4dd6c4163b49a3d374b50ac2ab0, type: 3}
-  m_Name: AdventurerData_Major
+  m_Name: AdventurerData_Major_C
   m_EditorClassIdentifier: 
   AdventurerName: 
   AdventurerClass: 
