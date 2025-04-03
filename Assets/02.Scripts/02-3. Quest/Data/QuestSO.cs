@@ -24,7 +24,7 @@ public class QuestSO : ScriptableObject
     public int GoldReward; // 골드 보상
     public int FamePenalty; // 명성 페널티
     public int GoldPenalty; // 골드 페널티
-    public AdventurerInjuryStateType SateAfterFail; // 실패 후 모험가 부상 상태
+    public AdventurerInjuryStateType StateAfterFail; // 실패 후 모험가 부상 상태
     public int Days; // 퀘스트 소요 일수
 
 }
