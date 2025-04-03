@@ -29,6 +29,6 @@ public class AdventurerSO : ScriptableObject
     public int OriginalStatMAG; // 마력
     public int OriginalStatINS; //통찰력
     public int ORiginalStatDEX; // 손재주
-    public AdventurerInjuryStateType AdventurerInjurySate;
+    public AdventurerInjuryStateType AdventurerInjuryState;
 
 }
