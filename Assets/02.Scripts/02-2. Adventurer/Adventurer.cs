@@ -11,6 +11,14 @@ public class Adventurer : MonoBehaviour
     {
         InitAdventurerData();
     }
+    private void OnEnable()
+    {
+        
+    }
+    private void OnDisable()
+    {
+
+    }
     private void InitAdventurerData()
     {
         if (_adventurerSO.AdventurerType == AdventurerType.Major)
