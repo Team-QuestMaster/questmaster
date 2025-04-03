@@ -3,17 +3,17 @@ using UnityEngine;
 
 public enum AdventurerTierType
 {
-    A,
+    A,//가장 강함
     B,
     C,
-    D
+    D // 가장 약함
 }
 
 public enum AdventurerInjuryStateType
 {
-    Idle,
-    Injured,
-    Dead
+    Idle,// 기본 상태
+    Injured, // 부상
+    Dead // 사망
 }
 
 

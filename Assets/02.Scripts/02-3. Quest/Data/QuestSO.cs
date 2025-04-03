@@ -2,11 +2,11 @@ using UnityEngine;
 
 public enum QuestTierType
 {
-    Red,
-    Orange,
-    Yellow,
-    Blue,
-    Green
+    Red,//매우 어려움
+    Orange, // 어려움
+    Yellow, // 보통
+    Blue, // 쉬움
+    Green //매우 쉬움
 }
 
 [CreateAssetMenu(fileName = "QuestSO", menuName = "ScriptableObject/QuestSO")]
