@@ -127,14 +127,14 @@ ScriptedImporter:
     originalName: 
     pivot: {x: 0.5, y: -0.102564104}
     alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 10, y: 10, z: 10, w: 10}
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 4
-      width: 768
-      height: 624
+      x: 15
+      y: 14
+      width: 747
+      height: 604
     spriteID: d3e52a9f156c12745a152610941e1f8c
     spriteBone: []
     spriteOutline: []
@@ -148,14 +148,14 @@ ScriptedImporter:
     originalName: 
     pivot: {x: 0.5, y: -0.102564104}
     alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 10, y: 10, z: 10, w: 10}
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 636
-      width: 768
-      height: 624
+      x: 15
+      y: 646
+      width: 748
+      height: 604
     spriteID: 89b11b66fbc9ead44b6ebe46a2f9547f
     spriteBone: []
     spriteOutline: []
@@ -169,14 +169,14 @@ ScriptedImporter:
     originalName: 
     pivot: {x: 0.5, y: -0.102564104}
     alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 10, y: 10, z: 10, w: 10}
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 1268
-      width: 768
-      height: 624
+      x: 14
+      y: 1278
+      width: 748
+      height: 604
     spriteID: 4f2913a720165814d8e91cfad0ca5141
     spriteBone: []
     spriteOutline: []
@@ -190,14 +190,14 @@ ScriptedImporter:
     originalName: 
     pivot: {x: 0.5, y: -0.102564104}
     alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 10, y: 10, z: 10, w: 10}
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 1900
-      width: 768
-      height: 624
+      x: 14
+      y: 1910
+      width: 748
+      height: 604
     spriteID: 69f3a5099def79d45a82fa0992940e0b
     spriteBone: []
     spriteOutline: []
@@ -211,14 +211,14 @@ ScriptedImporter:
     originalName: 
     pivot: {x: 0.5, y: -0.102564104}
     alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 10, y: 10, z: 10, w: 10}
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 2532
-      width: 768
-      height: 624
+      x: 14
+      y: 2542
+      width: 748
+      height: 604
     spriteID: be40ce3da2db1cc49b87d8a2a8de6085
     spriteBone: []
     spriteOutline: []
@@ -253,7 +253,7 @@ ScriptedImporter:
     originalName: 
     pivot: {x: 0.5, y: -0.102564104}
     alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 10, y: 10, z: 10, w: 10}
     customData: 
     rect:
       serializedVersion: 2
