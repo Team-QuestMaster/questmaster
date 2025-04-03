@@ -10,7 +10,6 @@ public class DraggableImage : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     // 조건 및 기능
     // 조건: Image는 절대 영역, 화면 밖으로 안나간다
     // 영역: 이미지가 존재하는 영역
-    // TODO: 영역에 따른 이미지 변환 -> Icon이미지 <-> 테이블 이미지 => 따로 스크립트 분리
     // 드래그 이벤트
 
     // 좌 하단의 위치를 기준으로 이동
