@@ -19,7 +19,7 @@ public class QuestSO : ScriptableObject
     public float MAGWeight; // 퀘스트 MAG 가중치
     public float INSWeight; // 퀘스트 INS 가중치
     public float DEXWeight; // 퀘스트 DEX 가중치
-    public float StatForClear; // 기준 전투력, *가변
+    public float PowerForClear; // 기준 전투력, *가변
     public int FameReward; // 명성 보상, *가변
     public int GoldReward; // 골드 보상 *가변
     public int FamePenalty; // 명성 페널티 *가변

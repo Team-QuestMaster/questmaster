@@ -23,8 +23,8 @@ public class QuestData
     private float _dexWeight; // 퀘스트 DEX 비율
     public float DEXWeight { get => _dexWeight; set => _dexWeight = value; }
 
-    private float _statForClear; // 기준 전투력
-    public float StatForClear { get => _statForClear; set => _statForClear = value; }
+    private float _powerForClear; // 기준 전투력
+    public float PowerForClear { get => _powerForClear; set => _powerForClear = value; }
 
     private int _fameReward; // 명성 보상
     public int FameReward { get => _fameReward; set => _fameReward = value; }
