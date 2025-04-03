@@ -43,4 +43,24 @@ public class QuestData
 
     private int _days; // 퀘스트 소요 일수
     public int Days { get => _days; set => _days = value; }
+    public QuestData(string questName, string questDescription, QuestTierType questTier, 
+        float strWeight, float magWeight, float insWeight, float dexWeight, 
+        float powerForClear, int fameReward, int goldReward, int famePenalty, int goldPenalty, 
+        AdventurerStateType stateAfterFail, int days)
+    {
+        _questName = questName;
+        _questDescription = questDescription;
+        _questTier = questTier;
+        _strWeight = strWeight;
+        _magWeight = magWeight;
+        _insWeight = insWeight;
+        _dexWeight = dexWeight;
+        _powerForClear = powerForClear;
+        _fameReward = fameReward;
+        _goldReward = goldReward;
+        _famePenalty = famePenalty;
+        _goldPenalty = goldPenalty;
+        _stateAfterFail = stateAfterFail;
+        _days = days;
+    }
 }
