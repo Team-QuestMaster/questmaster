@@ -27,7 +27,7 @@ public class DragableImage : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private void Awake()
     {
         _rectTransform = GetComponent<RectTransform>();
-        if (_dragArea == null)
+        if (ReferenceEquals(_dragArea, null))
             _dragArea = transform.root.GetComponent<RectTransform>();
     }
 
