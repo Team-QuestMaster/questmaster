@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class AdventurerData
 {
+    private AdventurerType _adventurerType; // 모험가 타입 (Major, Minor)
+    public AdventurerType AdventurerType { get => _adventurerType; set => _adventurerType = value; }
+
     private int _currentSTR;
     public int CurrentSTR { get => _currentSTR; set => _currentSTR = value; } // 현재 근력
     private int _currentMAG;
@@ -25,4 +28,19 @@ public class AdventurerData
     private AdventurerStateType _adventurerState; //모험가 상태
     public AdventurerStateType AdventurerState { get => _adventurerState; set => _adventurerState = value; }
 
+    public AdventurerData(AdventurerType adventurerType, string adventurerName, string adventurerClass, string adventurerTitle,
+        AdventurerTierType adventurerTier, int originalSTR, int originalMAG, int originalINS, int originalDEX,
+        AdventurerStateType adventurerState)
+    {
+        _adventurerType = AdventurerType;
+        _adventurerName = adventurerName;
+        _adventurerClass = adventurerClass;
+        _adventurerTitle = adventurerTitle;
+        _adventurerTier = adventurerTier;
+        _currentSTR = originalSTR;
+        _currentMAG = originalMAG;
+        _currentINS = originalINS;
+        _currentDEX = originalDEX;
+        _adventurerState = adventurerState;
+    }
 }
