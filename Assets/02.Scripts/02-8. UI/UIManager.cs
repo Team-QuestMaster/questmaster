@@ -15,6 +15,18 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private Animator _guideBookAnimator;
     [SerializeField] private CanvasGroup[] _guideBookCanvasGroup;
     [SerializeField] private Image _fadeOutImage;
+
+    [Header("도장")] 
+    [SerializeField] private Button _stampZone;
+    [SerializeField] private Button _approveBtn;
+    [SerializeField] private Button _rejectBtn;
+    
+    [Header("결과창")]
+    [SerializeField] private Image _report;
+    [SerializeField] private TextMeshProUGUI _reportText;
+    
+    
+    
     private bool _isGuideBookOpen = false;
 
     protected override void Awake()
@@ -26,6 +38,9 @@ public class UIManager : Singleton<UIManager>
     {
         _settingButton.onClick.AddListener(ShowSetting);
         _guideBook.onClick.AddListener(ToggleGuideBook);
+        _approveBtn.onClick.AddListener(Approve);
+        _rejectBtn.onClick.AddListener(Reject);
+        
 
         foreach (Button button in _indexButton)
         {
@@ -33,12 +48,21 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+    
+    
     void ShowSetting()
     {
         Debug.Log("Show setting");
         // TODO: 설정 창 열기 추가
     }
 
+    
+    
+    
+    /// <summary>
+    /// 가이드 북에 대한 메소드들입니다.
+    /// </summary>
+    //이건 테스트를 위해서 하나의 버튼이 모든 걸 하고 있지만, 차후 두 개를 분리할 예정입니다.
     void ToggleGuideBook()
     {
         if (_isGuideBookOpen)
@@ -51,12 +75,14 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+    
+    
     void GuideBookShow()
     {
         Debug.Log("Show guidebook");
 
         _fadeOutImage.DOFade(0.7f, 1f);  // 배경 페이드 효과 추가
-        _guideBook.transform.DOMoveX(-2f, 1f).SetEase(Ease.OutBounce)
+        _guideBook.transform.DOLocalMove(new Vector3(0, -46, 0), 1f)
             .OnComplete(() =>
             {
                 _guideBookAnimator.SetTrigger("Open");
@@ -81,7 +107,7 @@ public class UIManager : Singleton<UIManager>
         yield return StartCoroutine(WaitForAnimationToEnd("BookClose"));
 
         // 3️⃣ 닫힘 애니메이션 완료 후 Dotween 실행
-        _guideBook.transform.DOMoveX(2f, 1f).SetEase(Ease.InBack)
+        _guideBook.transform.DOLocalMove(new Vector3(1142, -46, 0), 1f)
             .OnComplete(() =>
             {
                 _fadeOutImage.DOFade(0f, 1f);  // 페이드 효과 해제
@@ -146,6 +172,29 @@ public class UIManager : Singleton<UIManager>
         _guideBookCanvasGroup[0].blocksRaycasts = true;
     }
 
+
+    /// <summary>
+    /// 도장에 대한 메소드 입니다.
+    /// </summary>
+
+    void Reject()
+    {
+        Debug.Log("Reject");
+    }
+
+    void Approve()
+    {
+        Debug.Log("Approve");
+    }
+
+
+    public void ShowReportUI(string Text)
+    {
+        _report.transform.DOMove(new Vector3(0, 0, 0), 1f);
+        _reportText.text = Text;
+    }
+    
+    
     void NextDialogue()
     {
         Debug.Log("Show next dialogue");
