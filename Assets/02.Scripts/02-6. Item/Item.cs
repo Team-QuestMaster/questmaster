@@ -1,8 +1,13 @@
 using UnityEngine;
 
-public interface Item
+public abstract class Item : MonoBehaviour // 아이템 추상 클래스
 {
-    string Name { get; }
-    string Description { get; }
-    void Use(); // 아이템 사용
+    [SerializeField]
+    private string _name;
+    public string Name { get => _name; }
+    [SerializeField]
+    private string _description;
+    public string Description { get => _description; }
+    public abstract void Use(); //추상함수
+
 }

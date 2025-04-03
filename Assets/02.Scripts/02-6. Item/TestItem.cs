@@ -1,15 +1,8 @@
 using UnityEngine;
 
-public class TestItem : MonoBehaviour, Item
+public class TestItem : Item
 {
-    [SerializeField]
-    private string _name;
-    public string Name { get => _name; }
-    [SerializeField]
-    private string _description;
-    public string Description { get => _description;}
-
-    public void Use()
+    public override void Use() // Àç±¸Çö
     {
         Debug.Log($"Using item: {Name}");
         ItemManager.Instance.RemoveItem(this);
