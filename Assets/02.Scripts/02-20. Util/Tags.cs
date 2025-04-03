@@ -8,4 +8,5 @@ EditorOnly,
 MainCamera,
 Player,
 GameController,
+Singleton,
 }
