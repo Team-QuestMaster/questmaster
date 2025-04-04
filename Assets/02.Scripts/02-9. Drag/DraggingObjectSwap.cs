@@ -66,7 +66,6 @@ public class DraggingObjectSwap : MonoBehaviour
 
         // 스왑 오브젝트 활성화 후 커서 중앙으로
         _swapGameObject.gameObject.SetActive(true);
-        _swapGameObject.transform.localPosition = transform.localPosition;
 
         eventData.pointerDrag = _swapGameObject.gameObject;
     }
