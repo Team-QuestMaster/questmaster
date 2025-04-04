@@ -8,7 +8,10 @@ public enum TimePeriod
     Morning, // 2
     Afternoon, // 2
     Evening, // 1
-    Night
+    Night,
+
+
+    Count
 }
 
 
@@ -43,14 +46,14 @@ public class DateManager : Singleton<DateManager>
         PickManager.Instance.OnVisitedAdventurerCountIncreased += ChangeDate;
         PickManager.Instance.OnVisitedAdventurerCountIncreased += ChangeTimePeriod;
     }
-    public void AddQuestResultToList(ref Adventurer adventurer, ref Quest quest, bool isSuccess)
+    public void AddQuestResultToList(ref Adventurer adventurer, ref Quest quest, bool isSuccess, float probability)
     {
         int endDay = quest.QuestData.Days + _currentDate;
         if (_maxDate < endDay)
         {
             return;
         }
-        _questResults[endDay].Add(new QuestResult(ref adventurer, ref quest, isSuccess));
+        _questResults[endDay].Add(new QuestResult(ref adventurer, ref quest, isSuccess, probability));
     }
     public List<QuestResult> GetTodayQuestResults()
     {
@@ -80,9 +83,32 @@ public class DateManager : Singleton<DateManager>
         {
             _currentTimePeriod = TimePeriod.Evening;
         }
+        OnTimePeriodChanged?.Invoke();
     }
-    private void BeginNightEvent()
+    public List<List<QuestResult>> GetAllQuestResultsInProgress()
+    {
+        List<List<QuestResult>> questResultsInProgress = new List<List<QuestResult>>();
+
+        for (int i = 0; i < _maxDate + 1; i++)
+        {
+            questResultsInProgress.Add(new List<QuestResult>());
+        }
+
+        for (int i = _currentDate + 1; i <= _maxDate; i++)
+        {
+            if (0 < _questResults[i].Count)
+            {
+                foreach (QuestResult questResult in _questResults[i])
+                {
+                    questResultsInProgress[i].Add(questResult);
+                }
+            }
+        }
+        return questResultsInProgress;
+    }
+    public void BeginNightEvent()
     {
         _currentTimePeriod = TimePeriod.Night;
+        OnTimePeriodChanged?.Invoke();
     }
 }

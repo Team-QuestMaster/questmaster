@@ -36,7 +36,6 @@ public class CalculateManager : Singleton<CalculateManager>
         {
             isQuestSuccess = false;
         }
-
-        DateManager.Instance.AddQuestResultToList(ref adventurer, ref quest, isQuestSuccess);
+        DateManager.Instance.AddQuestResultToList(ref adventurer, ref quest, isQuestSuccess, probability);
     }
 }
