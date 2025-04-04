@@ -1,6 +1,5 @@
 using NUnit.Framework;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class ItemManager : Singleton <ItemManager>
@@ -41,8 +40,8 @@ public class ItemManager : Singleton <ItemManager>
             Debug.Log("골드가 부족합니다.");
             return;
         }
-        ShopingList.Remove(item); 
-        HavingItemList.Add(item);
+        _shopingList.Remove(item); 
+        _havingItemList.Add(item);
     }
 
     public void ItemUsed(Item item) // 보유 아이템에서 제거
@@ -57,30 +56,30 @@ public class ItemManager : Singleton <ItemManager>
             Debug.Log("인벤토리에 해당 아이템이 없습니다.");
             return;
         }
-        HavingItemList.Remove(item);
+        _havingItemList.Remove(item);
     }
 
     public void SellingItems() // 야시장 물품 3개 추출
     {                          // List 리턴하는 식으로 구현하면 복사본이 생기는게 찝찝해서 void로 구현함
         for (int i = 0; i < SHOP_ITEM_COUNT; i++)
         {
-            if(RemainItemList.Count == 0) // 미보유 아이템 리스트가 비어있으면 종료
+            if(_remainItemList.Count == 0) // 미보유 아이템 리스트가 비어있으면 종료
             {
                 Debug.Log("미보유 아이템 리스트가 비었습니다.");
                 return;
             }
-            Item item = RemainItemList[Random.Range(0, RemainItemList.Count)];
-            ShopingList.Add(item); // 상점 아이템 리스트에 추가
-            RemainItemList.Remove(item); // 미보유 아이템 리스트에서 제거
+            Item item = _remainItemList[Random.Range(0, RemainItemList.Count)];
+            _shopingList.Add(item); // 상점 아이템 리스트에 추가
+            _remainItemList.Remove(item); // 미보유 아이템 리스트에서 제거
         }
     }
 
     public void ReturnItems() // 상점에 남은 아이템 미보유아이템에 추가
     {
-        foreach (Item item in ShopingList)
+        foreach (Item item in _shopingList)
         {
-            RemainItemList.Add(item); 
-            ShopingList.Remove(item);
+            _remainItemList.Add(item); 
+            _shopingList.Remove(item);
         }
     }
 
