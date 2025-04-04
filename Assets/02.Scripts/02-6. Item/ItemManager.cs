@@ -11,8 +11,8 @@ public class ItemManager : Singleton <ItemManager>
     private List<Item> _havingItemList = new List<Item>(); // 보유 아이템 리스트
     public List<Item> HavingItemList { get => _havingItemList;}
 
-    private List<Item> _shopingList = new List<Item>(); // 상점 아이템 리스트
-    public List<Item> ShopingList { get => _shopingList; set => _shopingList = value; }
+    private List<Item> _shoppingList = new List<Item>(); // 상점 아이템 리스트
+    public List<Item> ShoppingList { get => _shoppingList; set => _shoppingList = value; }
     private const int SHOP_ITEM_COUNT = 3; // 야시장 물품 수
 
     [SerializeField]
@@ -40,8 +40,30 @@ public class ItemManager : Singleton <ItemManager>
             Debug.Log("골드가 부족합니다.");
             return;
         }
-        _shopingList.Remove(item); 
+        _shoppingList.Remove(item); 
         _havingItemList.Add(item);
+    }
+
+    public bool TryBuyall()
+    {
+        int goldSum = 0;
+        foreach (Item item in _shoppingList)
+        {
+            goldSum += item.Price;
+        }
+        if (goldSum > GuildStatManager.Instance.Gold)
+        {
+            Debug.Log("골드가 부족합니다.");
+            return false;
+        }
+        else
+        {
+            foreach (Item item in _shoppingList)
+            {
+                BuyItem(item);
+            }
+            return true;
+        }
     }
 
     public void ItemUsed(Item item) // 보유 아이템에서 제거
@@ -69,17 +91,17 @@ public class ItemManager : Singleton <ItemManager>
                 return;
             }
             Item item = _remainItemList[Random.Range(0, _remainItemList.Count)];
-            _shopingList.Add(item); // 상점 아이템 리스트에 추가
+            _shoppingList.Add(item); // 상점 아이템 리스트에 추가
             _remainItemList.Remove(item); // 미보유 아이템 리스트에서 제거
         }
     }
 
     public void ReturnItems() // 상점에 남은 아이템 미보유아이템에 추가
     {
-        foreach (Item item in _shopingList)
+        foreach (Item item in _shoppingList)
         {
             _remainItemList.Add(item); 
-            _shopingList.Remove(item);
+            _shoppingList.Remove(item);
         }
     }
 
