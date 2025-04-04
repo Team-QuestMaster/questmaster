@@ -68,7 +68,7 @@ public class ItemManager : Singleton <ItemManager>
                 Debug.Log("미보유 아이템 리스트가 비었습니다.");
                 return;
             }
-            Item item = _remainItemList[Random.Range(0, RemainItemList.Count)];
+            Item item = _remainItemList[Random.Range(0, _remainItemList.Count)];
             _shopingList.Add(item); // 상점 아이템 리스트에 추가
             _remainItemList.Remove(item); // 미보유 아이템 리스트에서 제거
         }
