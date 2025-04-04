@@ -43,6 +43,10 @@ public class QuestData
 
     private int _days; // 퀘스트 소요 일수
     public int Days { get => _days; set => _days = value; }
+
+    private bool _isQuesting; // 퀘스트 진행 중 여부
+    public bool IsQuesting { get => _isQuesting; set => _isQuesting = value; }
+
     public QuestData(string questName, string questDescription, QuestTierType questTier, 
         float strWeight, float magWeight, float insWeight, float dexWeight, 
         float powerForClear, int fameReward, int goldReward, int famePenalty, int goldPenalty, 
