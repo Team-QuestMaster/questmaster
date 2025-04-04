@@ -3,6 +3,7 @@ using System.Net.Mime;
 using DG.Tweening;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
@@ -19,9 +20,12 @@ public class UIManager : Singleton<UIManager>
     
     [Header("도장")] 
     [SerializeField] private Button _stampZone;
-    [SerializeField] private Button _approveBtn;
-    [SerializeField] private Button _rejectBtn;
+    [SerializeField] private Image _approveStamp;
+    [SerializeField] private Image _rejectStamp;
+    [SerializeField] private Button _closeStampBtn;
     private bool _isStampShow = false;
+    private Vector3 _approvePsition;
+    private Vector3 _rejectPsition;
     
     [Header("결과창")]
     [SerializeField] private Image _report;
@@ -50,9 +54,8 @@ public class UIManager : Singleton<UIManager>
         
         _guideBook.onClick.AddListener(ToggleGuideBook);
         
-        _approveBtn.onClick.AddListener(Approve);
-        _rejectBtn.onClick.AddListener(Reject);
-        _stampZone.onClick.AddListener(InteractStamp);
+        _stampZone.onClick.AddListener(ShowStampPopUp);
+        _closeStampBtn.onClick.AddListener(HideStampPopUp);
 
         _settingButton.onClick.AddListener(ShowSetting);
         _closeSettingButton.onClick.AddListener(HideSetting);
@@ -67,6 +70,10 @@ public class UIManager : Singleton<UIManager>
         }
 
         GetAdventurerData();
+        _approvePsition = _approveStamp.transform.localPosition;
+        _rejectPsition = _rejectStamp.transform.localPosition;
+        print(_approvePsition);
+        print(_rejectPsition);
     }
 
     
@@ -215,19 +222,7 @@ public class UIManager : Singleton<UIManager>
     /// 도장에 대한 메소드 입니다.
     /// </summary>
 
-    public void InteractStamp()
-    {
-        if (!_isStampShow)
-        {
-            ShowStampPopUp();
-            
-        }
-        else
-        {
-            HideStampPopUp();
-        }
-        _isStampShow = !_isStampShow;
-    }
+    
     
     void ShowStampPopUp()
     {
@@ -236,7 +231,11 @@ public class UIManager : Singleton<UIManager>
     }
     void HideStampPopUp()
     {
+        
+        _rejectStamp.transform.localPosition = _rejectPsition;
+        _approveStamp.transform.localPosition = _approvePsition;
         _stampZone.transform.DOLocalMove(new Vector3(280, -720, 0), 0.5f);
+
     }
     
     public void Reject()
@@ -273,7 +272,7 @@ public class UIManager : Singleton<UIManager>
     void ShowSpeechBubbleUI()
     {
         _speechBubble.gameObject.SetActive(true);
-    
+        _speechButton.interactable = true;
 
 
         _speechBubble.DOFade(1f, 0.1f);
@@ -285,6 +284,7 @@ public class UIManager : Singleton<UIManager>
         _speechBubble.DOFade(0f, 0.1f);
         
         _speechBubble.gameObject.SetActive(false);
+        _speechButton.interactable = false;
     }
     
     void ShowDialogueUI(int i)
