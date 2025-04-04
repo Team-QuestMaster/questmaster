@@ -3,14 +3,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
-public class DragableImage : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+[RequireComponent(typeof(RectTransform))]
+public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     // Image를 드래그가 가능하도록 제어
     // 조건 및 기능
     // 조건: Image는 절대 영역, 화면 밖으로 안나간다
     // 영역: 이미지가 존재하는 영역
-    // TODO: 영역에 따른 이미지 변환 -> Icon이미지 <-> 테이블 이미지 => 따로 스크립트 분리
     // 드래그 이벤트
 
     // 좌 하단의 위치를 기준으로 이동
@@ -18,7 +17,8 @@ public class DragableImage : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [SerializeField] 
     private RectTransform _dragArea;
 
-    public event Action OnDraggingEvent;
+    public event Action<PointerEventData> OnDraggingEvent;
+    public event Action OnEndDragEvent;
 
     private RectTransform _rectTransform;
 
@@ -29,6 +29,11 @@ public class DragableImage : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         _rectTransform = GetComponent<RectTransform>();
         if (ReferenceEquals(_dragArea, null))
             _dragArea = transform.root.GetComponent<RectTransform>();
+    }
+
+    private void OnEnable()
+    {
+        _pointerMargin = Vector2.zero;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -44,12 +49,13 @@ public class DragableImage : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         // 좌표 제한
         newLocalPosition = ClampToDragArea(newLocalPosition);
         _rectTransform.localPosition = newLocalPosition;
-        OnDraggingEvent?.Invoke();
+        OnDraggingEvent?.Invoke(eventData);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("End Drag");
+        OnEndDragEvent?.Invoke();
     }
 
     private Vector2 ClampToDragArea(Vector2 targetPosition)
