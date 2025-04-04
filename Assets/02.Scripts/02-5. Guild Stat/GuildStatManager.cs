@@ -8,11 +8,6 @@ public class GuildStatManager : Singleton<GuildStatManager>
     // 명성은 0~올릴 수 있는 만큼
     // 돈은 세금으로 음수 가능, 아이템 구매 시 음수로 구매 불가~올릴 수 있는 만큼
 
-    protected override void Awake()
-    {
-        base.Awake();
-    }
-
     private int _fame;
     public int Fame
     {
@@ -37,6 +32,11 @@ public class GuildStatManager : Singleton<GuildStatManager>
 
     public event Action OnFameChanged;
     public event Action OnGoldChanged;
+    
+    protected override void Awake()
+    {
+        base.Awake();
+    }
     
     /// <summary>
     /// 기능: 돈이 사용이 가능한지 확인 후 사용
