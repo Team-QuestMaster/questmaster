@@ -51,7 +51,7 @@ public class ItemManager : Singleton <ItemManager>
             Debug.Log("아이템이 NULL입니다.");
             return;
         }
-        if(!HavingItemList.Contains(item))
+        if(!_havingItemList.Contains(item))
         {
             Debug.Log("인벤토리에 해당 아이템이 없습니다.");
             return;
