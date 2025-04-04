@@ -19,8 +19,8 @@ public class PickManager : Singleton<PickManager>
     }
     public (Adventurer, Quest) Pick()
     {
-        Adventurer currentAdventurer = TryPickAdventurer();
-        Quest currentQuest = TryPickQuest();
+        Adventurer currentAdventurer = PickAdventurer();
+        Quest currentQuest = PickQuest();
         if (ReferenceEquals(currentAdventurer, null) || ReferenceEquals(currentQuest, null))
         {
             Debug.Log("현재 뽑아올 수 있는 유효한 모험가 또는 퀘스트가 없습니다.");
@@ -28,7 +28,7 @@ public class PickManager : Singleton<PickManager>
         }
         return (currentAdventurer, currentQuest);
     }
-    private Adventurer TryPickAdventurer()
+    private Adventurer PickAdventurer()
     {
         if (_adventurers.Count == 0)
         {
@@ -48,7 +48,7 @@ public class PickManager : Singleton<PickManager>
         }
         return null;
     }
-    private Quest TryPickQuest()
+    private Quest PickQuest()
     {
         if (_quests.Count == 0)
         {
