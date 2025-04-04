@@ -1,55 +1,67 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
-public class DragableImage : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+[RequireComponent(typeof(RectTransform))]
+public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     // Image를 드래그가 가능하도록 제어
     // 조건 및 기능
     // 조건: Image는 절대 영역, 화면 밖으로 안나간다
     // 영역: 이미지가 존재하는 영역
-    // TODO: 영역에 따른 이미지 변환 -> Icon이미지 <-> 테이블 이미지 => 따로 스크립트 분리
     // 드래그 이벤트
-
+    // 모든 계산은 Screen좌표 기준 => 마지막에만 로컬 좌표로 변환
     // 좌 하단의 위치를 기준으로 이동
 
     [SerializeField] 
     private RectTransform _dragArea;
 
-    public event Action OnDraggingEvent;
+    public event Action<PointerEventData> OnDraggingEvent;
+    public event Action OnEndDragEvent;
 
     private RectTransform _rectTransform;
 
     private Vector2 _pointerMargin;
+    
+    private RectTransform _parentRectTransform;
+    private Camera _camera;
 
     private void Awake()
     {
+        _camera = Camera.main;
+        _parentRectTransform = transform.parent.GetComponent<RectTransform>();
         _rectTransform = GetComponent<RectTransform>();
         if (ReferenceEquals(_dragArea, null))
             _dragArea = transform.root.GetComponent<RectTransform>();
     }
 
+    private void OnEnable()
+    {
+        _pointerMargin = Vector2.zero;
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         Vector2 mousePosition = eventData.position;
-        _pointerMargin = (Vector2)_rectTransform.localPosition - mousePosition;
+        Vector2 screenPosition = _camera.WorldToScreenPoint(transform.position);
+        _pointerMargin = screenPosition - mousePosition;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         Vector2 mousePosition = eventData.position;
-        Vector2 newLocalPosition = mousePosition + _pointerMargin;
+        Vector2 newPosition = mousePosition + _pointerMargin;
         // 좌표 제한
-        newLocalPosition = ClampToDragArea(newLocalPosition);
-        _rectTransform.localPosition = newLocalPosition;
-        OnDraggingEvent?.Invoke();
+        newPosition = ClampToDragArea(newPosition);
+        // 최종 계산만 로컬 좌표로 계산
+        _rectTransform.localPosition = ScreenToDragCoordinate(newPosition);
+        OnDraggingEvent?.Invoke(eventData);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("End Drag");
+        OnEndDragEvent?.Invoke();
     }
 
     private Vector2 ClampToDragArea(Vector2 targetPosition)
@@ -69,5 +81,11 @@ public class DragableImage : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         float clampedY = Mathf.Clamp(targetPosition.y, minBounds.y, maxBounds.y);
 
         return new Vector2(clampedX, clampedY);
+    }
+
+    private Vector2 ScreenToDragCoordinate(Vector2 screenPosition)
+    {
+        Vector2 worldPoint = _camera.ScreenToWorldPoint(screenPosition);
+        return _parentRectTransform.InverseTransformPoint(worldPoint);
     }
 }
