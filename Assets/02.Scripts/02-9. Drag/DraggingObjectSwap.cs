@@ -21,15 +21,12 @@ public class DraggingObjectSwap : MonoBehaviour
     private DraggingObjectType _type = DraggingObjectType.Big;
 
     public DraggingObjectType Type => _type;
-
-    [SerializeField]
-    private RectTransform _myArea;
-
-    public RectTransform MyArea => _myArea;
-
+    
     [SerializeField]
     private DraggingObjectSwap _swapGameObject;
 
+    private RectTransform _myArea;
+    
     public DraggingObjectSwap SwapGameObject => _swapGameObject;
 
     private DraggableObject _draggableObject;
@@ -38,6 +35,7 @@ public class DraggingObjectSwap : MonoBehaviour
 
     private void Awake()
     {
+        _myArea = transform.parent.GetComponent<RectTransform>();
         _draggableObject = GetComponent<DraggableObject>();
         _camera = Camera.main;
     }
@@ -80,11 +78,6 @@ public class DraggingObjectSwap : MonoBehaviour
         if (_swapGameObject._type == _type)
         {
             Debug.LogError("바꿀 오브젝트 간 type이 달라야합니다.");
-        }
-
-        if (_swapGameObject.MyArea == _myArea)
-        {
-            Debug.LogError("바꿀 오브젝트 간 영역이 달라야합니다.");
         }
     }
 }
