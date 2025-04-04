@@ -48,7 +48,12 @@ public class DateManager : Singleton<DateManager>
 
     public void AddQuestResultToList(ref Adventurer adventurer, ref Quest quest, bool isSuccess)
     {
-        _questResults[_currentDate].Add(new QuestResult(ref adventurer, ref quest, isSuccess));
+        int endDay = quest.QuestData.Days + _currentDate;
+        if (_maxDate < endDay)
+        {
+            return;
+        }
+        _questResults[endDay].Add(new QuestResult(ref adventurer, ref quest, isSuccess));
     }
     public List<QuestResult> GetTodayQuestResults()
     {
