@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Net.Mime;
 using DG.Tweening;
 using UnityEngine;
 using TMPro;
@@ -6,8 +7,7 @@ using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
-    [SerializeField] private TextMeshProUGUI _dialogue;
-    [SerializeField] private Button _settingButton;
+    [SerializeField] private Adventurer _adventurer;
     
     [Header("가이드북")]
     [SerializeField] private Button _guideBook;
@@ -15,20 +15,31 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private Animator _guideBookAnimator;
     [SerializeField] private CanvasGroup[] _guideBookCanvasGroup;
     [SerializeField] private Image _fadeOutImage;
-
+    private bool _isGuideBookOpen = false;
+    
     [Header("도장")] 
     [SerializeField] private Button _stampZone;
     [SerializeField] private Button _approveBtn;
     [SerializeField] private Button _rejectBtn;
+    private bool _isStampShow = false;
     
     [Header("결과창")]
     [SerializeField] private Image _report;
     [SerializeField] private TextMeshProUGUI _reportText;
-    
-    
-    
-    private bool _isGuideBookOpen = false;
 
+    [Header("캐릭터")] 
+    [SerializeField] private Animator _characterAnimator;
+    [SerializeField] private Button _characterButton;
+    [SerializeField] private TextMeshProUGUI _characterText;
+    [SerializeField] private Image _speechBubble;
+    [SerializeField] private Button _speechButton;
+    [SerializeField]public AdventurerData CharacterData;
+    
+    [Header("설정창")]
+    [SerializeField] private Image _settingBackground;
+    [SerializeField] private Button _closeSettingButton;
+    [SerializeField] private Button _settingButton;
+    [SerializeField]private int _dialIndex = 0;
     protected override void Awake()
     {
         base.Awake();
@@ -36,24 +47,45 @@ public class UIManager : Singleton<UIManager>
 
     private void Start()
     {
-        _settingButton.onClick.AddListener(ShowSetting);
+        
         _guideBook.onClick.AddListener(ToggleGuideBook);
+        
         _approveBtn.onClick.AddListener(Approve);
         _rejectBtn.onClick.AddListener(Reject);
-        
+        _stampZone.onClick.AddListener(InteractStamp);
 
+        _settingButton.onClick.AddListener(ShowSetting);
+        _closeSettingButton.onClick.AddListener(HideSetting);
+        
+        _characterButton.onClick.AddListener(ShowSpeechBubbleUI);
+        _speechButton.onClick.AddListener(NextDialogue);
+        
+        _characterText.text = "";
         foreach (Button button in _indexButton)
         {
             button.interactable = false;
         }
+
+        GetAdventurerData();
     }
 
     
+    /// <summary>
+    /// 설정값을 보여줄 매소드들 입니다.
+    /// </summary>
     
     void ShowSetting()
     {
         Debug.Log("Show setting");
-        // TODO: 설정 창 열기 추가
+        BackFadeOn(0.5f);
+        _settingBackground.transform.DOLocalMove(new Vector3(0, 0, 0), 0.5f);
+    }
+
+    void HideSetting()
+    {
+        Debug.Log("Hide setting");
+        BackFadeOff(0.5f);
+        _settingBackground.transform.DOLocalMove(new Vector3(0, 1003, 0), 0.5f);
     }
 
     
@@ -81,10 +113,13 @@ public class UIManager : Singleton<UIManager>
     {
         Debug.Log("Show guidebook");
 
-        _fadeOutImage.DOFade(0.7f, 1f);  // 배경 페이드 효과 추가
+        
+        _guideBook.transform.DORotate(new Vector3(0f, 0f, 0f), 1f);
         _guideBook.transform.DOLocalMove(new Vector3(0, -46, 0), 1f)
             .OnComplete(() =>
             {
+                
+                BackFadeOn(1f);
                 _guideBookAnimator.SetTrigger("Open");
                 StartCoroutine(WaitForAnimationToEnd("BookOpened", () =>
                 {
@@ -92,6 +127,7 @@ public class UIManager : Singleton<UIManager>
                     _isGuideBookOpen = true;
                 }));
             });
+        
     }
 
     IEnumerator GuideBookHide()
@@ -107,12 +143,14 @@ public class UIManager : Singleton<UIManager>
         yield return StartCoroutine(WaitForAnimationToEnd("BookClose"));
 
         // 3️⃣ 닫힘 애니메이션 완료 후 Dotween 실행
+        _guideBook.transform.DORotate(new Vector3(0f, 0f, 30f), 1f);
         _guideBook.transform.DOLocalMove(new Vector3(1142, -46, 0), 1f)
             .OnComplete(() =>
             {
-                _fadeOutImage.DOFade(0f, 1f);  // 페이드 효과 해제
+                BackFadeOff(1f);
                 _isGuideBookOpen = false;      // 가이드북 닫힘 상태로 설정
             });
+        
     }
 
     IEnumerator WaitForAnimationToEnd(string animationName, System.Action onComplete = null)
@@ -177,27 +215,117 @@ public class UIManager : Singleton<UIManager>
     /// 도장에 대한 메소드 입니다.
     /// </summary>
 
-    void Reject()
+    public void InteractStamp()
+    {
+        if (!_isStampShow)
+        {
+            ShowStampPopUp();
+            
+        }
+        else
+        {
+            HideStampPopUp();
+        }
+        _isStampShow = !_isStampShow;
+    }
+    
+    void ShowStampPopUp()
+    {
+        _stampZone.transform.DOLocalMove(new Vector3(280, -320, 0), 0.5f);
+
+    }
+    void HideStampPopUp()
+    {
+        _stampZone.transform.DOLocalMove(new Vector3(280, -720, 0), 0.5f);
+    }
+    
+    public void Reject()
     {
         Debug.Log("Reject");
     }
 
-    void Approve()
+    public void Approve()
     {
         Debug.Log("Approve");
     }
 
 
+    
+    /// <summary>
+    ///결과창을 보여줄 메소드 입니다.
+    /// </summary>
+    /// <param name="Text"></param>
     public void ShowReportUI(string Text)
     {
         _report.transform.DOMove(new Vector3(0, 0, 0), 1f);
         _reportText.text = Text;
     }
+
+    /// <summary>
+    /// 대화창에 대한 메소드 입니다.
+    /// </summary>
+
+    void GetAdventurerData()
+    {
+        CharacterData =  _adventurer.AdventurerData;
+    }
     
+    void ShowSpeechBubbleUI()
+    {
+        _speechBubble.gameObject.SetActive(true);
     
+
+
+        _speechBubble.DOFade(1f, 0.1f);
+        ShowDialogueUI(_dialIndex);
+    }
+
+    void HideSpeechBubbleUI()
+    {
+        _speechBubble.DOFade(0f, 0.1f);
+        
+        _speechBubble.gameObject.SetActive(false);
+    }
+    
+    void ShowDialogueUI(int i)
+    {
+        if (_dialIndex < CharacterData.DialogSet.Dialog.Count)
+        {
+            _characterText.text = CharacterData.DialogSet.Dialog[i];
+        } 
+        else if(_dialIndex == CharacterData.DialogSet.Dialog.Count)
+        {
+            _characterText.text = "(더 이상 할말이 없어 보인다.)";
+        }
+    }
     void NextDialogue()
     {
-        Debug.Log("Show next dialogue");
-        // TODO: 대화창 업데이트 로직 추가
+        if (_dialIndex != CharacterData.DialogSet.Dialog.Count)
+        {
+            _dialIndex++;
+
+            ShowDialogueUI(_dialIndex);
+        }
+        else
+        {
+            HideSpeechBubbleUI();
+        }
     }
+
+    ///
+    ///UI연출적으로 자주 사용되는 요소들입니다.
+    /// 
+
+    void BackFadeOn(float time)
+    {
+        _fadeOutImage.DOFade(0.7f, time);  // 배경 페이드 효과 추가
+        _fadeOutImage.raycastTarget = true;
+    }
+
+    void BackFadeOff(float time)
+    {
+        _fadeOutImage.DOFade(0f, time);  // 페이드 효과 해제
+        _fadeOutImage.raycastTarget = false;
+    }
+    
 }
