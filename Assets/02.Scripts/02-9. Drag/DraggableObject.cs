@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(RectTransform))]
-public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler
 {
     // Image를 드래그가 가능하도록 제어
     // 조건 및 기능
@@ -38,6 +38,11 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     private void OnEnable()
     {
         _pointerMargin = Vector2.zero;
+    }
+    
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        transform.SetAsLastSibling();
     }
 
     public void OnBeginDrag(PointerEventData eventData)

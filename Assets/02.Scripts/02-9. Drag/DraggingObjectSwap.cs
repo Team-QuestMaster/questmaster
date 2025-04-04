@@ -62,8 +62,9 @@ public class DraggingObjectSwap : MonoBehaviour
         // 영역을 벗어나는 경우
         gameObject.SetActive(false); // 비활성화
 
-        // 스왑 오브젝트 활성화 후 커서 중앙으로
+        // 스왑 오브젝트 활성화
         _swapGameObject.gameObject.SetActive(true);
+        _swapGameObject.transform.SetAsLastSibling();
 
         eventData.pointerDrag = _swapGameObject.gameObject;
     }
