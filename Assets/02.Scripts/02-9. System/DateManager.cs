@@ -70,6 +70,14 @@ public class DateManager : Singleton<DateManager>
             OnDateChanged?.Invoke();
         }
     }
+
+    public void ChangeDateInNight()
+    {
+        _currentDate++;
+        _currentTimePeriod = TimePeriod.Morning;
+        OnDateChanged?.Invoke();
+    }
+
     public void ChangeTimePeriod(int currentRequestCount, int requestCountMax)
     {
         if (currentRequestCount <= 2)
