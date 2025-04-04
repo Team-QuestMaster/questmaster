@@ -2,16 +2,12 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(DraggableObject))]
-public class DraggingImageSwap : MonoBehaviour
+public class DraggingObjectSwap : MonoBehaviour
 {
-    // 영역에 따른 이미지 변환 -> 스몰이미지 <-> 빅이미지
+    // 영역에 따른 객체 변환 -> 스몰이미지 <-> 빅이미지
+    // 변환할 객체를 저장
     // 기준은 커서
     // 영역과 이미지
-    enum DraggingSwapState
-    {
-        small,
-        big,
-    }
 
     private DraggableObject _draggableObject;
 
@@ -21,8 +17,6 @@ public class DraggingImageSwap : MonoBehaviour
     [SerializeField] private GameObject _bigGameObject;
 
     private Camera _camera;
-
-    private DraggingSwapState _swapState = DraggingSwapState.small;
 
     private void Awake()
     {
