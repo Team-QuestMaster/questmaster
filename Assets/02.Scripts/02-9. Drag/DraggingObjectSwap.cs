@@ -48,7 +48,9 @@ public class DraggingObjectSwap : MonoBehaviour
         _draggableObject.OnDraggingEvent += SwapDraggingObject;
         // 항상 small 객체 먼저 보임
         if (_type == DraggingObjectType.Big)
+        {
             gameObject.SetActive(false);
+        }
     }
 
     private void SwapDraggingObject(PointerEventData eventData)
