@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum AdventurerTierType
@@ -21,6 +22,12 @@ public enum AdventurerType
     Minor // 보조 모험가
 }
 
+[System.Serializable]
+public class DialogSet
+{
+    public List<string> Dialog;
+}
+
 
 [CreateAssetMenu(fileName = "AdventurerSO", menuName = "ScriptableObject/AdventurerSO")]
 public class AdventurerSO : ScriptableObject
@@ -30,4 +37,5 @@ public class AdventurerSO : ScriptableObject
     public int OriginalMAG; // 마력
     public int OriginalINS; //통찰력
     public int OriginalDEX; // 손재주
+    public List<DialogSet> DialogList = new List<DialogSet>(); // 대사
 }

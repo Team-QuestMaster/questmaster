@@ -28,9 +28,12 @@ public class AdventurerData
     private AdventurerStateType _adventurerState; //모험가 상태
     public AdventurerStateType AdventurerState { get => _adventurerState; set => _adventurerState = value; }
 
+    private DialogSet _dialogSet; // 대사
+    public DialogSet DialogSet { get => _dialogSet; set => _dialogSet = value; } // 대사
+
     public AdventurerData(AdventurerType adventurerType, string adventurerName, string adventurerClass, string adventurerTitle,
         AdventurerTierType adventurerTier, int originalSTR, int originalMAG, int originalINS, int originalDEX,
-        AdventurerStateType adventurerState)
+        AdventurerStateType adventurerState, DialogSet dialogSet)
     {
         _adventurerType = AdventurerType;
         _adventurerName = adventurerName;
@@ -42,5 +45,6 @@ public class AdventurerData
         _currentINS = originalINS;
         _currentDEX = originalDEX;
         _adventurerState = adventurerState;
+        _dialogSet = dialogSet;
     }
 }
