@@ -18,6 +18,7 @@ public class GuildStatManager : Singleton<GuildStatManager>
             OnFameChanged?.Invoke();
         }
     }
+    private const int FIRST_FAME = 1000; // 초기 명성
 
     private int _gold;
     public int Gold
@@ -29,6 +30,7 @@ public class GuildStatManager : Singleton<GuildStatManager>
             OnGoldChanged?.Invoke();
         }
     }
+    private const int FIRST_GOLD = 100; // 초기 골드
 
     public event Action OnFameChanged;
     public event Action OnGoldChanged;
@@ -36,6 +38,8 @@ public class GuildStatManager : Singleton<GuildStatManager>
     protected override void Awake()
     {
         base.Awake();
+        Fame = FIRST_FAME;
+        Gold = FIRST_GOLD;
     }
     
     /// <summary>

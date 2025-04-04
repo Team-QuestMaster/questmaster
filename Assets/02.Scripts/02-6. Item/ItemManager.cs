@@ -36,7 +36,11 @@ public class ItemManager : Singleton <ItemManager>
             Debug.Log("인벤토리가 가득 찼습니다.");
             return;
         }
-
+        if(!GuildStatManager.Instance.TryConsumeGold(item.Price))
+        {
+            Debug.Log("골드가 부족합니다.");
+            return;
+        }
         ShopingList.Remove(item); 
         HavingItemList.Add(item);
     }
