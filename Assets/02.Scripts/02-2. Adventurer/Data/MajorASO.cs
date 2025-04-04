@@ -11,6 +11,5 @@ public class MajorASO : AdventurerSO
     public string AdventurerTitle; //  칭호
     public AdventurerTierType AdventurerTier; // 모험가 등급
     public AdventurerStateType AdventurerState; //모험가 상태
-    public List<string> Dialog = new List<string>(); // 대사
 
 }

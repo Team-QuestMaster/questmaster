@@ -44,7 +44,8 @@ public class Adventurer : MonoBehaviour
             majorAdventurerSO.OriginalMAG,
             majorAdventurerSO.OriginalINS,
             majorAdventurerSO.OriginalDEX,
-            AdventurerStateType.Idle
+            AdventurerStateType.Idle,
+            majorAdventurerSO.DialogList[0]
         );
     }
     private void InitMinorTypeData(ref MinorASO minorAdventurerSO)
@@ -55,6 +56,8 @@ public class Adventurer : MonoBehaviour
             = minorAdventurerSO.AdventurerClassList[Random.Range(0, minorAdventurerSO.AdventurerClassList.Count)];
         string adventurerTitle
             = minorAdventurerSO.AdventurerTitleList[Random.Range(0, minorAdventurerSO.AdventurerTitleList.Count)];
+        DialogSet dialogSet
+            = minorAdventurerSO.DialogList[Random.Range(0, minorAdventurerSO.DialogList.Count)];
 
         AdventurerTierType adventurerTier
             = (AdventurerTierType)Random.Range((int)AdventurerTierType.A, (int)AdventurerTierType.D + 1);
@@ -69,7 +72,8 @@ public class Adventurer : MonoBehaviour
             minorAdventurerSO.OriginalMAG,
             minorAdventurerSO.OriginalINS,
             minorAdventurerSO.OriginalDEX,
-            AdventurerStateType.Idle
+            AdventurerStateType.Idle,
+            dialogSet
         );
     }
        
