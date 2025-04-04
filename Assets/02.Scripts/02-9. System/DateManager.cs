@@ -96,12 +96,12 @@ public class DateManager : Singleton<DateManager>
         _currentTimePeriod = TimePeriod.Night;
         OnTimePeriodChanged?.Invoke();
     }
+    // 오늘 완료된 퀘스트 결과 리스트를 반환하는 메서드
     public List<QuestResult> GetTodayQuestResults()
     {
-        // 성공, 실패 여부에 따른 보상을 여기에 반영
-        // 모험가 스탯, 길드 수치
         return _questResults[_currentDate];
     }
+    // 오늘을 기준으로 진행중인 퀘스트 리스트(2차원)를 반환하는 메서드
     public List<List<QuestResult>> GetAllQuestResultsInProgress()
     {
         List<List<QuestResult>> questResultsInProgress = new List<List<QuestResult>>();
