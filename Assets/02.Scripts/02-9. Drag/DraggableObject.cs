@@ -38,14 +38,12 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("OnBeginDrag: " + gameObject.name);
         Vector2 mousePosition = eventData.position;
         _pointerMargin = (Vector2)_rectTransform.localPosition - mousePosition;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("OnDrag: " + gameObject.name);
         Vector2 mousePosition = eventData.position;
         Vector2 newLocalPosition = mousePosition + _pointerMargin;
         // 좌표 제한
