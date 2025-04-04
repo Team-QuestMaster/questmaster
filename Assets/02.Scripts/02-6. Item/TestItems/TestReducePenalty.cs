@@ -16,7 +16,7 @@ public class TestReducePenalty : Item
         _originalGoldPenalty = quest.QuestData.GoldPenalty; // 원본값 저장
         quest.QuestData.FamePenalty = (int)(0.5f * quest.QuestData.FamePenalty); // 패널티 감소
         quest.QuestData.GoldPenalty = (int)(0.5f * quest.QuestData.GoldPenalty); 
-        ItemManager.Instance.RemoveItem(this);
+        ItemManager.Instance.ItemUsed(this);
     }
 
     public override void Rollback(Adventurer adventurer, Quest quest) // 재구현
