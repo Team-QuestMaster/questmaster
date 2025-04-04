@@ -1262,8 +1262,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1829510262}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 1829510267}
+        m_TargetAssemblyTypeName: GuideBookUI, Assembly-CSharp
         m_MethodName: ChangeIndex
         m_Mode: 3
         m_Arguments:
@@ -2481,8 +2481,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1829510262}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 1829510267}
+        m_TargetAssemblyTypeName: GuideBookUI, Assembly-CSharp
         m_MethodName: ChangeIndex
         m_Mode: 3
         m_Arguments:
@@ -5025,8 +5025,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1829510262}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 1829510267}
+        m_TargetAssemblyTypeName: GuideBookUI, Assembly-CSharp
         m_MethodName: ChangeIndex
         m_Mode: 3
         m_Arguments:
@@ -5415,6 +5415,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1829510263}
   - component: {fileID: 1829510262}
+  - component: {fileID: 1829510268}
+  - component: {fileID: 1829510267}
+  - component: {fileID: 1829510266}
+  - component: {fileID: 1829510265}
+  - component: {fileID: 1829510264}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -5435,33 +5440,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dontDestroy: 1
-  _adventurer: {fileID: 64253760}
-  _guideBook: {fileID: 1052213699}
-  _indexButton:
-  - {fileID: 250834874}
-  - {fileID: 674355116}
-  - {fileID: 1662547151}
-  _guideBookAnimator: {fileID: 1052213696}
-  _guideBookCanvasGroup:
-  - {fileID: 1515756614}
-  - {fileID: 1991645492}
-  - {fileID: 2009360244}
-  _fadeOutImage: {fileID: 1298509446}
-  _stampZone: {fileID: 1657307661}
-  _approveStamp: {fileID: 267663455}
-  _rejectStamp: {fileID: 1455538867}
-  _closeStampBtn: {fileID: 1063659691}
-  _report: {fileID: 759111574}
-  _reportText: {fileID: 1895295483}
-  _characterAnimator: {fileID: 1162590187}
-  _characterButton: {fileID: 1162590188}
-  _characterText: {fileID: 188416752}
-  _speechBubble: {fileID: 1810109475}
-  _speechButton: {fileID: 1810109474}
-  _settingBackground: {fileID: 759621975}
-  _closeSettingButton: {fileID: 2099271825}
-  _settingButton: {fileID: 653932012}
-  _dialIndex: 0
+  GuideBookUI: {fileID: 1829510267}
+  StampUI: {fileID: 1829510264}
+  ReportUI: {fileID: 1829510266}
+  CharacterUI: {fileID: 1829510268}
+  SettingUI: {fileID: 1829510265}
 --- !u!4 &1829510263
 Transform:
   m_ObjectHideFlags: 0
@@ -5477,6 +5460,93 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1199868563}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1829510264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829510261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e58d6ea51c577d42a5d2f812105176e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stampZone: {fileID: 1657307661}
+  _approveStamp: {fileID: 267663455}
+  _rejectStamp: {fileID: 1455538867}
+  _closeStampBtn: {fileID: 1063659691}
+--- !u!114 &1829510265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829510261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f05b9205b5ac134c9a5f461f7b49a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _settingBackground: {fileID: 759621975}
+  _closeSettingButton: {fileID: 2099271825}
+  _settingButton: {fileID: 653932012}
+  _fadeOutImage: {fileID: 1298509446}
+--- !u!114 &1829510266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829510261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a818426a273e7ef49940e407700a5638, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _report: {fileID: 759111574}
+  _reportText: {fileID: 1895295483}
+--- !u!114 &1829510267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829510261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99d0822916e649241bacbf2623385810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _guideBook: {fileID: 1052213699}
+  _indexButton:
+  - {fileID: 250834874}
+  - {fileID: 674355116}
+  - {fileID: 1662547151}
+  _guideBookAnimator: {fileID: 1052213696}
+  _guideBookCanvasGroup:
+  - {fileID: 1515756614}
+  - {fileID: 1991645492}
+  - {fileID: 2009360244}
+  _fadeOutImage: {fileID: 1298509446}
+--- !u!114 &1829510268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829510261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c58e9baffb3ea44ac89ee23dcca7f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _adventurer: {fileID: 64253760}
+  _characterAnimator: {fileID: 1162590187}
+  _characterButton: {fileID: 1162590188}
+  _characterText: {fileID: 188416752}
+  _speechBubble: {fileID: 1810109475}
+  _speechButton: {fileID: 1810109474}
 --- !u!1 &1851031267
 GameObject:
   m_ObjectHideFlags: 0
