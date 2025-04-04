@@ -27,11 +27,13 @@ public class DateManager : Singleton<DateManager>
     }
     private TimePeriod _currentTimePeriod = TimePeriod.Morning;
     public TimePeriod CurrentTimePeriod { get => _currentTimePeriod; }
+    private List<int> _nightEventDates = new List<int> { 5, 10, 15, 20, 25 };
+    public List<int> NightEventDates { get => _nightEventDates; set => _nightEventDates = value; }
 
     private List<List<QuestResult>> _questResults = new List<List<QuestResult>>(_maxDate + 1);
 
-    public Action OnTimePeriodChanged; 
-    // 오전, 낮, 저녁, 밤과 같이 시간대가 바뀌었을 때, Background 등의 변경을 위한 Action
+    public Action OnDateChanged; // 날짜가 바뀌었을 때 이벤트 처리를 위한 Action
+    public Action OnTimePeriodChanged; // 오전, 낮, 저녁, 밤과 같이 시간대가 바뀌었을 때, Background 등의 변경을 위한 Action
 
     protected override void Awake()
     {
@@ -41,12 +43,7 @@ public class DateManager : Singleton<DateManager>
             _questResults.Add(new List<QuestResult>());
         }
     }
-    private void Start()
-    {
-        PickManager.Instance.OnVisitedAdventurerCountIncreased += ChangeDate;
-        PickManager.Instance.OnVisitedAdventurerCountIncreased += ChangeTimePeriod;
-    }
-    public void AddQuestResultToList(ref Adventurer adventurer, ref Quest quest, bool isSuccess, float probability)
+    public void AddQuestResultToList(Adventurer adventurer, Quest quest, bool isSuccess, float probability)
     {
         int endDay = quest.QuestData.Days + _currentDate;
         if (_maxDate < endDay)
@@ -55,27 +52,31 @@ public class DateManager : Singleton<DateManager>
         }
         _questResults[endDay].Add(new QuestResult(ref adventurer, ref quest, isSuccess, probability));
     }
-    public List<QuestResult> GetTodayQuestResults()
+    public void ChangeDate(int currentRequestCount, int requestCountMax)
     {
-        return _questResults[_currentDate];
-    }
-    private void ChangeDate()
-    {
-        if (PickManager.Instance.IsVisitedAdventuererCountMax())
+        if (currentRequestCount != requestCountMax)
+        {
+            return;
+        }
+        if (CheckNightEventDate())
+        {
+            // 알파 단계에서 NightEventHandler를 통해서 제어해주는게 좋을 것 같다.
+            BeginNightEvent();
+        }
+        else
         {
             _currentDate++;
             _currentTimePeriod = TimePeriod.Morning;
-            PickManager.Instance.VisitedAdventurerCount = 0;
+            OnDateChanged?.Invoke();
         }
     }
-    private void ChangeTimePeriod()
+    public void ChangeTimePeriod(int currentRequestCount, int requestCountMax)
     {
-        int currentVisitedAdventurerCount = PickManager.Instance.VisitedAdventurerCount;
-        if (currentVisitedAdventurerCount <= 2)
+        if (currentRequestCount <= 2)
         {
             _currentTimePeriod = TimePeriod.Morning;
         }
-        else if (currentVisitedAdventurerCount <= 4)
+        else if (currentRequestCount <= 4)
         {
             _currentTimePeriod = TimePeriod.Afternoon;
         }
@@ -84,6 +85,22 @@ public class DateManager : Singleton<DateManager>
             _currentTimePeriod = TimePeriod.Evening;
         }
         OnTimePeriodChanged?.Invoke();
+    }
+
+    private bool CheckNightEventDate()
+    {
+        return _nightEventDates.Contains(_currentDate);
+    }
+    public void BeginNightEvent()
+    {
+        _currentTimePeriod = TimePeriod.Night;
+        OnTimePeriodChanged?.Invoke();
+    }
+    public List<QuestResult> GetTodayQuestResults()
+    {
+        // 성공, 실패 여부에 따른 보상을 여기에 반영
+        // 모험가 스탯, 길드 수치
+        return _questResults[_currentDate];
     }
     public List<List<QuestResult>> GetAllQuestResultsInProgress()
     {
@@ -105,10 +122,5 @@ public class DateManager : Singleton<DateManager>
             }
         }
         return questResultsInProgress;
-    }
-    public void BeginNightEvent()
-    {
-        _currentTimePeriod = TimePeriod.Night;
-        OnTimePeriodChanged?.Invoke();
     }
 }
