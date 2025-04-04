@@ -60,11 +60,6 @@ public class MainProcess : MonoBehaviour
         // 하루 최대 방문 수가 될 때 까지
         while (_requestCount < _requestCountMaxPerDay)
         {
-            yield return new WaitUntil
-                (() => ReferenceEquals(_currentRequest.Item1, null)
-                || ReferenceEquals(_currentRequest.Item2, null));
-            // 현재 모험가 또는 퀘스트가 null일 때 까지 대기
-
             // (모험가, 퀘스트)를 뽑아온 후, 활성화해준다.
             _currentRequest = PickManager.Instance.Pick();
             if (!ReferenceEquals(_currentRequest.Item1, null) && !ReferenceEquals(_currentRequest.Item2, null))
@@ -74,7 +69,14 @@ public class MainProcess : MonoBehaviour
             }
             _requestCount++;
             OnRequestCountIncreased?.Invoke();
+            // 현재 모험가 또는 퀘스트가 null일 때 까지 대기
+            yield return new WaitUntil
+                (() => ReferenceEquals(_currentRequest.Item1, null)
+                || ReferenceEquals(_currentRequest.Item2, null));
         }
+        yield return new WaitUntil
+                (() => ReferenceEquals(_currentRequest.Item1, null)
+                || ReferenceEquals(_currentRequest.Item2, null));
         yield return null;
     }
     public void ApproveRequest()
