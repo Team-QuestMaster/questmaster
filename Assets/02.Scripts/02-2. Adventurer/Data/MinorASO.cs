@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
+
 [CreateAssetMenu(fileName = "MinorASO", menuName = "ScriptableObject/MinorASO")]
 public class MinorASO : AdventurerSO
 {
