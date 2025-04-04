@@ -1,23 +1,24 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(DraggableObject))]
 public class DraggingObjectSwap : MonoBehaviour
 {
     // 영역에 따른 객체 변환 -> 스몰이미지 <-> 빅이미지
     // 변환할 객체를 저장
+    // 영역 밖으로 나가면 그 객체로 드래그 이벤트 전달(발생)
     // 기준은 커서
     // 영역과 이미지
 
+
+    [SerializeField] private RectTransform _myArea;
+    [SerializeField] private GameObject _swapGameObject;
+    
     private DraggableObject _draggableObject;
 
-    [SerializeField] private RectTransform _smallImageArea;
-    [SerializeField] private GameObject _smallGameObject;
-    [SerializeField] private RectTransform _bigImageArea;
-    [SerializeField] private GameObject _bigGameObject;
-
     private Camera _camera;
-
+    
     private void Awake()
     {
         _draggableObject = GetComponent<DraggableObject>();
@@ -26,20 +27,25 @@ public class DraggingObjectSwap : MonoBehaviour
 
     private void Start()
     {
-        _draggableObject.OnDraggingEvent += AreaChecking;
+        _draggableObject.OnDraggingEvent += SwapDraggingObject;
     }
 
-    private void AreaChecking()
+    private void SwapDraggingObject(PointerEventData eventData)
     {
-        // 커서 위치를 검사해서 이미지 변경
-        Vector2 mouseWorldPosition = _camera.ScreenToWorldPoint(Input.mousePosition);
-        if (_smallImageArea.rect.Contains(_smallImageArea.InverseTransformPoint(mouseWorldPosition)))
+        // 객체가 자신의 영역 안이면 return
+        if (_myArea.rect.Contains(_myArea.InverseTransformPoint(transform.position)))
         {
-            Debug.Log("DraggingImageSwap To Small");
+            return;
         }
-        else if (_bigImageArea.rect.Contains(_bigImageArea.InverseTransformPoint(mouseWorldPosition)))
-        {
-            Debug.Log("DraggingImageSwap To Big");
-        }
+        // 영역을 벗어나는 경우
+        gameObject.SetActive(false); // 비활성화
+        
+        Debug.Log("DraggingObjectSwap");
+        
+        // 스왑 오브젝트 활성화 후 커서 중앙으로
+        _swapGameObject.SetActive(true);
+        _swapGameObject.transform.localPosition = transform.localPosition;
+        
+        eventData.pointerDrag = _swapGameObject;
     }
 }

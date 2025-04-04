@@ -17,7 +17,8 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     [SerializeField] 
     private RectTransform _dragArea;
 
-    public event Action OnDraggingEvent;
+    public event Action<PointerEventData> OnDraggingEvent;
+    public event Action OnEndDragEvent;
 
     private RectTransform _rectTransform;
 
@@ -30,25 +31,33 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             _dragArea = transform.root.GetComponent<RectTransform>();
     }
 
+    private void OnEnable()
+    {
+        _pointerMargin = Vector2.zero;
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
+        Debug.Log("OnBeginDrag: " + gameObject.name);
         Vector2 mousePosition = eventData.position;
         _pointerMargin = (Vector2)_rectTransform.localPosition - mousePosition;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        Debug.Log("OnDrag: " + gameObject.name);
         Vector2 mousePosition = eventData.position;
         Vector2 newLocalPosition = mousePosition + _pointerMargin;
         // 좌표 제한
         newLocalPosition = ClampToDragArea(newLocalPosition);
         _rectTransform.localPosition = newLocalPosition;
-        OnDraggingEvent?.Invoke();
+        OnDraggingEvent?.Invoke(eventData);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("End Drag");
+        OnEndDragEvent?.Invoke();
     }
 
     private Vector2 ClampToDragArea(Vector2 targetPosition)
