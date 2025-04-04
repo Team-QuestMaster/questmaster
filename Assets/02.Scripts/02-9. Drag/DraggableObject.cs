@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(RectTransform))]
-public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler
 {
     // Image를 드래그가 가능하도록 제어
     // 조건 및 기능
@@ -39,6 +39,11 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     {
         _pointerMargin = Vector2.zero;
     }
+    
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        transform.SetAsLastSibling();
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -73,8 +78,9 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         Vector2 minSideSize = _dragArea.rect.size * (Vector2.one - _dragArea.pivot);
         Vector2 maxSideSize = _dragArea.rect.size * _dragArea.pivot;
         // sprite 크기와 영역 계산
-        Vector2 minBounds = (Vector2)_dragArea.localPosition - minSideSize + halfSize;
-        Vector2 maxBounds = (Vector2)_dragArea.localPosition + maxSideSize - halfSize;
+        Vector2 screenPosition = _camera.WorldToScreenPoint(_dragArea.position);
+        Vector2 minBounds = screenPosition - minSideSize + halfSize;
+        Vector2 maxBounds = screenPosition + maxSideSize - halfSize;
 
         // X, Y 좌표를 화면 내부로 제한
         float clampedX = Mathf.Clamp(targetPosition.x, minBounds.x, maxBounds.x);
