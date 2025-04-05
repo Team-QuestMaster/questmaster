@@ -31,6 +31,11 @@ public class CharacterUI : MonoBehaviour
         ShowDialogueUI(_dialogIndex);
     }
 
+    void ShowButtonSpeechBubbleUI()
+    {
+        
+    }
+
     void HideSpeechBubbleUI()
     {
         _speechBubble.DOFade(0f, 0.1f);
