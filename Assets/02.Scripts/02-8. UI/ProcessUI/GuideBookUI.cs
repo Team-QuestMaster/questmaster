@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,13 +11,21 @@ public class GuideBookUI : MonoBehaviour
     [SerializeField] private Animator _guideBookAnimator;
     [SerializeField] private CanvasGroup[] _guideBookCanvasGroup;
     [SerializeField] private Image _fadeOutImage;
+    [SerializeField] private Button _backButton;
 
     private bool _isGuideBookOpen;
 
+    
+
     public void Initialize()
     {
+        if (!ReferenceEquals(_backButton, null))
+            _backButton.onClick.AddListener(() => UIGuideBookHide());
+
+
+
         if (!ReferenceEquals(_guideBook, null))
-            _guideBook.onClick.AddListener(ToggleGuideBook);
+            _guideBook.onClick.AddListener(UIGuideBookShow);
 
         if (!ReferenceEquals(_indexButton, null))
         {
@@ -34,20 +43,40 @@ public class GuideBookUI : MonoBehaviour
         HideAllCanvasGroups();
     }
 
-    void ToggleGuideBook()
+    void UIGuideBookShow()
     {
-        if (_isGuideBookOpen)
-            StartCoroutine(GuideBookHide());
-        else
-            GuideBookShow();
+        _backButton.gameObject.SetActive(false);
+        if (!_isGuideBookOpen) GuideBookShow();
+        _isGuideBookOpen = true;
+        
+        
     }
 
+    void UIGuideBookHide()
+    {
+        if (_isGuideBookOpen) StartCoroutine(GuideBookHide());
+        _backButton.gameObject.SetActive(false);
+        
+    }
+
+    public void BookShake()
+    {
+        if(!_isGuideBookOpen)
+        _guideBook.transform.DOShakeRotation( 0.1f, new Vector3(0,0,5));
+    }
+
+    
+    
     void GuideBookShow()
     {
+        
         if (!ReferenceEquals(_guideBook, null))
         {
+            
+            
             _guideBook.transform.DORotate(Vector3.zero, 1f);
-            _guideBook.transform.DOLocalMove(new Vector3(0, -46, 0), 1f).OnComplete(() =>
+            _guideBook.transform.DOScale(new Vector3(1.7f, 1.7f, 1.7f), 1f);
+            _guideBook.transform.DOLocalMove(new Vector3(0, 100, 0), 1f).OnComplete(() =>
             {
                 BackFadeOn(1f);
                 _guideBookAnimator.SetTrigger("Open");
@@ -55,7 +84,10 @@ public class GuideBookUI : MonoBehaviour
                 {
                     ShowBookCanvasGroup();
                     ChangeIndex(0); // 첫 페이지 기본 표시
-                    _isGuideBookOpen = true;
+                    
+                    _guideBook.transform.rotation = Quaternion.Euler(0, 0, 0);
+                    _backButton.gameObject.SetActive(true);
+                    
                 }));
             });
         }
@@ -63,6 +95,8 @@ public class GuideBookUI : MonoBehaviour
 
     IEnumerator GuideBookHide()
     {
+        
+        
         HideBookCanvasGroup();
         yield return new WaitForSeconds(0.2f);
         _guideBookAnimator.SetTrigger("Close");
@@ -71,9 +105,11 @@ public class GuideBookUI : MonoBehaviour
         if (!ReferenceEquals(_guideBook, null))
         {
             _guideBook.transform.DORotate(new Vector3(0, 0, 30), 1f);
+            _guideBook.transform.DOScale(new Vector3(1f, 1f, 1f), 1f);
             _guideBook.transform.DOLocalMove(new Vector3(1142, -46, 0), 1f).OnComplete(() =>
             {
                 BackFadeOff(1f);
+                _backButton.gameObject.SetActive(true);
                 _isGuideBookOpen = false;
             });
         }
@@ -125,10 +161,43 @@ public class GuideBookUI : MonoBehaviour
         }
     }
 
+    public void IndexIn(int index)
+    {
+        if (ReferenceEquals(_guideBookCanvasGroup, null) || index < 0 || index >= _guideBookCanvasGroup.Length)
+            return;
+        _indexButton[index].transform.DOScaleX(0.8f, 0.1f);
+
+    }
+    
+    public void IndexOut(int index)
+    {
+        if (ReferenceEquals(_guideBookCanvasGroup, null) || index < 0 || index >= _guideBookCanvasGroup.Length)
+            return;
+        _indexButton[index].transform.DOScaleX(1f, 0.1f);
+
+    }
+    
+    public void BackButtonIn()
+    {
+        if (ReferenceEquals(_backButton, null))
+            return;
+        _backButton.transform.DOScaleX(0.8f, 0.1f);
+
+    }
+    
+    public void BackButtonOut()
+    {
+        if (ReferenceEquals(_backButton, null))
+            return;
+        _backButton.transform.DOScaleX(1f, 0.1f);
+
+    }
+    
     public void ChangeIndex(int index)
     {
         if (ReferenceEquals(_guideBookCanvasGroup, null) || index < 0 || index >= _guideBookCanvasGroup.Length)
             return;
+        
 
         HideAllCanvasGroups();
 

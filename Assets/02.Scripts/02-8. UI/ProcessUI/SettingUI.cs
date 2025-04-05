@@ -17,14 +17,16 @@ public class SettingUI : MonoBehaviour
 
     void ShowSetting()
     {
+        _settingBackground.gameObject.SetActive(true);
         BackFadeOn(0.5f);
         _settingBackground.transform.DOLocalMove(Vector3.zero, 0.5f);
     }
 
     void HideSetting()
     {
+        
         BackFadeOff(0.5f);
-        _settingBackground.transform.DOLocalMove(new Vector3(0, 1003, 0), 0.5f);
+        _settingBackground.transform.DOLocalMove(new Vector3(0, 1003, 0), 0.5f).OnComplete(() => _settingBackground.gameObject.SetActive(false));
     }
 
     void BackFadeOn(float time)

@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 1744d390ecc1ac9459c4e8769b514612
+guid: c481ae6ba7ad0a042aba44c9a3102dd2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1270409978466551527
-    second: Calming pixel art landscape 1_0
+      213: 6245330038833381982
+    second: Tiers_0
+  - first:
+      213: 8693618367534728744
+    second: Tiers_1
+  - first:
+      213: -6492548218044149164
+    second: Tiers_2
+  - first:
+      213: 7150395282907082488
+    second: Tiers_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,7 +106,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,7 +119,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -126,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Calming pixel art landscape 1_0
+      name: Tiers_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1920
-        height: 216
+        y: 251
+        width: 247
+        height: 237
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +150,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 919b3620bd89e5ee0800000000000000
-      internalID: -1270409978466551527
+      spriteID: e528db5c49edba650800000000000000
+      internalID: 6245330038833381982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiers_1
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 246
+        width: 247
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82608b138dfe5a870800000000000000
+      internalID: 8693618367534728744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiers_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 247
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45212607bc5d5e5a0800000000000000
+      internalID: -6492548218044149164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiers_3
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 1
+        width: 247
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fe2e4910ae4b3360800000000000000
+      internalID: 7150395282907082488
       vertices: []
       indices: 
       edges: []
@@ -160,8 +235,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Calming pixel art landscape 1_0: -1270409978466551527
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class UIManager : Singleton<UIManager>
 {
@@ -7,6 +8,9 @@ public class UIManager : Singleton<UIManager>
     public ReportUI ReportUI;
     public CharacterUI CharacterUI;
     public SettingUI SettingUI;
+    public StageShowManager showingManager;
+    
+    
 
     protected override void Awake()
     {
