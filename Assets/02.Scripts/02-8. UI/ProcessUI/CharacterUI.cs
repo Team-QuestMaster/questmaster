@@ -1,10 +1,16 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using UnityEngine.Rendering;
 
 public class CharacterUI : MonoBehaviour
 {
+    public GameObject[] Characters;
+    private int _currentCharacter = 0;
+    public GameObject CurrentCharacter;
+    
     [SerializeField] private Adventurer _adventurer;
     [SerializeField] private Animator _characterAnimator;
     [SerializeField] private Button _characterButton;
@@ -12,6 +18,13 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] private Image _speechBubble;
     [SerializeField] private Button _speechButton;
 
+    [SerializeField] private Button _positiveButton;
+    [SerializeField] private Button _negativeButton;
+    
+    
+    public event Action PositiveButtonEvent;
+    public event Action NegativeButtonEvent;
+    
     private AdventurerData _characterData;
     private int _dialogIndex = 0;
 
@@ -21,6 +34,7 @@ public class CharacterUI : MonoBehaviour
         _characterText.text = "";
         _characterButton.onClick.AddListener(ShowSpeechBubbleUI);
         _speechButton.onClick.AddListener(NextDialogue);
+        CurrentCharacter = Characters[_currentCharacter];
     }
 
     void ShowSpeechBubbleUI()
@@ -33,9 +47,32 @@ public class CharacterUI : MonoBehaviour
 
     void ShowButtonSpeechBubbleUI()
     {
+        _positiveButton.gameObject.SetActive(true);
+        _positiveButton.interactable = true;
+        
+        _negativeButton.gameObject.SetActive(true);
+        _negativeButton.interactable = true;
+    }
+
+    void HideButtonSpeechBubbleUI()
+    {
+        _positiveButton.gameObject.SetActive(false);
+        _positiveButton.interactable = false;
+        _negativeButton.gameObject.SetActive(false);
+        _negativeButton.interactable = false;
         
     }
 
+    public void PositiveButton()
+    {
+        PositiveButtonEvent?.Invoke();
+    }
+
+    public void NegativeButton()
+    {
+        NegativeButtonEvent?.Invoke();
+    }
+    
     void HideSpeechBubbleUI()
     {
         _speechBubble.DOFade(0f, 0.1f);
@@ -67,4 +104,28 @@ public class CharacterUI : MonoBehaviour
             HideSpeechBubbleUI();
         }
     }
+
+    void ShowSpeechBubbleButtonUI()
+    {
+        
+    }
+    
+
+    public void ChangeCharacter()
+    {
+        if (_currentCharacter < Characters.Length)
+        {
+            Characters[_currentCharacter].SetActive(false);
+            _currentCharacter++;
+            CurrentCharacter = Characters[_currentCharacter];
+            
+            StageShowManager.Instance.ShowCharacter.MiniUI.MiniMove();
+            
+        }
+        else
+        {
+            Debug.LogError("캐릭터 몇 명인지 인덱스에 에러남");
+        }
+    }
+    
 }

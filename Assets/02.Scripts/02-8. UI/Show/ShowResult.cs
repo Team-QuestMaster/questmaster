@@ -34,6 +34,7 @@ public class ShowResult : MonoBehaviour
     public void Show()
     {
         ResultShowEvent?.Invoke();
+        _resultImage.gameObject.SetActive(true);
         _backgroundImage.gameObject.SetActive(true);
         _backgroundImage.DOFade(0.7f, 0.5f);
         _resultImage.transform.DOLocalMove(new Vector3(0, 0, 0), 0.5f);
@@ -42,12 +43,13 @@ public class ShowResult : MonoBehaviour
     public void Hide()
     {
         ResultHideEvent?.Invoke();
-        _backgroundImage.DOFade(0, 0.5f);
+        _backgroundImage.DOFade(0, 0.5f).OnComplete(() =>  _backgroundImage.gameObject.SetActive(false));
         _resultImage.transform.DOLocalMove(new Vector3(-1470f,0, 0), 0.5f).OnComplete(() =>
         {
+            
             _resultImage.gameObject.SetActive(false);
-            _backgroundImage.gameObject.SetActive(false);
             UIManager.Instance.StampUI.StampInteract();
+            StageShowManager.Instance.ShowCharacter.Disappear();
         });
         
     }

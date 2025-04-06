@@ -1,10 +1,14 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ShowCharacter : MonoBehaviour
 {
-    public event Action CharacterAppearShow;
+
+    public MiniCharacterUI MiniUI;
+    
+    public event Action CharacterAppearShow; 
     public event Action CharacterDisappearShow;
     
     
@@ -15,7 +19,7 @@ public class ShowCharacter : MonoBehaviour
     {
         CharacterAppearShow+= CharacterAppear;
         CharacterDisappearShow += CharacterDisappear;
-        
+        MiniUI.MoveToTarvenInEvent += Appear;
     }
 
 
@@ -38,12 +42,14 @@ public class ShowCharacter : MonoBehaviour
 
     void CharacterAppear()
     {
-        
+        UIManager.Instance.CharacterUI.CurrentCharacter.gameObject.SetActive(true);
+        UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().DOFade(1, 1);
     }
 
     void CharacterDisappear()
     {
-        
+        UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().rectTransform.DOLocalMove(new Vector3(-1200,0,0), 2f).SetEase(Ease.InBounce)
+            .OnComplete(UIManager.Instance.CharacterUI.ChangeCharacter);
     }
     
 }

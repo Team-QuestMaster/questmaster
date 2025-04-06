@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -7,7 +8,7 @@ using UnityEngine.UI;
 public class MiniCharacterUI : MonoBehaviour
 {
 
-    public Image[] Minis;
+    public List<Image> Minis;
     [SerializeField] private Image _tarven;
     [SerializeField] private int _moveLength;
     private int _leftMinis;
@@ -17,22 +18,29 @@ public class MiniCharacterUI : MonoBehaviour
 
     void Start()
     {
-        MiniMove();
-        _leftMinis = Minis.Length;
+       // _leftMinis = Minis.Count;
     }
     
-    void MiniMove()
+    public void MiniMove()
     {
-        Debug.Log(Minis.Length);
+        Debug.Log(Minis.Count);
+
         foreach (Image mini in Minis)
         {
-            float targetX = mini.rectTransform.anchoredPosition.x - _moveLength;
-            mini.rectTransform.DOLocalMoveX(targetX, 1f).OnComplete(() => CheckTarvenIn(mini));
-
-            MinisMoveEvent?.Invoke();
-            Debug.Log("MiniMove");
             
+            
+            if (!ReferenceEquals(mini,null)  && mini.gameObject.activeInHierarchy)
+            {
+                
+                float targetX = mini.rectTransform.anchoredPosition.x - _moveLength;
+                mini.rectTransform.DOLocalMoveX(targetX, 1f).OnComplete(() => {
+                    CheckTarvenIn(mini);
+                });
+
+                MinisMoveEvent?.Invoke();
+            }
         }
+
         
     }
 
@@ -42,15 +50,17 @@ public class MiniCharacterUI : MonoBehaviour
         {
             TarvenIn();
             mini.gameObject.SetActive(false);
-            _leftMinis--;
-            Debug.Log(_leftMinis);
+           // _leftMinis--;
+           Minis.RemoveAt(0);
+           
+            Debug.Log(Minis);
         }
     }
     
     public void TarvenIn()
     {
         Debug.Log("TarvenIn");
-        _tarven.rectTransform.DOShakeScale( 0.1f,new Vector3(0, 0.01f, 0));
+        _tarven.rectTransform.DOShakeScale( 0.1f,new Vector3(0, 0.01f, 0)).OnComplete(()=>StageShowManager.Instance.ShowCharacter.Appear());
         MoveToTarvenInEvent?.Invoke();
     }
     

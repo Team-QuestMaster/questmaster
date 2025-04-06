@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9a483cc00a57cce44838c5637d7c96b9
+guid: d3daa42f887c5874b90a371b99bfbfe4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 645411862609229670
-    second: Map_0
+      213: -8339888693086784594
+    second: "ChatGPT_Image_2025\uB144_4\uC6D4_4\uC77C_\uC624\uC804_11_01_47__1_-removebg-preview_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,6 +97,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -126,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Map_0
+      name: "ChatGPT_Image_2025\uB144_4\uC6D4_4\uC77C_\uC624\uC804_11_01_47__1_-removebg-preview_0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1083
-        height: 583
+        x: 22
+        y: 85
+        width: 569
+        height: 229
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 66775a46ba6f4f800800000000000000
-      internalID: 645411862609229670
+      spriteID: ea3f3469b63c24c80800000000000000
+      internalID: -8339888693086784594
       vertices: []
       indices: 
       edges: []
@@ -160,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "ChatGPT_Image_2025\uB144_4\uC6D4_4\uC77C_\uC624\uC804_11_01_47__1_-removebg-preview_0": -8339888693086784594
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

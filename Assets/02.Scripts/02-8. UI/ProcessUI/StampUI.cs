@@ -43,12 +43,14 @@ public class StampUI : MonoBehaviour
             Debug.Log("StampUI Approve");
             _approveAnimator.SetTrigger("Stamp");
             _approveAnimator.SetBool("Hover", false);
+            HideStampPopUp();
         };
         UIRejectEvent += () =>
         {
             Debug.Log("StampUI Reject");
             _rejectAnimator.SetTrigger("Stamp");
             _rejectAnimator.SetBool("Hover", false);
+            HideStampPopUp();
         };
         
         

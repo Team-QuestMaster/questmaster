@@ -72,7 +72,6 @@ public class UnderChecker : MonoBehaviour
                         if (_type== Type.Approve)
                         {
                             
-                            
                             UIManager.Instance.StampUI.Approve();
                             
                             
