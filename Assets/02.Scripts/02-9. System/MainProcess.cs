@@ -31,6 +31,7 @@ public class MainProcess : MonoBehaviour
             (() => ApplyQuestResult());
         GetRequests();
         StageShowManager.Instance.ShowCharacter.Appear();
+        StageShowManager.Instance.ShowQuest.Appear();
     }
     private void GetRequests()
     {
@@ -90,6 +91,7 @@ public class MainProcess : MonoBehaviour
             UIManager.Instance.CharacterUI.Characters.Add(request.Item1.gameObject);
 
             // 퀘스트 UI 쪽 로직이 완성되면, 위와 같이 추가해주면 될듯하다.
+            UIManager.Instance.QuestUI.Quests.Add(request.Item2);
         }
     }
     public void ApproveRequest()
