@@ -23,6 +23,9 @@ public class MainProcess : MonoBehaviour
             (() => GetRequests());
         DateManager.Instance.OnDateChanged +=
             (() => ApplyQuestResult());
+        UIManager.Instance.StampUI.UIApproveEvent +=
+            (() => ApproveRequest());
+        
         GetRequests();
     }
     private void GetRequests()
