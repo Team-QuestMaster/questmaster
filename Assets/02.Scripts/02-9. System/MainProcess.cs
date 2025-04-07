@@ -93,6 +93,16 @@ public class MainProcess : MonoBehaviour
     }
     public void ApproveRequest()
     {
+        //수락 시 퀘스트 위에 있는 아이템 사용
+        foreach (Item item in ItemManager.Instance.HavingItemList)
+        {
+            if (item.ItemState == ItemStateType.ReadyToUse)
+            {
+                item.ItemState = ItemStateType.UnBuy;
+                item.Use(_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2);
+            }
+        }
+
         float probability = CalculateManager.Instance.CalculateProbability
             (_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2);
         bool isQuestSuccess = CalculateManager.Instance.JudgeQuestResult

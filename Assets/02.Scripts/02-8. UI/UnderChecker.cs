@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public enum Type
 {
     Approve,
-    Reject
-    
+    Reject,
+    Item
+
 }
 public class UnderChecker : MonoBehaviour
 {
-    [SerializeField] private RectTransform _targetZone;               // 검사할 UI 영역
+    [SerializeField] private RectTransform _paperZone;               // 검사할 UI 영역
+    [SerializeField] private RectTransform _boardZone;               // 검사할 UI 영역
     [SerializeField] private DraggableObject _draggableObject;        // 드래그 가능한 오브젝트 참조
     [SerializeField] private Transform _checkPointTransform;          // 기준 위치 (Empty GameObject 등)
     [SerializeField] private EventSystem _eventSystem;                // EventSystem 참조
@@ -35,7 +37,7 @@ public class UnderChecker : MonoBehaviour
 
     private void HandleDragEnd()
     {
-        if (ReferenceEquals(_checkPointTransform , null))
+        if (ReferenceEquals(_checkPointTransform, null))
         {
             Debug.LogWarning("CheckPointTransform이 할당되지 않았습니다.");
             return;
@@ -43,66 +45,109 @@ public class UnderChecker : MonoBehaviour
 
         Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(Camera.main, _checkPointTransform.position);
 
-        // 기준점이 targetZone 내부에 있는지 체크
-        if (RectTransformUtility.RectangleContainsScreenPoint(_targetZone, screenPoint, Camera.main))
+        PointerEventData pointerData = new PointerEventData(_eventSystem)
         {
-            
+            position = screenPoint
+        };
 
-            // Raycast 실행
-            PointerEventData pointerData = new PointerEventData(_eventSystem)
+        List<RaycastResult> results = new List<RaycastResult>();
+        GraphicRaycaster paperRaycaster = _paperZone.GetComponentInParent<GraphicRaycaster>();
+        GraphicRaycaster boardRaycaster = _boardZone.GetComponentInParent<GraphicRaycaster>();
+
+        if (paperRaycaster != null && boardRaycaster != null)
+        {
+            paperRaycaster.Raycast(pointerData, results);
+            boardRaycaster.Raycast(pointerData, results);
+
+            List<string> hitTags = new List<string>();
+            bool hasQuestTag = false;
+            bool hasBoardTag = false;
+
+            foreach (var result in results)
             {
-                position = screenPoint
-            };
+                string tag = result.gameObject.tag;
+                hitTags.Add(tag);
 
-            List<RaycastResult> results = new List<RaycastResult>();
-            GraphicRaycaster raycaster = _targetZone.GetComponentInParent<GraphicRaycaster>();
-            if (!ReferenceEquals(raycaster, null))
-            {
-                raycaster.Raycast(pointerData, results);
-
-                if (results.Count > 1)
+                if (tag == "Quest")
                 {
-                    GameObject topObject = results[1].gameObject;
-                    //Debug.Log($"가장 위에 있는 오브젝트: {topObject.name}, 태그: {topObject.tag}");
+                    hasQuestTag = true;
+                    break;
+                }
+            }
+            foreach (var result in results)
+            {
+                string tag = result.gameObject.tag;
+                hitTags.Add(tag);
 
-                    if (topObject.CompareTag("Quest"))
+                if (tag == "Board")
+                {
+                    hasBoardTag = true;
+                    break;
+                }
+            }
+
+            Debug.Log("Raycast로 감지된 태그들: " + string.Join(", ", hitTags));
+
+            if(_type == Type.Item)
+            {
+                Debug.Log($"{hasBoardTag}, {hasQuestTag}");
+                if (hasQuestTag)
+                {
+                    if(this.gameObject.GetComponent<Item>().ItemState == ItemStateType.Bought)
                     {
-                        Debug.Log("Quest 태그를 가진 UI 오브젝트 위에 있습니다!");
-                        
-                        if (_type== Type.Approve)
-                        {
-                            
-                            UIManager.Instance.StampUI.Approve();
-                            
-                            
-                        }else if (_type == Type.Reject)
-                        {
-                            UIManager.Instance.StampUI.Reject();
-                        }
-
+                        this.gameObject.GetComponent<Item>().ItemState = ItemStateType.ReadyToUse;
                     }
-                    else
+                    else if(this.gameObject.GetComponent<Item>().ItemState == ItemStateType.UnBuy)
                     {
-                        Debug.Log("위에 있는 오브젝트가 Quest 태그가 아닙니다.");
-                        UIManager.Instance.StampUI.StampBack();
+                        this.gameObject.GetComponent<Item>().ItemState = ItemStateType.ReadyToBuy;
+                    }
+                }
+                else if (hasBoardTag)
+                {
+                    if(this.gameObject.GetComponent<Item>().ItemState == ItemStateType.ReadyToUse)
+                    {
+                        this.gameObject.GetComponent<Item>().ItemState = ItemStateType.Bought;
+                    }
+                    else if (this.gameObject.GetComponent<Item>().ItemState == ItemStateType.UnBuy)
+                    {
+                        this.gameObject.GetComponent<Item>().ItemState = ItemStateType.ReadyToBuy;
                     }
                 }
                 else
                 {
-                    Debug.Log("Raycast 결과가 없습니다.");
-                    UIManager.Instance.StampUI.StampBack();
+                    if(this.gameObject.GetComponent<Item>().ItemState == ItemStateType.ReadyToBuy)
+                    {
+                        this.gameObject.GetComponent<Item>().ItemState = ItemStateType.UnBuy;
+                    }
                 }
+
+            }
+            else if (hasQuestTag)
+            {
+                Debug.Log("Quest 태그를 가진 UI 오브젝트를 찾았습니다!");
+
+                if (_type == Type.Approve)
+                {
+                    UIManager.Instance.StampUI.Approve();
+                }
+                else if (_type == Type.Reject)
+                {
+                    UIManager.Instance.StampUI.Reject();
+                }
+                return; // 성공했으니 더 이상 진행 X
             }
             else
             {
-                Debug.LogWarning("GraphicRaycaster가 타겟 존의 부모에 없습니다.");
-                UIManager.Instance.StampUI.StampBack();
+                Debug.Log("Quest 태그를 가진 오브젝트가 없습니다.");
             }
         }
         else
         {
-            Debug.Log("기준 Transform은 타겟 영역 바깥에 있음");
-            UIManager.Instance.StampUI.StampBack();
+            Debug.LogWarning("GraphicRaycaster가 타겟 존의 부모에 없습니다.");
         }
+
+        // 실패 시 공통 처리
+        UIManager.Instance.StampUI.StampBack();
     }
+
 }
