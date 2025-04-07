@@ -8,11 +8,12 @@ public enum Type
     Approve,
     Reject,
     Item
-    
+
 }
 public class UnderChecker : MonoBehaviour
 {
-    [SerializeField] private RectTransform _targetZone;               // 검사할 UI 영역
+    [SerializeField] private RectTransform _paperZone;               // 검사할 UI 영역
+    [SerializeField] private RectTransform _boardZone;               // 검사할 UI 영역
     [SerializeField] private DraggableObject _draggableObject;        // 드래그 가능한 오브젝트 참조
     [SerializeField] private Transform _checkPointTransform;          // 기준 위치 (Empty GameObject 등)
     [SerializeField] private EventSystem _eventSystem;                // EventSystem 참조
@@ -36,7 +37,7 @@ public class UnderChecker : MonoBehaviour
 
     private void HandleDragEnd()
     {
-        if (_checkPointTransform == null)
+        if (ReferenceEquals(_checkPointTransform, null))
         {
             Debug.LogWarning("CheckPointTransform이 할당되지 않았습니다.");
             return;
@@ -50,14 +51,17 @@ public class UnderChecker : MonoBehaviour
         };
 
         List<RaycastResult> results = new List<RaycastResult>();
-        GraphicRaycaster raycaster = _targetZone.GetComponentInParent<GraphicRaycaster>();
+        GraphicRaycaster paperRaycaster = _paperZone.GetComponentInParent<GraphicRaycaster>();
+        GraphicRaycaster boardRaycaster = _boardZone.GetComponentInParent<GraphicRaycaster>();
 
-        if (raycaster != null)
+        if (paperRaycaster != null && boardRaycaster != null)
         {
-            raycaster.Raycast(pointerData, results);
+            paperRaycaster.Raycast(pointerData, results);
+            boardRaycaster.Raycast(pointerData, results);
 
             List<string> hitTags = new List<string>();
             bool hasQuestTag = false;
+            bool hasBoardTag = false;
 
             foreach (var result in results)
             {
@@ -70,10 +74,55 @@ public class UnderChecker : MonoBehaviour
                     break;
                 }
             }
+            foreach (var result in results)
+            {
+                string tag = result.gameObject.tag;
+                hitTags.Add(tag);
+
+                if (tag == "Board")
+                {
+                    hasBoardTag = true;
+                    break;
+                }
+            }
 
             Debug.Log("Raycast로 감지된 태그들: " + string.Join(", ", hitTags));
 
-            if (hasQuestTag)
+            if(_type == Type.Item)
+            {
+                Debug.Log($"{hasBoardTag}, {hasQuestTag}");
+                if (hasQuestTag)
+                {
+                    if(this.gameObject.GetComponent<Item>().ItemState == ItemStateType.Bought)
+                    {
+                        this.gameObject.GetComponent<Item>().ItemState = ItemStateType.ReadyToUse;
+                    }
+                    else if(this.gameObject.GetComponent<Item>().ItemState == ItemStateType.UnBuy)
+                    {
+                        this.gameObject.GetComponent<Item>().ItemState = ItemStateType.ReadyToBuy;
+                    }
+                }
+                else if (hasBoardTag)
+                {
+                    if(this.gameObject.GetComponent<Item>().ItemState == ItemStateType.ReadyToUse)
+                    {
+                        this.gameObject.GetComponent<Item>().ItemState = ItemStateType.Bought;
+                    }
+                    else if (this.gameObject.GetComponent<Item>().ItemState == ItemStateType.UnBuy)
+                    {
+                        this.gameObject.GetComponent<Item>().ItemState = ItemStateType.ReadyToBuy;
+                    }
+                }
+                else
+                {
+                    if(this.gameObject.GetComponent<Item>().ItemState == ItemStateType.ReadyToBuy)
+                    {
+                        this.gameObject.GetComponent<Item>().ItemState = ItemStateType.UnBuy;
+                    }
+                }
+
+            }
+            else if (hasQuestTag)
             {
                 Debug.Log("Quest 태그를 가진 UI 오브젝트를 찾았습니다!");
 
@@ -84,11 +133,7 @@ public class UnderChecker : MonoBehaviour
                 else if (_type == Type.Reject)
                 {
                     UIManager.Instance.StampUI.Reject();
-                }else if (_type == Type.Item)
-                {
-                    
                 }
-
                 return; // 성공했으니 더 이상 진행 X
             }
             else
