@@ -89,6 +89,10 @@ public class MainProcess : MonoBehaviour
         EndRequest();
         // UI 싱글톤 스크립트에서 확률 보여주기 위해 메서드 호출 필요, 아래와 같은 형식으로
         // 확률 팝업 UI 스크립트.메서드명(probability);
+        // 캘린더 정보 표시
+        int questEndDay = DateManager.Instance.CurrentDate + _todayRequest[_requestCount].Item2.QuestData.Days;
+        string questCalenderInfoText = $"{_todayRequest[_requestCount].Item2.QuestData.QuestName} <color=green>{isQuestSuccess}</color>";
+        UIManager.Instance.CalenderManager.AddCalenderText(questEndDay, questCalenderInfoText);
     }
     public void EndRequest()
     {
