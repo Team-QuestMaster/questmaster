@@ -47,6 +47,8 @@ public class QuestData
     private bool _isQuesting; // Äù½ºÆ® ÁøÇà Áß ¿©ºÎ
     public bool IsQuesting { get => _isQuesting; set => _isQuesting = value; }
 
+    private string _questHint; // Äù½ºÆ® ÈùÆ®
+    public string QuestHint { get => _questHint; set => _questHint = value; }
     public QuestData(string questName, string questDescription, QuestTierType questTier, 
         float strWeight, float magWeight, float insWeight, float dexWeight, 
         float powerForClear, int fameReward, int goldReward, int famePenalty, int goldPenalty, 
