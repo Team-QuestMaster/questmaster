@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 public class ItemManager : Singleton <ItemManager>
@@ -92,7 +93,11 @@ public class ItemManager : Singleton <ItemManager>
             }
             Item item = _remainItemList[Random.Range(0, _remainItemList.Count)];
             _shoppingList.Add(item); // 상점 아이템 리스트에 추가
-            _remainItemList.Remove(item); // 미보유 아이템 리스트에서 제거
+            _remainItemList.Remove(item); // 미보유 아이템 리스트에서 제거   
+
+            item.gameObject.SetActive(true);
+            item.GetComponent<RectTransform>().position = new Vector3(-8+i*1.5f, -4, 0); // 상점에 아이템 위치 초기화
+
         }
     }
 
@@ -102,6 +107,7 @@ public class ItemManager : Singleton <ItemManager>
         {
             _remainItemList.Add(item); 
             _shoppingList.Remove(item);
+            item.gameObject.SetActive(false);
         }
     }
 
