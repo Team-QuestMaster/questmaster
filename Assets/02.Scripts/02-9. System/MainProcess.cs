@@ -6,13 +6,12 @@ using UnityEngine;
 
 public class MainProcess : MonoBehaviour
 {
-    private List<(Adventurer, Quest)> _todayRequest;
+    private List<(Adventurer, Quest)> _todayRequest = new List<(Adventurer, Quest)>();
 
     private const int _requestCountMaxPerDay = 5; // 하루에 방문 가능한 최대 모험가의 수
     private int _requestCount = 0; // 현재 방문한 모험가의 수
     public event Action OnRequestCountIncreased;
     public event Action OnRequestMade;
-
     private void Start()
     {
         // TODO : UI에서 Approve 또는 Reject 상호작용을 했을  때,
@@ -30,6 +29,8 @@ public class MainProcess : MonoBehaviour
             (() => GetRequests());
         DateManager.Instance.OnDateChanged +=
             (() => ApplyQuestResult());
+        GetRequests();
+        StageShowManager.Instance.ShowCharacter.Appear();
     }
     private void GetRequests()
     {
