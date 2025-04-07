@@ -9,19 +9,21 @@ public class CalenderManager : MonoBehaviour
 
   public void AddCalenderText(int day ,string calenderText)
   {
-    if (_calenderText[day].text == "")
+    int indexDay = day - 1;
+    if (_calenderText[indexDay].text == "")
     {
-      _calenderText[day].text = calenderText;
+      _calenderText[indexDay].text = calenderText;
     }
     else
     {
-      _calenderText[day].text += $"\n{calenderText}";
+      _calenderText[indexDay].text += $"\n{calenderText}";
     }
   }
 
   public void CellClear(int day)
   {
-    _calenderText[day].text = "";
+    int indexDay = day - 1;
+    _calenderText[indexDay].text = "";
   }
   
   
