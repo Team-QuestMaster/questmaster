@@ -23,11 +23,10 @@ public class DraggingObjectSwap : MonoBehaviour
     public DraggingObjectType Type => _type;
     
     [SerializeField]
-    private DraggingObjectSwap _swapGameObject;
+    private DraggingObjectSwap _swapTargetObject;
+    public DraggingObjectSwap SwapTargetObject => _swapTargetObject;
 
     private RectTransform _myArea;
-    
-    public DraggingObjectSwap SwapGameObject => _swapGameObject;
 
     private DraggableObject _draggableObject;
 
@@ -54,7 +53,9 @@ public class DraggingObjectSwap : MonoBehaviour
     private void SwapDraggingObject(PointerEventData eventData)
     {
         // 객체가 자신의 영역 안이면 return
-        if (_myArea.rect.Contains(_myArea.InverseTransformPoint(transform.position)))
+        Vector2 mousePosition = _camera.ScreenToWorldPoint(ClampToDragArea(eventData.position));
+        
+        if (_myArea.rect.Contains(_myArea.InverseTransformPoint(mousePosition)))
         {
             return;
         }
@@ -63,22 +64,35 @@ public class DraggingObjectSwap : MonoBehaviour
         gameObject.SetActive(false); // 비활성화
 
         // 스왑 오브젝트 활성화
-        _swapGameObject.gameObject.SetActive(true);
-        _swapGameObject.transform.SetAsLastSibling();
+        _swapTargetObject.gameObject.SetActive(true);
+        _swapTargetObject.transform.SetAsLastSibling();
 
-        eventData.pointerDrag = _swapGameObject.gameObject;
+        eventData.pointerDrag = _swapTargetObject.gameObject;
+        ExecuteEvents.Execute(_swapTargetObject.gameObject, eventData, ExecuteEvents.dragHandler);
     }
 
     private void ComparePair()
     {
-        if (!ReferenceEquals(_swapGameObject.SwapGameObject, this))
+        if (!ReferenceEquals(_swapTargetObject.SwapTargetObject, this))
         {
             Debug.LogError("Big 오브젝트와 Small오브젝트 간 매치가 안맞습니다.");
         }
 
-        if (_swapGameObject._type == _type)
+        if (_swapTargetObject._type == _type)
         {
             Debug.LogError("바꿀 오브젝트 간 type이 달라야합니다.");
         }
+    }
+
+    private Vector2 ClampToDragArea(Vector2 screenPosition)
+    {
+        RectTransform dragArea = _draggableObject.DragArea;
+        Vector2 minBounds = (Vector2)dragArea.localPosition + dragArea.rect.min;
+        Vector2 maxBounds = (Vector2)dragArea.localPosition + dragArea.rect.max;
+        // 우측과 상단 경계선 포함하기위한 -0.1f
+        float clampedX = Mathf.Clamp(screenPosition.x, minBounds.x + 0.1f, maxBounds.x - 0.1f);
+        float clampedY = Mathf.Clamp(screenPosition.y, minBounds.y + 0.1f, maxBounds.y - 0.1f);
+
+        return new Vector2(clampedX, clampedY);
     }
 }

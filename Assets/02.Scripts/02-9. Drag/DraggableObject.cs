@@ -16,6 +16,8 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     [SerializeField] 
     private RectTransform _dragArea;
 
+    public RectTransform DragArea => _dragArea;
+
     public event Action<PointerEventData> OnDraggingEvent;
     public event Action OnEndDragEvent;
 
