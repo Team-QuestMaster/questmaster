@@ -12,9 +12,6 @@ public class MainProcess : MonoBehaviour
     public event Action OnRequestCountIncreased;
     public event Action OnRequestMade;
 
-    [SerializeField]
-    private CharacterUI _characterUI;
-
     private void Start()
     {
         // TODO : UI에서 Approve 또는 Reject 상호작용을 했을  때,
@@ -75,7 +72,7 @@ public class MainProcess : MonoBehaviour
         foreach ((Adventurer, Quest) request in _todayRequest)
         {
             // 모험가는 Monobehaviour를 상속하고, Adventurer 스크립트가 부착된 GO가 곧 캐릭터의 GO이므로
-            _characterUI.Characters.Add(request.Item1.gameObject);
+            UIManager.Instance.CharacterUI.Characters.Add(request.Item1.gameObject);
 
             // 퀘스트 UI 쪽 로직이 완성되면, 위와 같이 추가해주면 될듯하다.
         }
