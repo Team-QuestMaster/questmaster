@@ -17,7 +17,6 @@ public class ReportUI : MonoBehaviour
     {
         _report.gameObject.SetActive(true);
         _report.transform.DOMove(Vector3.zero, 1f);
-        MakeText();
     }
 
     public void HideReportUI()
@@ -25,8 +24,12 @@ public class ReportUI : MonoBehaviour
         _report.transform.DOMove(new Vector3(0,1003,0), 1f).OnComplete(() => _report.gameObject.SetActive(false));
     }
 
-    void MakeText()
+    void TextClear()
     {
+        _goldChangeText.text = "";
+        _fameChangeText.text = "";
+        _questResultText.text = "";
+        _specialCommentText.text = "";
         
     }
 
