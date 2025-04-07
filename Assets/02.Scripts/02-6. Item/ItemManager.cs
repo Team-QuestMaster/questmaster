@@ -27,6 +27,7 @@ public class ItemManager : Singleton <ItemManager>
     protected override void Awake()
     {
         base.Awake();
+        SellingItems();
     }
 
     public void BuyItem(Item item) // 상점에서 제거, 보유 아이템에 추가
@@ -43,6 +44,12 @@ public class ItemManager : Singleton <ItemManager>
         }
         _shoppingList.Remove(item); 
         _havingItemList.Add(item);
+        if(item.ItemState != ItemStateType.ReadyToBuy)
+        {
+            Debug.Log("아이템 상태가 ReadyToBuy가 아닙니다.에러.");
+            return;
+        }
+        item.ItemState = ItemStateType.Bought; // 아이템 상태 변경
     }
 
     public bool TryBuyall()
