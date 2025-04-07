@@ -86,11 +86,14 @@ public class MainProcess : MonoBehaviour
         DateManager.Instance.AddQuestResultToList
             (_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2, isQuestSuccess, probability);
 
+        EndRequest();
         // UI 싱글톤 스크립트에서 확률 보여주기 위해 메서드 호출 필요, 아래와 같은 형식으로
         // 확률 팝업 UI 스크립트.메서드명(probability);
     }
     public void EndRequest()
     {
+        _requestCount++;
+        OnRequestCountIncreased?.Invoke();
         // 어처피 ChangeCharacter에서 해주고 있음(퀘스트 제외)
         //_todayRequest[_requestCount].Item1.gameObject.SetActive(false);
         //_todayRequest[_requestCount].Item2.gameObject.SetActive(false);
