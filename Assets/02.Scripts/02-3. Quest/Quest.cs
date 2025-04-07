@@ -31,7 +31,8 @@ public class Quest : MonoBehaviour
             _questSO.FamePenalty,
             _questSO.GoldPenalty,
             _questSO.StateAfterFail,
-            _questSO.Days
+            _questSO.Days,
+            _questSO.QuestHint
         );
     }
     private void SetQuestDataOnDate()

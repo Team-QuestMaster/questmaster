@@ -52,7 +52,7 @@ public class QuestData
     public QuestData(string questName, string questDescription, QuestTierType questTier, 
         float strWeight, float magWeight, float insWeight, float dexWeight, 
         float powerForClear, int fameReward, int goldReward, int famePenalty, int goldPenalty, 
-        AdventurerStateType stateAfterFail, int days)
+        AdventurerStateType stateAfterFail, int days, string questHint)
     {
         _questName = questName;
         _questDescription = questDescription;
@@ -68,5 +68,6 @@ public class QuestData
         _goldPenalty = goldPenalty;
         _stateAfterFail = stateAfterFail;
         _days = days;
+        _questHint = questHint;
     }
 }
