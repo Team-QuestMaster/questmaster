@@ -10,6 +10,7 @@ public class Quest : MonoBehaviour
     private void Awake()
     {
         InitQuestData();
+        gameObject.SetActive(false);
     }
     private void OnEnable()
     {

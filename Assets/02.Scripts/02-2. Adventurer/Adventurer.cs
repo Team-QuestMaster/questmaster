@@ -10,6 +10,7 @@ public class Adventurer : MonoBehaviour
     private void Awake()
     {
         InitAdventurerData();
+        gameObject.SetActive(false);
     }
     private void OnEnable()
     {
