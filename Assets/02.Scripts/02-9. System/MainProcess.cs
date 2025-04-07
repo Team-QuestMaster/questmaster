@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public class MainProcess : MonoBehaviour
@@ -27,6 +28,8 @@ public class MainProcess : MonoBehaviour
             (() => DateManager.Instance.ChangeTimePeriod(_requestCount, _requestCountMaxPerDay));
         DateManager.Instance.OnDateChanged +=
             (() => GetRequests());
+        DateManager.Instance.OnDateChanged +=
+            (() => ApplyQuestResult());
     }
     private void GetRequests()
     {
@@ -39,21 +42,32 @@ public class MainProcess : MonoBehaviour
     }
     private void ApplyQuestResult()
     {
+        UIManager.Instance.ReportUI.TextClear();
         List<QuestResult> questResults = DateManager.Instance.GetTodayQuestResults();
 
+        // UI data
+        int beforeGold = GuildStatManager.Instance.Gold;
+        int beforeFame = GuildStatManager.Instance.Fame;
         foreach (QuestResult questResult in questResults)
         {
             if (questResult.IsSuccess)
             {
                 GuildStatManager.Instance.Fame += questResult.Quest.QuestData.FameReward;
                 GuildStatManager.Instance.Gold += questResult.Quest.QuestData.GoldReward;
+                UIManager.Instance.ReportUI.QuestResultTextAdd($"성공: {questResult.Quest.QuestData.QuestName} {questResult.Probability}");
+                UIManager.Instance.ReportUI.SpecialCommentText($"성공: {questResult.Quest.QuestData.QuestName}: {questResult.Quest.QuestData.QuestHint}");
             }
             else
             {
                 GuildStatManager.Instance.Fame -= questResult.Quest.QuestData.FamePenalty;
                 GuildStatManager.Instance.Gold -= questResult.Quest.QuestData.GoldPenalty;
+                UIManager.Instance.ReportUI.QuestResultTextAdd($"실패: {questResult.Quest.QuestData.QuestName} {questResult.Probability}");
+                UIManager.Instance.ReportUI.SpecialCommentText($"실패: {questResult.Quest.QuestData.QuestName}: {questResult.Quest.QuestData.QuestHint}");
             }
         }
+        // 결과 UI 데이터
+        UIManager.Instance.ReportUI.GoldText(beforeGold, GuildStatManager.Instance.Gold);
+        UIManager.Instance.ReportUI.FameText(beforeFame, GuildStatManager.Instance.Fame);
     }
     private void PickTodayRequests()
     {
@@ -85,17 +99,19 @@ public class MainProcess : MonoBehaviour
             (_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2, probability);
         DateManager.Instance.AddQuestResultToList
             (_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2, isQuestSuccess, probability);
-
-        EndRequest();
+        
         // UI 싱글톤 스크립트에서 확률 보여주기 위해 메서드 호출 필요, 아래와 같은 형식으로
         // 확률 팝업 UI 스크립트.메서드명(probability);
         // 캘린더 정보 표시
         int questEndDay = DateManager.Instance.CurrentDate + _todayRequest[_requestCount].Item2.QuestData.Days;
         string questCalenderInfoText = $"{_todayRequest[_requestCount].Item2.QuestData.QuestName} <color=green>{isQuestSuccess}</color>";
         UIManager.Instance.CalenderManager.AddCalenderText(questEndDay, questCalenderInfoText);
+
+        EndRequest();
     }
     public void EndRequest()
     {
+        StageShowManager.Instance.ShowResult.Initialize(_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2);
         _requestCount++;
         OnRequestCountIncreased?.Invoke();
         // 어처피 ChangeCharacter에서 해주고 있음(퀘스트 제외)

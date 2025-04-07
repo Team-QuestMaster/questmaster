@@ -10,7 +10,6 @@ public class UIManager : Singleton<UIManager>
     public ReportUI ReportUI;
     public CharacterUI CharacterUI;
     public SettingUI SettingUI;
-    public StageShowManager showingManager;
     public CalenderManager CalenderManager;
     public DayChangeUI DayChangeUI;
     
