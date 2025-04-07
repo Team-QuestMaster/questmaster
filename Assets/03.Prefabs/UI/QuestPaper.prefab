@@ -630,6 +630,8 @@ GameObject:
   - component: {fileID: 1345866687136720398}
   - component: {fileID: 22943753933912589}
   - component: {fileID: 471645346211424440}
+  - component: {fileID: 7476062819258537576}
+  - component: {fileID: 6543322999483390621}
   m_Layer: 5
   m_Name: QuestPaper
   m_TagString: Quest
@@ -699,3 +701,30 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7476062819258537576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8570329066174301283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d6a5e9e73db79648a4e474ef98d7979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dragArea: {fileID: 0}
+--- !u!114 &6543322999483390621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8570329066174301283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a1533071c18d141bab8b01f708bcb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
+  _swapTargetObject: {fileID: 0}

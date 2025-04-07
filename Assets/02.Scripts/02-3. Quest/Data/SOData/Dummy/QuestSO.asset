@@ -13,17 +13,19 @@ MonoBehaviour:
   m_Name: QuestSO
   m_EditorClassIdentifier: 
   QuestName: "\uB354\uBBF8 \uD018\uC2A4\uD2B8"
-  QuestDescription: "\uB354\uBBF8\uB85C \uB9CC\uB4E4\uC5B4\uC9C4 \uD018\uC2A4\uD2B8\uC774\uB2E4"
+  QuestDescription: "\uBC84\uADF8 \uC5C6\uC774 \uAE30\uB2A5 \uD14C\uC2A4\uD2B8\uB97C
+    \uC644\uB8CC\uD558"
   QuestTier: 0
-  STRWeight: 1
-  MAGWeight: 2
-  INSWeight: 3
-  DEXWeight: 4
-  PowerForClear: 100
-  FameReward: 2
-  GoldReward: 3
-  FamePenalty: 2
-  GoldPenalty: 3
+  STRWeight: 0
+  MAGWeight: 0
+  INSWeight: 0
+  DEXWeight: 0
+  PowerForClear: 1
+  FameReward: 10
+  GoldReward: 10
+  FamePenalty: 5
+  GoldPenalty: 5
   StateAfterFail: 0
-  Days: 3
+  Days: 1
   IsQuesting: 0
+  QuestHint: "\uD78C\uD2B8\uAC19\uC740\uAC74 \uC5C6\uB2E4."

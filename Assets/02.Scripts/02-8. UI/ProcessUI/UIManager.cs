@@ -9,6 +9,7 @@ public class UIManager : Singleton<UIManager>
     public StampUI StampUI;
     public ReportUI ReportUI;
     public CharacterUI CharacterUI;
+    public QuestUI QuestUI;
     public SettingUI SettingUI;
     public CalenderManager CalenderManager;
     public DayChangeUI DayChangeUI;
@@ -28,7 +29,6 @@ public class UIManager : Singleton<UIManager>
         GuideBookUI.Initialize();
         StampUI.Initialize();
         ReportUI.Initialize();
-        CharacterUI.Initialize();
         SettingUI.Initialize();
         _cursorBox.gameObject.SetActive(false);
     }

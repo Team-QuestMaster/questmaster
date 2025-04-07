@@ -56,6 +56,7 @@ public class ShowResult : MonoBehaviour
             _resultImage.gameObject.SetActive(false);
             UIManager.Instance.StampUI.StampInteract();
             StageShowManager.Instance.ShowCharacter.Disappear();
+            StageShowManager.Instance.ShowQuest.Disappear();
         });
         
     }
