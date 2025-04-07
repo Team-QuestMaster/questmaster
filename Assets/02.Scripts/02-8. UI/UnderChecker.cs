@@ -37,7 +37,7 @@ public class UnderChecker : MonoBehaviour
 
     private void HandleDragEnd()
     {
-        if (_checkPointTransform == null)
+        if (ReferenceEquals(_checkPointTransform, null))
         {
             Debug.LogWarning("CheckPointTransform이 할당되지 않았습니다.");
             return;
