@@ -31,6 +31,11 @@ public class CharacterUI : MonoBehaviour
 
     public void Initialize()
     {
+        _characterButton = Characters[_currentCharacter]
+            .GetComponent<Button>();
+        _characterAnimator = Characters[_currentCharacter]
+            .GetComponent<Animator>();
+
         _characterData = _adventurer.AdventurerData;
         _characterText.text = "";
         _characterButton.onClick.AddListener(ShowSpeechBubbleUI);
