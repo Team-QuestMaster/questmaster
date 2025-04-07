@@ -111,6 +111,7 @@ public class MainProcess : MonoBehaviour
     }
     public void EndRequest()
     {
+        StageShowManager.Instance.ShowResult.Initialize(_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2);
         _requestCount++;
         OnRequestCountIncreased?.Invoke();
         // 어처피 ChangeCharacter에서 해주고 있음(퀘스트 제외)
