@@ -88,12 +88,14 @@ public class MainProcess : MonoBehaviour
     public void ApproveRequest()
     {
         //수락 시 퀘스트 위에 있는 아이템 사용
+        List<Item> toRemove = new List<Item>();
+
         foreach (Item item in ItemManager.Instance.HavingItemList)
         {
             if (item.ItemState == ItemStateType.ReadyToUse)
             {
-                item.ItemState = ItemStateType.UnBuy;
                 item.Use(_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2);
+                toRemove.Add(item); // 일단 나중에 지우자
             }
         }
 
@@ -103,11 +105,16 @@ public class MainProcess : MonoBehaviour
             (_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2, probability);
         DateManager.Instance.AddQuestResultToList
             (_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2, isQuestSuccess, probability);
-        
+
         int questEndDay = DateManager.Instance.CurrentDate + _todayRequest[_requestCount].Item2.QuestData.Days;
         string questCalenderInfoText = $"{_todayRequest[_requestCount].Item2.QuestData.QuestName} <color=green>{isQuestSuccess}</color>";
         UIManager.Instance.CalenderManager.AddCalenderText(questEndDay, questCalenderInfoText);
 
+        foreach (Item item in toRemove)
+        {
+            item.Rollback(_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2);
+            ItemManager.Instance.HavingItemList.Remove(item); // 여기서 한꺼번에 제거
+        }
         EndRequest();
     }
     public void EndRequest()
