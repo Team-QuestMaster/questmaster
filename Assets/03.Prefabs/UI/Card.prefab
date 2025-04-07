@@ -492,7 +492,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f366eb145348dc94cb46e2e6e3c319ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adventurerTierSprites: []
+  adventurerTierSprites:
+  - {fileID: 7150395282907082488, guid: c481ae6ba7ad0a042aba44c9a3102dd2, type: 3}
+  - {fileID: -6492548218044149164, guid: c481ae6ba7ad0a042aba44c9a3102dd2, type: 3}
+  - {fileID: 8693618367534728744, guid: c481ae6ba7ad0a042aba44c9a3102dd2, type: 3}
+  - {fileID: 6245330038833381982, guid: c481ae6ba7ad0a042aba44c9a3102dd2, type: 3}
   titleObject: {fileID: 4219728063398253404}
   _adventurerImage: {fileID: 5745540047244660869}
   _tierImage: {fileID: 1561272043888431788}
