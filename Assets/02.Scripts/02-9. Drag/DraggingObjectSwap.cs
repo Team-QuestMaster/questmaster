@@ -36,13 +36,13 @@ public class DraggingObjectSwap : MonoBehaviour
     {
         _myArea = transform.parent.GetComponent<RectTransform>();
         _draggableObject = GetComponent<DraggableObject>();
+        _draggableObject.OnDraggingEvent += SwapDraggingObject;
         _camera = Camera.main;
     }
-
     private void Start()
     {
         ComparePair();
-        _draggableObject.OnDraggingEvent += SwapDraggingObject;
+        // _draggableObject.OnDraggingEvent += SwapDraggingObject;
         // 항상 small 객체 먼저 보임
         if (_type == DraggingObjectType.Big)
         {
@@ -65,6 +65,7 @@ public class DraggingObjectSwap : MonoBehaviour
 
         // 스왑 오브젝트 활성화
         _swapTargetObject.gameObject.SetActive(true);
+        Debug.Log(_swapTargetObject.enabled);
         _swapTargetObject.transform.SetAsLastSibling();
 
         eventData.pointerDrag = _swapTargetObject.gameObject;

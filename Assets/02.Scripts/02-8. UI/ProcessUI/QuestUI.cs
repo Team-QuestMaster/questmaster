@@ -30,16 +30,21 @@ public class QuestUI : MonoBehaviour
     [SerializeField]
     private GameObject _bigQuestPaperGO;
     public GameObject BigQuestPaperGO { get => _bigQuestPaperGO; set => _bigQuestPaperGO = value; }
+    private Transform _bigQuestPaperActivateTransform;
     [SerializeField]
     private BigQuestPaperContent bigQuestPaperContent;
     [SerializeField]
     private Transform _smallQuestActivateTransform;
-
+    private void Awake()
+    {
+        _bigQuestPaperActivateTransform = _bigQuestPaperGO.transform;
+    }
     public void Initialize()
     {
         _currentQuest = _quests[_currentQuestIndex];
         _smallQuestGO.transform.position = _smallQuestActivateTransform.position;
         _smallQuestGO.SetActive(true);
+        _bigQuestPaperGO.transform.position = _bigQuestPaperActivateTransform.position;
         InitializeBigQuestPaperContent();
     }
     private void InitializeBigQuestPaperContent()

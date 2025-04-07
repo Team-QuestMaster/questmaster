@@ -14,16 +14,12 @@ public class ShowCharacter : MonoBehaviour
     
     private Animator _characterAnimator;
     private Image  _characterImage;
-    private void Awake()
+    private void Start()
     {
         CharacterAppearShow += UIManager.Instance.CharacterUI.Initialize;
         CharacterAppearShow += CharacterAppear;
         CharacterDisappearShow += CharacterDisappear;
-       
-    }
-    private void Start()
-    {
-
+        Appear();
     }
 
 

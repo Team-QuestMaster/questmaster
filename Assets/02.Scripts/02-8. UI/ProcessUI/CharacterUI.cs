@@ -22,7 +22,8 @@ public class CharacterUI : MonoBehaviour
 
     [SerializeField] private Button _positiveButton;
     [SerializeField] private Button _negativeButton;
-    
+
+    [SerializeField] private Transform _characterActivateTransform;
     
     public event Action PositiveButtonEvent;
     public event Action NegativeButtonEvent;
@@ -42,6 +43,7 @@ public class CharacterUI : MonoBehaviour
         _characterButton.onClick.AddListener(ShowSpeechBubbleUI);
         _speechButton.onClick.AddListener(NextDialogue);
         CurrentCharacter = Characters[_currentCharacter];
+        CurrentCharacter.transform.position = _characterActivateTransform.position;
     }
 
     void ShowSpeechBubbleUI()
@@ -120,16 +122,15 @@ public class CharacterUI : MonoBehaviour
 
     public void ChangeCharacter()
     {
+        Debug.Log("ChangeCharacter 호출");
         _currentCharacter++;
-        
+
         if (_currentCharacter < Characters.Count)
         {
             Characters[_currentCharacter].SetActive(false);
-
             CurrentCharacter = Characters[_currentCharacter];
             
             StageShowManager.Instance.MiniCharacter.MiniMove();
-            
         }
         else
         {

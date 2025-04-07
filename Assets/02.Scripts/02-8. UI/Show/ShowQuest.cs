@@ -8,13 +8,13 @@ public class ShowQuest : MonoBehaviour
     public MiniCharacterUI MiniUI;
     public event Action QuestAppearShow;
     public event Action QuestDisappearShow;
-
-    private void Awake()
+    private void Start()
     {
         QuestAppearShow += UIManager.Instance.QuestUI.Initialize;
         QuestAppearShow += QuestAppear;
         QuestDisappearShow += QuestDisappear;
         MiniUI.MoveToTarvenInEvent += Appear;
+        Appear();
     }
     public void Appear()
     {
@@ -31,5 +31,6 @@ public class ShowQuest : MonoBehaviour
     private void QuestDisappear()
     {
         UIManager.Instance.QuestUI.SmallQuestGO.SetActive(false);
+        UIManager.Instance.QuestUI.BigQuestPaperGO.SetActive(false);
     }
 }
