@@ -40,7 +40,6 @@ public class QuestUI : MonoBehaviour
         _currentQuest = _quests[_currentQuestIndex];
         _smallQuestGO.transform.position = _smallQuestActivateTransform.position;
         _smallQuestGO.SetActive(true);
-        _bigQuestPaperGO.SetActive(false);
         InitializeBigQuestPaperContent();
     }
     private void InitializeBigQuestPaperContent()
