@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class MainProcess : MonoBehaviour
 {
-    private (Adventurer, Quest) _currentRequest;
-
+    private List<(Adventurer, Quest)> _todayRequest;
 
     private const int _requestCountMaxPerDay = 5; // 하루에 방문 가능한 최대 모험가의 수
     private int _requestCount = 0; // 현재 방문한 모험가의 수
@@ -26,12 +25,13 @@ public class MainProcess : MonoBehaviour
             (() => DateManager.Instance.ChangeDate(_requestCount, _requestCountMaxPerDay));
         OnRequestCountIncreased += 
             (() => DateManager.Instance.ChangeTimePeriod(_requestCount, _requestCountMaxPerDay));
-
+        DateManager.Instance.OnDateChanged +=
+            (() => GetRequests());
     }
-    private void GetRequest()
+    private void GetRequests()
     {
         InitVisitedAdventureCount();
-        StartCoroutine(GetRequestCoroutine());
+        PickTodayRequests();
     }
     private void InitVisitedAdventureCount()
     {
@@ -55,43 +55,51 @@ public class MainProcess : MonoBehaviour
             }
         }
     }
-    private IEnumerator GetRequestCoroutine()
+    private void PickTodayRequests()
     {
         // 하루 최대 방문 수가 될 때 까지
-        while (_requestCount < _requestCountMaxPerDay)
+        int requestCount = 0;
+        while (requestCount < _requestCountMaxPerDay)
         {
-            // (모험가, 퀘스트)를 뽑아온 후, 활성화해준다.
-            _currentRequest = PickManager.Instance.Pick();
-            if (!ReferenceEquals(_currentRequest.Item1, null) && !ReferenceEquals(_currentRequest.Item2, null))
+            // (모험가, 퀘스트)를 뽑아온다
+            (Adventurer, Quest) request = PickManager.Instance.Pick();
+            if (!ReferenceEquals(request.Item1, null) && !ReferenceEquals(request.Item2, null))
             {
-                _currentRequest.Item1.gameObject.SetActive(true);
-                _currentRequest.Item2.gameObject.SetActive(true);
+                _todayRequest.Add(request);
             }
-            _requestCount++;
-            OnRequestCountIncreased?.Invoke();
-            // 현재 모험가 또는 퀘스트가 null일 때 까지 대기
-            yield return new WaitUntil
-                (() => ReferenceEquals(_currentRequest.Item1, null)
-                || ReferenceEquals(_currentRequest.Item2, null));
+            requestCount++;
         }
-        yield return new WaitUntil
-                (() => ReferenceEquals(_currentRequest.Item1, null)
-                || ReferenceEquals(_currentRequest.Item2, null));
-        yield return null;
+        foreach ((Adventurer, Quest) request in _todayRequest)
+        {
+            // 모험가는 Monobehaviour를 상속하고, Adventurer 스크립트가 부착된 GO가 곧 캐릭터의 GO이므로
+            UIManager.Instance.CharacterUI.Characters.Add(request.Item1.gameObject);
+
+            // 퀘스트 UI 쪽 로직이 완성되면, 위와 같이 추가해주면 될듯하다.
+        }
     }
     public void ApproveRequest()
     {
-        float probability = CalculateManager.Instance.CalculateProbability(_currentRequest.Item1, _currentRequest.Item2);
-        bool isQuestSuccess = CalculateManager.Instance.JudgeQuestResult(_currentRequest.Item1, _currentRequest.Item2, probability);
-        DateManager.Instance.AddQuestResultToList(_currentRequest.Item1, _currentRequest.Item2, isQuestSuccess, probability);
+        float probability = CalculateManager.Instance.CalculateProbability
+            (_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2);
+        bool isQuestSuccess = CalculateManager.Instance.JudgeQuestResult
+            (_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2, probability);
+        DateManager.Instance.AddQuestResultToList
+            (_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2, isQuestSuccess, probability);
 
+        EndRequest();
         // UI 싱글톤 스크립트에서 확률 보여주기 위해 메서드 호출 필요, 아래와 같은 형식으로
         // 확률 팝업 UI 스크립트.메서드명(probability);
+        // 캘린더 정보 표시
+        int questEndDay = DateManager.Instance.CurrentDate + _todayRequest[_requestCount].Item2.QuestData.Days;
+        string questCalenderInfoText = $"{_todayRequest[_requestCount].Item2.QuestData.QuestName} <color=green>{isQuestSuccess}</color>";
+        UIManager.Instance.CalenderManager.AddCalenderText(questEndDay, questCalenderInfoText);
     }
     public void EndRequest()
     {
-        _currentRequest.Item1.gameObject.SetActive(false);
-        _currentRequest.Item2.gameObject.SetActive(false);
-        _currentRequest = (null, null);
+        _requestCount++;
+        OnRequestCountIncreased?.Invoke();
+        // 어처피 ChangeCharacter에서 해주고 있음(퀘스트 제외)
+        //_todayRequest[_requestCount].Item1.gameObject.SetActive(false);
+        //_todayRequest[_requestCount].Item2.gameObject.SetActive(false);
     }
 }
