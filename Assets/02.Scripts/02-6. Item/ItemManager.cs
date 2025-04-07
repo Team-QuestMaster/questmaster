@@ -27,7 +27,6 @@ public class ItemManager : Singleton <ItemManager>
     protected override void Awake()
     {
         base.Awake();
-        SellingItems();
     }
 
     public void BuyItem(Item item) // 상점에서 제거, 보유 아이템에 추가
