@@ -4,5 +4,6 @@ public class StageShowManager : Singleton<StageShowManager>
 {
     public ShowResult ShowResult;
     public ShowCharacter ShowCharacter;
-
+    public MiniCharacterUI MiniCharacter;
+    
 }

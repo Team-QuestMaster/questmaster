@@ -8,20 +8,20 @@ public class MainProcess : MonoBehaviour
 {
     private List<(Adventurer, Quest)> _todayRequest;
 
-    private const int _requestCountMaxPerDay = 5; // ÇÏ·ç¿¡ ¹æ¹® °¡´ÉÇÑ ÃÖ´ë ¸ðÇè°¡ÀÇ ¼ö
-    private int _requestCount = 0; // ÇöÀç ¹æ¹®ÇÑ ¸ðÇè°¡ÀÇ ¼ö
+    private const int _requestCountMaxPerDay = 5; // ï¿½Ï·ç¿¡ ï¿½æ¹® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½è°¡ï¿½ï¿½ ï¿½ï¿½
+    private int _requestCount = 0; // ï¿½ï¿½ï¿½ï¿½ ï¿½æ¹®ï¿½ï¿½ ï¿½ï¿½ï¿½è°¡ï¿½ï¿½ ï¿½ï¿½
     public event Action OnRequestCountIncreased;
     public event Action OnRequestMade;
 
     private void Start()
     {
-        // TODO : UI¿¡¼­ Approve ¶Ç´Â Reject »óÈ£ÀÛ¿ëÀ» ÇßÀ»  ¶§,
-        // UI ½Ì±ÛÅæ¿¡ Á¸ÀçÇÏ´Â Action¿¡ ¾Æ·¡ ¸Þ¼­µåµéÀ» µ¿·ÏÇÑ´Ù.
-        // UI¸Å´ÏÀú¸í.Instnace.OnApprove += ApproveRequest;
-        // UI¸Å´ÏÀú¸í.Instnace.OnReject += RejectRequest ¶Ç´Â EndRequest;
-        // UI¸Å´ÏÀú¸í.Instance.On¸ðÇè°¡ÅðÀåComplete += EndRequest;
-        // UI¸Å´ÏÀú¸í.Instance.OnViewQuestResultFinished += ApplyQuestResult;
-        // UI¸Å´ÏÀú¸í.Instance.OnViewQuestResultFinished += GetRequest;
+        // TODO : UIï¿½ï¿½ï¿½ï¿½ Approve ï¿½Ç´ï¿½ Reject ï¿½ï¿½È£ï¿½Û¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½,
+        // UI ï¿½Ì±ï¿½ï¿½æ¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Actionï¿½ï¿½ ï¿½Æ·ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+        // UIï¿½Å´ï¿½ï¿½ï¿½ï¿½ï¿½.Instnace.OnApprove += ApproveRequest;
+        // UIï¿½Å´ï¿½ï¿½ï¿½ï¿½ï¿½.Instnace.OnReject += RejectRequest ï¿½Ç´ï¿½ EndRequest;
+        // UIï¿½Å´ï¿½ï¿½ï¿½ï¿½ï¿½.Instance.Onï¿½ï¿½ï¿½è°¡ï¿½ï¿½ï¿½ï¿½Complete += EndRequest;
+        // UIï¿½Å´ï¿½ï¿½ï¿½ï¿½ï¿½.Instance.OnViewQuestResultFinished += ApplyQuestResult;
+        // UIï¿½Å´ï¿½ï¿½ï¿½ï¿½ï¿½.Instance.OnViewQuestResultFinished += GetRequest;
         OnRequestCountIncreased += 
             (() => DateManager.Instance.ChangeDate(_requestCount, _requestCountMaxPerDay));
         OnRequestCountIncreased += 
@@ -30,6 +30,7 @@ public class MainProcess : MonoBehaviour
             (() => GetRequests());
         DateManager.Instance.OnDateChanged +=
             (() => ApplyQuestResult());
+        GetRequests();
     }
     private void GetRequests()
     {
@@ -54,28 +55,28 @@ public class MainProcess : MonoBehaviour
             {
                 GuildStatManager.Instance.Fame += questResult.Quest.QuestData.FameReward;
                 GuildStatManager.Instance.Gold += questResult.Quest.QuestData.GoldReward;
-                UIManager.Instance.ReportUI.QuestResultTextAdd($"¼º°ø: {questResult.Quest.QuestData.QuestName} {questResult.Probability}");
-                UIManager.Instance.ReportUI.SpecialCommentText($"¼º°ø: {questResult.Quest.QuestData.QuestName}: {questResult.Quest.QuestData.QuestHint}");
+                UIManager.Instance.ReportUI.QuestResultTextAdd($"ï¿½ï¿½ï¿½ï¿½: {questResult.Quest.QuestData.QuestName} {questResult.Probability}");
+                UIManager.Instance.ReportUI.SpecialCommentText($"ï¿½ï¿½ï¿½ï¿½: {questResult.Quest.QuestData.QuestName}: {questResult.Quest.QuestData.QuestHint}");
             }
             else
             {
                 GuildStatManager.Instance.Fame -= questResult.Quest.QuestData.FamePenalty;
                 GuildStatManager.Instance.Gold -= questResult.Quest.QuestData.GoldPenalty;
-                UIManager.Instance.ReportUI.QuestResultTextAdd($"½ÇÆÐ: {questResult.Quest.QuestData.QuestName} {questResult.Probability}");
-                UIManager.Instance.ReportUI.SpecialCommentText($"½ÇÆÐ: {questResult.Quest.QuestData.QuestName}: {questResult.Quest.QuestData.QuestHint}");
+                UIManager.Instance.ReportUI.QuestResultTextAdd($"ï¿½ï¿½ï¿½ï¿½: {questResult.Quest.QuestData.QuestName} {questResult.Probability}");
+                UIManager.Instance.ReportUI.SpecialCommentText($"ï¿½ï¿½ï¿½ï¿½: {questResult.Quest.QuestData.QuestName}: {questResult.Quest.QuestData.QuestHint}");
             }
         }
-        // °á°ú UI µ¥ÀÌÅÍ
+        // ï¿½ï¿½ï¿½ UI ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         UIManager.Instance.ReportUI.GoldText(beforeGold, GuildStatManager.Instance.Gold);
         UIManager.Instance.ReportUI.FameText(beforeFame, GuildStatManager.Instance.Fame);
     }
     private void PickTodayRequests()
     {
-        // ÇÏ·ç ÃÖ´ë ¹æ¹® ¼ö°¡ µÉ ¶§ ±îÁö
+        // ï¿½Ï·ï¿½ ï¿½Ö´ï¿½ ï¿½æ¹® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         int requestCount = 0;
         while (requestCount < _requestCountMaxPerDay)
         {
-            // (¸ðÇè°¡, Äù½ºÆ®)¸¦ »Ì¾Æ¿Â´Ù
+            // (ï¿½ï¿½ï¿½è°¡, ï¿½ï¿½ï¿½ï¿½Æ®)ï¿½ï¿½ ï¿½Ì¾Æ¿Â´ï¿½
             (Adventurer, Quest) request = PickManager.Instance.Pick();
             if (!ReferenceEquals(request.Item1, null) && !ReferenceEquals(request.Item2, null))
             {
@@ -85,11 +86,12 @@ public class MainProcess : MonoBehaviour
         }
         foreach ((Adventurer, Quest) request in _todayRequest)
         {
-            // ¸ðÇè°¡´Â Monobehaviour¸¦ »ó¼ÓÇÏ°í, Adventurer ½ºÅ©¸³Æ®°¡ ºÎÂøµÈ GO°¡ °ð Ä³¸¯ÅÍÀÇ GOÀÌ¹Ç·Î
+            // ï¿½ï¿½ï¿½è°¡ï¿½ï¿½ Monobehaviourï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½, Adventurer ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ GOï¿½ï¿½ ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ GOï¿½Ì¹Ç·ï¿½
             UIManager.Instance.CharacterUI.Characters.Add(request.Item1.gameObject);
 
-            // Äù½ºÆ® UI ÂÊ ·ÎÁ÷ÀÌ ¿Ï¼ºµÇ¸é, À§¿Í °°ÀÌ Ãß°¡ÇØÁÖ¸é µÉµíÇÏ´Ù.
+            // ï¿½ï¿½ï¿½ï¿½Æ® UI ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¼ï¿½ï¿½Ç¸ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ ï¿½Éµï¿½ï¿½Ï´ï¿½.
         }
+        StageShowManager.Instance.ShowResult.Initialize(_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2);
     }
     public void ApproveRequest()
     {
@@ -100,9 +102,9 @@ public class MainProcess : MonoBehaviour
         DateManager.Instance.AddQuestResultToList
             (_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2, isQuestSuccess, probability);
         
-        // UI ½Ì±ÛÅæ ½ºÅ©¸³Æ®¿¡¼­ È®·ü º¸¿©ÁÖ±â À§ÇØ ¸Þ¼­µå È£Ãâ ÇÊ¿ä, ¾Æ·¡¿Í °°Àº Çü½ÄÀ¸·Î
-        // È®·ü ÆË¾÷ UI ½ºÅ©¸³Æ®.¸Þ¼­µå¸í(probability);
-        // Ä¶¸°´õ Á¤º¸ Ç¥½Ã
+        // UI ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ È£ï¿½ï¿½ ï¿½Ê¿ï¿½, ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        // È®ï¿½ï¿½ ï¿½Ë¾ï¿½ UI ï¿½ï¿½Å©ï¿½ï¿½Æ®.ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½(probability);
+        // Ä¶ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
         int questEndDay = DateManager.Instance.CurrentDate + _todayRequest[_requestCount].Item2.QuestData.Days;
         string questCalenderInfoText = $"{_todayRequest[_requestCount].Item2.QuestData.QuestName} <color=green>{isQuestSuccess}</color>";
         UIManager.Instance.CalenderManager.AddCalenderText(questEndDay, questCalenderInfoText);
@@ -114,7 +116,7 @@ public class MainProcess : MonoBehaviour
         StageShowManager.Instance.ShowResult.Initialize(_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2);
         _requestCount++;
         OnRequestCountIncreased?.Invoke();
-        // ¾îÃ³ÇÇ ChangeCharacter¿¡¼­ ÇØÁÖ°í ÀÖÀ½(Äù½ºÆ® Á¦¿Ü)
+        // ï¿½ï¿½Ã³ï¿½ï¿½ ChangeCharacterï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½)
         //_todayRequest[_requestCount].Item1.gameObject.SetActive(false);
         //_todayRequest[_requestCount].Item2.gameObject.SetActive(false);
     }
