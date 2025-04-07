@@ -11,6 +11,7 @@ public class CharacterUI : MonoBehaviour
     public List<GameObject> Characters;
     private int _currentCharacter = 0;
     public GameObject CurrentCharacter;
+
     
     [SerializeField] private Adventurer _adventurer;
     [SerializeField] private Animator _characterAnimator;
@@ -119,13 +120,15 @@ public class CharacterUI : MonoBehaviour
 
     public void ChangeCharacter()
     {
+        _currentCharacter++;
+        
         if (_currentCharacter < Characters.Count)
         {
             Characters[_currentCharacter].SetActive(false);
-            _currentCharacter++;
+
             CurrentCharacter = Characters[_currentCharacter];
             
-            StageShowManager.Instance.ShowCharacter.MiniUI.MiniMove();
+            StageShowManager.Instance.MiniCharacter.MiniMove();
             
         }
         else

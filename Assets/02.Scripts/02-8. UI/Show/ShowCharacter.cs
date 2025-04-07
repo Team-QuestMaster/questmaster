@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ShowCharacter : MonoBehaviour
 {
 
-    public MiniCharacterUI MiniUI;
+    
     
     public event Action CharacterAppearShow; 
     public event Action CharacterDisappearShow;
@@ -19,7 +19,7 @@ public class ShowCharacter : MonoBehaviour
         CharacterAppearShow += UIManager.Instance.CharacterUI.Initialize;
         CharacterAppearShow += CharacterAppear;
         CharacterDisappearShow += CharacterDisappear;
-        MiniUI.MoveToTarvenInEvent += Appear;
+       
     }
     private void Start()
     {
@@ -47,12 +47,13 @@ public class ShowCharacter : MonoBehaviour
     void CharacterAppear()
     {
         UIManager.Instance.CharacterUI.CurrentCharacter.gameObject.SetActive(true);
+
         UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().DOFade(1, 1);
     }
 
     void CharacterDisappear()
     {
-        UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().rectTransform.DOLocalMove(new Vector3(-1200,0,0), 2f).SetEase(Ease.InBounce)
+        UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().rectTransform.DOLocalMove(new Vector3(-1200,0,0), 2f).SetEase(Ease.InBack)
             .OnComplete(UIManager.Instance.CharacterUI.ChangeCharacter);
     }
     
