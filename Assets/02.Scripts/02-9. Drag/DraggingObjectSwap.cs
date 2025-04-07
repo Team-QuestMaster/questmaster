@@ -54,12 +54,9 @@ public class DraggingObjectSwap : MonoBehaviour
     {
         // 객체가 자신의 영역 안이면 return
         Vector2 mousePosition = _camera.ScreenToWorldPoint(ClampToDragArea(eventData.position));
-        Debug.Log(_myArea.InverseTransformPoint(mousePosition));
-        Debug.Log(_myArea.rect.min);
-        Debug.Log(_myArea.rect.max);
+        
         if (_myArea.rect.Contains(_myArea.InverseTransformPoint(mousePosition)))
         {
-            Debug.Log("DraggingObjectSwap false");
             return;
         }
 
@@ -95,7 +92,7 @@ public class DraggingObjectSwap : MonoBehaviour
         // 우측과 상단 경계선 포함하기위한 -0.1f
         float clampedX = Mathf.Clamp(screenPosition.x, minBounds.x + 0.1f, maxBounds.x - 0.1f);
         float clampedY = Mathf.Clamp(screenPosition.y, minBounds.y + 0.1f, maxBounds.y - 0.1f);
-        Debug.Log(new Vector2(clampedX, clampedY));
+
         return new Vector2(clampedX, clampedY);
     }
 }
