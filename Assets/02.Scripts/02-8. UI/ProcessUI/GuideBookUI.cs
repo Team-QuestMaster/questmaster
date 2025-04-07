@@ -48,7 +48,7 @@ public class GuideBookUI : MonoBehaviour
         _backButton.gameObject.SetActive(false);
         if (!_isGuideBookOpen) GuideBookShow();
         _isGuideBookOpen = true;
-        
+        _guideBook.interactable = false;
         
     }
 
@@ -56,7 +56,7 @@ public class GuideBookUI : MonoBehaviour
     {
         if (_isGuideBookOpen) StartCoroutine(GuideBookHide());
         _backButton.gameObject.SetActive(false);
-        
+        _guideBook.interactable = true;
     }
 
     public void BookShake()
