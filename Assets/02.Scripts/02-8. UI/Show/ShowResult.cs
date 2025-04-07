@@ -9,8 +9,8 @@ public class ShowResult : MonoBehaviour
     public event Action ResultShowEvent;
     public  event Action ResultHideEvent;
  
-    public Quest QuestData;
-    public Adventurer AdventurerData;
+    private Quest _questData;
+    private Adventurer _adventurerData;
     [SerializeField] private bool _isApprove;
     [SerializeField] private Image _resultImage;
     [SerializeField] private TextMeshProUGUI _approveResultText;
@@ -29,6 +29,12 @@ public class ShowResult : MonoBehaviour
         UIManager.Instance.StampUI.UIApproveEvent += Approved;
         UIManager.Instance.StampUI.UIRejectEvent += Rejected;
         Debug.Log("ShoResult EventAdded");
+    }
+
+    public void Initialize(Adventurer adventurer, Quest questData)
+    {
+        _adventurerData = adventurer;
+        _questData = questData;
     }
     
     public void Show()
@@ -57,15 +63,15 @@ public class ShowResult : MonoBehaviour
     void ResultText()
     {
         _resultImage.gameObject.SetActive(true);
-        float probability = CalculateManager.Instance.CalculateProbability(AdventurerData, QuestData);
+        float probability = CalculateManager.Instance.CalculateProbability(_adventurerData, _questData);
         
         _approveResultText.text = _isApprove ? "<color=green>승낙함</color>" : "<color=red>거절됨</color>";
-        _questNameText.text = QuestData.QuestData.QuestName;
-        _adventurerNameText.text = AdventurerData.AdventurerData.AdventurerName;
-        _timeText.text = QuestData.QuestData.Days.ToString();
+        _questNameText.text = _questData.QuestData.QuestName;
+        _adventurerNameText.text = _adventurerData.AdventurerData.AdventurerName;
+        _timeText.text = _questData.QuestData.Days.ToString();
         _questProbabilityText.text = $"{probability}%";
-        _rewardText.text = $"{QuestData.QuestData.GoldReward}골드";
-        _penalityText.text = $"{QuestData.QuestData.GoldPenalty}골드";
+        _rewardText.text = $"{_questData.QuestData.GoldReward}골드";
+        _penalityText.text = $"{_questData.QuestData.GoldPenalty}골드";
         Show();
     }
     
