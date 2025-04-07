@@ -113,6 +113,7 @@ public class MainProcess : MonoBehaviour
         foreach (Item item in toRemove)
         {
             item.Rollback(_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2);
+            item.ItemState = ItemStateType.UnBuy;
             ItemManager.Instance.HavingItemList.Remove(item); // 여기서 한꺼번에 제거
         }
         EndRequest();
