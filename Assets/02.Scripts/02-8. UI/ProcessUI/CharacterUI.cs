@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -7,7 +8,7 @@ using UnityEngine.Rendering;
 
 public class CharacterUI : MonoBehaviour
 {
-    public GameObject[] Characters;
+    public List<GameObject> Characters;
     private int _currentCharacter = 0;
     public GameObject CurrentCharacter;
     
@@ -113,7 +114,7 @@ public class CharacterUI : MonoBehaviour
 
     public void ChangeCharacter()
     {
-        if (_currentCharacter < Characters.Length)
+        if (_currentCharacter < Characters.Count)
         {
             Characters[_currentCharacter].SetActive(false);
             _currentCharacter++;
