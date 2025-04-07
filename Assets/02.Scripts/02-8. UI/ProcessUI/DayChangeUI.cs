@@ -9,20 +9,23 @@ public class DayChangeUI : MonoBehaviour
     //Morning -> Afternoon -> Night
     public Image[] SkyImages;
 
-    private float _currentSkyStep;
+    private int _currentStep;
+    private int _characterCount;
+    [SerializeField] private int _step = 3;
+    
     
     public event Action TimePassing;
 
     void Start()
     {
         Initialize();
-        Debug.Log($"{UIManager.Instance.CharacterUI.Characters.Length} |{SkyImages.Length} |  {_currentSkyStep}");
+        
     }
     public void Initialize()
     {
         TimePassing = TimeFlow;
-        //_step = (float)1/(float)(UIManager.Instance.CharacterUI.Characters.Length*(float)SkyImages.Length); //한 스텝당 증가될 사항
-        _currentSkyStep = 0;
+        _currentStep = 0;
+        _characterCount = UIManager.Instance.CharacterUI.Characters.Count;
     }
     
     public void ReturnDay()
@@ -44,19 +47,32 @@ public class DayChangeUI : MonoBehaviour
 
     public void TimeFlow()
     {
-        if (_currentSkyStep < (float)1 / (float)SkyImages.Length)
+        if (_currentStep + _step <= _characterCount * 1)
         {
-            Color color = SkyImages[1].color;
-
-            SkyImages[1].color = color;
+            _currentStep += _step;
             
-        }else if (_currentSkyStep < (float)2 / (float)SkyImages.Length)
+            Color color = SkyImages[1].color;
+            color.a = (float)_currentStep/(float)_characterCount;
+            SkyImages[1].color = color;
+            //Debug.Log($"낮에 있는 놈을{(float)_currentStep/(float)_characterCount}로 바꿈");
+        }
+        else if (_currentStep + _step <= _characterCount * 2)
+        {
+            _currentStep += _step;
+            
+            Color color = SkyImages[2].color;
+            color.a = (float)(_currentStep - _characterCount)/(float)_characterCount;
+            SkyImages[2].color = color;
+            //Debug.Log($"밤에 있는 놈을{(float)(_currentStep - _characterCount)/(float)_characterCount}로 바꿈");
+        }
+        else
         {
             Color color = SkyImages[2].color;
-
+            color.a = 1;
             SkyImages[2].color = color;
         }
-        Debug.Log(_currentSkyStep);
+        
+        //Debug.Log(_currentStep);
         
         
     }
