@@ -25,6 +25,9 @@ public class CharacterUI : MonoBehaviour
 
     [SerializeField] private Transform _characterActivateTransform;
     
+    [SerializeField] private AdventurerIDCardUI _adventurerIDCardUI;
+    
+    
     public event Action PositiveButtonEvent;
     public event Action NegativeButtonEvent;
     
@@ -43,6 +46,7 @@ public class CharacterUI : MonoBehaviour
         _characterButton.onClick.AddListener(ShowSpeechBubbleUI);
         _speechButton.onClick.AddListener(NextDialogue);
         CurrentCharacter = Characters[_currentCharacter];
+        _adventurerIDCardUI.Initialized(_adventurer);
         CurrentCharacter.transform.position = _characterActivateTransform.position;
     }
 
@@ -131,6 +135,9 @@ public class CharacterUI : MonoBehaviour
             CurrentCharacter = Characters[_currentCharacter];
             
             StageShowManager.Instance.MiniCharacter.MiniMove();
+            
+            // TODO: _adventurer 최신화
+            _adventurerIDCardUI.Initialized(_adventurer);
         }
         else
         {
