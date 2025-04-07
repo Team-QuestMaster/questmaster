@@ -24,7 +24,7 @@ public class ReportUI : MonoBehaviour
         _report.transform.DOMove(new Vector3(0,1003,0), 1f).OnComplete(() => _report.gameObject.SetActive(false));
     }
 
-    void TextClear()
+    public void TextClear()
     {
         _goldChangeText.text = "";
         _fameChangeText.text = "";
@@ -33,17 +33,17 @@ public class ReportUI : MonoBehaviour
         
     }
 
-    void GoldText(int before, int after)
+    public void GoldText(int before, int after)
     {
         _goldChangeText.text = $"{before} -> {after}";
     }
 
-    void FameText(int before, int after)
+    public void FameText(int before, int after)
     {
         _fameChangeText.text = $"{before} -> {after}";
     }
 
-    void QuestResultTextAdd(string text)
+    public void QuestResultTextAdd(string text)
     {
         if (_questResultText.text == "")
         {
@@ -55,7 +55,7 @@ public class ReportUI : MonoBehaviour
         }
     }
 
-    void SpecialCommentText(string text)
+   public  void SpecialCommentText(string text)
     {
         if(_specialCommentText.text == "")
         {
