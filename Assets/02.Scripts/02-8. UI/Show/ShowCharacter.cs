@@ -14,12 +14,16 @@ public class ShowCharacter : MonoBehaviour
     
     private Animator _characterAnimator;
     private Image  _characterImage;
-
-    private void Start()
+    private void Awake()
     {
-        CharacterAppearShow+= CharacterAppear;
+        CharacterAppearShow += UIManager.Instance.CharacterUI.Initialize;
+        CharacterAppearShow += CharacterAppear;
         CharacterDisappearShow += CharacterDisappear;
         MiniUI.MoveToTarvenInEvent += Appear;
+    }
+    private void Start()
+    {
+
     }
 
 
@@ -32,6 +36,7 @@ public class ShowCharacter : MonoBehaviour
 
     public void Appear()
     {
+        Debug.Log("Appear 호출");
         CharacterAppearShow?.Invoke();
     }
 
@@ -42,6 +47,7 @@ public class ShowCharacter : MonoBehaviour
 
     void CharacterAppear()
     {
+        Debug.Log("CharacterAppear 호출");
         UIManager.Instance.CharacterUI.CurrentCharacter.gameObject.SetActive(true);
         UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().DOFade(1, 1);
     }
