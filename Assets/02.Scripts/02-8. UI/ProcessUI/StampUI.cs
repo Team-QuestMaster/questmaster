@@ -15,6 +15,9 @@ public class StampUI : MonoBehaviour
     //[SerializeField] private Button _closeStampBtn;
     [SerializeField] private Image _popUpButton;
     
+    [SerializeField] private UnderChecker _approveUnderChecker;
+    [SerializeField] private UnderChecker _rejectUnderChecker;
+    
     private Vector3 _approvePosition;
     private Vector3 _rejectPosition;
     private bool _show;
@@ -26,13 +29,13 @@ public class StampUI : MonoBehaviour
 
 
    // private Tweener _tweener;
-    private void Awake()
-    {
-        //_tweener = _stampZone.transform.DOShakePosition(0.1f,new Vector3(0,5,0)).SetAutoKill(false).Pause().SetRelative().SetId("StampShake");
-    }
+   private void Start()
+   {
+       Initialize();
+   }
 
 
-    public void Initialize()
+   public void Initialize()
     {
 
         //_popUpButton.onClick.AddListener(StampInteract);
@@ -58,6 +61,9 @@ public class StampUI : MonoBehaviour
         {
             _approveAnimator.SetBool("Hover", false);
             _rejectAnimator.SetBool("Hover", false);
+            _rejectUnderChecker.Interactable = true;
+            _approveUnderChecker.Interactable = true;
+
         };
         
         

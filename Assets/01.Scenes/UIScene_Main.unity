@@ -667,7 +667,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _adventurerSO: {fileID: 11400000, guid: 6eb920d3ecae252488e84be1f9c71a68, type: 2}
-  _idCardSprite: {fileID: 0}
 --- !u!4 &64253761
 Transform:
   m_ObjectHideFlags: 0

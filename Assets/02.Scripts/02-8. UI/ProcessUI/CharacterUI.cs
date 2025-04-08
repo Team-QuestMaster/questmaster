@@ -50,6 +50,8 @@ public class CharacterUI : MonoBehaviour
         Adventurer adventurer = CurrentCharacter.GetComponent<Adventurer>();
         _characterData = adventurer.AdventurerData;
         _adventurerIDCardUI.Initialize(adventurer);
+
+        StageShowManager.Instance.ShowCharacter.CharacterDisappearShow += HideSpeechBubbleUI;
     }
 
     void ShowSpeechBubbleUI()
@@ -120,11 +122,24 @@ public class CharacterUI : MonoBehaviour
         }
     }
 
-    void ShowSpeechBubbleButtonUI()
+    public void ShowSpeechBubbleButtonUI()
     {
-        
+        Debug.Log("ShowSpeechBubbleButtonUI");
+        ShowSpeechBubbleUI();
+        _positiveButton.gameObject.SetActive(true);
+        _positiveButton.interactable = true;
+        _negativeButton.gameObject.SetActive(true);
+        _negativeButton.interactable = true;
     }
-    
+
+    void HideSpeechBubbleButtonUI()
+    {
+        _positiveButton.gameObject.SetActive(false);
+        _negativeButton.interactable = false;
+        _negativeButton.interactable = false;
+        _positiveButton.interactable = false;
+        HideSpeechBubbleUI();
+    }
 
     public void ChangeCharacter()
     {
@@ -137,6 +152,8 @@ public class CharacterUI : MonoBehaviour
             
             CurrentCharacter.SetActive(false);
             CurrentCharacter = Characters[_currentCharacter];
+
+           
 
             StageShowManager.Instance.MiniCharacter.MiniMove();
             _adventurerIDCardUI.Initialize(CurrentCharacter.GetComponent<Adventurer>());

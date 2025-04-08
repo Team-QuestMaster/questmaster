@@ -39,6 +39,11 @@ public class ShowCharacter : MonoBehaviour
     public void Appear()
     {
         CharacterAppearShow?.Invoke();
+        
+        if (UIManager.Instance.CharacterUI.Characters[0].GetComponent<Adventurer>().AdventurerData.AdventurerType == AdventurerType.Dealer)
+        {
+            UIManager.Instance.CharacterUI.ShowSpeechBubbleButtonUI();
+        }
     }
     public void Appear(System.Action onComplete)
     {
