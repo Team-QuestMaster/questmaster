@@ -14,7 +14,7 @@ public class UIManager : Singleton<UIManager>
     public SettingUI SettingUI;
     public CalenderManager CalenderManager;
     public DayChangeUI DayChangeUI;
-   public OneCycleStartAndEnd oneCycleStartAndEnd;
+   public OneCycleStartAndEnd OneCycleStartAndEnd;
     
     [SerializeField] private Image _cursorBox;
     [SerializeField] private TextMeshProUGUI _cursorText;

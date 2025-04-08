@@ -13,7 +13,7 @@ public class NightEventManager : Singleton<NightEventManager>
         set
         {
             _isIsNightEventDay = value;
-            UIManager.Instance.oneCycleStartAndEnd.SetNextCycleEvent(_isIsNightEventDay ? NightEventPick : null);
+            UIManager.Instance.OneCycleStartAndEnd.SetNextCycleEvent(_isIsNightEventDay ? NightEventPick : null);
         }
     }
     protected override void Awake()
@@ -37,7 +37,7 @@ public class NightEventManager : Singleton<NightEventManager>
         {
             StageShowManager.Instance.ShowCharacter.Disappear();
             DateManager.Instance.ChangeDateInNight();
-            UIManager.Instance.oneCycleStartAndEnd.EndCycle();
+            UIManager.Instance.OneCycleStartAndEnd.EndCycle();
         });
     }
 
