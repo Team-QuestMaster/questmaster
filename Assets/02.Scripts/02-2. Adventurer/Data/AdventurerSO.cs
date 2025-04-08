@@ -21,7 +21,8 @@ public enum AdventurerStateType
 public enum AdventurerType
 {
     Major, // 주요 모험가
-    Minor // 보조 모험가
+    Minor, // 보조 모험가
+    Dealer // 상인
 }
 
 [System.Serializable]

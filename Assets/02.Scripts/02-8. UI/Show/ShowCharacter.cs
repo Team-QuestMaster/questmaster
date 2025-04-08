@@ -21,8 +21,9 @@ public class ShowCharacter : MonoBehaviour
     private void Start()
     {
         CharacterAppearShow += UIManager.Instance.CharacterUI.Initialize;
-        CharacterAppearShow += CharacterAppear;
-        CharacterDisappearShow += CharacterDisappear;
+        CharacterAppearShow += () => CharacterAppear();
+        CharacterDisappearShow += () => CharacterDisappear();
+        Appear();
     }
 
     
@@ -39,23 +40,39 @@ public class ShowCharacter : MonoBehaviour
     {
         CharacterAppearShow?.Invoke();
     }
+    public void Appear(System.Action onComplete)
+    {
+        CharacterAppearShow += () => CharacterAppear(onComplete);
+        CharacterAppearShow?.Invoke();
+    }
 
     public void Disappear()
     {
         CharacterDisappearShow?.Invoke();
     }
-
-    void CharacterAppear()
+    public void Disappear(System.Action onComplete)
     {
+        CharacterDisappearShow += () => CharacterDisappear(onComplete);
+        CharacterDisappearShow?.Invoke();
+    }
+
+    void CharacterAppear(System.Action onComplete = null)
+    {
+        Debug.Log("등장");
         UIManager.Instance.CharacterUI.CurrentCharacter.gameObject.SetActive(true);
-        UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().DOFade(1, 1).SetAutoKill(false);
+        UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().DOFade(1, 1).SetAutoKill(false)
+            .OnComplete(()=>onComplete?.Invoke());
 
     }
 
-    void CharacterDisappear()
+    void CharacterDisappear(System.Action onComplete = null)
     {
-            UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().rectTransform.DOLocalMove(new Vector3(-1200,0,0), 2f).SetEase(Ease.InBack)
-                .OnComplete(UIManager.Instance.CharacterUI.ChangeCharacter); // 처음엔 멈춘 상태
+        UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().rectTransform.DOLocalMove(new Vector3(-1200, 0, 0), 2f).SetEase(Ease.InBack)
+            .OnComplete(() =>
+            {
+                UIManager.Instance.CharacterUI.ChangeCharacter();
+                onComplete?.Invoke();
+            });
   
         
     }

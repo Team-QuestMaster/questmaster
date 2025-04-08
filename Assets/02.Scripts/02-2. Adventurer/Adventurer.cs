@@ -7,6 +7,10 @@ public class Adventurer : MonoBehaviour
     private AdventurerData _adventurerData;
     public AdventurerData AdventurerData { get => _adventurerData; set => _adventurerData = value; }
 
+    [SerializeField]
+    private Sprite _idCardSprite;
+    public Sprite IdCardSprite { get => _idCardSprite; set => _idCardSprite = value; }
+
     private void Awake()
     {
         InitAdventurerData();
@@ -22,7 +26,7 @@ public class Adventurer : MonoBehaviour
     }
     private void InitAdventurerData()
     {
-        if (_adventurerSO.AdventurerType == AdventurerType.Major)
+        if (_adventurerSO.AdventurerType == AdventurerType.Major || _adventurerSO.AdventurerType == AdventurerType.Dealer)
         {
             MajorASO majorAdventurerSO = (MajorASO)_adventurerSO;
             InitMajorTypeData(ref majorAdventurerSO);

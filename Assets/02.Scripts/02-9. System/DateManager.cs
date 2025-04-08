@@ -8,8 +8,8 @@ public class DateManager : Singleton<DateManager>
     private const int _maxDate = 30;
     public static int MaxDate => _maxDate;
     private int _currentDate = 1;
-    public int CurrentDate 
-    { 
+    public int CurrentDate
+    {
         get => _currentDate;
         set => _currentDate = Mathf.Clamp(value, 1, _maxDate);
     }

@@ -27,9 +27,9 @@ public class OneCycleStartAndEnd : MonoBehaviour
             .SetAutoKill(false)
             .Pause()
             .OnComplete(FadeIn);
-        
+
         SetNextCycleEvent(null); // 기본 싸이클로 초기화
-        
+
         FadeIn(); // 시작하면 FadeIn
     }
 
@@ -47,7 +47,7 @@ public class OneCycleStartAndEnd : MonoBehaviour
         _fadeImage.gameObject.SetActive(true);
         _fadeOutTween.Restart();
     }
-    
+
     public void StartDayCycle()
     {
         Debug.Log("Cycle이 시작된다");
