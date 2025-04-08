@@ -7,8 +7,8 @@ public class ItemManager : Singleton <ItemManager>
 {
     [SerializeField]
     private List<Item> _remainItemList = new List<Item>(); // 미보유 아이템 리스트
-    public List<Item> RemainItemList { get => _remainItemList; } 
-
+    public List<Item> RemainItemList { get => _remainItemList; }
+    [SerializeField]
     private List<Item> _havingItemList = new List<Item>(); // 보유 아이템 리스트
     public List<Item> HavingItemList { get => _havingItemList;}
 
@@ -85,7 +85,7 @@ public class ItemManager : Singleton <ItemManager>
             Debug.Log("인벤토리에 해당 아이템이 없습니다.");
             return;
         }
-        _havingItemList.Remove(item);
+        item.gameObject.SetActive(false); // 아이템 비활성화
     }
 
     public void SellingItems() // 야시장 물품 3개 추출
