@@ -6,15 +6,12 @@ using UnityEngine.UI;
 
 public class ShowIDCard : MonoBehaviour
 {
-    public MiniCharacterUI MiniUI;
     public event Action OnIDCardAppear;
     public event Action OnIDCardDisappear;
     private void Start()
     {
         OnIDCardAppear += IDCardAppear;
         OnIDCardDisappear += IDCardDisappear;
-        MiniUI.MoveToTarvenInEvent += Appear;
-        Appear();
     }
 
     public void Appear()

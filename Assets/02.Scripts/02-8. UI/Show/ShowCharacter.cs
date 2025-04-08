@@ -23,7 +23,6 @@ public class ShowCharacter : MonoBehaviour
         CharacterAppearShow += UIManager.Instance.CharacterUI.Initialize;
         CharacterAppearShow += CharacterAppear;
         CharacterDisappearShow += CharacterDisappear;
-        Appear();
     }
 
     
