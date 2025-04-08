@@ -11,14 +11,27 @@ public class MiniCharacterUI : MonoBehaviour
     [SerializeField] private Image _tarven;
     [SerializeField] private int _moveLength;
 
- 
+    public Image MiniCharacter;
+    [SerializeField] private Transform _miniCharacterPivot;
     
-
-
+    
+    
     public event Action MoveToTarvenInEvent;
     public event Action MinisMoveEvent;
 
-   
+    
+
+    public void MakeMiniCharacters()
+    {
+        Debug.Log("미니 캐릭터 생성 시도");
+        for (int i = 0; i < UIManager.Instance.CharacterUI.Characters.Count; i++)
+        {
+            Image mini =  Instantiate(MiniCharacter, _miniCharacterPivot);
+            mini.rectTransform.localPosition = new Vector3(_tarven.rectTransform.localPosition.x + _moveLength * (i + 1),
+                _tarven.rectTransform.localPosition.y, 0);
+            Debug.Log("미니 캐릭터 생섬함");
+        }
+    }
     public void MiniMove()
     {
         foreach (Image mini in Minis)
