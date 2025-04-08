@@ -28,7 +28,7 @@ public class ShowResult : MonoBehaviour
     {
         UIManager.Instance.StampUI.UIApproveEvent += Approved;
         UIManager.Instance.StampUI.UIRejectEvent += Rejected;
-        Debug.Log("ShoResult EventAdded");
+        
     }
 
     public void Initialize(Adventurer adventurer, Quest questData)

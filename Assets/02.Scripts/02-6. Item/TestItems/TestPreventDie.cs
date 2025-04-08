@@ -11,7 +11,6 @@ public class TestPreventDie : Item
         {
             adventurer.AdventurerData.AdventurerState = AdventurerStateType.Injured; // 사망 방지
         }
-        ItemManager.Instance.ItemUsed(this);
     }
 
     public override void Rollback(Adventurer adventurer, Quest quest) // 재구현

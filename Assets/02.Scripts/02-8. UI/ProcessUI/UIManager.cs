@@ -60,5 +60,7 @@ public class UIManager : Singleton<UIManager>
     {
         Debug.Log("Cursor Box Hiding");
         _cursorBox.gameObject.SetActive(false);
+        
+        
     }
 }

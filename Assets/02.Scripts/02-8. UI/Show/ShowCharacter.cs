@@ -14,6 +14,10 @@ public class ShowCharacter : MonoBehaviour
     
     private Animator _characterAnimator;
     private Image  _characterImage;
+    
+    private Tweener _characterAppearTweener;
+    private Tweener _characterDisappearTweener;
+    
     private void Start()
     {
         CharacterAppearShow += UIManager.Instance.CharacterUI.Initialize;
@@ -22,6 +26,8 @@ public class ShowCharacter : MonoBehaviour
         Appear();
     }
 
+    
+    
 
     //모험가의 애니메이터를 등록함
     public void SetCharacter(Animator characterAnimator, Image characterImage)
@@ -44,13 +50,19 @@ public class ShowCharacter : MonoBehaviour
     {
         UIManager.Instance.CharacterUI.CurrentCharacter.gameObject.SetActive(true);
 
-        UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().DOFade(1, 1);
+
+        UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().DOFade(1, 1).SetAutoKill(false);
+
     }
 
     void CharacterDisappear()
     {
-        UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().rectTransform.DOLocalMove(new Vector3(-1200,0,0), 2f).SetEase(Ease.InBack)
-            .OnComplete(UIManager.Instance.CharacterUI.ChangeCharacter);
+        
+        
+            UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().rectTransform.DOLocalMove(new Vector3(-1200,0,0), 2f).SetEase(Ease.InBack)
+                .OnComplete(UIManager.Instance.CharacterUI.ChangeCharacter); // 처음엔 멈춘 상태
+  
+        
     }
     
 }
