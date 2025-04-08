@@ -28,7 +28,7 @@ public class OneDayStartAndEnd : MonoBehaviour
                 StageShowManager.Instance.ShowCharacter.Appear();
             });
 
-        _fadeOutTween = _dayEndFade.DOFade(1, 0.5f)
+        _fadeOutTween = _dayEndFade.DOFade(1, 0.5f).OnComplete(() => UIManager.Instance.ReportUI.ShowReportUI())
             .SetAutoKill(false)
             .Pause();
 
@@ -51,6 +51,7 @@ public class OneDayStartAndEnd : MonoBehaviour
         Debug.Log("끝");
         _dayEndFade.gameObject.SetActive(true);
         _fadeOutTween.Restart();
+        
     }
     
     public void StartDay()
@@ -76,6 +77,8 @@ public class OneDayStartAndEnd : MonoBehaviour
         }
 
         OnDayEnd?.Invoke();
+        
+        //UIManager.Instance.ReportUI.ShowReportUI();
     }
 
 }
