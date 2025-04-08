@@ -80,7 +80,6 @@ public class ItemManager : Singleton <ItemManager>
             if (item.ItemState == ItemStateType.ReadyToUse)
             {
                 item.Use(adventurer, quest);
-                item.ItemState = ItemStateType.UnBuy; // 아이템 상태 변경
                 item.gameObject.SetActive(false); // 아이템 비활성화
             }
         }
@@ -94,6 +93,7 @@ public class ItemManager : Singleton <ItemManager>
             if (item.ItemState == ItemStateType.ReadyToUse)
             {
                 item.Rollback(adventurer, quest);
+                item.ItemState = ItemStateType.UnBuy; // 아이템 상태 변경
                 toRemove.Add(item);
             }
         }
