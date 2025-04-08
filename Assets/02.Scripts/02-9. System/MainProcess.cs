@@ -58,7 +58,8 @@ public class MainProcess : MonoBehaviour
 
             UIManager.Instance.QuestUI.QuestDatas.Add(request.Item2);
         }
-        StageShowManager.Instance.ShowResult.Initialize(_todayRequest[_requestCount].Item1, UIManager.Instance.QuestUI.CurrentQuest);
+        StageShowManager.Instance.ShowResult.Initialize
+            (_todayRequest[_requestCount].Item1, UIManager.Instance.QuestUI.CurrentQuest);
     }
     public void ApproveRequest()
     {

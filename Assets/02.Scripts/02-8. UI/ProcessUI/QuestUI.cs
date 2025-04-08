@@ -23,10 +23,8 @@ public class QuestUI : MonoBehaviour
     private List<QuestSO> _questDatas = new List<QuestSO>();
     public List<QuestSO> QuestDatas { get => _questDatas; set => _questDatas = value; }
     private QuestSO _currentQuestData;
-    public QuestSO CurrentQuestData { get => _currentQuestData; set => _currentQuestData = value; }
-
     private Quest _currentQuest;
-    public Quest CurrentQuest { get => _currentQuest; set => _currentQuest = value; }
+    public Quest CurrentQuest { get => _currentQuest; }
 
 
     [SerializeField]
