@@ -19,13 +19,10 @@ public class MainProcess : MonoBehaviour
             (() => DateManager.Instance.ChangeDate(_requestCount, _requestCountMaxPerDay));
         OnRequestCountIncreased += 
             (() => DateManager.Instance.ChangeTimePeriod(_requestCount, _requestCountMaxPerDay));
-        DateManager.Instance.OnDateChanged +=
-            (() => GetRequests());
-        DateManager.Instance.OnDateChanged +=
-            (() => ApplyQuestResult());
-        UIManager.Instance.StampUI.UIApproveEvent +=
-            (() => ApproveRequest());
-        
+        DateManager.Instance.OnDateChanged += (() => GetRequests());
+        DateManager.Instance.OnDateChanged += (() => ApplyQuestResult());
+        UIManager.Instance.StampUI.UIApproveEvent += (() => ApproveRequest());
+        UIManager.Instance.StampUI.UIRejectEvent += (() => RejectRequest());
         GetRequests();
     }
     private void GetRequests()
@@ -73,6 +70,7 @@ public class MainProcess : MonoBehaviour
             (Adventurer, Quest) request = PickManager.Instance.Pick();
             if (!ReferenceEquals(request.Item1, null) && !ReferenceEquals(request.Item2, null))
             {
+                request.Item1.AdventurerData.AdventurerState = AdventurerStateType.TodayCome;
                 _todayRequest.Add(request);
             }
             requestCount++;
@@ -88,6 +86,8 @@ public class MainProcess : MonoBehaviour
     public void ApproveRequest()
     {
         //수락 시 퀘스트 위에 있는 아이템 사용
+
+        // ItemManager 메서드로 뺄 수 있다.
         List<Item> toRemove = new List<Item>();
 
         foreach (Item item in ItemManager.Instance.HavingItemList)
@@ -116,6 +116,15 @@ public class MainProcess : MonoBehaviour
             item.ItemState = ItemStateType.UnBuy;
             ItemManager.Instance.HavingItemList.Remove(item); // 여기서 한꺼번에 제거
         }
+
+        _todayRequest[_requestCount].Item1.AdventurerData.AdventurerState = AdventurerStateType.Questing;
+        _todayRequest[_requestCount].Item2.QuestData.IsQuesting = true;
+        EndRequest();
+    }
+
+    public void RejectRequest()
+    {
+        _todayRequest[_requestCount].Item1.AdventurerData.AdventurerState = AdventurerStateType.Idle;
         EndRequest();
     }
     public void EndRequest()
