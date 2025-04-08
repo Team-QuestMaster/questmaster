@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(DraggableObject))]
 public class DraggingObjectSwap : MonoBehaviour
@@ -31,6 +32,8 @@ public class DraggingObjectSwap : MonoBehaviour
     private DraggableObject _draggableObject;
 
     private Camera _camera;
+    
+    private Image _image;
 
     private void Awake()
     {
@@ -38,6 +41,7 @@ public class DraggingObjectSwap : MonoBehaviour
         _draggableObject = GetComponent<DraggableObject>();
         _draggableObject.OnDraggingEvent += SwapDraggingObject;
         _camera = Camera.main;
+        _image = GetComponent<Image>();
     }
     private void Start()
     {
@@ -47,6 +51,16 @@ public class DraggingObjectSwap : MonoBehaviour
         if (_type == DraggingObjectType.Big)
         {
             gameObject.SetActive(false);
+            _draggableObject.OnPointerDownEvent += () => ImageShadowManager.Instance.SetTargetImage(_image);
+            _draggableObject.OnEndDragEvent += ImageShadowManager.Instance.DisableImageShadow;
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (_type == DraggingObjectType.Big)
+        {
+            ImageShadowManager.Instance.SetTargetImage(_image);
         }
     }
 
@@ -62,6 +76,10 @@ public class DraggingObjectSwap : MonoBehaviour
 
         // 영역을 벗어나는 경우
         gameObject.SetActive(false); // 비활성화
+        if (_type == DraggingObjectType.Big)
+        {
+            ImageShadowManager.Instance.DisableImageShadow();
+        }
         
         // 스왑 오브젝트 활성화
         _swapTargetObject.gameObject.SetActive(true);
