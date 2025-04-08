@@ -62,12 +62,12 @@ public class DraggingObjectSwap : MonoBehaviour
 
         // 영역을 벗어나는 경우
         gameObject.SetActive(false); // 비활성화
-
+        
         // 스왑 오브젝트 활성화
         _swapTargetObject.gameObject.SetActive(true);
-        Debug.Log(_swapTargetObject.enabled);
+        
         _swapTargetObject.transform.SetAsLastSibling();
-
+        
         eventData.pointerDrag = _swapTargetObject.gameObject;
         ExecuteEvents.Execute(_swapTargetObject.gameObject, eventData, ExecuteEvents.dragHandler);
     }
@@ -88,12 +88,12 @@ public class DraggingObjectSwap : MonoBehaviour
     private Vector2 ClampToDragArea(Vector2 screenPosition)
     {
         RectTransform dragArea = _draggableObject.DragArea;
-        Vector2 minBounds = (Vector2)dragArea.localPosition + dragArea.rect.min;
-        Vector2 maxBounds = (Vector2)dragArea.localPosition + dragArea.rect.max;
+        Vector2 areaScreenPosition = _camera.WorldToScreenPoint(dragArea.position);
+        Vector2 minBounds = areaScreenPosition + dragArea.rect.min;
+        Vector2 maxBounds = areaScreenPosition + dragArea.rect.max;
         // 우측과 상단 경계선 포함하기위한 -0.1f
         float clampedX = Mathf.Clamp(screenPosition.x, minBounds.x + 0.1f, maxBounds.x - 0.1f);
         float clampedY = Mathf.Clamp(screenPosition.y, minBounds.y + 0.1f, maxBounds.y - 0.1f);
-
         return new Vector2(clampedX, clampedY);
     }
 }

@@ -12,6 +12,21 @@ public class CalenderManager : MonoBehaviour
   /// </summary>
   /// <param name="day">추가할 날짜</param>
   /// <param name="calenderText">정보: 퀘스트 이름, 성공확률</param>
+
+  void Start()
+  {
+    Initialize();
+  }
+
+  void Initialize()
+  {
+    foreach (TextMeshProUGUI text in _calenderText)
+    {
+      text.text = "";
+      
+    }
+    
+  }
   public void AddCalenderText(int day ,string calenderText)
   {
     // TODO: 성공 확률에 따라 성공 확률 텍스트 컬러 변경
