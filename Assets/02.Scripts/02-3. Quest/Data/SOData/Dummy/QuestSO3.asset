@@ -25,6 +25,6 @@ MonoBehaviour:
   FamePenalty: 100
   GoldPenalty: 100
   StateAfterFail: 0
-  Days: 3
+  Days: 1
   IsQuesting: 0
   QuestHint: "\uC774\uAC74 \uC880 \uC5B4\uB824\uC6B4\uB370...?"
