@@ -11,7 +11,9 @@ public enum AdventurerTierType
 
 public enum AdventurerStateType
 {
-    Idle,// 기본 상태
+    Idle,// 기본 상태(PickManager에서 뽑을 수 있음)
+    TodayCome, // 오늘 퀘스트를 수주하러 옴
+    Questing, // 퀘스트 중
     Injured, // 부상
     Dead // 사망
 }
