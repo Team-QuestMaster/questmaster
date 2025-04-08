@@ -43,6 +43,7 @@ public class MainProcess : MonoBehaviour
             if (!ReferenceEquals(request.Item1, null) && !ReferenceEquals(request.Item2, null))
             {
                 request.Item1.AdventurerData.AdventurerState = AdventurerStateType.TodayCome;
+                request.Item2.QuestData.IsQuesting = true;
                 _todayRequest.Add(request);
             }
             requestCount++;
@@ -66,7 +67,6 @@ public class MainProcess : MonoBehaviour
         ItemManager.Instance.RollbackItems(currentAdventurer, currentQuest);
 
         currentAdventurer.AdventurerData.AdventurerState = AdventurerStateType.Questing;
-        currentQuest.QuestData.IsQuesting = true;
         EndRequest();
     }
     private bool MakeQuestResult(Adventurer adventurer, Quest quest)
@@ -85,6 +85,7 @@ public class MainProcess : MonoBehaviour
     public void RejectRequest()
     {
         _todayRequest[_requestCount].Item1.AdventurerData.AdventurerState = AdventurerStateType.Idle;
+        _todayRequest[_requestCount].Item2.QuestData.IsQuesting = false;
         EndRequest();
     }
     public void EndRequest()
