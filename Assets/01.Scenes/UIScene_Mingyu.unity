@@ -4367,6 +4367,8 @@ MonoBehaviour:
   - {fileID: 1857629123}
   _tarven: {fileID: 1977784021}
   _moveLength: 200
+  MiniCharacter: {fileID: 4099806309705699909, guid: 04415835c635638488d5de838980cc5c, type: 3}
+  _miniCharacterPivot: {fileID: 528036924}
 --- !u!114 &416773395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5494,12 +5496,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -8012,6 +8014,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Custom3
       objectReference: {fileID: 0}
+    - target: {fileID: 2839661079132722488, guid: 04415835c635638488d5de838980cc5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6056080126731653657, guid: 04415835c635638488d5de838980cc5c, type: 3}
       propertyPath: _tarven
       value: 
@@ -9160,12 +9166,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -10071,9 +10077,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2039616825}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -675.00006, y: -429.99994}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 284.99994, y: 110.00006}
   m_SizeDelta: {x: 570, y: 220}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1098241286
@@ -10761,11 +10767,11 @@ RectTransform:
   - {fileID: 1703356328}
   m_Father: {fileID: 2039616825}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000061035156, y: 394.79}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 290.43}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1171120909
 GameObject:
   m_ObjectHideFlags: 0
@@ -14436,6 +14442,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Custom2
       objectReference: {fileID: 0}
+    - target: {fileID: 2839661079132722488, guid: 04415835c635638488d5de838980cc5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6056080126731653657, guid: 04415835c635638488d5de838980cc5c, type: 3}
       propertyPath: _tarven
       value: 
@@ -17822,7 +17832,7 @@ MonoBehaviour:
   SettingUI: {fileID: 1829510265}
   CalenderManager: {fileID: 1603696582}
   DayChangeUI: {fileID: 1829510269}
-  oneDayStartAndEnd: {fileID: 0}
+  oneDayStartAndEnd: {fileID: 1829510271}
   _cursorBox: {fileID: 1108126523}
   _cursorText: {fileID: 786751769}
 --- !u!4 &1829510263
@@ -18290,9 +18300,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2039616825}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -684.99994, y: -105.49994}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 275.00006, y: -105.49994}
   m_SizeDelta: {x: 550, y: 815}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1851031269
@@ -18446,6 +18456,10 @@ PrefabInstance:
     - target: {fileID: 2839661079132722488, guid: 04415835c635638488d5de838980cc5c, type: 3}
       propertyPath: m_Name
       value: Custom4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2839661079132722488, guid: 04415835c635638488d5de838980cc5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6056080126731653657, guid: 04415835c635638488d5de838980cc5c, type: 3}
       propertyPath: _tarven
@@ -19484,6 +19498,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Custom1
       objectReference: {fileID: 0}
+    - target: {fileID: 2839661079132722488, guid: 04415835c635638488d5de838980cc5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6056080126731653657, guid: 04415835c635638488d5de838980cc5c, type: 3}
       propertyPath: _tarven
       value: 
@@ -19520,6 +19538,7 @@ GameObject:
   - component: {fileID: 1977784023}
   - component: {fileID: 1977784022}
   - component: {fileID: 1977784021}
+  - component: {fileID: 1977784024}
   m_Layer: 0
   m_Name: Tarven
   m_TagString: Untagged
@@ -19573,7 +19592,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977784020}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 81.006}
+  m_LocalPosition: {x: 0, y: 0, z: 81.00577}
   m_LocalScale: {x: 1.1434715, y: 1.1434715, z: 1.1434715}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -19581,9 +19600,54 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -680, y: 416}
+  m_AnchoredPosition: {x: -680, y: 322.23538}
   m_SizeDelta: {x: 376, y: 205}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0.1}
+--- !u!114 &1977784024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977784020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1829510262}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: GuidStatCursorBox
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: $"{GuildStatManager.Instance.Fame}\n{GuildStatManager.Instance.Gold}"
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1829510262}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: HideCursorBox
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: $"{GuildStatManager.Instance.Fame}\n{GuildStatManager.Instance.Gold}"
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1989639033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20521,12 +20585,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -21181,9 +21245,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2039616825}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -716, y: -105.49994}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 244, y: -105.49994}
   m_SizeDelta: {x: 332, y: 511}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2106293512
