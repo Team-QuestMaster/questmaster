@@ -100,7 +100,7 @@ public class GuideBookUI : MonoBehaviour
         HideBookCanvasGroup();
         yield return new WaitForSeconds(0.2f);
         _guideBookAnimator.SetTrigger("Close");
-        yield return WaitForAnimationToEnd("BookClose");
+        yield return WaitForAnyAnimationEnd("BookClose","BookIdle",null);
 
         if (!ReferenceEquals(_guideBook, null))
         {
@@ -114,7 +114,31 @@ public class GuideBookUI : MonoBehaviour
             });
         }
     }
+    
+    IEnumerator WaitForAnyAnimationEnd(string animA, string animB, Action onComplete)
+    {
+        bool aDone = false;
+        bool bDone = false;
 
+        StartCoroutine(WaitForAnimation(animA, () => aDone = true));
+        StartCoroutine(WaitForAnimation(animB, () => bDone = true));
+
+        // 둘 중 하나라도 끝날 때까지 대기
+        yield return new WaitUntil(() => aDone || bDone);
+
+        onComplete?.Invoke();
+    }
+    
+    IEnumerator WaitForAnimation(string animationName, Action onAnimEnd)
+    {
+        while (!_guideBookAnimator.GetCurrentAnimatorStateInfo(0).IsName(animationName) ||
+               _guideBookAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+        {
+            yield return null;
+        }
+        onAnimEnd?.Invoke();
+    }
+    
     IEnumerator WaitForAnimationToEnd(string animationName, System.Action onComplete = null)
     {
         while (!_guideBookAnimator.GetCurrentAnimatorStateInfo(0).IsName(animationName) ||

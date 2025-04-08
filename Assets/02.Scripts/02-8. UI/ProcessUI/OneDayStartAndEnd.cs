@@ -8,12 +8,17 @@ public class OneDayStartAndEnd : MonoBehaviour
 
     [SerializeField] private Image _dayEndFade;
 
-    private void Start()
+    void Start()
+    {
+        StartDay();
+    }
+    
+    public void StartDay()
     {
         _dayEndFade.DOFade(0, 0.5f);
     }
 
-    void EndDay()
+    public void EndDay()
     {
         _dayEndFade.DOFade(1, 0.5f);
     }

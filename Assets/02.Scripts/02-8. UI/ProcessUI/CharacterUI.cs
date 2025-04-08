@@ -142,6 +142,7 @@ public class CharacterUI : MonoBehaviour
         else
         {
             Debug.LogError("캐릭터 몇 명인지 인덱스에 에러남");
+            UIManager.Instance.oneDayStartAndEnd.EndDay();
         }
     }
     
