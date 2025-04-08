@@ -666,7 +666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cfbce178521194ab4602dce3e0f26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _adventurerSO: {fileID: 11400000, guid: 920815b43e1bc894898a3c6188d4dd6e, type: 2}
+  _adventurerSO: {fileID: 11400000, guid: 6eb920d3ecae252488e84be1f9c71a68, type: 2}
 --- !u!4 &64253761
 Transform:
   m_ObjectHideFlags: 0
