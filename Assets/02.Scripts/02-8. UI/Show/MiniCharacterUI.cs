@@ -14,9 +14,6 @@ public class MiniCharacterUI : MonoBehaviour
     public Image MiniCharacter;
     [SerializeField] private Transform _miniCharacterPivot;
     
-    
-    
-    public event Action MoveToTarvenInEvent;
     public event Action MinisMoveEvent;
 
     
@@ -60,14 +57,12 @@ public class MiniCharacterUI : MonoBehaviour
      void TarvenIn()
     {
         Debug.Log("TarvenIn");
-
         _tarven.rectTransform.DOShakeScale(0.1f, new Vector3(0, 0.01f, 0))
             .OnComplete(() =>
             {
                 StageShowManager.Instance.ShowCharacter.Appear();
-                
+                StageShowManager.Instance.ShowQuest.Appear();
+                StageShowManager.Instance.ShowIDCard.Appear();
             });
-
-        MoveToTarvenInEvent?.Invoke();
     }
 }
