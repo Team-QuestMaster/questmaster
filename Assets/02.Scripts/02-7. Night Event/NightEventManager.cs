@@ -3,11 +3,16 @@ using UnityEngine;
 
 public class NightEventManager : Singleton<NightEventManager>
 {
+    [SerializeField]
+    private GameObject _dealer;
+    public GameObject Dealer { get => _dealer; set => _dealer = value; }
     private bool _isIsNightEventDay = false;
-    public bool IsNightEventDay {get=>_isIsNightEventDay;
+    public bool IsNightEventDay
+    {
+        get => _isIsNightEventDay;
         set
         {
-            _isIsNightEventDay=value;
+            _isIsNightEventDay = value;
             UIManager.Instance.OneCycleStartAndEnd.SetNextCycleEvent(_isIsNightEventDay ? NightEventPick : null);
         }
     }
@@ -16,18 +21,24 @@ public class NightEventManager : Singleton<NightEventManager>
         base.Awake();
     }
 
-    public void MarketEvent() // ë°¤ì´ ë˜ë©´ í˜¸ì¶œ
+    public void MarketEvent() // ¹ãÀÌ µÇ¸é È£Ãâ
     {
-        ItemManager.Instance.SellingItems();
-        //UIManager.Instance.MarketOpen();
+        UIManager.Instance.CharacterUI.Characters.Clear();
+        UIManager.Instance.CharacterUI.Characters.Add(_dealer);
+        StageShowManager.Instance.ShowCharacter.Appear(() =>
+        {
+            ItemManager.Instance.SellingItems();
+        });
     }
 
-    public void AfterMarketEvent() // UIì—ì„œ êµ¬ë§¤ í™•ì •ì‹œ í˜¸ì¶œ
+    public void AfterMarketEvent() // UI¿¡¼­ ±¸¸Å È®Á¤½Ã È£Ãâ
     {
-        ItemManager.Instance.ReturnItems();
-        //UIManager.Instance.MarketClose();
-        DateManager.Instance.ChangeDateInNight();
-        UIManager.Instance.OneCycleStartAndEnd.EndCycle();
+        ItemManager.Instance.ReturnItems(() =>
+        {
+            StageShowManager.Instance.ShowCharacter.Disappear();
+            DateManager.Instance.ChangeDateInNight();
+            UIManager.Instance.OneCycleStartAndEnd.EndCycle();
+        });
     }
 
     private void NightEventPick()
@@ -36,7 +47,8 @@ public class NightEventManager : Singleton<NightEventManager>
         {
             return;
         }
-        // IsNightEventDayì´ë©´ ë°œìƒí•  ì´ë²¤íŠ¸ í”½í•´ì„œ ë°œìƒ
+        // IsNightEventDayÀÌ¸é ¹ß»ıÇÒ ÀÌº¥Æ® ÇÈÇØ¼­ ¹ß»ı
         Debug.Log("nightEventPick");
+        MarketEvent();
     }
 }

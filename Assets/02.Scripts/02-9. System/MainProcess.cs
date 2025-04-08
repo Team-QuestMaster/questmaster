@@ -9,13 +9,13 @@ public class MainProcess : MonoBehaviour
     private List<(Adventurer, QuestSO)> _todayRequest = new List<(Adventurer, QuestSO)>();
 
     private const int _requestCountMaxPerDay = 5;
-    private int _requestCount = 0; 
+    private int _requestCount = 0;
     public event Action OnRequestCountIncreased;
     public event Action OnRequestMade;
 
     private void Start()
     {
-        OnRequestCountIncreased += 
+        OnRequestCountIncreased +=
             (() => DateManager.Instance.ChangeDate(_requestCount, _requestCountMaxPerDay));
         DateManager.Instance.OnDateChanged += (() => GetRequests());
         DateManager.Instance.OnDateChanged += (() => ApplyQuestResult());
