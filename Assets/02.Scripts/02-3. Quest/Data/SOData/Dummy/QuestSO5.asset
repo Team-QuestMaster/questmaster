@@ -16,10 +16,10 @@ MonoBehaviour:
   QuestDescription: "\uAC74\uAC15\uACFC \uC9C0\uAC11 \uC0AC\uC815\uC744 \uC704\uD574
     \uC220\uC744 \uCC38\uC544\uC57C \uD55C\uB2E4."
   QuestTier: 0
-  STRWeight: 0
-  MAGWeight: 0
-  INSWeight: 0
-  DEXWeight: 0
+  STRWeight: 1
+  MAGWeight: 1
+  INSWeight: 1
+  DEXWeight: 1
   PowerForClear: 1
   FameReward: 10000
   GoldReward: 10000
