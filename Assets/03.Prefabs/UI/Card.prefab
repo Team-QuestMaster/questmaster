@@ -381,6 +381,7 @@ GameObject:
   - component: {fileID: 8883383955543276512}
   - component: {fileID: 1905482262158517426}
   - component: {fileID: 3045195382244920067}
+  - component: {fileID: 8918570741310750716}
   - component: {fileID: 5018000393720417667}
   - component: {fileID: 7864006928366270093}
   - component: {fileID: 7762794192913263188}
@@ -453,6 +454,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &8918570741310750716
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2774704033445755858}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &5018000393720417667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,13 +510,18 @@ MonoBehaviour:
   - {fileID: -6492548218044149164, guid: c481ae6ba7ad0a042aba44c9a3102dd2, type: 3}
   - {fileID: 8693618367534728744, guid: c481ae6ba7ad0a042aba44c9a3102dd2, type: 3}
   - {fileID: 6245330038833381982, guid: c481ae6ba7ad0a042aba44c9a3102dd2, type: 3}
-  titleObject: {fileID: 4219728063398253404}
-  _adventurerImage: {fileID: 5745540047244660869}
-  _tierImage: {fileID: 1561272043888431788}
-  _leftStat: {fileID: 2681644507360228351}
-  _rightStat: {fileID: 5209889990938573340}
-  _adventurerTitle: {fileID: 3339111547465605601}
-  _adventurerName: {fileID: 738140605158751126}
+  _bigAdventurerIDCardContent:
+    AdventurerTierSprites: []
+    TitleObject: {fileID: 0}
+    AdventurerImage: {fileID: 0}
+    AdventurerTierImage: {fileID: 0}
+    AdventurerNameTMP: {fileID: 0}
+    AdventurerTitleTMP: {fileID: 0}
+    LeftStatTMP: {fileID: 0}
+    RightStatTMP: {fileID: 0}
+  _smallIDCardGO: {fileID: 0}
+  _smallIDCardActivateTransform: {fileID: 0}
+  _bigIDCardGO: {fileID: 0}
 --- !u!1 &2836983451232437249
 GameObject:
   m_ObjectHideFlags: 0
