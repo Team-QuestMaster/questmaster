@@ -667,6 +667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _adventurerSO: {fileID: 11400000, guid: 6eb920d3ecae252488e84be1f9c71a68, type: 2}
+  _idCardSprite: {fileID: 0}
 --- !u!4 &64253761
 Transform:
   m_ObjectHideFlags: 0
@@ -17599,7 +17600,7 @@ MonoBehaviour:
   SettingUI: {fileID: 1829510265}
   CalenderManager: {fileID: 1603696582}
   DayChangeUI: {fileID: 1829510269}
-  oneDayStartAndEnd: {fileID: 1829510271}
+  OneCycleStartAndEnd: {fileID: 1829510271}
   _cursorBox: {fileID: 1108126523}
   _cursorText: {fileID: 786751769}
 --- !u!4 &1829510263
@@ -17770,7 +17771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e6e37989b137594abe79cd7fc58168a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dayEndFade: {fileID: 501699234}
+  _fadeImage: {fileID: 501699234}
 --- !u!1 &1848137341
 GameObject:
   m_ObjectHideFlags: 0
