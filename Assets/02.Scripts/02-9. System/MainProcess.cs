@@ -34,34 +34,6 @@ public class MainProcess : MonoBehaviour
     {
         _requestCount = 0;
     }
-    private void ApplyQuestResult()
-    {
-        UIManager.Instance.ReportUI.TextClear();
-        List<QuestResult> questResults = DateManager.Instance.GetTodayQuestResults();
-
-        // UI data
-        int beforeGold = GuildStatManager.Instance.Gold;
-        int beforeFame = GuildStatManager.Instance.Fame;
-        foreach (QuestResult questResult in questResults)
-        {
-            if (questResult.IsSuccess)
-            {
-                GuildStatManager.Instance.Fame += questResult.Quest.QuestData.FameReward;
-                GuildStatManager.Instance.Gold += questResult.Quest.QuestData.GoldReward;
-                UIManager.Instance.ReportUI.QuestResultTextAdd($"����: {questResult.Quest.QuestData.QuestName} {questResult.Probability}");
-                UIManager.Instance.ReportUI.SpecialCommentText($"����: {questResult.Quest.QuestData.QuestName}: {questResult.Quest.QuestData.QuestHint}");
-            }
-            else
-            {
-                GuildStatManager.Instance.Fame -= questResult.Quest.QuestData.FamePenalty;
-                GuildStatManager.Instance.Gold -= questResult.Quest.QuestData.GoldPenalty;
-                UIManager.Instance.ReportUI.QuestResultTextAdd($"����: {questResult.Quest.QuestData.QuestName} {questResult.Probability}");
-                UIManager.Instance.ReportUI.SpecialCommentText($"����: {questResult.Quest.QuestData.QuestName}: {questResult.Quest.QuestData.QuestHint}");
-            }
-        }
-        UIManager.Instance.ReportUI.GoldText(beforeGold, GuildStatManager.Instance.Gold);
-        UIManager.Instance.ReportUI.FameText(beforeFame, GuildStatManager.Instance.Fame);
-    }
     private void PickTodayRequests()
     {
         int requestCount = 0;
@@ -122,5 +94,33 @@ public class MainProcess : MonoBehaviour
         OnRequestCountIncreased?.Invoke();
         //_todayRequest[_requestCount].Item1.gameObject.SetActive(false);
         //_todayRequest[_requestCount].Item2.gameObject.SetActive(false);
+    }
+    private void ApplyQuestResult()
+    {
+        UIManager.Instance.ReportUI.TextClear();
+        List<QuestResult> questResults = DateManager.Instance.GetTodayQuestResults();
+
+        // UI data
+        int beforeGold = GuildStatManager.Instance.Gold;
+        int beforeFame = GuildStatManager.Instance.Fame;
+        foreach (QuestResult questResult in questResults)
+        {
+            if (questResult.IsSuccess)
+            {
+                GuildStatManager.Instance.Fame += questResult.Quest.QuestData.FameReward;
+                GuildStatManager.Instance.Gold += questResult.Quest.QuestData.GoldReward;
+                UIManager.Instance.ReportUI.QuestResultTextAdd($"����: {questResult.Quest.QuestData.QuestName} {questResult.Probability}");
+                UIManager.Instance.ReportUI.SpecialCommentText($"����: {questResult.Quest.QuestData.QuestName}: {questResult.Quest.QuestData.QuestHint}");
+            }
+            else
+            {
+                GuildStatManager.Instance.Fame -= questResult.Quest.QuestData.FamePenalty;
+                GuildStatManager.Instance.Gold -= questResult.Quest.QuestData.GoldPenalty;
+                UIManager.Instance.ReportUI.QuestResultTextAdd($"����: {questResult.Quest.QuestData.QuestName} {questResult.Probability}");
+                UIManager.Instance.ReportUI.SpecialCommentText($"����: {questResult.Quest.QuestData.QuestName}: {questResult.Quest.QuestData.QuestHint}");
+            }
+        }
+        UIManager.Instance.ReportUI.GoldText(beforeGold, GuildStatManager.Instance.Gold);
+        UIManager.Instance.ReportUI.FameText(beforeFame, GuildStatManager.Instance.Fame);
     }
 }
