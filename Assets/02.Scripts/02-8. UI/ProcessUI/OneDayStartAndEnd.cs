@@ -55,7 +55,10 @@ public class OneDayStartAndEnd : MonoBehaviour
     
     public void StartDay()
     {
+        Debug.Log("하루가 시작된다");
         OnDayStart?.Invoke();
+        StageShowManager.Instance.MiniCharacter.MakeMiniCharacters();
+        
     }
 
     public void EndDay()
