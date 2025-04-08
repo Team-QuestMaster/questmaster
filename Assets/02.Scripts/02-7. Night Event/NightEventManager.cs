@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class NightEventManager : Singleton<NightEventManager>
 {
+    [SerializeField]
+    private GameObject _dealer;
+    public GameObject Dealer { get => _dealer; set => _dealer = value; }
     private bool _isIsNightEventDay = false;
     public bool IsNightEventDay
     {
@@ -10,7 +13,7 @@ public class NightEventManager : Singleton<NightEventManager>
         set
         {
             _isIsNightEventDay = value;
-            UIManager.Instance.OneCycleStartAndEnd.SetNextCycleEvent(_isIsNightEventDay ? NightEventPick : null);
+            UIManager.Instance.oneCycleStartAndEnd.SetNextCycleEvent(_isIsNightEventDay ? NightEventPick : null);
         }
     }
     protected override void Awake()
@@ -20,16 +23,22 @@ public class NightEventManager : Singleton<NightEventManager>
 
     public void MarketEvent() // 밤이 되면 호출
     {
-        ItemManager.Instance.SellingItems();
-        //UIManager.Instance.MarketOpen();
+        UIManager.Instance.CharacterUI.Characters.Clear();
+        UIManager.Instance.CharacterUI.Characters.Add(_dealer);
+        StageShowManager.Instance.ShowCharacter.Appear(() =>
+        {
+            ItemManager.Instance.SellingItems();
+        });
     }
 
     public void AfterMarketEvent() // UI에서 구매 확정시 호출
     {
-        ItemManager.Instance.ReturnItems();
-        //UIManager.Instance.MarketClose();
-        DateManager.Instance.ChangeDateInNight();
-        UIManager.Instance.OneCycleStartAndEnd.EndCycle();
+        ItemManager.Instance.ReturnItems(() =>
+        {
+            StageShowManager.Instance.ShowCharacter.Disappear();
+            DateManager.Instance.ChangeDateInNight();
+            UIManager.Instance.oneCycleStartAndEnd.EndCycle();
+        });
     }
 
     private void NightEventPick()
@@ -40,5 +49,6 @@ public class NightEventManager : Singleton<NightEventManager>
         }
         // IsNightEventDay이면 발생할 이벤트 픽해서 발생
         Debug.Log("nightEventPick");
+        MarketEvent();
     }
 }

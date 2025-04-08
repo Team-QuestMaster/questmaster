@@ -145,7 +145,8 @@ public class CharacterUI : MonoBehaviour
         {
             Debug.Log("하루가 끝남");
             //UIManager.Instance.oneDayStartAndEnd.DayFadeOut(); 
-           UIManager.Instance.oneDayStartAndEnd.EndDay(); 
+            _currentCharacter = 0;
+            UIManager.Instance.oneCycleStartAndEnd.EndCycle(); 
         }
         
         
