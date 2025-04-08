@@ -16,7 +16,6 @@ public class TestRewardBoost : Item
         _originalGoldReward = quest.QuestData.GoldReward; // 원본값 저장
         quest.QuestData.FameReward = (int)(1.1f * quest.QuestData.FameReward); // 보상 증가
         quest.QuestData.GoldReward = (int)(1.1f * quest.QuestData.GoldReward); // 보상 증가
-        ItemManager.Instance.ItemUsed(this);
     }
 
     public override void Rollback(Adventurer adventurer, Quest quest) // 재구현
