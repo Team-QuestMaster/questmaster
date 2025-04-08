@@ -18,6 +18,7 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public RectTransform DragArea => _dragArea;
 
+    public event Action OnPointerDownEvent;
     public event Action<PointerEventData> OnDraggingEvent;
     public event Action OnEndDragEvent;
 
@@ -34,7 +35,9 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         _parentRectTransform = transform.parent.GetComponent<RectTransform>();
         _rectTransform = GetComponent<RectTransform>();
         if (ReferenceEquals(_dragArea, null))
+        {
             _dragArea = transform.root.GetComponent<RectTransform>();
+        }
     }
 
     private void OnEnable()
@@ -45,6 +48,7 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     public void OnPointerDown(PointerEventData eventData)
     {
         transform.SetAsLastSibling();
+        OnPointerDownEvent?.Invoke();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
