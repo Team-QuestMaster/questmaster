@@ -12,16 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf71ef7c709afe0479b81a0f549a0b99, type: 3}
   m_Name: Dealer_SO
   m_EditorClassIdentifier: 
-  AdventurerType: 0
+  AdventurerType: 2
   OriginalSTR: 4
   OriginalMAG: 4
   OriginalINS: 4
   OriginalDEX: 4
   DialogList:
-  - Lines:
-    - "\uC800\uB294 \uC6CC\uB9AC\uC5B4\uC785\uB2C8\uB2E4."
-    - "\uC800\uB294 \uB4DC\uB798\uACE4\uC744 \uC7A1\uC558\uC5B4\uC694."
-    - "\uC81C\uAC8C \uD018\uC2A4\uD2B8\uB97C \uC8FC\uC138\uC694!"
+  - Dialog: []
   AdventurerName: Max
   AdventurerClass: Warrior
   AdventurerTitle: DragonSlayer
