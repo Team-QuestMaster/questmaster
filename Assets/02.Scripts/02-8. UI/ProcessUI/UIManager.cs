@@ -56,6 +56,28 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+    public void GuidStatCursorBox()
+    {
+        Debug.Log("Cursor Box Showing");
+        if (!ReferenceEquals(_cursorBox, null))
+        {
+            Vector2 localPos;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                _cursorBox.canvas.transform as RectTransform,   // 기준이 되는 캔버스
+                Input.mousePosition,                             // 마우스 위치 (스크린 좌표)
+                _cursorBox.canvas.worldCamera,                   // 카메라 (Screen Space - Camera일 때)
+                out localPos                                     // 변환된 로컬 좌표
+            );
+
+            _cursorBox.gameObject.SetActive(true);
+            _cursorBox.rectTransform.localPosition = localPos;
+            _cursorText.text = $"현재 길드의 명성치 : <color=#90FFEB>{GuildStatManager.Instance.Fame}</color>\n현재 길드보유 골드 : <color=yellow>{GuildStatManager.Instance.Gold}</color>";
+        }
+        else
+        {
+            Debug.LogError("커서박스가 할당돼지 않음");
+        }
+    }
     public void HideCursorBox()
     {
         Debug.Log("Cursor Box Hiding");

@@ -145,6 +145,8 @@ public class CharacterUI : MonoBehaviour
             //UIManager.Instance.oneDayStartAndEnd.DayFadeOut(); 
            UIManager.Instance.oneDayStartAndEnd.EndDay(); 
         }
+        
+        
     }
 
 
