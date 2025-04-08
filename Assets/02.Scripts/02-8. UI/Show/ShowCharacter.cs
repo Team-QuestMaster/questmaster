@@ -58,6 +58,7 @@ public class ShowCharacter : MonoBehaviour
 
     void CharacterAppear(System.Action onComplete = null)
     {
+        Debug.Log("등장");
         UIManager.Instance.CharacterUI.CurrentCharacter.gameObject.SetActive(true);
         UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().DOFade(1, 1).SetAutoKill(false)
             .OnComplete(()=>onComplete?.Invoke());
@@ -66,9 +67,12 @@ public class ShowCharacter : MonoBehaviour
 
     void CharacterDisappear(System.Action onComplete = null)
     {
-            UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().rectTransform.DOLocalMove(new Vector3(-1200,0,0), 2f).SetEase(Ease.InBack)
-                .OnComplete(UIManager.Instance.CharacterUI.ChangeCharacter)
-                .OnComplete(()=>onComplete?.Invoke()); // 처음엔 멈춘 상태
+        UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().rectTransform.DOLocalMove(new Vector3(-1200, 0, 0), 2f).SetEase(Ease.InBack)
+            .OnComplete(() =>
+            {
+                UIManager.Instance.CharacterUI.ChangeCharacter();
+                onComplete?.Invoke();
+            });
   
         
     }

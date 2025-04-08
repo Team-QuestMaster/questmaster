@@ -157,4 +157,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _adventurerSO: {fileID: 11400000, guid: 37b66365781e1a544b44fbe1b585baae, type: 2}
-  _idCardSprite: {fileID: 0}
+  _idCardSprite: {fileID: 7198130302240854080, guid: 0300f6d739995c442a131590a8104ec9, type: 3}
