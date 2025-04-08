@@ -52,7 +52,7 @@ public class MainProcess : MonoBehaviour
         {
             UIManager.Instance.CharacterUI.Characters.Add(request.Item1.gameObject);
 
-            UIManager.Instance.QuestUI.Quests.Add(request.Item2);
+            UIManager.Instance.QuestUI.Quests.Add(request.Item2.gameObject);
         }
         StageShowManager.Instance.ShowResult.Initialize(_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2);
     }
