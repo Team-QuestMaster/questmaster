@@ -1,7 +1,9 @@
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.UIElements;
 using UnityEngine;
+using System;
 
 public class ItemManager : Singleton <ItemManager>
 {
@@ -103,36 +105,49 @@ public class ItemManager : Singleton <ItemManager>
         }
     }
 
-    public void SellingItems() // 야시장 물품 3개 추출
-    {                          // List 리턴하는 식으로 구현하면 복사본이 생기는게 찝찝해서 void로 구현함
+    public void SellingItems()
+    {
+        StartCoroutine(SellingItemsCoroutine());
+    }
+
+    private IEnumerator SellingItemsCoroutine()
+    {
         for (int i = 0; i < SHOP_ITEM_COUNT; i++)
         {
-            if(_remainItemList.Count == 0) // 미보유 아이템 리스트가 비어있으면 종료
+            if (_remainItemList.Count == 0) // 미보유 아이템 리스트가 비어있으면 종료
             {
                 Debug.Log("미보유 아이템 리스트가 비었습니다.");
-                return;
+                yield break;
             }
-            Item item = _remainItemList[Random.Range(0, _remainItemList.Count)];
+
+            Item item = _remainItemList[UnityEngine.Random.Range(0, _remainItemList.Count)];
             _shoppingList.Add(item); // 상점 아이템 리스트에 추가
             _remainItemList.Remove(item); // 미보유 아이템 리스트에서 제거   
 
+            yield return new WaitForSeconds(1f); // 1초 대기
+            item.GetComponent<RectTransform>().position = new Vector3(-8 + i * 1.5f, -4, 0); // 상점에 아이템 위치 초기화
             item.gameObject.SetActive(true);
-            item.GetComponent<RectTransform>().position = new Vector3(-8+i*1.5f, -4, 0); // 상점에 아이템 위치 초기화
-
         }
     }
 
-    public void ReturnItems() // 상점에 남은 아이템 미보유아이템에 추가
+    public void ReturnItems(Action onComplete = null) // 상점에 남은 아이템 미보유아이템에 추가
+    {
+        StartCoroutine(ReturnItemsCoroutine(onComplete));
+    }
+
+
+    private IEnumerator ReturnItemsCoroutine(Action onComplete = null)
     {
         foreach (Item item in _shoppingList)
         {
-            _remainItemList.Add(item); 
-            _shoppingList.Remove(item);
+            yield return new WaitForSeconds(1f); // 1초 대기
+            _remainItemList.Add(item);
             item.gameObject.SetActive(false);
         }
+            _shoppingList.Clear(); // 상점 아이템 리스트 초기화
+
+        onComplete?.Invoke(); // 모든 아이템이 반환된 후 호출
     }
-
-
 
 
     public bool IsInventoryFull() // 인벤토리 가득 찼는지 확인

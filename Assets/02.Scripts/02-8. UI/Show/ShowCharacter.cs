@@ -21,7 +21,7 @@ public class ShowCharacter : MonoBehaviour
     private void Start()
     {
         CharacterAppearShow += UIManager.Instance.CharacterUI.Initialize;
-        CharacterAppearShow += CharacterAppear;
+        CharacterAppearShow += () => CharacterAppear();
         CharacterDisappearShow += CharacterDisappear;
         Appear();
     }
@@ -40,16 +40,22 @@ public class ShowCharacter : MonoBehaviour
     {
         CharacterAppearShow?.Invoke();
     }
+    public void Appear(System.Action onComplete)
+    {
+        CharacterAppearShow += () => CharacterAppear(onComplete);
+        CharacterAppearShow?.Invoke();
+    }
 
     public void Disappear()
     {
         CharacterDisappearShow?.Invoke();
     }
 
-    void CharacterAppear()
+    void CharacterAppear(System.Action onComplete = null)
     {
         UIManager.Instance.CharacterUI.CurrentCharacter.gameObject.SetActive(true);
-        UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().DOFade(1, 1).SetAutoKill(false);
+        UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().DOFade(1, 1).SetAutoKill(false)
+            .OnComplete(()=>onComplete?.Invoke());
 
     }
 
