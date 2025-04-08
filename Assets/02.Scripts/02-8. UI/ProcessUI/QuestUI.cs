@@ -19,10 +19,10 @@ public class BigQuestPaperContent
 public class QuestUI : MonoBehaviour
 {
     private int _currentQuestIndex = 0;
-    private List<Quest> _quests = new List<Quest>();
-    public List<Quest> Quests { get => _quests; set => _quests = value; }
-    private Quest _currentQuest;
-    public Quest CurrentQuest { get => _currentQuest; set => _currentQuest = value; }
+    private List<GameObject> _quests = new List<GameObject>();
+    public List<GameObject> Quests { get => _quests; set => _quests = value; }
+    private GameObject _currentQuest;
+    public GameObject CurrentQuest { get => _currentQuest; set => _currentQuest = value; }
 
     [SerializeField]
     private GameObject _smallQuestGO;
@@ -49,13 +49,14 @@ public class QuestUI : MonoBehaviour
     }
     private void InitializeBigQuestPaperContent()
     {
+        Quest currentQuest = _currentQuest.GetComponent<Quest>();
         // SealingImage의 경우, QuestData의 QuestTier에 따라 다르게 설정할 필요
         // 그냥 Image도 QuestData에 넣어버릴까?
-        bigQuestPaperContent.TitleTMP.text = _currentQuest.QuestData.QuestName;
-        bigQuestPaperContent.MainBodyTMP.text = _currentQuest.QuestData.QuestDescription;
-        bigQuestPaperContent.RewardTMP.text = _currentQuest.QuestData.GoldReward.ToString();
-        bigQuestPaperContent.RewardTMP.text += " / " + _currentQuest.QuestData.FameReward.ToString();
-        bigQuestPaperContent.NeedTimeTMP.text = _currentQuest.QuestData.Days.ToString();
+        bigQuestPaperContent.TitleTMP.text = currentQuest.QuestData.QuestName;
+        bigQuestPaperContent.MainBodyTMP.text = currentQuest.QuestData.QuestDescription;
+        bigQuestPaperContent.RewardTMP.text = currentQuest.QuestData.GoldReward.ToString();
+        bigQuestPaperContent.RewardTMP.text += " / " + currentQuest.QuestData.FameReward.ToString();
+        bigQuestPaperContent.NeedTimeTMP.text = currentQuest.QuestData.Days.ToString();
     }
 
     public void ChangeQuest()
