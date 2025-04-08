@@ -46,7 +46,8 @@ public class MiniCharacterUI : MonoBehaviour
 
     void CheckTarvenIn(Image mini)
     {
-        if (mini.rectTransform.localPosition.x <= _tarven.rectTransform.localPosition.x)
+        if (mini.rectTransform.localPosition.x <= _tarven.rectTransform.localPosition.x
+            && mini.gameObject.activeSelf)
         {
             TarvenIn();
             mini.gameObject.SetActive(false);
