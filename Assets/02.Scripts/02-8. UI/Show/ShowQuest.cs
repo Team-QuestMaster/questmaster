@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ShowQuest : MonoBehaviour
 {
-    public MiniCharacterUI MiniUI;
     public event Action QuestAppearShow;
     public event Action QuestDisappearShow;
     private void Start()
@@ -13,8 +12,6 @@ public class ShowQuest : MonoBehaviour
         QuestAppearShow += UIManager.Instance.QuestUI.Initialize;
         QuestAppearShow += QuestAppear;
         QuestDisappearShow += QuestDisappear;
-        MiniUI.MoveToTarvenInEvent += Appear;
-        Appear();
     }
     public void Appear()
     {

@@ -124,6 +124,7 @@ public class CharacterUI : MonoBehaviour
 
     public void ShowSpeechBubbleButtonUI()
     {
+        Debug.Log("ShowSpeechBubbleButtonUI");
         ShowSpeechBubbleUI();
         _positiveButton.gameObject.SetActive(true);
         _positiveButton.interactable = true;
