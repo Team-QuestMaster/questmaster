@@ -2767,6 +2767,7 @@ MonoBehaviour:
   _draggableObject: {fileID: 267663453}
   _checkPointTransform: {fileID: 505350583}
   _eventSystem: {fileID: 652710777}
+  Interactable: 0
   _type: 0
 --- !u!114 &267663453
 MonoBehaviour:
@@ -14720,6 +14721,7 @@ MonoBehaviour:
   _draggableObject: {fileID: 1455538870}
   _checkPointTransform: {fileID: 1577976001}
   _eventSystem: {fileID: 652710777}
+  Interactable: 0
   _type: 1
 --- !u!114 &1455538870
 MonoBehaviour:
@@ -18619,6 +18621,8 @@ MonoBehaviour:
   _rejectStamp: {fileID: 1455538867}
   _rejectAnimator: {fileID: 1455538871}
   _popUpButton: {fileID: 1063659692}
+  _approveUnderChecker: {fileID: 267663452}
+  _rejectUnderChecker: {fileID: 1455538869}
 --- !u!114 &1829510265
 MonoBehaviour:
   m_ObjectHideFlags: 0
