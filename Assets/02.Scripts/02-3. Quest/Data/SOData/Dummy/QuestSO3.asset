@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO3
+  m_EditorClassIdentifier: 
+  QuestName: "\uC77C\uCC0D \uC790\uACE0 \uC77C\uCC0D \uC77C\uC5B4\uB098\uAE30"
+  QuestDescription: "11\uC2DC \uCDE8\uCE68 6\uC2DC \uAE30\uC0C1"
+  QuestTier: 2
+  STRWeight: 0
+  MAGWeight: 0
+  INSWeight: 0
+  DEXWeight: 0
+  PowerForClear: 1
+  FameReward: 300
+  GoldReward: 300
+  FamePenalty: 100
+  GoldPenalty: 100
+  StateAfterFail: 0
+  Days: 3
+  IsQuesting: 0
+  QuestHint: "\uC774\uAC74 \uC880 \uC5B4\uB824\uC6B4\uB370...?"

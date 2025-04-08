@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
-  m_Name: QuestSO
+  m_Name: QuestSO1
   m_EditorClassIdentifier: 
-  QuestName: "\uB354\uBBF8 \uD018\uC2A4\uD2B8"
-  QuestDescription: "\uBC84\uADF8 \uC5C6\uC774 \uAE30\uB2A5 \uD14C\uC2A4\uD2B8\uB97C
-    \uC644\uB8CC\uD558"
-  QuestTier: 0
+  QuestName: "\uD558\uB8E8 \uC138\uB07C \uCC59\uACA8\uBA39\uAE30"
+  QuestDescription: "\uAC74\uAC15\uC744 \uC704\uD574 \uD558\uB8E8 \uC138\uB07C\uB97C
+    \uCC59\uACA8\uBA39\uC790."
+  QuestTier: 4
   STRWeight: 0
   MAGWeight: 0
   INSWeight: 0
   DEXWeight: 0
   PowerForClear: 1
-  FameReward: 10
-  GoldReward: 10
+  FameReward: 50
+  GoldReward: 50
   FamePenalty: 5
   GoldPenalty: 5
   StateAfterFail: 0
