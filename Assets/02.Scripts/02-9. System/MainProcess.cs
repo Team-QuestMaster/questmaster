@@ -9,16 +9,14 @@ public class MainProcess : MonoBehaviour
     private List<(Adventurer, QuestSO)> _todayRequest = new List<(Adventurer, QuestSO)>();
 
     private const int _requestCountMaxPerDay = 5;
-    private int _requestCount = 0; 
+    private int _requestCount = 0;
     public event Action OnRequestCountIncreased;
     public event Action OnRequestMade;
 
     private void Start()
     {
-        OnRequestCountIncreased += 
+        OnRequestCountIncreased +=
             (() => DateManager.Instance.ChangeDate(_requestCount, _requestCountMaxPerDay));
-        OnRequestCountIncreased += 
-            (() => DateManager.Instance.ChangeTimePeriod(_requestCount, _requestCountMaxPerDay));
         DateManager.Instance.OnDateChanged += (() => GetRequests());
         DateManager.Instance.OnDateChanged += (() => ApplyQuestResult());
         UIManager.Instance.StampUI.UIApproveEvent += (() => ApproveRequest());
@@ -46,8 +44,8 @@ public class MainProcess : MonoBehaviour
             (Adventurer, QuestSO) request = PickManager.Instance.Pick();
             if (!ReferenceEquals(request.Item1, null) && !ReferenceEquals(request.Item2, null))
             {
-                request.Item1.AdventurerData.AdventurerState = AdventurerStateType.TodayCome;
-                request.Item2.IsQuesting = true;
+                // request.Item1.AdventurerData.AdventurerState = AdventurerStateType.TodayCome;
+                // request.Item2.IsQuesting = true;
                 _todayRequest.Add(request);
                 Debug.Log("리퀘스트 추가");
             }
@@ -117,15 +115,15 @@ public class MainProcess : MonoBehaviour
             {
                 GuildStatManager.Instance.Fame += questResult.Quest.QuestData.FameReward;
                 GuildStatManager.Instance.Gold += questResult.Quest.QuestData.GoldReward;
-                UIManager.Instance.ReportUI.QuestResultTextAdd($"����: {questResult.Quest.QuestData.QuestName} {questResult.Probability}");
-                UIManager.Instance.ReportUI.SpecialCommentText($"����: {questResult.Quest.QuestData.QuestName}: {questResult.Quest.QuestData.QuestHint}");
+                UIManager.Instance.ReportUI.QuestResultTextAdd($"성공: {questResult.Quest.QuestData.QuestName} {questResult.Probability}");
+                UIManager.Instance.ReportUI.SpecialCommentText($"성공: {questResult.Quest.QuestData.QuestName}: {questResult.Quest.QuestData.QuestHint}");
             }
             else
             {
                 GuildStatManager.Instance.Fame -= questResult.Quest.QuestData.FamePenalty;
                 GuildStatManager.Instance.Gold -= questResult.Quest.QuestData.GoldPenalty;
-                UIManager.Instance.ReportUI.QuestResultTextAdd($"����: {questResult.Quest.QuestData.QuestName} {questResult.Probability}");
-                UIManager.Instance.ReportUI.SpecialCommentText($"����: {questResult.Quest.QuestData.QuestName}: {questResult.Quest.QuestData.QuestHint}");
+                UIManager.Instance.ReportUI.QuestResultTextAdd($"실패: {questResult.Quest.QuestData.QuestName} {questResult.Probability}");
+                UIManager.Instance.ReportUI.SpecialCommentText($"실패: {questResult.Quest.QuestData.QuestName}: {questResult.Quest.QuestData.QuestHint}");
             }
         }
         UIManager.Instance.ReportUI.GoldText(beforeGold, GuildStatManager.Instance.Gold);
