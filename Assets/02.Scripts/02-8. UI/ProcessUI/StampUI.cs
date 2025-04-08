@@ -15,6 +15,9 @@ public class StampUI : MonoBehaviour
     //[SerializeField] private Button _closeStampBtn;
     [SerializeField] private Image _popUpButton;
     
+    [SerializeField] private UnderChecker _approveUnderChecker;
+    [SerializeField] private UnderChecker _rejectUnderChecker;
+    
     private Vector3 _approvePosition;
     private Vector3 _rejectPosition;
     private bool _show;
@@ -58,6 +61,9 @@ public class StampUI : MonoBehaviour
         {
             _approveAnimator.SetBool("Hover", false);
             _rejectAnimator.SetBool("Hover", false);
+            _rejectUnderChecker.Interactable = true;
+            _approveUnderChecker.Interactable = true;
+
         };
         
         

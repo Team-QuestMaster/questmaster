@@ -10,8 +10,14 @@ public class ReportUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _fameChangeText;
     [SerializeField] private TextMeshProUGUI _questResultText;
     [SerializeField] private TextMeshProUGUI _specialCommentText;
-
-    public void Initialize() { }
+   
+    
+    public void Initialize()
+    {
+        
+        
+        
+    }
 
     public void ShowReportUI()
     {

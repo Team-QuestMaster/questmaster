@@ -38,10 +38,15 @@ public class MiniCharacterUI : MonoBehaviour
         foreach (Image mini in Minis)
         {
             Image capturedMini = mini; // 람다 안전
+            capturedMini.GetComponent<Animator>().SetBool("Move",true);
             capturedMini.rectTransform.DOLocalMoveX(
                 capturedMini.rectTransform.localPosition.x - _moveLength, 
                 1f
-            ).OnComplete(() => CheckTarvenIn(capturedMini));
+            ).OnComplete(() =>
+            {
+                capturedMini.GetComponent<Animator>().SetBool("Move",false);
+                CheckTarvenIn(capturedMini);
+            });
         }
 
         MinisMoveEvent?.Invoke();
