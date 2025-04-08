@@ -157,8 +157,8 @@ public class CharacterUI : MonoBehaviour
         }
         else
         {
-            Debug.Log("모험가 상호작용(낮 이벤트)이 끝남");
-            //UIManager.Instance.oneDayStartAndEnd.DayFadeOut();
+            Debug.Log("하루가 끝남");
+            //UIManager.Instance.oneDayStartAndEnd.DayFadeOut(); 
             _currentCharacter = 0;
             UIManager.Instance.OneCycleStartAndEnd.EndCycle(); 
         }

@@ -8,12 +8,12 @@ public class StageShowManager : Singleton<StageShowManager>
     public ShowIDCard ShowIDCard;
     public MiniCharacterUI MiniCharacter;
 
-    // ë‚® ë“±ì¥ ì´ë²¤íŠ¸ ëª¨ìŒ
+    // ³· µîÀå ÀÌº¥Æ® ¸ğÀ½
     public void Appear()
     {
-        MiniCharacter.MakeMiniCharacters();   // ë¯¸ë‹ˆ ìºë¦­í„° ì…‹íŒ…
-        ShowCharacter.Appear();               // LD ìºë¦­í„° ë“±ì¥
-        ShowQuest.Appear();                   // í€˜ìŠ¤íŠ¸ ë“±ì¥
+        MiniCharacter.MakeMiniCharacters();   // ¹Ì´Ï Ä³¸¯ÅÍ ¼ÂÆÃ
+        ShowCharacter.Appear();               // LD Ä³¸¯ÅÍ µîÀå
+        ShowQuest.Appear();                   // Äù½ºÆ® µîÀå
         ShowIDCard.Appear();
     }
 }
