@@ -89,7 +89,6 @@ public class ItemManager : Singleton <ItemManager>
     public void RollbackItems(Adventurer adventurer, Quest quest)
     {
         List<Item> toRemove = new List<Item>();
-
         foreach (Item item in _havingItemList)
         {
             if (item.ItemState == ItemStateType.ReadyToUse)
