@@ -26,11 +26,19 @@ public class ShowQuest : MonoBehaviour
     }
     private void QuestAppear()
     {
-        UIManager.Instance.QuestUI.SmallQuestGO.GetComponent<Image>().DOFade(1, 1);
+        UIManager.Instance.QuestUI.SmallQuestGO.GetComponent<Image>().DOFade(1, 1f);
+        UIManager.Instance.QuestUI.BigQuestPaperGO.GetComponent<Image>().DOFade(1, 1f);
     }
     private void QuestDisappear()
     {
-        UIManager.Instance.QuestUI.SmallQuestGO.SetActive(false);
-        UIManager.Instance.QuestUI.BigQuestPaperGO.SetActive(false);
+        UIManager.Instance.QuestUI.SmallQuestGO.GetComponent<Image>().DOFade(0, 1f)
+            .OnComplete(() => UIManager.Instance.QuestUI.SmallQuestGO.SetActive(false));
+
+        UIManager.Instance.QuestUI.BigQuestPaperGO.GetComponent<Image>().DOFade(0, 1f)
+            .OnComplete(() =>
+            {
+                UIManager.Instance.QuestUI.BigQuestPaperGO.SetActive(false);
+                UIManager.Instance.QuestUI.ChangeQuest();
+            });
     }
 }

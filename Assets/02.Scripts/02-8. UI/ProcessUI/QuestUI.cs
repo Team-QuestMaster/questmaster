@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,29 +20,41 @@ public class BigQuestPaperContent
 public class QuestUI : MonoBehaviour
 {
     private int _currentQuestIndex = 0;
-    private List<GameObject> _quests = new List<GameObject>();
-    public List<GameObject> Quests { get => _quests; set => _quests = value; }
-    private GameObject _currentQuest;
-    public GameObject CurrentQuest { get => _currentQuest; set => _currentQuest = value; }
+    private List<QuestSO> _questDatas = new List<QuestSO>();
+    public List<QuestSO> QuestDatas { get => _questDatas; set => _questDatas = value; }
+    private QuestSO _currentQuestData;
+    public QuestSO CurrentQuestData { get => _currentQuestData; set => _currentQuestData = value; }
+
+    private Quest _currentQuest;
+    public Quest CurrentQuest { get => _currentQuest; set => _currentQuest = value; }
+
 
     [SerializeField]
     private GameObject _smallQuestGO;
     public GameObject SmallQuestGO { get => _smallQuestGO; set => _smallQuestGO = value; }
     [SerializeField]
+    private Transform _smallQuestActivateTransform;
+
+
+    [SerializeField]
     private GameObject _bigQuestPaperGO;
     public GameObject BigQuestPaperGO { get => _bigQuestPaperGO; set => _bigQuestPaperGO = value; }
+
     private Transform _bigQuestPaperActivateTransform;
     [SerializeField]
     private BigQuestPaperContent bigQuestPaperContent;
-    [SerializeField]
-    private Transform _smallQuestActivateTransform;
     private void Awake()
     {
         _bigQuestPaperActivateTransform = _bigQuestPaperGO.transform;
+        _currentQuest = _smallQuestGO.GetComponent<Quest>();
     }
     public void Initialize()
     {
-        _currentQuest = _quests[_currentQuestIndex];
+        _currentQuestData = _questDatas[_currentQuestIndex];
+        if (!ReferenceEquals(_currentQuest, null))
+        {
+            _currentQuest.ChangeQuestData(_currentQuestData);
+        }
         _smallQuestGO.transform.position = _smallQuestActivateTransform.position;
         _smallQuestGO.SetActive(true);
         _bigQuestPaperGO.transform.position = _bigQuestPaperActivateTransform.position;
@@ -49,27 +62,25 @@ public class QuestUI : MonoBehaviour
     }
     private void InitializeBigQuestPaperContent()
     {
-        Quest currentQuest = _currentQuest.GetComponent<Quest>();
         // SealingImage의 경우, QuestData의 QuestTier에 따라 다르게 설정할 필요
         // 그냥 Image도 QuestData에 넣어버릴까?
-        bigQuestPaperContent.TitleTMP.text = currentQuest.QuestData.QuestName;
-        bigQuestPaperContent.MainBodyTMP.text = currentQuest.QuestData.QuestDescription;
-        bigQuestPaperContent.RewardTMP.text = currentQuest.QuestData.GoldReward.ToString();
-        bigQuestPaperContent.RewardTMP.text += " / " + currentQuest.QuestData.FameReward.ToString();
-        bigQuestPaperContent.NeedTimeTMP.text = currentQuest.QuestData.Days.ToString();
+        bigQuestPaperContent.TitleTMP.text = _currentQuestData.QuestName;
+        bigQuestPaperContent.MainBodyTMP.text = _currentQuestData.QuestDescription;
+        bigQuestPaperContent.RewardTMP.text = _currentQuestData.GoldReward.ToString();
+        bigQuestPaperContent.RewardTMP.text += " / " + _currentQuestData.FameReward.ToString();
+        bigQuestPaperContent.NeedTimeTMP.text = _currentQuestData.Days.ToString();
     }
 
     public void ChangeQuest()
     {
-        if (_currentQuestIndex < _quests.Count)
+        if (_currentQuestIndex < _questDatas.Count)
         {
-            _currentQuest.gameObject.SetActive(false);
             _currentQuestIndex++;
-            if (_quests.Count <= _currentQuestIndex)
+            if (_questDatas.Count <= _currentQuestIndex)
             {
                 _currentQuestIndex = 0;
             }
-            _currentQuest = _quests[_currentQuestIndex];
+            _currentQuestData = _questDatas[_currentQuestIndex];
         }
         else
         {

@@ -26,7 +26,7 @@ public class QuestSO : ScriptableObject
     public int GoldPenalty; // 골드 페널티 *가변
     public AdventurerStateType StateAfterFail; // 실패 후 모험가 부상 상태
     public int Days; // 퀘스트 소요 일수
-    public bool IsQuesting; // 퀘스트 진행 중 여부
+    public bool IsQuesting = false; // 퀘스트 진행 중 여부
     public string QuestHint; // 퀘스트 힌트
 
     //가변 외 불변

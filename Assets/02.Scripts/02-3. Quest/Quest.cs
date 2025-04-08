@@ -4,6 +4,7 @@ public class Quest : MonoBehaviour
 {
     [SerializeField]
     private QuestSO _questSO;
+    public QuestSO QuestSO { get => _questSO; }
     private QuestData _questData;
     public QuestData QuestData { get => _questData; set => _questData = value; }
 
@@ -35,6 +36,11 @@ public class Quest : MonoBehaviour
             _questSO.Days,
             _questSO.QuestHint
         );
+    }
+    public void ChangeQuestData(QuestSO questSO)
+    {
+        _questSO = questSO;
+        InitQuestData();
     }
     private void SetQuestDataOnDate()
     {
