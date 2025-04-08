@@ -73,19 +73,34 @@ public class ItemManager : Singleton <ItemManager>
         }
     }
 
-    public void ItemUsed(Item item) // 보유 아이템에서 제거
+    public void UsingItems(Adventurer adventurer, Quest quest)
     {
-        if(ReferenceEquals(item, null))
+        foreach(Item item in _havingItemList)
         {
-            Debug.Log("아이템이 NULL입니다.");
-            return;
+            if (item.ItemState == ItemStateType.ReadyToUse)
+            {
+                item.Use(adventurer, quest);
+                item.ItemState = ItemStateType.UnBuy; // 아이템 상태 변경
+                item.gameObject.SetActive(false); // 아이템 비활성화
+            }
         }
-        if(!_havingItemList.Contains(item))
+    }
+
+    public void RollbackItems(Adventurer adventurer, Quest quest)
+    {
+        List<Item> toRemove = new List<Item>();
+        foreach (Item item in _havingItemList)
         {
-            Debug.Log("인벤토리에 해당 아이템이 없습니다.");
-            return;
+            if (item.ItemState == ItemStateType.ReadyToUse)
+            {
+                item.Rollback(adventurer, quest);
+                toRemove.Add(item);
+            }
         }
-        item.gameObject.SetActive(false); // 아이템 비활성화
+        foreach (Item item in toRemove)
+        {
+            _havingItemList.Remove(item);
+        }
     }
 
     public void SellingItems() // 야시장 물품 3개 추출

@@ -6,8 +6,6 @@ public class TestStatBoost : Item
     {
         Debug.Log($"{adventurer.AdventurerData.AdventurerName}의 STR 1 임시 상승 : {Name}");
         adventurer.AdventurerData.CurrentSTR += 1;
-
-        ItemManager.Instance.ItemUsed(this);
     }
 
     public override void Rollback(Adventurer adventurer, Quest quest) // 재구현

@@ -6,8 +6,6 @@ public class TestPassiveStatBuff : Item
     {
         Debug.Log($"{adventurer.AdventurerData.AdventurerName}의 STR 1 영구 상승 : {Name}");
         adventurer.AdventurerData.CurrentSTR += 1;
-
-        ItemManager.Instance.ItemUsed(this);
     }
 
     public override void Rollback(Adventurer adventurer, Quest quest) // 재구현
