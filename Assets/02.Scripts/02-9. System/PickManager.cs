@@ -33,6 +33,12 @@ public class PickManager : Singleton<PickManager>
             return null;
         }
 
+        List<bool> isChecked = new List<bool>();
+        for (int i = 0; i < _adventurers.Count; i++)
+        {
+            isChecked.Add(false);
+        }
+
         int count = 0;
         while (count < _adventurers.Count)
         {
@@ -42,7 +48,11 @@ public class PickManager : Singleton<PickManager>
             {
                 return adventurer;
             }
-            count++;
+            else if (!isChecked[randomIndex])
+            {
+                isChecked[randomIndex] = true;
+                count++;
+            }
         }
         return null;
     }
@@ -54,6 +64,11 @@ public class PickManager : Singleton<PickManager>
             return null;
         }
 
+        List<bool> isChecked = new List<bool>();
+        for (int i = 0; i < _quests.Count; i++)
+        {
+            isChecked.Add(false);
+        }
         int count = 0;
         while (count < _quests.Count)
         {
@@ -63,7 +78,11 @@ public class PickManager : Singleton<PickManager>
             {
                 return quest;
             }
-            count++;
+            else if (!isChecked[randomIndex])
+            {
+                isChecked[randomIndex] = true;
+                count++;
+            }
         }
         return null;
     }
