@@ -26,8 +26,10 @@ public class NightEventManager : Singleton<NightEventManager>
     {
         ItemManager.Instance.ReturnItems(() =>
         {
-            StageShowManager.Instance.ShowCharacter.Disappear();
-            DateManager.Instance.ChangeDateInNight();
+            StageShowManager.Instance.ShowCharacter.Disappear(() =>
+            {
+                DateManager.Instance.ChangeDateInNight();
+            });
         });
     }
 }

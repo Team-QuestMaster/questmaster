@@ -22,7 +22,7 @@ public class ShowCharacter : MonoBehaviour
     {
         CharacterAppearShow += UIManager.Instance.CharacterUI.Initialize;
         CharacterAppearShow += () => CharacterAppear();
-        CharacterDisappearShow += CharacterDisappear;
+        CharacterDisappearShow += () => CharacterDisappear();
         Appear();
     }
 
@@ -50,6 +50,11 @@ public class ShowCharacter : MonoBehaviour
     {
         CharacterDisappearShow?.Invoke();
     }
+    public void Disappear(System.Action onComplete)
+    {
+        CharacterDisappearShow += () => CharacterDisappear(onComplete);
+        CharacterDisappearShow?.Invoke();
+    }
 
     void CharacterAppear(System.Action onComplete = null)
     {
@@ -59,10 +64,11 @@ public class ShowCharacter : MonoBehaviour
 
     }
 
-    void CharacterDisappear()
+    void CharacterDisappear(System.Action onComplete = null)
     {
             UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().rectTransform.DOLocalMove(new Vector3(-1200,0,0), 2f).SetEase(Ease.InBack)
-                .OnComplete(UIManager.Instance.CharacterUI.ChangeCharacter); // 처음엔 멈춘 상태
+                .OnComplete(UIManager.Instance.CharacterUI.ChangeCharacter)
+                .OnComplete(()=>onComplete?.Invoke()); // 처음엔 멈춘 상태
   
         
     }

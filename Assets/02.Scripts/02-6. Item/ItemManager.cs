@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEditor.UIElements;
 using UnityEngine;
 using System;
+using DG.Tweening;
+using UnityEngine.UI;
+using NUnit.Framework.Constraints;
 
 public class ItemManager : Singleton <ItemManager>
 {
@@ -127,6 +130,7 @@ public class ItemManager : Singleton <ItemManager>
             yield return new WaitForSeconds(1f); // 1초 대기
             item.GetComponent<RectTransform>().position = new Vector3(-8 + i * 1.5f, -4, 0); // 상점에 아이템 위치 초기화
             item.gameObject.SetActive(true);
+            item.GetComponent<Image>().DOFade(1, 1).SetAutoKill(false);
         }
     }
 
@@ -140,6 +144,8 @@ public class ItemManager : Singleton <ItemManager>
     {
         foreach (Item item in _shoppingList)
         {
+            item.GetComponent<Image>().DOFade(0, 1).SetAutoKill(false); // 아이템 페이드 아웃
+
             yield return new WaitForSeconds(1f); // 1초 대기
             _remainItemList.Add(item);
             item.gameObject.SetActive(false);
