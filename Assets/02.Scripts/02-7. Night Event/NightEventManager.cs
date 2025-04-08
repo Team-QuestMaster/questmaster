@@ -1,22 +1,42 @@
+using System;
 using UnityEngine;
 
 public class NightEventManager : Singleton<NightEventManager>
 {
+    private bool _isIsNightEventDay = false;
+    public bool IsNightEventDay {get=>_isIsNightEventDay;
+        set
+        {
+            _isIsNightEventDay=value;
+            UIManager.Instance.OneCycleStartAndEnd.SetNextCycleEvent(_isIsNightEventDay ? NightEventPick : null);
+        }
+    }
     protected override void Awake()
     {
         base.Awake();
     }
 
-    public void MarketEvent() // ¹ãÀÌ µÇ¸é È£Ãâ
+    public void MarketEvent() // ë°¤ì´ ë˜ë©´ í˜¸ì¶œ
     {
         ItemManager.Instance.SellingItems();
         //UIManager.Instance.MarketOpen();
     }
 
-    public void AfterMarketEvent() // UI¿¡¼­ ±¸¸Å È®Á¤½Ã È£Ãâ
+    public void AfterMarketEvent() // UIì—ì„œ êµ¬ë§¤ í™•ì •ì‹œ í˜¸ì¶œ
     {
         ItemManager.Instance.ReturnItems();
         //UIManager.Instance.MarketClose();
         DateManager.Instance.ChangeDateInNight();
+        UIManager.Instance.OneCycleStartAndEnd.EndCycle();
+    }
+
+    private void NightEventPick()
+    {
+        if (!_isIsNightEventDay)
+        {
+            return;
+        }
+        // IsNightEventDayì´ë©´ ë°œìƒí•  ì´ë²¤íŠ¸ í”½í•´ì„œ ë°œìƒ
+        Debug.Log("nightEventPick");
     }
 }
