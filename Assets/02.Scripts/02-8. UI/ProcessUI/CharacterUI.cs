@@ -122,7 +122,7 @@ public class CharacterUI : MonoBehaviour
         }
     }
 
-    void ShowSpeechBubbleButtonUI()
+    public void ShowSpeechBubbleButtonUI()
     {
         ShowSpeechBubbleUI();
         _positiveButton.gameObject.SetActive(true);
@@ -151,6 +151,8 @@ public class CharacterUI : MonoBehaviour
             
             CurrentCharacter.SetActive(false);
             CurrentCharacter = Characters[_currentCharacter];
+
+           
 
             StageShowManager.Instance.MiniCharacter.MiniMove();
             _adventurerIDCardUI.Initialize(CurrentCharacter.GetComponent<Adventurer>());
