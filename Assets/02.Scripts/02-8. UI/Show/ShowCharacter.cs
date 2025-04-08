@@ -49,16 +49,12 @@ public class ShowCharacter : MonoBehaviour
     void CharacterAppear()
     {
         UIManager.Instance.CharacterUI.CurrentCharacter.gameObject.SetActive(true);
-
-
         UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().DOFade(1, 1).SetAutoKill(false);
 
     }
 
     void CharacterDisappear()
     {
-        
-        
             UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().rectTransform.DOLocalMove(new Vector3(-1200,0,0), 2f).SetEase(Ease.InBack)
                 .OnComplete(UIManager.Instance.CharacterUI.ChangeCharacter); // 처음엔 멈춘 상태
   

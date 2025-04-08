@@ -132,19 +132,21 @@ public class CharacterUI : MonoBehaviour
 
         if (_currentCharacter < Characters.Count)
         {
-            Characters[_currentCharacter].SetActive(false);
+            
+            CurrentCharacter.SetActive(false);
             CurrentCharacter = Characters[_currentCharacter];
-            
+
             StageShowManager.Instance.MiniCharacter.MiniMove();
-            
-            // TODO: _adventurer 최신화
             _adventurerIDCardUI.Initialized(_adventurer);
         }
         else
         {
             Debug.Log("하루가 끝남");
-            UIManager.Instance.oneDayStartAndEnd.EndDay();
+            //UIManager.Instance.oneDayStartAndEnd.DayFadeOut(); 
+           UIManager.Instance.oneDayStartAndEnd.EndDay(); 
         }
     }
+
+
     
 }

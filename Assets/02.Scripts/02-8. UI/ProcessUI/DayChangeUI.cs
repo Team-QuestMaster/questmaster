@@ -66,13 +66,11 @@ public class DayChangeUI : MonoBehaviour
         }
         else
         {
-            // 바로 1로 설정하고 싶다면 그냥 color.a = 1f 가능,
-            // 아니면 부드럽게 하기 위해 DOFade(1f, duration)도 가능
+            
             SkyImages[2].DOFade(1f, duration);
         }
     }
-        
-        //Debug.Log(_currentStep);
+    
         
         
     }
