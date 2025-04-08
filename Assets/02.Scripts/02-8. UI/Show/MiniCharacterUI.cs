@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,8 +14,8 @@ public class MiniCharacterUI : MonoBehaviour
 
     public Image MiniCharacter;
     [SerializeField] private Transform _miniCharacterPivot;
-    
-    
+
+
     
     public event Action MoveToTarvenInEvent;
     public event Action MinisMoveEvent;
@@ -35,18 +36,19 @@ public class MiniCharacterUI : MonoBehaviour
     }
     public void MiniMove()
     {
-        foreach (Image mini in Minis)
-        {
-            Image capturedMini = mini; // 람다 안전
+        for(int i = 0; i < Minis.Count; i++){
+            Image capturedMini = Minis[i]; // 람다 안전
             capturedMini.GetComponent<Animator>().SetBool("Move",true);
             capturedMini.rectTransform.DOLocalMoveX(
                 capturedMini.rectTransform.localPosition.x - _moveLength, 
                 1f
             ).OnComplete(() =>
             {
-                capturedMini.GetComponent<Animator>().SetBool("Move",false);
+  
+                capturedMini.GetComponent<Animator>().SetBool("Move", false);
                 CheckTarvenIn(capturedMini);
-            });
+            
+        });
         }
 
         MinisMoveEvent?.Invoke();
@@ -54,7 +56,7 @@ public class MiniCharacterUI : MonoBehaviour
 
     void CheckTarvenIn(Image mini)
     {
-        if (mini.rectTransform.localPosition.x <= _tarven.rectTransform.localPosition.x)
+        if (mini.rectTransform.localPosition.x <= _tarven.rectTransform.localPosition.x && mini.enabled)
         {
             TarvenIn();
             mini.gameObject.SetActive(false);
@@ -73,6 +75,6 @@ public class MiniCharacterUI : MonoBehaviour
                 
             });
 
-        MoveToTarvenInEvent?.Invoke();
+
     }
 }

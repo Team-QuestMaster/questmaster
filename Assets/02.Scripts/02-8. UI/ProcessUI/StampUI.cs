@@ -29,13 +29,13 @@ public class StampUI : MonoBehaviour
 
 
    // private Tweener _tweener;
-    private void Awake()
-    {
-        //_tweener = _stampZone.transform.DOShakePosition(0.1f,new Vector3(0,5,0)).SetAutoKill(false).Pause().SetRelative().SetId("StampShake");
-    }
+   private void Start()
+   {
+       Initialize();
+   }
 
 
-    public void Initialize()
+   public void Initialize()
     {
 
         //_popUpButton.onClick.AddListener(StampInteract);
