@@ -38,6 +38,7 @@ public class MainProcess : MonoBehaviour
     {
         UIManager.Instance.CharacterUI.Characters.Clear();
         UIManager.Instance.QuestUI.QuestDatas.Clear();
+        _todayRequest.Clear();
 
         int requestCount = 0;
         while (requestCount < _requestCountMaxPerDay)
@@ -71,7 +72,7 @@ public class MainProcess : MonoBehaviour
         UpdateCalender(currentQuest, isQuestSuccess);
         ItemManager.Instance.RollbackItems(currentAdventurer, currentQuest);
 
-        currentAdventurer.AdventurerData.AdventurerState = AdventurerStateType.Questing;
+        // currentAdventurer.AdventurerData.AdventurerState = AdventurerStateType.Questing;
         EndRequest();
     }
     private bool MakeQuestResult(Adventurer adventurer, Quest quest)

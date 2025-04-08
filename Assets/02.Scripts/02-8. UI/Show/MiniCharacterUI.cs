@@ -24,11 +24,12 @@ public class MiniCharacterUI : MonoBehaviour
     public void MakeMiniCharacters()
     {
         Debug.Log("미니 캐릭터 생성 시도");
-        for (int i = 0; i < UIManager.Instance.CharacterUI.Characters.Count; i++)
+        for (int i = 1; i < UIManager.Instance.CharacterUI.Characters.Count; i++)
         {
             Image mini =  Instantiate(MiniCharacter, _miniCharacterPivot);
-            mini.rectTransform.localPosition = new Vector3(_tarven.rectTransform.localPosition.x + _moveLength * (i + 1),
+            mini.rectTransform.localPosition = new Vector3(_tarven.rectTransform.localPosition.x + _moveLength * (i),
                 _tarven.rectTransform.localPosition.y, 0);
+            Minis.Add(mini);
             Debug.Log("미니 캐릭터 생섬함");
         }
     }
