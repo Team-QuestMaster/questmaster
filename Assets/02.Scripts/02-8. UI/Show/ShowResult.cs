@@ -57,6 +57,7 @@ public class ShowResult : MonoBehaviour
             UIManager.Instance.StampUI.StampInteract();
             StageShowManager.Instance.ShowCharacter.Disappear();
             StageShowManager.Instance.ShowQuest.Disappear();
+            StageShowManager.Instance.ShowIDCard.Disappear();
         });
         
     }

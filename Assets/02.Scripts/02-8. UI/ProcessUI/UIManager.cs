@@ -10,6 +10,7 @@ public class UIManager : Singleton<UIManager>
     public ReportUI ReportUI;
     public CharacterUI CharacterUI;
     public QuestUI QuestUI;
+    public AdventurerIDCardUI AdventurerIDCardUI;
     public SettingUI SettingUI;
     public CalenderManager CalenderManager;
     public DayChangeUI DayChangeUI;

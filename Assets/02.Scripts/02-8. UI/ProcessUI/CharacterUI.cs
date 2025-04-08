@@ -25,6 +25,7 @@ public class CharacterUI : MonoBehaviour
 
     [SerializeField] private Transform _characterActivateTransform;
     
+
     [SerializeField] private AdventurerIDCardUI _adventurerIDCardUI;
     
     
@@ -33,7 +34,6 @@ public class CharacterUI : MonoBehaviour
     
     private AdventurerData _characterData;
     private int _dialogIndex = 0;
-
     public void Initialize()
     {
         _characterButton = Characters[_currentCharacter]
@@ -41,15 +41,15 @@ public class CharacterUI : MonoBehaviour
         _characterAnimator = Characters[_currentCharacter]
             .GetComponent<Animator>();
 
-        
-        Adventurer initialAdventurer = Characters[0].GetComponent<Adventurer>();
-        _characterData = initialAdventurer.AdventurerData;
         _characterText.text = "";
         _characterButton.onClick.AddListener(ShowSpeechBubbleUI);
         _speechButton.onClick.AddListener(NextDialogue);
         CurrentCharacter = Characters[_currentCharacter];
-        _adventurerIDCardUI.Initialized(initialAdventurer);
         CurrentCharacter.transform.position = _characterActivateTransform.position;
+
+        Adventurer adventurer = CurrentCharacter.GetComponent<Adventurer>();
+        _characterData = adventurer.AdventurerData;
+        _adventurerIDCardUI.Initialize(adventurer);
     }
 
     void ShowSpeechBubbleUI()
@@ -139,7 +139,7 @@ public class CharacterUI : MonoBehaviour
             CurrentCharacter = Characters[_currentCharacter];
 
             StageShowManager.Instance.MiniCharacter.MiniMove();
-            _adventurerIDCardUI.Initialized(CurrentCharacter.GetComponent<Adventurer>());
+            _adventurerIDCardUI.Initialize(CurrentCharacter.GetComponent<Adventurer>());
         }
         else
         {
