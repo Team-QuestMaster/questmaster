@@ -16,16 +16,16 @@ MonoBehaviour:
   QuestDescription: "\uD5EC\uC2A4\uC7A5 \uB3C8\uC774 \uC544\uAE5D\uC9C0 \uC54A\uB3C4\uB85D
     \uC5F4\uC2EC\uD788 \uC6B4\uB3D9 \uB2E4\uB140\uC57C\uD55C\uB2E4."
   QuestTier: 3
-  STRWeight: 0
-  MAGWeight: 0
-  INSWeight: 0
-  DEXWeight: 0
+  STRWeight: 1
+  MAGWeight: 1
+  INSWeight: 1
+  DEXWeight: 1
   PowerForClear: 1
   FameReward: 100
   GoldReward: 100
   FamePenalty: 20
   GoldPenalty: 70
   StateAfterFail: 0
-  Days: 7
+  Days: 1
   IsQuesting: 0
   QuestHint: "\uC544\uCE68\uC5D0 \uAC00\uB4E0\uAC00..\uBC24\uC5D0 \uAC00\uB4E0\uAC00.."
