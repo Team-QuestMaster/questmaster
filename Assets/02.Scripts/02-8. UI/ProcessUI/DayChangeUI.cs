@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using DG.Tweening.Plugins.Options;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,9 +13,9 @@ public class DayChangeUI : MonoBehaviour
     private int _currentStep;
     private int _characterCount;
     [SerializeField] private int _step = 3;
+    [SerializeField] private float _duration = 0.5f;
     
-    
-    public event Action TimePassing;
+
 
     void Start()
     {
@@ -23,7 +24,7 @@ public class DayChangeUI : MonoBehaviour
     }
     public void Initialize()
     {
-        TimePassing = TimeFlow;
+        StageShowManager.Instance.MiniCharacter.MinisMoveEvent += TimeFlow;
         _currentStep = 0;
         _characterCount = UIManager.Instance.CharacterUI.Characters.Count;
     }
@@ -47,30 +48,29 @@ public class DayChangeUI : MonoBehaviour
 
     public void TimeFlow()
     {
+        float duration = 1f; // 알파 변화 애니메이션 시간 (원하는 값으로 조절)
+
         if (_currentStep + _step <= _characterCount * 1)
         {
             _currentStep += _step;
-            
-            Color color = SkyImages[1].color;
-            color.a = (float)_currentStep/(float)_characterCount;
-            SkyImages[1].color = color;
-            //Debug.Log($"낮에 있는 놈을{(float)_currentStep/(float)_characterCount}로 바꿈");
+
+            float targetAlpha = (float)_currentStep / (float)_characterCount;
+            SkyImages[1].DOFade(targetAlpha, duration);
         }
         else if (_currentStep + _step <= _characterCount * 2)
         {
             _currentStep += _step;
-            
-            Color color = SkyImages[2].color;
-            color.a = (float)(_currentStep - _characterCount)/(float)_characterCount;
-            SkyImages[2].color = color;
-            //Debug.Log($"밤에 있는 놈을{(float)(_currentStep - _characterCount)/(float)_characterCount}로 바꿈");
+
+            float targetAlpha = (float)(_currentStep - _characterCount) / (float)_characterCount;
+            SkyImages[2].DOFade(targetAlpha, duration);
         }
         else
         {
-            Color color = SkyImages[2].color;
-            color.a = 1;
-            SkyImages[2].color = color;
+            // 바로 1로 설정하고 싶다면 그냥 color.a = 1f 가능,
+            // 아니면 부드럽게 하기 위해 DOFade(1f, duration)도 가능
+            SkyImages[2].DOFade(1f, duration);
         }
+    }
         
         //Debug.Log(_currentStep);
         
@@ -78,4 +78,4 @@ public class DayChangeUI : MonoBehaviour
     }
     
     
-}
+
