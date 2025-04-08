@@ -13,7 +13,7 @@ public class ReportUI : MonoBehaviour
 
     public void Initialize() { }
 
-    public void ShowReportUI(string text)
+    public void ShowReportUI()
     {
         _report.gameObject.SetActive(true);
         _report.transform.DOMove(Vector3.zero, 1f);

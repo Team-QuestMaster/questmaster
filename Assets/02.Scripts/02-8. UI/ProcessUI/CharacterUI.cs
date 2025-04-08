@@ -13,7 +13,7 @@ public class CharacterUI : MonoBehaviour
     public GameObject CurrentCharacter;
 
     
-    [SerializeField] private Adventurer _adventurer;
+    //[SerializeField] private Adventurer _adventurer;
     [SerializeField] private Animator _characterAnimator;
     [SerializeField] private Button _characterButton;
     [SerializeField] private TextMeshProUGUI _characterText;
@@ -41,12 +41,14 @@ public class CharacterUI : MonoBehaviour
         _characterAnimator = Characters[_currentCharacter]
             .GetComponent<Animator>();
 
-        _characterData = _adventurer.AdventurerData;
+        
+        Adventurer initialAdventurer = Characters[0].GetComponent<Adventurer>();
+        _characterData = initialAdventurer.AdventurerData;
         _characterText.text = "";
         _characterButton.onClick.AddListener(ShowSpeechBubbleUI);
         _speechButton.onClick.AddListener(NextDialogue);
         CurrentCharacter = Characters[_currentCharacter];
-        _adventurerIDCardUI.Initialized(_adventurer);
+        _adventurerIDCardUI.Initialized(initialAdventurer);
         CurrentCharacter.transform.position = _characterActivateTransform.position;
     }
 
@@ -137,7 +139,7 @@ public class CharacterUI : MonoBehaviour
             CurrentCharacter = Characters[_currentCharacter];
 
             StageShowManager.Instance.MiniCharacter.MiniMove();
-            _adventurerIDCardUI.Initialized(_adventurer);
+            _adventurerIDCardUI.Initialized(CurrentCharacter.GetComponent<Adventurer>());
         }
         else
         {
