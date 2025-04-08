@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class MainProcess : MonoBehaviour
 {
-    private List<(Adventurer, Quest)> _todayRequest = new List<(Adventurer, Quest)>();
+    private List<(Adventurer, QuestSO)> _todayRequest = new List<(Adventurer, QuestSO)>();
 
     private const int _requestCountMaxPerDay = 5;
     private int _requestCount = 0; 
@@ -36,30 +36,35 @@ public class MainProcess : MonoBehaviour
     }
     private void PickTodayRequests()
     {
+        UIManager.Instance.CharacterUI.Characters.Clear();
+        UIManager.Instance.QuestUI.QuestDatas.Clear();
+
         int requestCount = 0;
         while (requestCount < _requestCountMaxPerDay)
         {
-            (Adventurer, Quest) request = PickManager.Instance.Pick();
+            (Adventurer, QuestSO) request = PickManager.Instance.Pick();
             if (!ReferenceEquals(request.Item1, null) && !ReferenceEquals(request.Item2, null))
             {
                 request.Item1.AdventurerData.AdventurerState = AdventurerStateType.TodayCome;
-                request.Item2.QuestData.IsQuesting = true;
+                request.Item2.IsQuesting = true;
                 _todayRequest.Add(request);
+                Debug.Log("리퀘스트 추가");
             }
             requestCount++;
         }
-        foreach ((Adventurer, Quest) request in _todayRequest)
+        foreach ((Adventurer, QuestSO) request in _todayRequest)
         {
             UIManager.Instance.CharacterUI.Characters.Add(request.Item1.gameObject);
 
-            UIManager.Instance.QuestUI.Quests.Add(request.Item2.gameObject);
+            UIManager.Instance.QuestUI.QuestDatas.Add(request.Item2);
         }
-        StageShowManager.Instance.ShowResult.Initialize(_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2);
+        StageShowManager.Instance.ShowResult.Initialize
+            (_todayRequest[_requestCount].Item1, UIManager.Instance.QuestUI.CurrentQuest);
     }
     public void ApproveRequest()
     {
         Adventurer currentAdventurer = _todayRequest[_requestCount].Item1;
-        Quest currentQuest = _todayRequest[_requestCount].Item2;
+        Quest currentQuest = UIManager.Instance.QuestUI.CurrentQuest;
 
         ItemManager.Instance.UsingItems(currentAdventurer, currentQuest);
         bool isQuestSuccess = MakeQuestResult(currentAdventurer, currentQuest);
@@ -85,12 +90,13 @@ public class MainProcess : MonoBehaviour
     public void RejectRequest()
     {
         _todayRequest[_requestCount].Item1.AdventurerData.AdventurerState = AdventurerStateType.Idle;
-        _todayRequest[_requestCount].Item2.QuestData.IsQuesting = false;
+        _todayRequest[_requestCount].Item2.IsQuesting = false;
         EndRequest();
     }
     public void EndRequest()
     {
-        StageShowManager.Instance.ShowResult.Initialize(_todayRequest[_requestCount].Item1, _todayRequest[_requestCount].Item2);
+        StageShowManager.Instance.ShowResult.Initialize
+            (_todayRequest[_requestCount].Item1, UIManager.Instance.QuestUI.CurrentQuest);
         _requestCount++;
         OnRequestCountIncreased?.Invoke();
         //_todayRequest[_requestCount].Item1.gameObject.SetActive(false);
