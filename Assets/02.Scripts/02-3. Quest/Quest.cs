@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +9,8 @@ public class Quest : MonoBehaviour
     public QuestSO QuestSO { get => _questSO; }
     private QuestData _questData;
     public QuestData QuestData { get => _questData; set => _questData = value; }
+    [SerializeField]
+    private List<int> _questTierMinCombatPowers = new List<int>();
 
 
     private void Awake()
@@ -94,22 +95,22 @@ public class Quest : MonoBehaviour
         // 퀘스트 성공을 위한 전투력 기준으로 티어 자르는게 맞다고 생각하긴 하는데..
         // 더 좋은 방안은 없을까?
         float powerForClear = _questData.PowerForClear;
-        if (powerForClear < 1000)
+        if (powerForClear < _questTierMinCombatPowers[0])
         {
             _questData.QuestTier = QuestTierType.Green;
             _questData.QuestTierImageColor = Color.green;
         }
-        else if (powerForClear < 5000)
+        else if (powerForClear < _questTierMinCombatPowers[1])
         {
             _questData.QuestTier = QuestTierType.Blue;
             _questData.QuestTierImageColor = Color.blue;
         }
-        else if (powerForClear < 10000)
+        else if (powerForClear < _questTierMinCombatPowers[2])
         {
             _questData.QuestTier = QuestTierType.Yellow;
             _questData.QuestTierImageColor = Color.yellow;
         }
-        else if (powerForClear < 20000)
+        else if (powerForClear < _questTierMinCombatPowers[3])
         {
             _questData.QuestTier = QuestTierType.Orange;
             _questData.QuestTierImageColor = new Color(1f, 0.5f, 0f);
