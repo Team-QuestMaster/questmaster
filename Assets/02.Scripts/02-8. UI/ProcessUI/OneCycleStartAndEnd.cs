@@ -62,8 +62,7 @@ public class OneCycleStartAndEnd : MonoBehaviour
         UIManager.Instance.ReportUI.SpecialCommentText(taxMessage);
         // 레포트 보여주고
         UIManager.Instance.ReportUI.ShowReportUI();
-        // appear
-        StageShowManager.Instance.Appear(); // 낮 등장 이벤트
+        // 레포트 닫으면 모험가 이벤트 시작
     }
 
     private void FirstCycle()
