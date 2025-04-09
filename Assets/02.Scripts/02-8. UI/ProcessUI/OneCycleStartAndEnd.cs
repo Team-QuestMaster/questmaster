@@ -28,7 +28,7 @@ public class OneCycleStartAndEnd : MonoBehaviour
             .Pause()
             .OnComplete(FadeIn);
 
-        SetNextCycleEvent(null); // 기본 싸이클로 초기화
+        SetNextCycleEvent(FirstCycle); // 첫날 싸이클로 초기화
 
         FadeIn(); // 시작하면 FadeIn
     }
@@ -51,6 +51,16 @@ public class OneCycleStartAndEnd : MonoBehaviour
     public void StartDayCycle()
     {
         Debug.Log("Cycle이 시작된다");
+        // 아침이면
+        // 레포트 보여주고
+        UIManager.Instance.ReportUI.ShowReportUI();
+        // 세금 나가고
+        // appear
+        StageShowManager.Instance.Appear(); // 낮 등장 이벤트
+    }
+
+    private void FirstCycle()
+    {
         StageShowManager.Instance.Appear(); // 낮 등장 이벤트
     }
 
