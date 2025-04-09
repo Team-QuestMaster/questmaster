@@ -20918,6 +20918,51 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5920889275324192532, guid: 71d83cbc4b2ceaf44b75c2b90df76b2b, type: 3}
   m_PrefabInstance: {fileID: 1951276895}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1969233059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1969233061}
+  - component: {fileID: 1969233060}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1969233060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969233059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91cfb0c410551394691444abfa075a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinorAso: {fileID: 11400000, guid: 9c57a3efe99c2a146a0098693bc34ed1, type: 2}
+--- !u!4 &1969233061
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969233059}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.3950224, y: -0.2787121, z: 169.35707}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1979721325
 GameObject:
   m_ObjectHideFlags: 0
@@ -21751,6 +21796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _questSO: {fileID: 11400000, guid: c1fb420a76642ec4f80dc7dceb8a1d0b, type: 2}
+  _questTierMinCombatPowers: 
 --- !u!114 &2022026444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23549,3 +23595,4 @@ SceneRoots:
   - {fileID: 1276914315}
   - {fileID: 2092294244}
   - {fileID: 2022026445}
+  - {fileID: 1969233061}
