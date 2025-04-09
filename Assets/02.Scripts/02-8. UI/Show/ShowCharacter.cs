@@ -18,6 +18,8 @@ public class ShowCharacter : MonoBehaviour
     private Tweener _characterAppearTweener;
     private Tweener _characterDisappearTweener;
     
+    public string Prefix = "!!";
+    
     private void Start()
     {
         CharacterAppearShow += UIManager.Instance.CharacterUI.Initialize;
@@ -44,6 +46,24 @@ public class ShowCharacter : MonoBehaviour
         {
             UIManager.Instance.CharacterUI.ShowSpeechBubbleButtonUI();
         }
+
+        Adventurer adventurer = UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Adventurer>();
+        string original = adventurer.AdventurerData.DialogSet.Dialog[0];
+        
+        if (original.StartsWith(Prefix))
+        {
+            if (adventurer.AdventurerData.AdventurerType == AdventurerType.Dealer)
+            {
+                UIManager.Instance.CharacterUI.ShowSpeechBubbleButtonUI();
+            }
+            else
+            {
+                UIManager.Instance.CharacterUI.ShowSpeechBubbleUIwithPrefix();
+            }
+            
+        }
+        
+        
     }
     public void Appear(System.Action onComplete)
     {

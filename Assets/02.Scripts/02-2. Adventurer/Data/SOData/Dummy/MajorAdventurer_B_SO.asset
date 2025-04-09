@@ -17,11 +17,12 @@ MonoBehaviour:
   OriginalMAG: 10
   OriginalINS: 10
   OriginalDEX: 1
+  DialogList:
+  - Dialog:
+    - "\uB098\uB984\uC758"
+    - "\uB300\uD654\uAC00\uC788\uC5B4\uC694"
   AdventurerName: Amy
   AdventurerClass: Wizard
   AdventurerTitle: DemonSlayer
   AdventurerTier: 0
   AdventurerState: 0
-  Dialog:
-  - "\uC800\uB294 \uB9C8\uBC95\uC0AC\uC785\uB2C8\uB2E4."
-  - "\uC800\uB294 \uB9C8\uBC95\uBC16\uC5D0 \uC4F8 \uC904 \uBAB0\uB77C\uC694."
