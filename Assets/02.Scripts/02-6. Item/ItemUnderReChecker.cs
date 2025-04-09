@@ -2,13 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ItemUnderReChecker : MonoBehaviour
+public class ItemUnderReChecker : MonoBehaviour, IPointerUpHandler
 {
     // 마우스 버튼을 UI 위에서 뗐을 때 호출됨
-    public void OnPointerUp()
-    {
-        Debug.Log("ItemUnderReChecker - 마우스 버튼 뗌");
 
+    public void OnPointerUp(PointerEventData eventData)
+    {
         List<GameObject> itemList = ItemManager.Instance.HavingItemList;
 
         foreach (GameObject item in itemList)
