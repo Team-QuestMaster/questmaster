@@ -120,11 +120,14 @@ public class ItemManager : Singleton <ItemManager>
 
     public void SellingItems()
     {
+        Debug.Log("SellingItems 호출됨\n" + Environment.StackTrace);
         StartCoroutine(SellingItemsCoroutine());
     }
 
     private IEnumerator SellingItemsCoroutine()
     {
+
+        yield return new WaitForSeconds(1.5f); // 1초 대기
         for (int i = 0; i < SHOP_ITEM_COUNT; i++)
         {
             if (_remainItemList.Count == 0) // 미보유 아이템 리스트가 비어있으면 종료
@@ -132,7 +135,6 @@ public class ItemManager : Singleton <ItemManager>
                 Debug.Log("미보유 아이템 리스트가 비었습니다.");
                 yield break;
             }
-
             GameObject item = _remainItemList[UnityEngine.Random.Range(0, _remainItemList.Count)];
             _shoppingList.Add(item); // 상점 아이템 리스트에 추가
             _remainItemList.Remove(item); // 미보유 아이템 리스트에서 제거   
@@ -140,7 +142,7 @@ public class ItemManager : Singleton <ItemManager>
             item.GetComponent<RectTransform>().position = new Vector3(-8 + i * 1.5f, -4, 0); // 상점에 아이템 위치 초기화
             item.SetActive(true);
             item.GetComponent<Image>().DOFade(1, 1).SetAutoKill(false);
-            yield return new WaitForSeconds(1f); // 1초 대기
+            yield return new WaitForSeconds(0.5f); // 1초 대기
         }
     }
 
