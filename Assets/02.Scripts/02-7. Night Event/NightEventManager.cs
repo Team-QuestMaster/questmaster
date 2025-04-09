@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 
 public class NightEventManager : Singleton<NightEventManager>
@@ -21,7 +21,7 @@ public class NightEventManager : Singleton<NightEventManager>
         base.Awake();
     }
 
-    public void MarketEvent() // ¹ãÀÌ µÇ¸é È£Ãâ
+    public void MarketEvent() // ë°¤ì´ ë˜ë©´ í˜¸ì¶œ
     {
         UIManager.Instance.CharacterUI.Characters.Clear();
         UIManager.Instance.CharacterUI.Characters.Add(_dealer);
@@ -31,8 +31,13 @@ public class NightEventManager : Singleton<NightEventManager>
         });
     }
 
-    public void AfterMarketEvent() // UI¿¡¼­ ±¸¸Å È®Á¤½Ã È£Ãâ
+    [ContextMenu("TestMarketEvent")]
+    public void AfterMarketEvent() 
     {
+        if (!ItemManager.Instance.TryBuyall())
+        {
+            return;
+        }
         ItemManager.Instance.ReturnItems(() =>
         {
             StageShowManager.Instance.ShowCharacter.Disappear();
@@ -47,7 +52,7 @@ public class NightEventManager : Singleton<NightEventManager>
         {
             return;
         }
-        // IsNightEventDayÀÌ¸é ¹ß»ıÇÒ ÀÌº¥Æ® ÇÈÇØ¼­ ¹ß»ı
+        // IsNightEventDayì´ë©´ ë°œìƒí•  ì´ë²¤íŠ¸ í”½í•´ì„œ ë°œìƒ
         Debug.Log("nightEventPick");
         MarketEvent();
     }
