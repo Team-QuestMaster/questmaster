@@ -17,7 +17,7 @@ public class UnderChecker : MonoBehaviour
     [SerializeField] private DraggableObject _draggableObject;        // 드래그 가능한 오브젝트 참조
     [SerializeField] private Transform _checkPointTransform;          // 기준 위치 (Empty GameObject 등)
     [SerializeField] private EventSystem _eventSystem;                // EventSystem 참조
-public bool Interactable;
+public bool Interactable = true;
     //public MainProcess Process;
     [SerializeField] private Type _type;
     private void OnEnable()

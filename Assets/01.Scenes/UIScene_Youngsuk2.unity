@@ -4083,6 +4083,34 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 80a4e923fc38d4443a2387f90049e342, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 80a4e923fc38d4443a2387f90049e342, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 80a4e923fc38d4443a2387f90049e342, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 80a4e923fc38d4443a2387f90049e342, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 80a4e923fc38d4443a2387f90049e342, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 80a4e923fc38d4443a2387f90049e342, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 80a4e923fc38d4443a2387f90049e342, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5920889275324192532, guid: 80a4e923fc38d4443a2387f90049e342, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4516,6 +4544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72348934d132ed441bf45756e4d7fd33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Prefix: '!!'
 --- !u!114 &416773394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4549,7 +4578,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cec2452428f20e4aa8178202f9fa15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MiniUI: {fileID: 416773394}
 --- !u!114 &416773396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4562,7 +4590,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae90bcbde0cc6a54785fcb4d4a0bac1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MiniUI: {fileID: 416773394}
 --- !u!1001 &424243041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8957,7 +8984,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 788818950}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1829510268}
+        m_TargetAssemblyTypeName: CharacterUI, Assembly-CSharp
+        m_MethodName: PositiveButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &788818950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13471,6 +13510,38 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 189f35177cd974044a6219015e4ce4c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 189f35177cd974044a6219015e4ce4c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 189f35177cd974044a6219015e4ce4c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1829510268}
+    - target: {fileID: 2329552873946414326, guid: 189f35177cd974044a6219015e4ce4c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 189f35177cd974044a6219015e4ce4c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowSpeechBubbleButtonUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 189f35177cd974044a6219015e4ce4c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CharacterUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 189f35177cd974044a6219015e4ce4c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332872878650803616, guid: 189f35177cd974044a6219015e4ce4c2, type: 3}
+      propertyPath: _adventurerSO
+      value: 
+      objectReference: {fileID: 11400000, guid: a7b96844fb62cb24b922a423daa5a116, type: 2}
     - target: {fileID: 5920889275324192532, guid: 189f35177cd974044a6219015e4ce4c2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -14842,6 +14913,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 920122180}
     m_Modifications:
+    - target: {fileID: 780259104346864901, guid: 71d83cbc4b2ceaf44b75c2b90df76b2b, type: 3}
+      propertyPath: _adventurerSO
+      value: 
+      objectReference: {fileID: 11400000, guid: a7b96844fb62cb24b922a423daa5a116, type: 2}
     - target: {fileID: 897576238885240338, guid: 71d83cbc4b2ceaf44b75c2b90df76b2b, type: 3}
       propertyPath: m_Name
       value: Character3
@@ -14861,6 +14936,34 @@ PrefabInstance:
     - target: {fileID: 1813346340252683813, guid: 71d83cbc4b2ceaf44b75c2b90df76b2b, type: 3}
       propertyPath: m_Color.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 71d83cbc4b2ceaf44b75c2b90df76b2b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 71d83cbc4b2ceaf44b75c2b90df76b2b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 71d83cbc4b2ceaf44b75c2b90df76b2b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1829510268}
+    - target: {fileID: 2329552873946414326, guid: 71d83cbc4b2ceaf44b75c2b90df76b2b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 71d83cbc4b2ceaf44b75c2b90df76b2b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowSpeechBubbleButtonUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 71d83cbc4b2ceaf44b75c2b90df76b2b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CharacterUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 71d83cbc4b2ceaf44b75c2b90df76b2b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5920889275324192532, guid: 71d83cbc4b2ceaf44b75c2b90df76b2b, type: 3}
       propertyPath: m_Pivot.x
@@ -15502,6 +15605,34 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 619fdb672fed2c0408d397f1f7b6b978, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 619fdb672fed2c0408d397f1f7b6b978, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 619fdb672fed2c0408d397f1f7b6b978, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1829510268}
+    - target: {fileID: 2329552873946414326, guid: 619fdb672fed2c0408d397f1f7b6b978, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 619fdb672fed2c0408d397f1f7b6b978, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowSpeechBubbleButtonUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 619fdb672fed2c0408d397f1f7b6b978, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CharacterUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: 619fdb672fed2c0408d397f1f7b6b978, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5920889275324192532, guid: 619fdb672fed2c0408d397f1f7b6b978, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -15685,7 +15816,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1570994110}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1829510268}
+        m_TargetAssemblyTypeName: CharacterUI, Assembly-CSharp
+        m_MethodName: NegativeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1570994110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18358,7 +18501,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1810109472
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18585,7 +18728,7 @@ MonoBehaviour:
   SettingUI: {fileID: 1829510265}
   CalenderManager: {fileID: 1603696582}
   DayChangeUI: {fileID: 1829510269}
-  OneCycleStartAndEnd: {fileID: 0}
+  OneCycleStartAndEnd: {fileID: 1829510271}
   _cursorBox: {fileID: 1108126523}
   _cursorText: {fileID: 786751769}
 --- !u!4 &1829510263
@@ -18703,8 +18846,8 @@ MonoBehaviour:
   _characterText: {fileID: 188416752}
   _speechBubble: {fileID: 1810109475}
   _speechButton: {fileID: 1810109474}
-  _positiveButton: {fileID: 0}
-  _negativeButton: {fileID: 0}
+  _positiveButton: {fileID: 788818949}
+  _negativeButton: {fileID: 1570994109}
   _characterActivateTransform: {fileID: 1997962511}
   _adventurerIDCardUI: {fileID: 2125176540}
 --- !u!114 &1829510269
@@ -21252,6 +21395,34 @@ PrefabInstance:
     - target: {fileID: 1813346340252683813, guid: a49d3b26be07b534ea4d05fa472d4235, type: 3}
       propertyPath: m_Color.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: a49d3b26be07b534ea4d05fa472d4235, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: a49d3b26be07b534ea4d05fa472d4235, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: a49d3b26be07b534ea4d05fa472d4235, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1829510268}
+    - target: {fileID: 2329552873946414326, guid: a49d3b26be07b534ea4d05fa472d4235, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: a49d3b26be07b534ea4d05fa472d4235, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowSpeechBubbleButtonUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: a49d3b26be07b534ea4d05fa472d4235, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CharacterUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329552873946414326, guid: a49d3b26be07b534ea4d05fa472d4235, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5920889275324192532, guid: a49d3b26be07b534ea4d05fa472d4235, type: 3}
       propertyPath: m_Pivot.x
