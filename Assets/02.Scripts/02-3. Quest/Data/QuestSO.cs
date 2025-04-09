@@ -15,6 +15,7 @@ public class QuestSO : ScriptableObject
     public string QuestName; // 퀘스트 이름
     public string QuestDescription; // 퀘스트 설명
     public QuestTierType QuestTier; // 퀘스트 등급
+    public Color QuestTierImageColor; // 퀘스트 등급 이미지 색상
     public float STRWeight; // 퀘스트 STR 가중치
     public float MAGWeight; // 퀘스트 MAG 가중치
     public float INSWeight; // 퀘스트 INS 가중치

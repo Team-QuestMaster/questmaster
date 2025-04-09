@@ -16,11 +16,12 @@ MonoBehaviour:
   QuestDescription: "\uD5EC\uC2A4\uC7A5 \uB3C8\uC774 \uC544\uAE5D\uC9C0 \uC54A\uB3C4\uB85D
     \uC5F4\uC2EC\uD788 \uC6B4\uB3D9 \uB2E4\uB140\uC57C\uD55C\uB2E4."
   QuestTier: 3
+  QuestTierImageColor: {r: 0, g: 0, b: 1, a: 1}
   STRWeight: 1
   MAGWeight: 1
   INSWeight: 1
   DEXWeight: 1
-  PowerForClear: 1
+  PowerForClear: 1000
   FameReward: 100
   GoldReward: 100
   FamePenalty: 20
