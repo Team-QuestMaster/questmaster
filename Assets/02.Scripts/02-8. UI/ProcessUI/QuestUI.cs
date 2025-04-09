@@ -62,6 +62,7 @@ public class QuestUI : MonoBehaviour
     {
         // SealingImage의 경우, QuestData의 QuestTier에 따라 다르게 설정할 필요
         // 그냥 Image도 QuestData에 넣어버릴까?
+        bigQuestPaperContent.SealingImage.color = _currentQuest.QuestData.QuestTierImageColor;
         bigQuestPaperContent.TitleTMP.text = _currentQuestData.QuestName;
         bigQuestPaperContent.MainBodyTMP.text = _currentQuestData.QuestDescription;
         bigQuestPaperContent.RewardTMP.text = _currentQuestData.GoldReward.ToString();
