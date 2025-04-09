@@ -59,7 +59,6 @@ public class Adventurer : MonoBehaviour
     }
     private void SetMinorTypeData(MinorASO minorAdventurerSO)
     {
-        Debug.Log("SetMinorTypeData »£√‚");
         string adventurerName 
             = minorAdventurerSO.AdventurerNameList[Random.Range(0, minorAdventurerSO.AdventurerNameList.Count)];
         string adventurerClass
@@ -88,7 +87,6 @@ public class Adventurer : MonoBehaviour
             spritesPair.SDSprite,
             spritesPair.LDSprite
         );
-        _minerStatHandler.SetRandomStat(this, DateManager.Instance.CurrentDate);
+        _minerStatHandler.SetRandomStat(this, 1);
     }
-       
 }
