@@ -2993,6 +2993,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8570329066174301283, guid: 1c79e2cb8bca90e4bb79a4db6a6da7fc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 253709702}
+    - targetCorrespondingSourceObject: {fileID: 8570329066174301283, guid: 1c79e2cb8bca90e4bb79a4db6a6da7fc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 253709704}
   m_SourcePrefab: {fileID: 100100000, guid: 1c79e2cb8bca90e4bb79a4db6a6da7fc, type: 3}
 --- !u!114 &253709694 stripped
 MonoBehaviour:
@@ -3082,6 +3085,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &253709704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253709701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bde2b8ae6acb30e4fbcc47b7965078fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &258256132
 GameObject:
   m_ObjectHideFlags: 0
@@ -4097,6 +4112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _questSO: {fileID: 11400000, guid: c1fb420a76642ec4f80dc7dceb8a1d0b, type: 2}
+  _questTierMinCombatPowers: 
 --- !u!114 &338782224
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(RectTransform))]
-public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler
+public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IPointerDownHandler,  IPointerUpHandler
 {
     // Image를 드래그가 가능하도록 제어
     // 조건 및 기능
@@ -20,7 +20,7 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public event Action OnPointerDownEvent;
     public event Action<PointerEventData> OnDraggingEvent;
-    public event Action OnEndDragEvent;
+    public event Action OnPointerUpEvent; // Pointer가 Up될때 발동
 
     private RectTransform _rectTransform;
 
@@ -68,11 +68,10 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         _rectTransform.localPosition = ScreenToDragCoordinate(newPosition);
         OnDraggingEvent?.Invoke(eventData);
     }
-
-    public void OnEndDrag(PointerEventData eventData)
+    
+    public void OnPointerUp(PointerEventData eventData)
     {
-        Debug.Log("End Drag");
-        OnEndDragEvent?.Invoke();
+        OnPointerUpEvent?.Invoke();
     }
 
     private Vector2 ClampToDragArea(Vector2 targetPosition)
