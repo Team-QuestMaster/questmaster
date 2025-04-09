@@ -17,11 +17,12 @@ MonoBehaviour:
   OriginalMAG: 1
   OriginalINS: 1
   OriginalDEX: 1
-  AdventurerName: Alex
-  AdventurerClass: Beginner
-  AdventurerTitle: Travler
-  AdventurerTier: 0
+  DialogList:
+  - Dialog: []
+  SpriteSD: {fileID: 0}
+  AdventurerName: "\uCE74\uC77C\uB85C\uC2A4"
+  AdventurerClass: "\uB3C4\uC801"
+  AdventurerTitle: "\uC0C8\uB0B4\uAE30 \uBAA8\uD5D8\uAC00"
+  AdventurerTier: 3
   AdventurerState: 0
-  Dialog:
-  - "\uC800\uB294 \uCD08\uBCF4 \uBAA8\uD5D8\uAC00\uC785\uB2C8\uB2E4."
-  - "\uB450\uADFC\uAC70\uB9AC\uB124\uC694!"
+  SpriteLD: {fileID: -2036455193332455462, guid: 2349893ae37fefa428fb3bb65dbf9e2e, type: 3}

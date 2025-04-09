@@ -20,8 +20,10 @@ MonoBehaviour:
   DialogList:
   - Dialog:
     - "!!\uCC98\uC74C\uC5D0 \uBC14\uB85C \uB098\uC640\uC640\uD569\uB2C8\uB2E4."
-  AdventurerName: Max
-  AdventurerClass: Warrior
-  AdventurerTitle: DragonSlayer
-  AdventurerTier: 0
+  SpriteSD: {fileID: 0}
+  AdventurerName: "\uCE74\uC778"
+  AdventurerClass: "\uC804\uC0AC"
+  AdventurerTitle: "\uC0C8\uB0B4\uAE30 \uBAA8\uD5D8\uAC00"
+  AdventurerTier: 3
   AdventurerState: 0
+  SpriteLD: {fileID: -2036455193332455462, guid: 2349893ae37fefa428fb3bb65dbf9e2e, type: 3}

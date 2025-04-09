@@ -11,5 +11,5 @@ public class MajorASO : AdventurerSO
     public string AdventurerTitle; //  칭호
     public AdventurerTierType AdventurerTier; // 모험가 등급
     public AdventurerStateType AdventurerState; //모험가 상태
-
+    public Sprite SpriteLD; // 메이저 모험가의 LD 스프라이트
 }

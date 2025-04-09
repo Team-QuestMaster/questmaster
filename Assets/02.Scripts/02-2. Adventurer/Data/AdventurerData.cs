@@ -31,9 +31,16 @@ public class AdventurerData
     private DialogSet _dialogSet; // 대사
     public DialogSet DialogSet { get => _dialogSet; set => _dialogSet = value; } // 대사
 
+    private Sprite _spriteSD; // 모험가의 SD 스프라이트
+    public Sprite SpriteSD { get => _spriteSD; set => _spriteSD = value; }
+
+    private Sprite _spriteLD; // 모험가의 LD 스프라이트
+    public Sprite SpriteLD { get => _spriteLD; set => _spriteLD = value; }
+
+
     public AdventurerData(AdventurerType adventurerType, string adventurerName, string adventurerClass, string adventurerTitle,
         AdventurerTierType adventurerTier, int originalSTR, int originalMAG, int originalINS, int originalDEX,
-        AdventurerStateType adventurerState, DialogSet dialogSet)
+        AdventurerStateType adventurerState, DialogSet dialogSet, Sprite spriteSD, Sprite spriteLD)
     {
         _adventurerType = AdventurerType;
         _adventurerName = adventurerName;
@@ -46,6 +53,8 @@ public class AdventurerData
         _currentDEX = originalDEX;
         _adventurerState = adventurerState;
         _dialogSet = dialogSet;
+        _spriteSD = spriteSD;
+        _spriteLD = spriteLD;
     }
 
     public AdventurerData Clone()
@@ -61,7 +70,9 @@ public class AdventurerData
             _currentINS,
             _currentDEX,
             _adventurerState,
-            _dialogSet
+            _dialogSet,
+            _spriteSD,
+            _spriteLD
         );
     }
 }
