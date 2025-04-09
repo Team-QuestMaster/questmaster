@@ -37,6 +37,8 @@ public class DraggingObjectSwap : MonoBehaviour
 
     private event Action _onEnableEvent;
 
+    public event Action ItemSwapEvent;
+
     private void Awake()
     {
         _myArea = transform.parent.GetComponent<RectTransform>();
@@ -83,6 +85,7 @@ public class DraggingObjectSwap : MonoBehaviour
         if (_type == DraggingObjectType.Big)
         {
             ImageShadowManager.Instance.DisableImageShadow();
+            ItemSwapEvent?.Invoke();
         }
         
         // 스왑 오브젝트 활성화
