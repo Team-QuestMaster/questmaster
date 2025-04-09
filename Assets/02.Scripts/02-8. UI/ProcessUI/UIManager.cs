@@ -57,7 +57,30 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
-    public void GuidStatCursorBox()
+    public void ItemCursorBox(Item item)
+    {
+        Debug.Log("Cursor Box Showing");
+        if (!ReferenceEquals(_cursorBox, null))
+        {
+            Vector2 localPos;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                _cursorBox.canvas.transform as RectTransform,   // 기준이 되는 캔버스
+                Input.mousePosition,                             // 마우스 위치 (스크린 좌표)
+                _cursorBox.canvas.worldCamera,                   // 카메라 (Screen Space - Camera일 때)
+                out localPos                                     // 변환된 로컬 좌표
+            );
+
+            _cursorBox.gameObject.SetActive(true);
+            _cursorBox.rectTransform.localPosition = localPos;
+            _cursorText.text = $"아이템 : {item.Name}\n효과  : {item.Description}\n가격  : {item.Price} 골드";
+        }
+        else
+        {
+            Debug.LogError("커서박스가 할당돼지 않음");
+        }
+    }
+
+    public void GuildStatCursorBox()
     {
         Debug.Log("Cursor Box Showing");
         if (!ReferenceEquals(_cursorBox, null))
