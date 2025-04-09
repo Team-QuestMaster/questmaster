@@ -54,7 +54,7 @@ public class DraggingObjectSwap : MonoBehaviour
         {
             gameObject.SetActive(false);
             _draggableObject.OnPointerDownEvent += () => ImageShadowManager.Instance.SetTargetImage(_image);
-            _draggableObject.OnEndDragEvent += ImageShadowManager.Instance.DisableImageShadow;
+            _draggableObject.OnPointerUpEvent += ImageShadowManager.Instance.DisableImageShadow;
         }
         
         if (_type == DraggingObjectType.Big)

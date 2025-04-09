@@ -20,7 +20,7 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public event Action OnPointerDownEvent;
     public event Action<PointerEventData> OnDraggingEvent;
-    public event Action OnEndDragEvent; // TODO: 이름 변경 필요 => Pointer가 Up될때 발동
+    public event Action OnPointerUpEvent; // Pointer가 Up될때 발동
 
     private RectTransform _rectTransform;
 
@@ -68,16 +68,10 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         _rectTransform.localPosition = ScreenToDragCoordinate(newPosition);
         OnDraggingEvent?.Invoke(eventData);
     }
-
-    // public void OnEndDrag(PointerEventData eventData)
-    // {
-    //     Debug.Log("End Drag");
-    //     OnEndDragEvent?.Invoke();
-    // }
     
     public void OnPointerUp(PointerEventData eventData)
     {
-        OnEndDragEvent?.Invoke();
+        OnPointerUpEvent?.Invoke();
     }
 
     private Vector2 ClampToDragArea(Vector2 targetPosition)
