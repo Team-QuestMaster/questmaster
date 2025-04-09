@@ -119,11 +119,17 @@ public class CharacterUI : MonoBehaviour
     void ShowDialogueUI(int i)
     {
         string prefix = StageShowManager.Instance.ShowCharacter.Prefix;
-        if (_dialogIndex < _characterData.DialogSet.Dialog.Count)
+        if (_dialogIndex <= _characterData.DialogSet.Dialog.Count)
         {
-            if(_characterData.DialogSet.Dialog[i].StartsWith(prefix))
+            if (_characterData.DialogSet.Dialog[i].StartsWith(prefix))
+            {
                 _characterText.text = _characterData.DialogSet.Dialog[i].Substring(prefix.Length);
-            _characterText.text = _characterData.DialogSet.Dialog[i];
+            }
+            else
+            {
+
+                _characterText.text = _characterData.DialogSet.Dialog[i];
+            }
         }
         else
         {
@@ -133,7 +139,7 @@ public class CharacterUI : MonoBehaviour
 
     void NextDialogue()
     {
-        if (_dialogIndex < _characterData.DialogSet.Dialog.Count)
+        if (_dialogIndex <= _characterData.DialogSet.Dialog.Count)
         {
             _dialogIndex++;
             ShowDialogueUI(_dialogIndex);
@@ -164,6 +170,7 @@ public class CharacterUI : MonoBehaviour
     {
         Debug.Log("ChangeCharacter 호출");
         _currentCharacter++;
+        _dialogIndex = 0;
         Debug.Log($"{_currentCharacter}, {Characters.Count}");
 
         if (_currentCharacter < Characters.Count)
