@@ -70,4 +70,23 @@ public class QuestData
         _days = days;
         _questHint = questHint;
     }
+    public QuestData Clone()
+    {
+        return new QuestData
+            (_questName, 
+            _questDescription, 
+            _questTier, 
+            _strWeight, 
+            _magWeight,
+            _insWeight, 
+            _dexWeight, 
+            _powerForClear, 
+            _fameReward, 
+            _goldReward,
+            _famePenalty, 
+            _goldPenalty, 
+            _stateAfterFail, 
+            _days, 
+            _questHint);
+    }
 }

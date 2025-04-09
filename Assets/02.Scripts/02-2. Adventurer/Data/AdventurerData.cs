@@ -47,4 +47,21 @@ public class AdventurerData
         _adventurerState = adventurerState;
         _dialogSet = dialogSet;
     }
+
+    public AdventurerData Clone()
+    {
+        return new AdventurerData(
+            _adventurerType,
+            _adventurerName,
+            _adventurerClass,
+            _adventurerTitle,
+            _adventurerTier,
+            _currentSTR,
+            _currentMAG,
+            _currentINS,
+            _currentDEX,
+            _adventurerState,
+            _dialogSet
+        );
+    }
 }
