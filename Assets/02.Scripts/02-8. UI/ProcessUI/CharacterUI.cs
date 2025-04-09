@@ -139,16 +139,15 @@ public class CharacterUI : MonoBehaviour
     }
 
     void NextDialogue()
-    {Debug.Log("Next");
-        if (_dialogIndex < _characterData.DialogSet.Dialog.Count - 1)
-        {
-            _dialogIndex++;
-            ShowDialogueUI(_dialogIndex);
-        }
-        else
+    {
+        if (_dialogIndex >= _characterData.DialogSet.Dialog.Count)
         {
             HideSpeechBubbleUI();
+            return;
         }
+
+        ShowDialogueUI(_dialogIndex);
+        _dialogIndex++; // 대사 출력 후 증가
     }
 
     public void ShowSpeechBubbleButtonUI()

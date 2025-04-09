@@ -39,10 +39,11 @@ public bool Interactable = true;
     {
         if (Interactable)
         {
-            if(_type != Type.Item)
+            if (_type != Type.Item)
             {
                 Interactable = false;
             }
+
             if (ReferenceEquals(_checkPointTransform, null))
             {
                 Debug.LogWarning("CheckPointTransform이 할당되지 않았습니다.");
