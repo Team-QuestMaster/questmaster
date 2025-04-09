@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Quest : MonoBehaviour
 {
@@ -7,22 +9,23 @@ public class Quest : MonoBehaviour
     public QuestSO QuestSO { get => _questSO; }
     private QuestData _questData;
     public QuestData QuestData { get => _questData; set => _questData = value; }
+    [SerializeField]
+    private List<int> _questTierMinCombatPowers = new List<int>();
+
 
     private void Awake()
     {
         InitQuestData();
         gameObject.SetActive(false);
     }
-    private void OnEnable()
-    {
-        SetQuestDataOnDate();
-    }
     private void InitQuestData()
     {
+        _questSO.QuestTierImageColor = InitQuestTierImageColor();
         _questData = new QuestData(
             _questSO.QuestName,
             _questSO.QuestDescription,
             _questSO.QuestTier,
+            _questSO.QuestTierImageColor,
             _questSO.STRWeight,
             _questSO.MAGWeight,
             _questSO.INSWeight,
@@ -41,6 +44,7 @@ public class Quest : MonoBehaviour
     {
         _questSO = questSO;
         InitQuestData();
+        SetQuestDataOnDate();
     }
     private void SetQuestDataOnDate()
     {
@@ -49,42 +53,72 @@ public class Quest : MonoBehaviour
         int currentDate = DateManager.Instance.CurrentDate;
 
         SetQuestPowerForClearOnDate(ref currentDate);
-        SetQuestTierOnDate(ref currentDate);
+        SetQuestTierAndImageColorOnDate(ref currentDate);
         SetQuestRewardOnDate(ref currentDate);
         SetQuestPenaltyOnDate(ref currentDate);
         SetQuestStateAfterFailOnDate(ref currentDate);
         SetQuestDays(ref currentDate);
     }
-    
+    private Color InitQuestTierImageColor()
+    {
+        Color tierImageColor = Color.white;
+        switch (_questSO.QuestTier)
+        {
+            case QuestTierType.Green:
+                tierImageColor = Color.green;
+                break;
+            case QuestTierType.Blue:
+                tierImageColor = Color.blue;
+                break;
+            case QuestTierType.Yellow:
+                tierImageColor = Color.yellow;
+                break;
+            case QuestTierType.Orange:
+                tierImageColor = new Color(1f, 0.5f, 0f);
+                break;
+            case QuestTierType.Red:
+                tierImageColor = Color.red;
+                break;
+            default:
+                tierImageColor = Color.green;
+                break;
+        }
+        return tierImageColor;
+    }
     private void SetQuestPowerForClearOnDate(ref int currentDate)
     {
         _questData.PowerForClear += currentDate * _questSO.PowerForClear;
     }
-    private void SetQuestTierOnDate(ref int currentDate)
+    private void SetQuestTierAndImageColorOnDate(ref int currentDate)
     {
         // Question
         // 퀘스트 성공을 위한 전투력 기준으로 티어 자르는게 맞다고 생각하긴 하는데..
         // 더 좋은 방안은 없을까?
         float powerForClear = _questData.PowerForClear;
-        if (powerForClear < 1000)
+        if (powerForClear < _questTierMinCombatPowers[0])
         {
             _questData.QuestTier = QuestTierType.Green;
+            _questData.QuestTierImageColor = Color.green;
         }
-        else if (powerForClear < 5000)
+        else if (powerForClear < _questTierMinCombatPowers[1])
         {
             _questData.QuestTier = QuestTierType.Blue;
+            _questData.QuestTierImageColor = Color.blue;
         }
-        else if (powerForClear < 10000)
+        else if (powerForClear < _questTierMinCombatPowers[2])
         {
             _questData.QuestTier = QuestTierType.Yellow;
+            _questData.QuestTierImageColor = Color.yellow;
         }
-        else if (powerForClear < 20000)
+        else if (powerForClear < _questTierMinCombatPowers[3])
         {
             _questData.QuestTier = QuestTierType.Orange;
+            _questData.QuestTierImageColor = new Color(1f, 0.5f, 0f);
         }
         else
         {
             _questData.QuestTier = QuestTierType.Red;
+            _questData.QuestTierImageColor = Color.red;
         }
     }
     private void SetQuestRewardOnDate(ref int currentDate)

@@ -118,3 +118,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _questSO: {fileID: 11400000, guid: c1fb420a76642ec4f80dc7dceb8a1d0b, type: 2}
+  _questTierMinCombatPowers: e80300008813000010270000204e0000
