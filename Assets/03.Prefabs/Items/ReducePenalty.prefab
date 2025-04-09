@@ -108,6 +108,7 @@ MonoBehaviour:
   _draggableObject: {fileID: 7112096187577982238}
   _checkPointTransform: {fileID: 4480553533208288987}
   _eventSystem: {fileID: 0}
+  Interactable: 1
   _type: 2
 --- !u!114 &6781644219844464012
 MonoBehaviour:
