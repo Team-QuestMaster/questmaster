@@ -1986,22 +1986,22 @@ PrefabInstance:
     - target: {fileID: 2329552873946414326, guid: 80a4e923fc38d4443a2387f90049e342, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1543659078}
     - target: {fileID: 2329552873946414326, guid: 80a4e923fc38d4443a2387f90049e342, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2329552873946414326, guid: 80a4e923fc38d4443a2387f90049e342, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: ShowSpeechBubbleUI
       objectReference: {fileID: 0}
     - target: {fileID: 2329552873946414326, guid: 80a4e923fc38d4443a2387f90049e342, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: 
+      value: CharacterUI, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2329552873946414326, guid: 80a4e923fc38d4443a2387f90049e342, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5920889275324192532, guid: 80a4e923fc38d4443a2387f90049e342, type: 3}
       propertyPath: m_Pivot.x
@@ -3547,7 +3547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2329552873946414326, guid: 619fdb672fed2c0408d397f1f7b6b978, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowSpeechBubbleButtonUI
+      value: ShowSpeechBubbleUI
       objectReference: {fileID: 0}
     - target: {fileID: 2329552873946414326, guid: 619fdb672fed2c0408d397f1f7b6b978, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -6326,7 +6326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2329552873946414326, guid: a49d3b26be07b534ea4d05fa472d4235, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowSpeechBubbleButtonUI
+      value: ShowSpeechBubbleUI
       objectReference: {fileID: 0}
     - target: {fileID: 2329552873946414326, guid: a49d3b26be07b534ea4d05fa472d4235, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -7343,7 +7343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2329552873946414326, guid: 71d83cbc4b2ceaf44b75c2b90df76b2b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowSpeechBubbleButtonUI
+      value: ShowSpeechBubbleUI
       objectReference: {fileID: 0}
     - target: {fileID: 2329552873946414326, guid: 71d83cbc4b2ceaf44b75c2b90df76b2b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -18287,7 +18287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2329552873946414326, guid: 189f35177cd974044a6219015e4ce4c2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowSpeechBubbleButtonUI
+      value: ShowSpeechBubbleUI
       objectReference: {fileID: 0}
     - target: {fileID: 2329552873946414326, guid: 189f35177cd974044a6219015e4ce4c2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
