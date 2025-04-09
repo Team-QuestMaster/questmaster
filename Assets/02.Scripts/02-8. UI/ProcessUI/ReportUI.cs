@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -10,8 +11,15 @@ public class ReportUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _fameChangeText;
     [SerializeField] private TextMeshProUGUI _questResultText;
     [SerializeField] private TextMeshProUGUI _specialCommentText;
-   
-    
+    [SerializeField] private Button _closeButton;
+
+    private void Start()
+    {
+        _closeButton.onClick.AddListener(HideReportUI);
+        _closeButton.onClick.AddListener(StageShowManager.Instance.Appear);
+    }
+
+
     public void Initialize()
     {
         

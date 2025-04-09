@@ -9,9 +9,13 @@ public class ShowQuest : MonoBehaviour
     public event Action QuestDisappearShow;
     private void Start()
     {
+        QuestDisappearShow += QuestDisappear;
+    }
+
+    public void AppearEventSet()
+    {
         QuestAppearShow += UIManager.Instance.QuestUI.Initialize;
         QuestAppearShow += QuestAppear;
-        QuestDisappearShow += QuestDisappear;
     }
     public void Appear()
     {

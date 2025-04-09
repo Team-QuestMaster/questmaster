@@ -18,6 +18,11 @@ public class TaxPayment : MonoBehaviour
         IncreaseTax();
         return true;
     }
+
+    public int GetPaymentTerm(int currentDate)
+    {
+        return _paymentTerm - (currentDate % _paymentTerm);
+    }
     private bool IsPaymentDate(int currentDate)
     {
         return currentDate % _paymentTerm == 0;
