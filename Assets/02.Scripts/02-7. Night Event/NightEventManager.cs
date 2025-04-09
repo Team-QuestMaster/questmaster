@@ -30,13 +30,9 @@ public class NightEventManager : Singleton<NightEventManager>
             ItemManager.Instance.SellingItems();
         });
     }
-    [ContextMenu("TestMarketEvent")]
+
     public void AfterMarketEvent() // UI에서 구매 확정시 호출
     {
-        if (!ItemManager.Instance.TryBuyall())
-        {
-            return;
-        }
         ItemManager.Instance.ReturnItems(() =>
         {
             StageShowManager.Instance.ShowCharacter.Disappear();
