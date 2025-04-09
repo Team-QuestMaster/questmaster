@@ -23,12 +23,12 @@ public class NightEventManager : Singleton<NightEventManager>
 
     public void MarketEvent() // 밤이 되면 호출
     {
+        Debug.Log("MarketEvent");
         UIManager.Instance.CharacterUI.Characters.Clear();
         UIManager.Instance.CharacterUI.Characters.Add(_dealer);
-        StageShowManager.Instance.ShowCharacter.Appear(() =>
-        {
-            ItemManager.Instance.SellingItems();
-        });
+        StageShowManager.Instance.ShowCharacter.Appear();        
+        ItemManager.Instance.SellingItems();
+        
     }
 
     [ContextMenu("TestMarketEvent")]
@@ -40,9 +40,14 @@ public class NightEventManager : Singleton<NightEventManager>
         }
         ItemManager.Instance.ReturnItems(() =>
         {
+            UIManager.Instance.OneCycleStartAndEnd.NextCycleOptionalEvent += () => {
+                _dealer.SetActive(false);
+                IsNightEventDay = false;
+                DateManager.Instance.ChangeDateInNight();
+            };
             StageShowManager.Instance.ShowCharacter.Disappear();
-            DateManager.Instance.ChangeDateInNight();
-            UIManager.Instance.OneCycleStartAndEnd.EndCycle();
+            
+            //UIManager.Instance.OneCycleStartAndEnd.EndCycle();
         });
     }
 
