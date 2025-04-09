@@ -11,6 +11,10 @@ public class QuestData
     private QuestTierType _questTier; // Äù½ºÆ® µî±Þ
     public QuestTierType QuestTier { get => _questTier; set => _questTier = value; }
 
+    private Color _questTierImageColor; // Äù½ºÆ® µî±Þ ÀÌ¹ÌÁö
+    public Color QuestTierImageColor { get => _questTierImageColor; set => _questTierImageColor = value; }
+
+
     private float _strWeight; // Äù½ºÆ® ±Ù·Â °¡ÁßÄ¡
     public float STRWeight { get => _strWeight; set => _strWeight = value; }
 
@@ -49,14 +53,16 @@ public class QuestData
 
     private string _questHint; // Äù½ºÆ® ÈùÆ®
     public string QuestHint { get => _questHint; set => _questHint = value; }
+
     public QuestData(string questName, string questDescription, QuestTierType questTier, 
-        float strWeight, float magWeight, float insWeight, float dexWeight, 
+        Color questTierImageColor, float strWeight, float magWeight, float insWeight, float dexWeight, 
         float powerForClear, int fameReward, int goldReward, int famePenalty, int goldPenalty, 
         AdventurerStateType stateAfterFail, int days, string questHint)
     {
         _questName = questName;
         _questDescription = questDescription;
         _questTier = questTier;
+        _questTierImageColor = questTierImageColor;
         _strWeight = strWeight;
         _magWeight = magWeight;
         _insWeight = insWeight;
@@ -75,7 +81,8 @@ public class QuestData
         return new QuestData
             (_questName, 
             _questDescription, 
-            _questTier, 
+            _questTier,
+            _questTierImageColor,
             _strWeight, 
             _magWeight,
             _insWeight, 
