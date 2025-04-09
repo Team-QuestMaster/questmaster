@@ -54,7 +54,7 @@ public class DraggingObjectSwap : MonoBehaviour
         {
             gameObject.SetActive(false);
             _draggableObject.OnPointerDownEvent += () => ImageShadowManager.Instance.SetTargetImage(_image);
-            _draggableObject.OnEndDragEvent += ImageShadowManager.Instance.DisableImageShadow;
+            _draggableObject.OnPointerUpEvent += ImageShadowManager.Instance.DisableImageShadow;
         }
         
         if (_type == DraggingObjectType.Big)
@@ -90,6 +90,7 @@ public class DraggingObjectSwap : MonoBehaviour
         
         _swapTargetObject.transform.SetAsLastSibling();
         
+        eventData.pointerPress = _swapTargetObject.gameObject;   // PointerDown다운 이벤트 전달 => PointerUp이벤트 호출을 위함
         eventData.pointerDrag = _swapTargetObject.gameObject;
         ExecuteEvents.Execute(_swapTargetObject.gameObject, eventData, ExecuteEvents.dragHandler);
     }
