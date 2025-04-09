@@ -4,6 +4,7 @@ public class Adventurer : MonoBehaviour
 {
     [SerializeField]
     private AdventurerSO _adventurerSO;
+    public AdventurerSO AdventurerSO { get => _adventurerSO; set => _adventurerSO = value; }
     private AdventurerData _adventurerData;
     public AdventurerData AdventurerData { get => _adventurerData; set => _adventurerData = value; }
 
