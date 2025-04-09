@@ -612,7 +612,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 897576238885240338, guid: b4e05c32c5d4c3e4e8f9ee95bbca7d6d, type: 3}
       propertyPath: m_Name
-      value: CharacterMinor
+      value: CharacterMinor1
       objectReference: {fileID: 0}
     - target: {fileID: 5920889275324192532, guid: b4e05c32c5d4c3e4e8f9ee95bbca7d6d, type: 3}
       propertyPath: m_Pivot.x
@@ -1081,7 +1081,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 897576238885240338, guid: b4e05c32c5d4c3e4e8f9ee95bbca7d6d, type: 3}
       propertyPath: m_Name
-      value: CharacterMinor (4)
+      value: CharacterMinor5
       objectReference: {fileID: 0}
     - target: {fileID: 5920889275324192532, guid: b4e05c32c5d4c3e4e8f9ee95bbca7d6d, type: 3}
       propertyPath: m_Pivot.x
@@ -1449,7 +1449,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 897576238885240338, guid: b4e05c32c5d4c3e4e8f9ee95bbca7d6d, type: 3}
       propertyPath: m_Name
-      value: CharacterMinor (3)
+      value: CharacterMinor4
       objectReference: {fileID: 0}
     - target: {fileID: 5920889275324192532, guid: b4e05c32c5d4c3e4e8f9ee95bbca7d6d, type: 3}
       propertyPath: m_Pivot.x
@@ -6571,7 +6571,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 897576238885240338, guid: b4e05c32c5d4c3e4e8f9ee95bbca7d6d, type: 3}
       propertyPath: m_Name
-      value: CharacterMinor (1)
+      value: CharacterMinor2
       objectReference: {fileID: 0}
     - target: {fileID: 5920889275324192532, guid: b4e05c32c5d4c3e4e8f9ee95bbca7d6d, type: 3}
       propertyPath: m_Pivot.x
@@ -15205,7 +15205,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 897576238885240338, guid: b4e05c32c5d4c3e4e8f9ee95bbca7d6d, type: 3}
       propertyPath: m_Name
-      value: CharacterMinor (2)
+      value: CharacterMinor3
       objectReference: {fileID: 0}
     - target: {fileID: 5920889275324192532, guid: b4e05c32c5d4c3e4e8f9ee95bbca7d6d, type: 3}
       propertyPath: m_Pivot.x
