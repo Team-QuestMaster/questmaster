@@ -74,9 +74,8 @@ public class MiniCharacterUI : MonoBehaviour
                 StageShowManager.Instance.ShowCharacter.Appear();
                 StageShowManager.Instance.ShowQuest.Appear();
                 StageShowManager.Instance.ShowIDCard.Appear();
-                
             });
 
-        //MoveToTarvenInEvent?.Invoke();
+        MoveToTarvenInEvent?.Invoke();
     }
 }
