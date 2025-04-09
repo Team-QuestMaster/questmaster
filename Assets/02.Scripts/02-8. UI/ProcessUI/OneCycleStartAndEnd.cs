@@ -5,14 +5,18 @@ using UnityEngine.UI;
 
 public class OneCycleStartAndEnd : MonoBehaviour
 {
-    [SerializeField] private Image _fadeImage;
+    [SerializeField]
+    private TaxPayment _taxPayment;
 
-    private event Action NextCycleEvent;    // 하루 끝나고 이벤트
+    [SerializeField]
+    private Image _fadeImage;
 
-    private Tweener _fadeInTween;   // 페이드 인 (밝아짐)
-    private Tweener _fadeOutTween;  // 페이드 아웃 (어두워짐)
+    private event Action NextCycleEvent; // 하루 끝나고 이벤트
 
-    void Start()
+    private Tweener _fadeInTween; // 페이드 인 (밝아짐)
+    private Tweener _fadeOutTween; // 페이드 아웃 (어두워짐)
+
+    private void Awake()
     {
         // 기본 알파값 설정 (완전히 어두운 상태에서 시작)
         _fadeImage.color = new Color(0, 0, 0, 1);
@@ -29,15 +33,13 @@ public class OneCycleStartAndEnd : MonoBehaviour
             .OnComplete(FadeIn);
 
         SetNextCycleEvent(FirstCycle); // 첫날 싸이클로 초기화
-
-        FadeIn(); // 시작하면 FadeIn
     }
 
     private void FadeIn()
     {
         _fadeImage.gameObject.SetActive(true);
         _fadeInTween.Restart();
-        NextCycleEvent?.Invoke();   // 다음 Cycle실행
+        NextCycleEvent?.Invoke(); // 다음 Cycle실행
         SetNextCycleEvent(null); // 기본 싸이클로 초기화
     }
 
@@ -48,13 +50,18 @@ public class OneCycleStartAndEnd : MonoBehaviour
         _fadeOutTween.Restart();
     }
 
-    public void StartDayCycle()
+    private void StartDayCycle()
     {
         Debug.Log("Cycle이 시작된다");
         // 아침이면
+        // 세금 나가고
+        int currentDate = DateManager.Instance.CurrentDate;
+        string taxMessage = _taxPayment.TryPayTax(currentDate)
+            ? $"오늘 나가는 세금: {_taxPayment.Tax}"
+            : $"세금 납부일까지 {_taxPayment.GetPaymentTerm(currentDate)}일, 납부할 세금 {_taxPayment.Tax}Gold";
+        UIManager.Instance.ReportUI.SpecialCommentText(taxMessage);
         // 레포트 보여주고
         UIManager.Instance.ReportUI.ShowReportUI();
-        // 세금 나가고
         // appear
         StageShowManager.Instance.Appear(); // 낮 등장 이벤트
     }
@@ -62,6 +69,12 @@ public class OneCycleStartAndEnd : MonoBehaviour
     private void FirstCycle()
     {
         StageShowManager.Instance.Appear(); // 낮 등장 이벤트
+    }
+    
+    // 처음 싸이클 시작
+    public void StartCycle()
+    {
+        FadeIn();
     }
 
     public void EndCycle()

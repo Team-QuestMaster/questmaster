@@ -22,6 +22,9 @@ public class MainProcess : MonoBehaviour
         UIManager.Instance.StampUI.UIApproveEvent += (() => ApproveRequest());
         UIManager.Instance.StampUI.UIRejectEvent += (() => RejectRequest());
         GetRequests();
+        StageShowManager.Instance.AppearEventSet();
+        // 처음 게임 시작
+        UIManager.Instance.OneCycleStartAndEnd.StartCycle();
     }
     private void GetRequests()
     {

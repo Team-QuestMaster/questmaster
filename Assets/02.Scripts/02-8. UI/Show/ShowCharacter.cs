@@ -22,13 +22,15 @@ public class ShowCharacter : MonoBehaviour
     
     private void Start()
     {
-        CharacterAppearShow += UIManager.Instance.CharacterUI.Initialize;
-        CharacterAppearShow += () => CharacterAppear();
         CharacterDisappearShow += () => CharacterDisappear();
-        Appear();
+        // Appear();
     }
 
-    
+    public void AppearEventSet()
+    {
+        CharacterAppearShow += UIManager.Instance.CharacterUI.Initialize;
+        CharacterAppearShow += () => CharacterAppear();
+    }
     
 
     //모험가의 애니메이터를 등록함
