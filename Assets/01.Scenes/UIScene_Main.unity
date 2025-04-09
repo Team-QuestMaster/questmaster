@@ -970,7 +970,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8634826102728758423, guid: cdf47e54eb1924045bc3ef46e745ab30, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 44627538}
   m_SourcePrefab: {fileID: 100100000, guid: cdf47e54eb1924045bc3ef46e745ab30, type: 3}
 --- !u!224 &44627535 stripped
 RectTransform:
@@ -982,6 +985,78 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8634826102728758423, guid: cdf47e54eb1924045bc3ef46e745ab30, type: 3}
   m_PrefabInstance: {fileID: 44627534}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &44627537 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8790966566022428246, guid: cdf47e54eb1924045bc3ef46e745ab30, type: 3}
+  m_PrefabInstance: {fileID: 44627534}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44627536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04318fc998204104d88db0d98f30b3f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &44627538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44627536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: HideCursorBox
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: ItemCursorBox
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 44627537}
+            m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 5
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: ItemCursorBox
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 44627537}
+            m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &57129548
 GameObject:
   m_ObjectHideFlags: 0
@@ -3773,7 +3848,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8192123574709209299, guid: 8048b08f2bd82a846865c2eadc964d2e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 325016703}
   m_SourcePrefab: {fileID: 100100000, guid: 8048b08f2bd82a846865c2eadc964d2e, type: 3}
 --- !u!224 &325016700 stripped
 RectTransform:
@@ -3785,6 +3863,78 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8192123574709209299, guid: 8048b08f2bd82a846865c2eadc964d2e, type: 3}
   m_PrefabInstance: {fileID: 325016699}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &325016702 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3627916671514542557, guid: 8048b08f2bd82a846865c2eadc964d2e, type: 3}
+  m_PrefabInstance: {fileID: 325016699}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325016701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50d05a6feb2c4c45b50123791c5eb5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &325016703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325016701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: HideCursorBox
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: ItemCursorBox
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 325016702}
+            m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 5
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: ItemCursorBox
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 325016702}
+            m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &334035605
 GameObject:
   m_ObjectHideFlags: 0
@@ -5750,7 +5900,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4170675679940597665, guid: 37374bccabafc9642857788ec496c80c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 563470561}
   m_SourcePrefab: {fileID: 100100000, guid: 37374bccabafc9642857788ec496c80c, type: 3}
 --- !u!224 &563470558 stripped
 RectTransform:
@@ -5762,6 +5915,78 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4170675679940597665, guid: 37374bccabafc9642857788ec496c80c, type: 3}
   m_PrefabInstance: {fileID: 563470557}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &563470560 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 454181073374708276, guid: 37374bccabafc9642857788ec496c80c, type: 3}
+  m_PrefabInstance: {fileID: 563470557}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563470559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a7dcb9fa27965e42be173d1dad8d513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &563470561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563470559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: HideCursorBox
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: ItemCursorBox
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 563470560}
+            m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 5
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: ItemCursorBox
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 563470560}
+            m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &587762472
 GameObject:
   m_ObjectHideFlags: 0
@@ -6506,7 +6731,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1543659073}
           m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-          m_MethodName: GuidStatCursorBox
+          m_MethodName: GuildStatCursorBox
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -13368,7 +13593,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3212241705937323432, guid: abff45dcd4f55614c802cfcd3591faff, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1212210196}
   m_SourcePrefab: {fileID: 100100000, guid: abff45dcd4f55614c802cfcd3591faff, type: 3}
 --- !u!224 &1212210193 stripped
 RectTransform:
@@ -13380,6 +13608,78 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3212241705937323432, guid: abff45dcd4f55614c802cfcd3591faff, type: 3}
   m_PrefabInstance: {fileID: 1212210192}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1212210195 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6781644219844464012, guid: abff45dcd4f55614c802cfcd3591faff, type: 3}
+  m_PrefabInstance: {fileID: 1212210192}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212210194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15634de8bce20134c9bc17688a4bd6bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1212210196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212210194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: HideCursorBox
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: ItemCursorBox
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1212210195}
+            m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 5
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: ItemCursorBox
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1212210195}
+            m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1215028013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14926,7 +15226,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8892405717685154937, guid: b7ae6be69cfe72a4daa19c87b7fb8332, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1361252092}
   m_SourcePrefab: {fileID: 100100000, guid: b7ae6be69cfe72a4daa19c87b7fb8332, type: 3}
 --- !u!224 &1361252089 stripped
 RectTransform:
@@ -14938,6 +15241,78 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8892405717685154937, guid: b7ae6be69cfe72a4daa19c87b7fb8332, type: 3}
   m_PrefabInstance: {fileID: 1361252088}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1361252091 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8298080219709234640, guid: b7ae6be69cfe72a4daa19c87b7fb8332, type: 3}
+  m_PrefabInstance: {fileID: 1361252088}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361252090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea9d4b716a931934ebb1d1998abc44fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1361252092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361252090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: HideCursorBox
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: ItemCursorBox
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1361252091}
+            m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 5
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: ItemCursorBox
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1361252091}
+            m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1380899942
 GameObject:
   m_ObjectHideFlags: 0
@@ -16275,8 +16650,8 @@ MonoBehaviour:
   - {fileID: 1361252090}
   _havingItemList:
   - {fileID: 563470559}
-  _inventoryMaxCount: 0
-  _inventoryCount: 0
+  _inventoryMaxCount: 10
+  _inventoryCount: 10
 --- !u!1001 &1511608941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19044,7 +19419,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2736171684391524434, guid: 976a507041ee7a84e92919936a979127, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1745381358}
   m_SourcePrefab: {fileID: 100100000, guid: 976a507041ee7a84e92919936a979127, type: 3}
 --- !u!224 &1745381355 stripped
 RectTransform:
@@ -19056,6 +19434,78 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2736171684391524434, guid: 976a507041ee7a84e92919936a979127, type: 3}
   m_PrefabInstance: {fileID: 1745381354}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1745381357 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2782497267633748998, guid: 976a507041ee7a84e92919936a979127, type: 3}
+  m_PrefabInstance: {fileID: 1745381354}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745381356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23594bab9a42134cab5991ad9c0de20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1745381358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745381356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: HideCursorBox
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: ItemCursorBox
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1745381357}
+            m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 5
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: ItemCursorBox
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1745381357}
+            m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1747395588
 GameObject:
   m_ObjectHideFlags: 0

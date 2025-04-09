@@ -76,7 +76,7 @@ public class UIManager : Singleton<UIManager>
 
             _cursorBox.gameObject.SetActive(true);
             _cursorBox.rectTransform.localPosition = localPos;
-            _cursorText.text = $"아이템 : {item.Name}\n효과  : {item.Description}\n가격  : {item.Price} 골드";
+            _cursorText.text = $"아이템 : {item.Name}\n효과   : {item.Description}\n가격   : {item.Price} 골드";
         }
         else
         {
