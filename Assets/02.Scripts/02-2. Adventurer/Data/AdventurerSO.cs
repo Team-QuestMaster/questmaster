@@ -41,4 +41,5 @@ public class AdventurerSO : ScriptableObject
     public int OriginalINS; //통찰력
     public int OriginalDEX; // 손재주
     public List<DialogSet> DialogList = new List<DialogSet>(); // 대사
+    public Sprite SpriteSD; // 모험가의 SD 스프라이트
 }
