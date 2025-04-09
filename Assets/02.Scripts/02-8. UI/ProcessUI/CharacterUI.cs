@@ -27,7 +27,7 @@ public class CharacterUI : MonoBehaviour
     
 
     [SerializeField] private AdventurerIDCardUI _adventurerIDCardUI;
-    
+    private bool isCloseable = true;
     
     public event Action PositiveButtonEvent;
     public event Action NegativeButtonEvent;
@@ -42,7 +42,7 @@ public class CharacterUI : MonoBehaviour
             .GetComponent<Animator>();
 
         _characterText.text = "";
-        _characterButton.onClick.AddListener(ShowSpeechBubbleUI);
+        //_characterButton.onClick.AddListener(ShowSpeechBubbleUI);
         _speechButton.onClick.AddListener(NextDialogue);
         CurrentCharacter = Characters[_currentCharacter];
         CurrentCharacter.transform.position = _characterActivateTransform.position;
@@ -52,17 +52,33 @@ public class CharacterUI : MonoBehaviour
         _adventurerIDCardUI.Initialize(adventurer);
 
         StageShowManager.Instance.ShowCharacter.CharacterDisappearShow += HideSpeechBubbleUI;
+        PositiveButtonEvent += () => isCloseable = true;
+        NegativeButtonEvent += () => isCloseable = true;
+        
+        
     }
 
-    void ShowSpeechBubbleUI()
+    public void ShowSpeechBubbleUI()
     {
         _speechBubble.gameObject.SetActive(true);
         _speechButton.interactable = true;
         _speechBubble.DOFade(1f, 0.1f);
+        
+
         ShowDialogueUI(_dialogIndex);
     }
 
-    void ShowButtonSpeechBubbleUI()
+    public void ShowSpeechBubbleUIwithPrefix()
+    {
+        _speechBubble.gameObject.SetActive(true);
+        _speechButton.interactable = true;
+        _speechBubble.DOFade(1f, 0.1f);
+        
+
+        ShowDialogueUI(_dialogIndex);
+    }
+
+     void ShowButtonSpeechBubbleUI()
     {
         _positiveButton.gameObject.SetActive(true);
         _positiveButton.interactable = true;
@@ -71,7 +87,7 @@ public class CharacterUI : MonoBehaviour
         _negativeButton.interactable = true;
     }
 
-    void HideButtonSpeechBubbleUI()
+    public void HideButtonSpeechBubbleUI()
     {
         _positiveButton.gameObject.SetActive(false);
         _positiveButton.interactable = false;
@@ -92,15 +108,21 @@ public class CharacterUI : MonoBehaviour
     
     void HideSpeechBubbleUI()
     {
-        _speechBubble.DOFade(0f, 0.1f);
-        _speechBubble.gameObject.SetActive(false);
-        _speechButton.interactable = false;
+        if (isCloseable)
+        {
+            _speechBubble.DOFade(0f, 0.1f);
+            _speechBubble.gameObject.SetActive(false);
+            _speechButton.interactable = false;
+        }
     }
 
     void ShowDialogueUI(int i)
     {
+        string prefix = StageShowManager.Instance.ShowCharacter.Prefix;
         if (_dialogIndex < _characterData.DialogSet.Dialog.Count)
         {
+            if(_characterData.DialogSet.Dialog[i].StartsWith(prefix))
+                _characterText.text = _characterData.DialogSet.Dialog[i].Substring(prefix.Length);
             _characterText.text = _characterData.DialogSet.Dialog[i];
         }
         else
@@ -123,13 +145,10 @@ public class CharacterUI : MonoBehaviour
     }
 
     public void ShowSpeechBubbleButtonUI()
-    {
+    {isCloseable = false;
         Debug.Log("ShowSpeechBubbleButtonUI");
         ShowSpeechBubbleUI();
-        _positiveButton.gameObject.SetActive(true);
-        _positiveButton.interactable = true;
-        _negativeButton.gameObject.SetActive(true);
-        _negativeButton.interactable = true;
+        ShowButtonSpeechBubbleUI();
     }
 
     void HideSpeechBubbleButtonUI()
