@@ -47,7 +47,6 @@ public class MainProcess : MonoBehaviour
                 // request.Item1.AdventurerData.AdventurerState = AdventurerStateType.TodayCome;
                 // request.Item2.IsQuesting = true;
                 _todayRequest.Add(request);
-                Debug.Log("리퀘스트 추가");
             }
             requestCount++;
         }
@@ -112,7 +111,6 @@ public class MainProcess : MonoBehaviour
         {
             if (questResult.IsSuccess)
             {
-                Debug.Log($"퀘스트 성공 보상 획득 : {questResult.QuestData.GoldReward}");
                 GuildStatManager.Instance.Fame += questResult.QuestData.FameReward;
                 GuildStatManager.Instance.Gold += questResult.QuestData.GoldReward;
                 UIManager.Instance.ReportUI.QuestResultTextAdd($"성공: {questResult.QuestData.QuestName} {questResult.Probability}");
