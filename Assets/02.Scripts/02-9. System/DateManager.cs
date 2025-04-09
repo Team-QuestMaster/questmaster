@@ -35,7 +35,8 @@ public class DateManager : Singleton<DateManager>
         {
             return;
         }
-        _questResults[endDay].Add(new QuestResult(ref adventurer, ref quest, isSuccess, probability));
+        _questResults[endDay].Add(new QuestResult
+            (adventurer.AdventurerData.Clone(), quest.QuestData.Clone(), isSuccess, probability));
     }
     public void ChangeDate(int currentRequestCount, int requestCountMax)
     {

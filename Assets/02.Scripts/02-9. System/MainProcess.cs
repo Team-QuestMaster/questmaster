@@ -64,7 +64,6 @@ public class MainProcess : MonoBehaviour
     {
         Adventurer currentAdventurer = _todayRequest[_requestCount].Item1;
         Quest currentQuest = UIManager.Instance.QuestUI.CurrentQuest;
-
         ItemManager.Instance.UsingItems(currentAdventurer, currentQuest);
         bool isQuestSuccess = MakeQuestResult(currentAdventurer, currentQuest);
         UpdateCalender(currentQuest, isQuestSuccess);
@@ -113,17 +112,18 @@ public class MainProcess : MonoBehaviour
         {
             if (questResult.IsSuccess)
             {
-                GuildStatManager.Instance.Fame += questResult.Quest.QuestData.FameReward;
-                GuildStatManager.Instance.Gold += questResult.Quest.QuestData.GoldReward;
-                UIManager.Instance.ReportUI.QuestResultTextAdd($"성공: {questResult.Quest.QuestData.QuestName} {questResult.Probability}");
-                UIManager.Instance.ReportUI.SpecialCommentText($"성공: {questResult.Quest.QuestData.QuestName}: {questResult.Quest.QuestData.QuestHint}");
+                Debug.Log($"퀘스트 성공 보상 획득 : {questResult.QuestData.GoldReward}");
+                GuildStatManager.Instance.Fame += questResult.QuestData.FameReward;
+                GuildStatManager.Instance.Gold += questResult.QuestData.GoldReward;
+                UIManager.Instance.ReportUI.QuestResultTextAdd($"성공: {questResult.QuestData.QuestName} {questResult.Probability}");
+                UIManager.Instance.ReportUI.SpecialCommentText($"성공: {questResult.QuestData.QuestName}: {questResult.QuestData.QuestHint}");
             }
             else
             {
-                GuildStatManager.Instance.Fame -= questResult.Quest.QuestData.FamePenalty;
-                GuildStatManager.Instance.Gold -= questResult.Quest.QuestData.GoldPenalty;
-                UIManager.Instance.ReportUI.QuestResultTextAdd($"실패: {questResult.Quest.QuestData.QuestName} {questResult.Probability}");
-                UIManager.Instance.ReportUI.SpecialCommentText($"실패: {questResult.Quest.QuestData.QuestName}: {questResult.Quest.QuestData.QuestHint}");
+                GuildStatManager.Instance.Fame -= questResult.QuestData.FamePenalty;
+                GuildStatManager.Instance.Gold -= questResult.QuestData.GoldPenalty;
+                UIManager.Instance.ReportUI.QuestResultTextAdd($"실패: {questResult.QuestData.QuestName} {questResult.Probability}");
+                UIManager.Instance.ReportUI.SpecialCommentText($"실패: {questResult.QuestData.QuestName}: {questResult.QuestData.QuestHint}");
             }
         }
         UIManager.Instance.ReportUI.GoldText(beforeGold, GuildStatManager.Instance.Gold);
