@@ -1150,6 +1150,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &121242277 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1297772503383836127, guid: c5e0a0f3c5782124c864e92b0fa42bf9, type: 3}
+  m_PrefabInstance: {fileID: 891930428}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb553613cc247f4db0ff6c45b28762d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &127190595
 GameObject:
   m_ObjectHideFlags: 0
@@ -11502,7 +11513,7 @@ MonoBehaviour:
   QuestUI: {fileID: 1543659077}
   AdventurerIDCardUI: {fileID: 1287477425}
   SettingUI: {fileID: 1543659076}
-  CalenderManager: {fileID: 0}
+  CalenderManager: {fileID: 121242277}
   DayChangeUI: {fileID: 1543659075}
   OneCycleStartAndEnd: {fileID: 1543659074}
   _cursorBox: {fileID: 334035606}
