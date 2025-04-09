@@ -15,18 +15,18 @@ public class Adventurer : MonoBehaviour
 
     private void Awake()
     {
-        SetAdventurerData();
+        SetAdventurerData(1);
         gameObject.SetActive(false);
     }
     private void OnEnable()
     {
-        SetAdventurerData();
+        SetAdventurerData(DateManager.Instance.CurrentDate);
     }
     private void OnDisable()
     {
 
     }
-    private void SetAdventurerData()
+    private void SetAdventurerData(int currentDate)
     {
         if (_adventurerSO.AdventurerType == AdventurerType.Major || _adventurerSO.AdventurerType == AdventurerType.Dealer)
         {
@@ -36,7 +36,7 @@ public class Adventurer : MonoBehaviour
         else
         {
             MinorASO minorAdventurerSO = (MinorASO)_adventurerSO;
-            SetMinorTypeData(minorAdventurerSO);
+            SetMinorTypeData(minorAdventurerSO, currentDate);
         }
     }
     private void SetMajorTypeData(MajorASO majorAdventurerSO)
@@ -57,7 +57,7 @@ public class Adventurer : MonoBehaviour
             majorAdventurerSO.SpriteLD
         );
     }
-    private void SetMinorTypeData(MinorASO minorAdventurerSO)
+    private void SetMinorTypeData(MinorASO minorAdventurerSO, int currentDate)
     {
         string adventurerName 
             = minorAdventurerSO.AdventurerNameList[Random.Range(0, minorAdventurerSO.AdventurerNameList.Count)];
@@ -87,6 +87,6 @@ public class Adventurer : MonoBehaviour
             spritesPair.SDSprite,
             spritesPair.LDSprite
         );
-        _minerStatHandler.SetRandomStat(this, 1);
+        _minerStatHandler.SetRandomStat(this, currentDate);
     }
 }
