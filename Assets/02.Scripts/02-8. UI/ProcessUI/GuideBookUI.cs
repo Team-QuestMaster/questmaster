@@ -15,7 +15,16 @@ public class GuideBookUI : MonoBehaviour
 
     private bool _isGuideBookOpen;
 
-    
+    [SerializeField] private AudioClip[] _audioClips;
+
+    enum _audioType
+    {
+        BookShow,
+        BookHide,
+        PageChange,
+        BookSlide
+    }
+  
 
     public void Initialize()
     {
@@ -42,10 +51,15 @@ public class GuideBookUI : MonoBehaviour
         // 처음에는 모든 페이지 비활성화
         HideAllCanvasGroups();
     }
-
+    public void GuideBoxInteractable()
+    {if(!_isGuideBookOpen)
+        UIManager.Instance.PlayInteractableSound();
+    }
+    
     void UIGuideBookShow()
     {
         _backButton.gameObject.SetActive(false);
+        AudioManager.Instance.PlaySFX(_audioClips[(int)_audioType.BookSlide]);
         if (!_isGuideBookOpen) GuideBookShow();
         _isGuideBookOpen = true;
         _guideBook.interactable = false;
@@ -57,6 +71,7 @@ public class GuideBookUI : MonoBehaviour
         if (_isGuideBookOpen) StartCoroutine(GuideBookHide());
         _backButton.gameObject.SetActive(false);
         _guideBook.interactable = true;
+        AudioManager.Instance.PlaySFX(_audioClips[(int)_audioType.BookHide]);
     }
 
     public void BookShake()
@@ -80,6 +95,7 @@ public class GuideBookUI : MonoBehaviour
             {
                 BackFadeOn(1f);
                 _guideBookAnimator.SetTrigger("Open");
+                AudioManager.Instance.PlaySFX(_audioClips[(int)_audioType.BookShow]);
                 StartCoroutine(WaitForAnimationToEnd("BookOpened", () =>
                 {
                     ShowBookCanvasGroup();
@@ -100,8 +116,9 @@ public class GuideBookUI : MonoBehaviour
         HideBookCanvasGroup();
         yield return new WaitForSeconds(0.2f);
         _guideBookAnimator.SetTrigger("Close");
+        
         yield return WaitForAnyAnimationEnd("BookClose","BookIdle",null);
-
+        AudioManager.Instance.PlaySFX(_audioClips[(int)_audioType.BookSlide]);
         if (!ReferenceEquals(_guideBook, null))
         {
             _guideBook.transform.DORotate(new Vector3(0, 0, 30), 1f);
@@ -232,6 +249,7 @@ public class GuideBookUI : MonoBehaviour
             group.interactable = true;
             group.blocksRaycasts = true;
         }
+        AudioManager.Instance.PlaySFX(_audioClips[(int)_audioType.PageChange]);
     }
 
     void BackFadeOn(float time)
