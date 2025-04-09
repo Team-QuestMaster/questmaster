@@ -1,3 +1,5 @@
+using System;
+using Coffee.UIEffects;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -27,7 +29,23 @@ public abstract class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     [SerializeField]
     private ItemStateType _itemState;
-    public ItemStateType ItemState { get => _itemState; set => _itemState = value; }
+
+    public ItemStateType ItemState
+    {
+        get => _itemState;
+        set
+        {
+            _itemState = value;
+            _readyToUseEffect.enabled = _itemState == ItemStateType.ReadyToUse;
+        }
+    }
+
+    private UIEffect _readyToUseEffect;
+
+    private void Awake()
+    {
+        _readyToUseEffect = GetComponent<UIEffect>();
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -37,5 +55,4 @@ public abstract class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         //UIManager.Instance.HideTooltip();
     }
-
 }
