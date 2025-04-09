@@ -7,6 +7,7 @@ public class OneCycleStartAndEnd : MonoBehaviour
 {
     [SerializeField] private Image _fadeImage;
 
+    public event Action NextCycleOptionalEvent; // 다음 싸이클 이벤트 (Optional)
     private event Action NextCycleEvent;    // 하루 끝나고 이벤트
 
     private Tweener _fadeInTween;   // 페이드 인 (밝아짐)
@@ -37,6 +38,8 @@ public class OneCycleStartAndEnd : MonoBehaviour
     {
         _fadeImage.gameObject.SetActive(true);
         _fadeInTween.Restart();
+        NextCycleOptionalEvent?.Invoke(); // Optional 이벤트 발생
+        NextCycleOptionalEvent = null; // Optional 이벤트 초기화
         NextCycleEvent?.Invoke();   // 다음 Cycle실행
         SetNextCycleEvent(null); // 기본 싸이클로 초기화
     }
