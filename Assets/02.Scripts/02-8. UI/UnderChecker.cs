@@ -35,7 +35,7 @@ public bool Interactable = true;
             _draggableObject.OnPointerUpEvent -= HandleDragEnd;
     }
 
-    private void HandleDragEnd()
+    public void HandleDragEnd()
     {
         if (Interactable)
         {
