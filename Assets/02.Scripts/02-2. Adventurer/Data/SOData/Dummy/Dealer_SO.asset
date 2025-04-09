@@ -18,7 +18,8 @@ MonoBehaviour:
   OriginalINS: 4
   OriginalDEX: 4
   DialogList:
-  - Dialog: []
+  - Dialog:
+    - '!!'
   AdventurerName: Max
   AdventurerClass: Warrior
   AdventurerTitle: DragonSlayer
