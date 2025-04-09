@@ -47,13 +47,16 @@ public class ItemManager : Singleton <ItemManager>
             Debug.Log("골드가 부족합니다.");
             return;
         }
-        _shoppingList.Remove(item); 
         _havingItemList.Add(item);
         if(itemComponent.ItemState != ItemStateType.ReadyToBuy)
         {
             Debug.Log("아이템 상태가 ReadyToBuy가 아닙니다.에러.");
             return;
         }
+        Sequence seq = DOTween.Sequence();
+
+        seq.Append(item.transform.DOScale(transform.localScale * 1.2f, 0.5f).SetEase(Ease.OutQuad));
+        seq.Append(item.transform.DOScale(transform.localScale, 0.5f).SetEase(Ease.InQuad));
         itemComponent.ItemState = ItemStateType.Bought; // 아이템 상태 변경
     }
 
@@ -62,7 +65,10 @@ public class ItemManager : Singleton <ItemManager>
         int goldSum = 0;
         foreach (GameObject item in _shoppingList)
         {
-            goldSum += item.GetComponent<Item>().Price;
+            if (item.GetComponent<Item>().ItemState == ItemStateType.ReadyToBuy)
+            {
+                goldSum += item.GetComponent<Item>().Price;
+            }
         }
         if (goldSum > GuildStatManager.Instance.Gold)
         {
@@ -73,7 +79,10 @@ public class ItemManager : Singleton <ItemManager>
         {
             foreach (GameObject item in _shoppingList)
             {
-                BuyItem(item);
+                if (item.GetComponent<Item>().ItemState == ItemStateType.ReadyToBuy)
+                {
+                    BuyItem(item);
+                }
             }
             return true;
         }
@@ -128,10 +137,10 @@ public class ItemManager : Singleton <ItemManager>
             _shoppingList.Add(item); // 상점 아이템 리스트에 추가
             _remainItemList.Remove(item); // 미보유 아이템 리스트에서 제거   
 
-            yield return new WaitForSeconds(1f); // 1초 대기
             item.GetComponent<RectTransform>().position = new Vector3(-8 + i * 1.5f, -4, 0); // 상점에 아이템 위치 초기화
             item.SetActive(true);
             item.GetComponent<Image>().DOFade(1, 1).SetAutoKill(false);
+            yield return new WaitForSeconds(1f); // 1초 대기
         }
     }
 
@@ -145,11 +154,15 @@ public class ItemManager : Singleton <ItemManager>
     {
         foreach (GameObject item in _shoppingList)
         {
+
+            if (item.GetComponent<Item>().ItemState == ItemStateType.Bought)
+                continue;
+
             item.GetComponent<Image>().DOFade(0, 1).SetAutoKill(false); // 아이템 페이드 아웃
 
             yield return new WaitForSeconds(1f); // 1초 대기
-            _remainItemList.Add(item);
-            item.gameObject.SetActive(false);
+            _remainItemList.Add(item); 
+            item.SetActive(false);
         }
             _shoppingList.Clear(); // 상점 아이템 리스트 초기화
 
