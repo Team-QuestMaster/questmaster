@@ -4965,6 +4965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefix: '!!'
+  _appearSound: {fileID: 8300000, guid: 7ecc83075fdf48241917a375285becc0, type: 3}
 --- !u!114 &417627154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6833,6 +6834,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: PlayInteractableSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
@@ -6925,8 +6938,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5088316998373936774, guid: d3dc3cbe24d0b2a48b2b300c7cbb8641, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: -6470460504253458178, guid: 397383e9a8a0eae4c9b0a8099c2ee91d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -8488,6 +8501,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: PlayInteractableSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
@@ -8580,8 +8605,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5088316998373936774, guid: d3dc3cbe24d0b2a48b2b300c7cbb8641, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: -6470460504253458178, guid: 397383e9a8a0eae4c9b0a8099c2ee91d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -10107,6 +10132,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1543659081}
+          m_TargetAssemblyTypeName: GuideBookUI, Assembly-CSharp
+          m_MethodName: GuideBoxInteractable
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &948125106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11221,13 +11258,25 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1543659081}
+          m_TargetAssemblyTypeName: GuideBookUI, Assembly-CSharp
+          m_MethodName: GuideBoxInteractable
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1543659081}
-          m_TargetAssemblyTypeName: GuideBookUI, Assembly-CSharp
-          m_MethodName: BackButtonOut
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: PlayInteractableSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -15294,7 +15343,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 6160644282852246915, guid: 59cd4f0dafb8e0243abaa72e1386bc94, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15328,8 +15377,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -280}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -20, y: -298.43}
+  m_SizeDelta: {x: 100, y: 136.87}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1430498948
 PrefabInstance:
@@ -16866,6 +16915,8 @@ MonoBehaviour:
   OneCycleStartAndEnd: {fileID: 1543659074}
   _cursorBox: {fileID: 334035606}
   _cursorText: {fileID: 169931774}
+  _audioClips:
+  - {fileID: 8300000, guid: 08ac2abd760f71c43a1006eb343d9ccb, type: 3}
 --- !u!114 &1543659074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17024,6 +17075,11 @@ MonoBehaviour:
   - {fileID: 1406052731}
   _fadeOutImage: {fileID: 1825695911}
   _backButton: {fileID: 1114952160}
+  _audioClips:
+  - {fileID: 8300000, guid: c873e7380c1b63a47a9b3196ca0f99bf, type: 3}
+  - {fileID: 8300000, guid: c873e7380c1b63a47a9b3196ca0f99bf, type: 3}
+  - {fileID: 8300000, guid: 06a7bed66ed22714794c5a9cac9bda39, type: 3}
+  - {fileID: 8300000, guid: b5abce0849f65444089a18118087252f, type: 3}
 --- !u!4 &1543659082
 Transform:
   m_ObjectHideFlags: 0
@@ -17963,6 +18019,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: PlayInteractableSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
@@ -18055,8 +18123,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5088316998373936774, guid: d3dc3cbe24d0b2a48b2b300c7cbb8641, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: -6470460504253458178, guid: 397383e9a8a0eae4c9b0a8099c2ee91d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -19442,7 +19510,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758804159}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -20355,6 +20423,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1543659073}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: PlayInteractableSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
@@ -20447,8 +20527,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5088316998373936774, guid: d3dc3cbe24d0b2a48b2b300c7cbb8641, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: -6470460504253458178, guid: 397383e9a8a0eae4c9b0a8099c2ee91d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
