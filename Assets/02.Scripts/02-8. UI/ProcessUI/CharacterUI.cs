@@ -118,8 +118,9 @@ public class CharacterUI : MonoBehaviour
 
     void ShowDialogueUI(int i)
     {
+        Debug.Log("ShowDialogueUI");
         string prefix = StageShowManager.Instance.ShowCharacter.Prefix;
-        if (_dialogIndex <= _characterData.DialogSet.Dialog.Count)
+        if (_dialogIndex < _characterData.DialogSet.Dialog.Count)
         {
             if (_characterData.DialogSet.Dialog[i].StartsWith(prefix))
             {
@@ -138,8 +139,8 @@ public class CharacterUI : MonoBehaviour
     }
 
     void NextDialogue()
-    {
-        if (_dialogIndex <= _characterData.DialogSet.Dialog.Count)
+    {Debug.Log("Next");
+        if (_dialogIndex < _characterData.DialogSet.Dialog.Count - 1)
         {
             _dialogIndex++;
             ShowDialogueUI(_dialogIndex);
@@ -151,7 +152,8 @@ public class CharacterUI : MonoBehaviour
     }
 
     public void ShowSpeechBubbleButtonUI()
-    {isCloseable = false;
+    {
+        isCloseable = true;
         Debug.Log("ShowSpeechBubbleButtonUI");
         ShowSpeechBubbleUI();
         ShowButtonSpeechBubbleUI();
@@ -160,7 +162,7 @@ public class CharacterUI : MonoBehaviour
     void HideSpeechBubbleButtonUI()
     {
         _positiveButton.gameObject.SetActive(false);
-        _negativeButton.interactable = false;
+        _negativeButton.gameObject.SetActive(false);
         _negativeButton.interactable = false;
         _positiveButton.interactable = false;
         HideSpeechBubbleUI();
@@ -171,12 +173,13 @@ public class CharacterUI : MonoBehaviour
         Debug.Log("ChangeCharacter 호출");
         _currentCharacter++;
         _dialogIndex = 0;
+        HideSpeechBubbleButtonUI();
         Debug.Log($"{_currentCharacter}, {Characters.Count}");
-
+        CurrentCharacter.SetActive(false);
         if (_currentCharacter < Characters.Count)
         {
             
-            CurrentCharacter.SetActive(false);
+            
             CurrentCharacter = Characters[_currentCharacter];
 
            
@@ -187,7 +190,6 @@ public class CharacterUI : MonoBehaviour
         else
         {
             Debug.Log("하루가 끝남");
-            //UIManager.Instance.oneDayStartAndEnd.DayFadeOut(); 
             _currentCharacter = 0;
             UIManager.Instance.OneCycleStartAndEnd.EndCycle(); 
         }
