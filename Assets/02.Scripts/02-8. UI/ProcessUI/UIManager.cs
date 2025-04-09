@@ -18,7 +18,7 @@ public class UIManager : Singleton<UIManager>
     
     [SerializeField] private Image _cursorBox;
     [SerializeField] private TextMeshProUGUI _cursorText;
-    
+    [SerializeField] private AudioClip[] _audioClips;
 
     protected override void Awake()
     {
@@ -34,6 +34,10 @@ public class UIManager : Singleton<UIManager>
         _cursorBox.gameObject.SetActive(false);
     }
 
+    public void PlayInteractableSound()
+    {
+        AudioManager.Instance.PlaySFX(_audioClips[0]);
+    }
     public void ShowCursorBox(string text)
     {
         Debug.Log("Cursor Box Showing");

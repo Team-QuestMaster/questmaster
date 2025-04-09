@@ -19,16 +19,18 @@ public class ShowCharacter : MonoBehaviour
     private Tweener _characterDisappearTweener;
     
     public string Prefix = "!!";
-    
+    [SerializeField] private AudioClip _appearSound;
     private void Start()
+    {
+        CharacterDisappearShow += () => CharacterDisappear();
+        // Appear();
+    }
+
+    public void AppearEventSet()
     {
         CharacterAppearShow += UIManager.Instance.CharacterUI.Initialize;
         CharacterAppearShow += () => CharacterAppear();
-        CharacterDisappearShow += () => CharacterDisappear();
-        Appear();
     }
-
-    
     
 
     //모험가의 애니메이터를 등록함
@@ -85,6 +87,7 @@ public class ShowCharacter : MonoBehaviour
     {
         Debug.Log("등장");
         UIManager.Instance.CharacterUI.CurrentCharacter.gameObject.SetActive(true);
+        AudioManager.Instance.PlaySFX(_appearSound);
         UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().DOFade(1, 1).SetAutoKill(false)
             .OnComplete(()=>onComplete?.Invoke());
 

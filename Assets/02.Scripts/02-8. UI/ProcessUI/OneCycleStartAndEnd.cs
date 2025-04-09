@@ -5,15 +5,19 @@ using UnityEngine.UI;
 
 public class OneCycleStartAndEnd : MonoBehaviour
 {
-    [SerializeField] private Image _fadeImage;
+    [SerializeField]
+    private TaxPayment _taxPayment;
+
+    [SerializeField]
+    private Image _fadeImage;
 
     public event Action NextCycleOptionalEvent; // 다음 싸이클 이벤트 (Optional)
-    private event Action NextCycleEvent;    // 하루 끝나고 이벤트
+    private event Action NextCycleEvent; // 하루 끝나고 이벤트
 
-    private Tweener _fadeInTween;   // 페이드 인 (밝아짐)
-    private Tweener _fadeOutTween;  // 페이드 아웃 (어두워짐)
+    private Tweener _fadeInTween; // 페이드 인 (밝아짐)
+    private Tweener _fadeOutTween; // 페이드 아웃 (어두워짐)
 
-    void Start()
+    private void Awake()
     {
         // 기본 알파값 설정 (완전히 어두운 상태에서 시작)
         _fadeImage.color = new Color(0, 0, 0, 1);
@@ -29,9 +33,7 @@ public class OneCycleStartAndEnd : MonoBehaviour
             .Pause()
             .OnComplete(FadeIn);
 
-        SetNextCycleEvent(null); // 기본 싸이클로 초기화
-
-        FadeIn(); // 시작하면 FadeIn
+        SetNextCycleEvent(FirstCycle); // 첫날 싸이클로 초기화
     }
 
     private void FadeIn()
@@ -40,7 +42,7 @@ public class OneCycleStartAndEnd : MonoBehaviour
         _fadeInTween.Restart();
         NextCycleOptionalEvent?.Invoke(); // Optional 이벤트 발생
         NextCycleOptionalEvent = null; // Optional 이벤트 초기화
-        NextCycleEvent?.Invoke();   // 다음 Cycle실행
+        NextCycleEvent?.Invoke(); // 다음 Cycle실행
         SetNextCycleEvent(null); // 기본 싸이클로 초기화
     }
 
@@ -51,10 +53,30 @@ public class OneCycleStartAndEnd : MonoBehaviour
         _fadeOutTween.Restart();
     }
 
-    public void StartDayCycle()
+    private void StartDayCycle()
     {
         Debug.Log("Cycle이 시작된다");
+        // 아침이면
+        // 세금 나가고
+        int currentDate = DateManager.Instance.CurrentDate;
+        string taxMessage = _taxPayment.TryPayTax(currentDate)
+            ? $"오늘 나가는 세금: {_taxPayment.Tax}"
+            : $"세금 납부일까지 {_taxPayment.GetPaymentTerm(currentDate)}일, 납부할 세금 {_taxPayment.Tax}Gold";
+        UIManager.Instance.ReportUI.SpecialCommentText(taxMessage);
+        // 레포트 보여주고
+        UIManager.Instance.ReportUI.ShowReportUI();
+        // 레포트 닫으면 모험가 이벤트 시작
+    }
+
+    private void FirstCycle()
+    {
         StageShowManager.Instance.Appear(); // 낮 등장 이벤트
+    }
+    
+    // 처음 싸이클 시작
+    public void StartCycle()
+    {
+        FadeIn();
     }
 
     public void EndCycle()

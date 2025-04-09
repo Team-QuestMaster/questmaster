@@ -16,4 +16,10 @@ public class StageShowManager : Singleton<StageShowManager>
         ShowQuest.Appear();                   // 퀘스트 등장
         ShowIDCard.Appear();
     }
+
+    public void AppearEventSet()
+    {
+        ShowCharacter.AppearEventSet();
+        ShowQuest.AppearEventSet();
+    }
 }
