@@ -13528,7 +13528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2329552873946414326, guid: 189f35177cd974044a6219015e4ce4c2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowSpeechBubbleButtonUI
+      value: ShowSpeechBubbleUI
       objectReference: {fileID: 0}
     - target: {fileID: 2329552873946414326, guid: 189f35177cd974044a6219015e4ce4c2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -14955,7 +14955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2329552873946414326, guid: 71d83cbc4b2ceaf44b75c2b90df76b2b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowSpeechBubbleButtonUI
+      value: ShowSpeechBubbleUI
       objectReference: {fileID: 0}
     - target: {fileID: 2329552873946414326, guid: 71d83cbc4b2ceaf44b75c2b90df76b2b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -15623,7 +15623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2329552873946414326, guid: 619fdb672fed2c0408d397f1f7b6b978, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowSpeechBubbleButtonUI
+      value: ShowSpeechBubbleUI
       objectReference: {fileID: 0}
     - target: {fileID: 2329552873946414326, guid: 619fdb672fed2c0408d397f1f7b6b978, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -21414,7 +21414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2329552873946414326, guid: a49d3b26be07b534ea4d05fa472d4235, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowSpeechBubbleButtonUI
+      value: ShowSpeechBubbleUI
       objectReference: {fileID: 0}
     - target: {fileID: 2329552873946414326, guid: a49d3b26be07b534ea4d05fa472d4235, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
