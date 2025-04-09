@@ -35,6 +35,8 @@ public class DraggingObjectSwap : MonoBehaviour
     
     private Image _image;
 
+    private event Action _onEnableEvent;
+
     private void Awake()
     {
         _myArea = transform.parent.GetComponent<RectTransform>();
@@ -54,14 +56,16 @@ public class DraggingObjectSwap : MonoBehaviour
             _draggableObject.OnPointerDownEvent += () => ImageShadowManager.Instance.SetTargetImage(_image);
             _draggableObject.OnEndDragEvent += ImageShadowManager.Instance.DisableImageShadow;
         }
+        
+        if (_type == DraggingObjectType.Big)
+        {
+            _onEnableEvent += () => ImageShadowManager.Instance.SetTargetImage(_image);
+        }
     }
 
     private void OnEnable()
     {
-        if (_type == DraggingObjectType.Big)
-        {
-            ImageShadowManager.Instance.SetTargetImage(_image);
-        }
+        _onEnableEvent?.Invoke();
     }
 
     private void SwapDraggingObject(PointerEventData eventData)
