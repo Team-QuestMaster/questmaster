@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(RectTransform))]
-public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler
+public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IPointerDownHandler,  IPointerUpHandler
 {
     // Image를 드래그가 가능하도록 제어
     // 조건 및 기능
@@ -20,7 +20,7 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public event Action OnPointerDownEvent;
     public event Action<PointerEventData> OnDraggingEvent;
-    public event Action OnEndDragEvent;
+    public event Action OnEndDragEvent; // TODO: 이름 변경 필요 => Pointer가 Up될때 발동
 
     private RectTransform _rectTransform;
 
@@ -69,9 +69,14 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         OnDraggingEvent?.Invoke(eventData);
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    // public void OnEndDrag(PointerEventData eventData)
+    // {
+    //     Debug.Log("End Drag");
+    //     OnEndDragEvent?.Invoke();
+    // }
+    
+    public void OnPointerUp(PointerEventData eventData)
     {
-        Debug.Log("End Drag");
         OnEndDragEvent?.Invoke();
     }
 
