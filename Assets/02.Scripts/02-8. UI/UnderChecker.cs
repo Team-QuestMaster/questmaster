@@ -23,7 +23,7 @@ public bool Interactable = true;
     private void OnEnable()
     {
         if (_draggableObject != null)
-            _draggableObject.OnEndDragEvent += HandleDragEnd;
+            _draggableObject.OnPointerUpEvent += HandleDragEnd;
 
         if (_eventSystem == null)
             _eventSystem = EventSystem.current;
@@ -32,10 +32,10 @@ public bool Interactable = true;
     private void OnDisable()
     {
         if (_draggableObject != null)
-            _draggableObject.OnEndDragEvent -= HandleDragEnd;
+            _draggableObject.OnPointerUpEvent -= HandleDragEnd;
     }
 
-    private void HandleDragEnd()
+    public void HandleDragEnd()
     {
         if (Interactable)
         {
