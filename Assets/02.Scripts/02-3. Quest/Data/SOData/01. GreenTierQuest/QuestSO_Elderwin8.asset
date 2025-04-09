@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO_Elderwin8
+  m_EditorClassIdentifier: 
+  QuestName: "[\uC5D8\uB354\uC708 \uC218\uB3C4\uAD6D] - \uD654\uCD08 \uBB3C \uC8FC\uAE30
+    \uB300\uD589"
+  QuestDescription: "\uC678\uCD9C \uC911\uC778 \uADC0\uC871\uC758 \uC815\uC6D0 \uB0B4
+    \uD654\uCD08\uC5D0 \uBB3C\uC744 \uC8FC\uB294 \uC758\uB8B0\uC774\uB2E4."
+  QuestTier: 4
+  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  STRWeight: 0.9
+  MAGWeight: 1
+  INSWeight: 1.2
+  DEXWeight: 1
+  PowerForClear: 570
+  FameReward: 80
+  GoldReward: 85
+  FamePenalty: 50
+  GoldPenalty: 10
+  StateAfterFail: 0
+  Days: 2
+  IsQuesting: 0
+  QuestHint: "\uB450\uB824\uC6C0\uC774 \uC5C6\uB294 \uC790\uC5D0\uAC8C \uC801\uD569\uD558\uB2E4."

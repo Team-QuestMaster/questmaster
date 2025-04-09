@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO_Bruna3
+  m_EditorClassIdentifier: 
+  QuestName: "[\uBE0C\uB8E8\uB098 \uD56D\uAD6C\uB3C4\uC2DC] - \uC57C\uAC04 \uB4F1\uBD88
+    \uAD00\uB9AC"
+  QuestDescription: "\uD56D\uAD6C \uAC70\uB9AC\uC758 \uB4F1\uBD88\uC744 \uCCB4\uD06C\uD558\uACE0
+    \uAD50\uCCB4"
+  QuestTier: 4
+  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  STRWeight: 1
+  MAGWeight: 1
+  INSWeight: 1.1
+  DEXWeight: 1.1
+  PowerForClear: 580
+  FameReward: 90
+  GoldReward: 100
+  FamePenalty: 2
+  GoldPenalty: 1
+  StateAfterFail: 0
+  Days: 1
+  IsQuesting: 0
+  QuestHint: 

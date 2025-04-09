@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO_Zerdin1
+  m_EditorClassIdentifier: 
+  QuestName: "[\uC81C\uB974\uB518 \uC218\uB3C4\uC6D0] - \uC218\uB3C4\uC6D0 \uC758\uC57D\uD488
+    \uC6B4\uBC18"
+  QuestDescription: "\uC218\uB3C4\uC6D0\uC758 \uCE58\uB8CC\uC57D\uC744 \uBCD1\uC790\uCD0C\uAE4C\uC9C0
+    \uC548\uC804\uD558\uAC8C \uC804\uB2EC\uD558\uB77C."
+  QuestTier: 4
+  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  STRWeight: 1
+  MAGWeight: 1.1
+  INSWeight: 1.2
+  DEXWeight: 1.1
+  PowerForClear: 640
+  FameReward: 110
+  GoldReward: 130
+  FamePenalty: 30
+  GoldPenalty: 40
+  StateAfterFail: 0
+  Days: 1
+  IsQuesting: 0
+  QuestHint: "\uBB34\uAC70\uC6B4 \uC9D0\uBCF4\uB2E4 \uCC45\uC784\uAC10\uC774 \uB354
+    \uBB34\uAC81\uB2E4"
