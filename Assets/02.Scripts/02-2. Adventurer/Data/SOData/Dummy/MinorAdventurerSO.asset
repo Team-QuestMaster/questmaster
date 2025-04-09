@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: MinorAdventurerSO
   m_EditorClassIdentifier: 
   AdventurerType: 1
-  OriginalSTR: 2
-  OriginalMAG: 2
-  OriginalINS: 2
-  OriginalDEX: 2
-  DialogList: []
+  OriginalSTR: 100
+  OriginalMAG: 100
+  OriginalINS: 100
+  OriginalDEX: 100
+  DialogList:
+  - Dialog:
+    - "\uB9C8\uC774\uB108 \uD0C0\uC785\uC758 \uB300\uD654 \uB2E4\uC774\uC5BC\uB85C\uADF8\uC785\uB2C8\uB2E4."
   SpriteSD: {fileID: 8724442871279778623, guid: 1236ac23c388d9447a048937a1ce4233, type: 3}
   AdventurerNameList:
   - "\uB77C\uC628"
@@ -56,9 +58,6 @@ MonoBehaviour:
   - "\uCC44\uC9D1\uC758 \uB2EC\uC778"
   - "\uB4DC\uB798\uACE4 \uC2AC\uB808\uC774\uC5B4"
   - "\uC720\uB824\uD55C"
-  AdventurerSpriteLDList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  AdventurerSpritePairList:
+  - SDSprite: {fileID: 8724442871279778623, guid: 1236ac23c388d9447a048937a1ce4233, type: 3}
+    LDSprite: {fileID: -2036455193332455462, guid: 2349893ae37fefa428fb3bb65dbf9e2e, type: 3}
