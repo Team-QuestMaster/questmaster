@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO_Blue_BlackAbyssCanyon1
+  m_EditorClassIdentifier: 
+  QuestName: "[\uAC80\uC740 \uC2EC\uC5F0 \uD611\uACE1] - \uBD88\uC548\uD55C \uAFC8\uC758
+    \uD574\uC11D"
+  QuestDescription: "\uB9C8\uC744 \uC8FC\uBBFC\uB4E4\uC758 \uBC18\uBCF5\uB418\uB294
+    \uC545\uBABD\uC758 \uC6D0\uC778\uC744 \uC870\uC0AC\uD558\uC790."
+  QuestTier: 3
+  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  STRWeight: 0.9
+  MAGWeight: 1.3
+  INSWeight: 1.4
+  DEXWeight: 1
+  PowerForClear: 5900
+  FameReward: 1400
+  GoldReward: 1500
+  FamePenalty: 420
+  GoldPenalty: 450
+  StateAfterFail: 0
+  Days: 2
+  IsQuesting: 0
+  QuestHint: "\uD658\uC601\uACFC \uC0C1\uC9D5\uC744 \uD574\uC11D\uD558\uB294 \uD1B5\uCC30\uB825\uC774
+    \uD544\uC694\uD558\uB2E4."
