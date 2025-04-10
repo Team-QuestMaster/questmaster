@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO_Orange_DeathHeimSwamp3
+  m_EditorClassIdentifier: 
+  QuestName: "[\uB370\uC2A4\uD558\uC784 \uB2AA\uC9C0] - \uBD88\uAE38\uD55C \uC720\uC0B0\uC758
+    \uD68C\uC218 \uC791\uC804"
+  QuestDescription: "\uC800\uC8FC\uBC1B\uC740 \uBB18\uC9C0\uC5D0\uC11C \uBD80\uC801\uC744
+    \uD68C\uC218\uD574 \uACE0\uC704 \uC0AC\uC81C\uC5D0\uAC8C \uC778\uACC4\uD574\uC57C
+    \uD55C\uB2E4."
+  QuestTier: 1
+  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  STRWeight: 1.2
+  MAGWeight: 1.1
+  INSWeight: 0.9
+  DEXWeight: 0.6
+  PowerForClear: 14700
+  FameReward: 5100
+  GoldReward: 6300
+  FamePenalty: 2550
+  GoldPenalty: 3150
+  StateAfterFail: 0
+  Days: 3
+  IsQuesting: 0
+  QuestHint: "\uC815\uD654 \uB9C8\uBC95\uC744 \uC0AC\uC6A9\uD560 \uC218 \uC788\uB294
+    \uC0AC\uB78C\uC774 \uD544\uC694\uD558\uB2E4."

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO_Orange_MorassWasteland5
+  m_EditorClassIdentifier: 
+  QuestName: "[\uBAA8\uB77C\uC2A4 \uD669\uBB34\uC9C0] - \uC804\uC7C1 \uB9DD\uB839
+    \uC7AC\uBD09\uC778"
+  QuestDescription: "\uC61B \uC804\uC7C1\uD130\uC5D0\uC11C \uBD80\uD65C\uD55C \uB9DD\uB839\uC744
+    \uC9C4\uC815\uC2DC\uD0A4\uACE0, \uC7AC\uBD09\uC778\uC2DC\uCF1C\uC57C \uD55C\uB2E4."
+  QuestTier: 1
+  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  STRWeight: 0.9
+  MAGWeight: 1.3
+  INSWeight: 1.2
+  DEXWeight: 0.6
+  PowerForClear: 15800
+  FameReward: 7100
+  GoldReward: 7350
+  FamePenalty: 3400
+  GoldPenalty: 3550
+  StateAfterFail: 0
+  Days: 3
+  IsQuesting: 0
+  QuestHint: "\uB9DD\uB839\uC744 \uC9C4\uC815\uC2DC\uD0A4\uB294\uB370\uB294 \uBBFC\uCCA9\uD568\uC774
+    \uC0DD\uBA85\uC77C \uAC83 \uAC19\uB2E4."
