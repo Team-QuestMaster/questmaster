@@ -46,6 +46,7 @@ public class DraggingObjectSwap : MonoBehaviour
         _draggableObject.OnDraggingEvent += SwapDraggingObject;
         _camera = Camera.main;
         _image = GetComponent<Image>();
+        _image.alphaHitTestMinimumThreshold = 1f;
     }
     private void Start()
     {
@@ -57,10 +58,6 @@ public class DraggingObjectSwap : MonoBehaviour
             gameObject.SetActive(false);
             _draggableObject.OnPointerDownEvent += () => ImageShadowManager.Instance.SetTargetImage(_image);
             _draggableObject.OnPointerUpEvent += ImageShadowManager.Instance.DisableImageShadow;
-        }
-        
-        if (_type == DraggingObjectType.Big)
-        {
             _onEnableEvent += () => ImageShadowManager.Instance.SetTargetImage(_image);
         }
     }
@@ -91,10 +88,12 @@ public class DraggingObjectSwap : MonoBehaviour
         // 스왑 오브젝트 활성화
         _swapTargetObject.gameObject.SetActive(true);
         
-        _swapTargetObject.transform.SetAsLastSibling();
+        _swapTargetObject.transform.position = mousePosition;
         
         eventData.pointerPress = _swapTargetObject.gameObject;   // PointerDown다운 이벤트 전달 => PointerUp이벤트 호출을 위함
         eventData.pointerDrag = _swapTargetObject.gameObject;
+        
+        ExecuteEvents.Execute(_swapTargetObject.gameObject, eventData, ExecuteEvents.pointerDownHandler);
         ExecuteEvents.Execute(_swapTargetObject.gameObject, eventData, ExecuteEvents.dragHandler);
     }
 
