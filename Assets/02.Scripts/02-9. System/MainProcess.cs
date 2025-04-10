@@ -79,6 +79,8 @@ public class MainProcess : MonoBehaviour
         float probability = CalculateManager.Instance.CalculateProbability(adventurer, quest);
         bool isQuestSuccess = CalculateManager.Instance.JudgeQuestResult(adventurer, quest, probability);
         DateManager.Instance.AddQuestResultToList(adventurer, quest, isQuestSuccess, probability);
+
+        StageShowManager.Instance.ShowResult.ResultText(true, probability,quest.QuestData.GoldReward,quest.QuestData.GoldPenalty);
         return isQuestSuccess;
     }
     private void UpdateCalender(Quest quest, bool isQuestSuccess)
@@ -89,6 +91,10 @@ public class MainProcess : MonoBehaviour
     }
     public void RejectRequest()
     {
+        Adventurer currentAdventurer = _todayRequest[_requestCount].Item1;
+        Quest currentQuest = UIManager.Instance.QuestUI.CurrentQuest;
+        float probability = CalculateManager.Instance.CalculateProbability(currentAdventurer, currentQuest);
+        StageShowManager.Instance.ShowResult.ResultText(false, probability, currentQuest.QuestData.GoldReward, currentQuest.QuestData.GoldPenalty);
         _todayRequest[_requestCount].Item1.AdventurerData.AdventurerState = AdventurerStateType.Idle;
         _todayRequest[_requestCount].Item2.IsQuesting = false;
         EndRequest();

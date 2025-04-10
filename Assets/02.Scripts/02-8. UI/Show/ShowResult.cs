@@ -26,9 +26,10 @@ public class ShowResult : MonoBehaviour
     
     void Start()
     {
+        /*
         UIManager.Instance.StampUI.UIApproveEvent += Approved;
         UIManager.Instance.StampUI.UIRejectEvent += Rejected;
-        
+        */
     }
 
     public void Initialize(Adventurer adventurer, Quest questData)
@@ -39,7 +40,7 @@ public class ShowResult : MonoBehaviour
     
     public void Show()
     {
-        ResultShowEvent?.Invoke();
+        //ResultShowEvent?.Invoke();
         _resultImage.gameObject.SetActive(true);
         _backgroundImage.gameObject.SetActive(true);
         _backgroundImage.DOFade(0.7f, 0.5f);
@@ -48,7 +49,7 @@ public class ShowResult : MonoBehaviour
 
     public void Hide()
     {
-        ResultHideEvent?.Invoke();
+        //ResultHideEvent?.Invoke();
         _backgroundImage.DOFade(0, 0.5f).OnComplete(() =>  _backgroundImage.gameObject.SetActive(false));
         _resultImage.transform.DOLocalMove(new Vector3(-1470f,0, 0), 0.5f).OnComplete(() =>
         {
@@ -62,33 +63,32 @@ public class ShowResult : MonoBehaviour
         
     }
 
-    void ResultText()
+    public void ResultText(bool isApproved, float probability, float reward, float penalty)
     {
         _resultImage.gameObject.SetActive(true);
-        float probability = CalculateManager.Instance.CalculateProbability(_adventurerData, _questData);
-        
+        _isApprove = isApproved;
         _approveResultText.text = _isApprove ? "<color=green>승낙함</color>" : "<color=red>거절됨</color>";
         _questNameText.text = _questData.QuestData.QuestName;
         _adventurerNameText.text = _adventurerData.AdventurerData.AdventurerName;
         _timeText.text = _questData.QuestData.Days.ToString();
         _questProbabilityText.text = $"{probability}%";
-        _rewardText.text = $"{_questData.QuestData.GoldReward}골드";
-        _penalityText.text = $"{_questData.QuestData.GoldPenalty}골드";
+        _rewardText.text = $"{reward}골드";
+        _penalityText.text = $"{penalty}골드";
         Show();
     }
     
-    
-    void Approved()
+    /*
+    public void Approved()
     {
         Debug.Log("ShowResult Approved");
         _isApprove = true;
         ResultText();
     }
 
-    void Rejected()
+    public void Rejected()
     {
         _isApprove = false; 
         ResultText();
     }
-    
+    */
 }
