@@ -18,10 +18,6 @@ public class Adventurer : MonoBehaviour
         InitAdventurerData();
         gameObject.SetActive(false);
     }
-    private void OnEnable()
-    {
-        SetAdventurerData();
-    }
     private void OnDisable()
     {
 
@@ -87,7 +83,7 @@ public class Adventurer : MonoBehaviour
             spritesPair.LDSprite
         );
     }
-    private void SetAdventurerData()
+    public void SetAdventurerData()
     {
         if (_adventurerSO.AdventurerType == AdventurerType.Major || _adventurerSO.AdventurerType == AdventurerType.Dealer)
         {

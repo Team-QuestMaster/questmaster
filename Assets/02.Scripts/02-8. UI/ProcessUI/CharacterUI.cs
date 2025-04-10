@@ -48,6 +48,7 @@ public class CharacterUI : MonoBehaviour
         CurrentCharacter.transform.position = _characterActivateTransform.position;
 
         Adventurer adventurer = CurrentCharacter.GetComponent<Adventurer>();
+        adventurer.SetAdventurerData();
         _characterData = adventurer.AdventurerData;
         _adventurerIDCardUI.Initialize(adventurer);
 
@@ -118,7 +119,6 @@ public class CharacterUI : MonoBehaviour
 
     void ShowDialogueUI(int i)
     {
-        Debug.Log("ShowDialogueUI");
         string prefix = StageShowManager.Instance.ShowCharacter.Prefix;
         if (_dialogIndex < _characterData.DialogSet.Dialog.Count)
         {
@@ -153,7 +153,6 @@ public class CharacterUI : MonoBehaviour
     public void ShowSpeechBubbleButtonUI()
     {
         isCloseable = false;
-        Debug.Log("ShowSpeechBubbleButtonUI");
         ShowSpeechBubbleUI();
         ShowButtonSpeechBubbleUI();
     }
@@ -169,33 +168,21 @@ public class CharacterUI : MonoBehaviour
 
     public void ChangeCharacter()
     {
-        Debug.Log("ChangeCharacter 호출");
         _currentCharacter++;
         _dialogIndex = 0;
         HideSpeechBubbleButtonUI();
-        Debug.Log($"{_currentCharacter}, {Characters.Count}");
         CurrentCharacter.SetActive(false);
         if (_currentCharacter < Characters.Count)
         {
-            
-            
             CurrentCharacter = Characters[_currentCharacter];
-
-           
-
             StageShowManager.Instance.MiniCharacter.MiniMove();
-            _adventurerIDCardUI.Initialize(CurrentCharacter.GetComponent<Adventurer>());
         }
         else
         {
-            Debug.Log("하루가 끝남");
             _currentCharacter = 0;
             UIManager.Instance.OneCycleStartAndEnd.EndCycle(); 
         }
-        
-        
+
     }
 
-
-    
 }
