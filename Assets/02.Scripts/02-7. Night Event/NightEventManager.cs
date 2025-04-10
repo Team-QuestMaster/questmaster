@@ -21,6 +21,11 @@ public class NightEventManager : Singleton<NightEventManager>
         base.Awake();
     }
 
+    private void Start()
+    {
+        UIManager.Instance.CharacterUI.PositiveButtonEvent += AfterMarketEvent;
+    }
+
     public void MarketEvent() // 밤이 되면 호출
     {
         Debug.Log("MarketEvent");
