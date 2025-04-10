@@ -7,7 +7,8 @@ public class Adventurer : MonoBehaviour
     public AdventurerSO AdventurerSO { get => _adventurerSO; set => _adventurerSO = value; }
     private AdventurerData _adventurerData;
     public AdventurerData AdventurerData { get => _adventurerData; set => _adventurerData = value; }
-
+    [SerializeField]
+    private MinorAdventurerStatHandler _minerStatHandler;
     [SerializeField]
     private Sprite _idCardSprite;
     public Sprite IdCardSprite { get => _idCardSprite; set => _idCardSprite = value; }
@@ -19,7 +20,7 @@ public class Adventurer : MonoBehaviour
     }
     private void OnEnable()
     {
-        
+        SetAdventurerData();
     }
     private void OnDisable()
     {
@@ -30,15 +31,15 @@ public class Adventurer : MonoBehaviour
         if (_adventurerSO.AdventurerType == AdventurerType.Major || _adventurerSO.AdventurerType == AdventurerType.Dealer)
         {
             MajorASO majorAdventurerSO = (MajorASO)_adventurerSO;
-            InitMajorTypeData(ref majorAdventurerSO);
+            InitMajorTypeData(majorAdventurerSO);
         }
         else
         {
             MinorASO minorAdventurerSO = (MinorASO)_adventurerSO;
-            InitMinorTypeData(ref minorAdventurerSO);
+            InitMinorTypeData(minorAdventurerSO);
         }
     }
-    private void InitMajorTypeData(ref MajorASO majorAdventurerSO)
+    private void InitMajorTypeData(MajorASO majorAdventurerSO)
     {
         _adventurerData = new AdventurerData(
             majorAdventurerSO.AdventurerType,
@@ -56,7 +57,7 @@ public class Adventurer : MonoBehaviour
             majorAdventurerSO.SpriteLD
         );
     }
-    private void InitMinorTypeData(ref MinorASO minorAdventurerSO)
+    private void InitMinorTypeData(MinorASO minorAdventurerSO)
     {
         string adventurerName 
             = minorAdventurerSO.AdventurerNameList[Random.Range(0, minorAdventurerSO.AdventurerNameList.Count)];
@@ -68,8 +69,8 @@ public class Adventurer : MonoBehaviour
             = minorAdventurerSO.DialogList[Random.Range(0, minorAdventurerSO.DialogList.Count)];
         AdventurerTierType adventurerTier
             = (AdventurerTierType)Random.Range((int)AdventurerTierType.A, (int)AdventurerTierType.D + 1);
-        Sprite spriteLD 
-            = minorAdventurerSO.AdventurerSpriteLDList[Random.Range(0, minorAdventurerSO.AdventurerSpriteLDList.Count)];
+        AdventurerSpritePair spritesPair
+            = minorAdventurerSO.AdventurerSpritePairList[Random.Range(0, minorAdventurerSO.AdventurerSpritePairList.Count)];
 
         _adventurerData = new AdventurerData(
             minorAdventurerSO.AdventurerType,
@@ -83,9 +84,40 @@ public class Adventurer : MonoBehaviour
             minorAdventurerSO.OriginalDEX,
             AdventurerStateType.Idle,
             dialogSet,
-            minorAdventurerSO.SpriteSD,
-            spriteLD
+            spritesPair.SDSprite,
+            spritesPair.LDSprite
         );
     }
-       
+    private void SetAdventurerData()
+    {
+        if (_adventurerSO.AdventurerType == AdventurerType.Major || _adventurerSO.AdventurerType == AdventurerType.Dealer)
+        {
+            MajorASO majorAdventurerSO = (MajorASO)_adventurerSO;
+            SetMajorTypeData(majorAdventurerSO);
+        }
+        else
+        {
+            MinorASO minorAdventurerSO = (MinorASO)_adventurerSO;
+            SetMinorTypeData(minorAdventurerSO);
+        }
+    }
+    private void SetMajorTypeData(MajorASO majorAdventurerSO)
+    {
+
+    }
+    private void SetMinorTypeData(MinorASO minorAdventurerSO)
+    {
+        _adventurerData.AdventurerType = AdventurerType.Minor;
+        _adventurerData.AdventurerName = minorAdventurerSO.AdventurerNameList[Random.Range(0, minorAdventurerSO.AdventurerNameList.Count)];
+        _adventurerData.AdventurerClass = minorAdventurerSO.AdventurerClassList[Random.Range(0, minorAdventurerSO.AdventurerClassList.Count)];
+        _adventurerData.AdventurerTitle = minorAdventurerSO.AdventurerTitleList[Random.Range(0, minorAdventurerSO.AdventurerTitleList.Count)];
+        _adventurerData.DialogSet = minorAdventurerSO.DialogList[Random.Range(0, minorAdventurerSO.DialogList.Count)];
+        _adventurerData.AdventurerTier = (AdventurerTierType)Random.Range((int)AdventurerTierType.A, (int)AdventurerTierType.D + 1);
+        AdventurerSpritePair spritesPair
+            = minorAdventurerSO.AdventurerSpritePairList[Random.Range(0, minorAdventurerSO.AdventurerSpritePairList.Count)];
+        _adventurerData.SpriteSD = spritesPair.SDSprite;
+        _adventurerData.SpriteLD = spritesPair.LDSprite;
+
+        _minerStatHandler.SetRandomStat(this, DateManager.Instance.CurrentDate);
+    }
 }

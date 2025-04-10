@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
+[System.Serializable]
+public class AdventurerSpritePair
+{
+    public Sprite SDSprite;
+    public Sprite LDSprite;
+}
 
 [CreateAssetMenu(fileName = "MinorASO", menuName = "ScriptableObject/MinorASO")]
 public class MinorASO : AdventurerSO
@@ -12,5 +17,5 @@ public class MinorASO : AdventurerSO
     public List<string> AdventurerNameList = new List<string>();  // 이름
     public List<string> AdventurerClassList = new List<string>();  // 직업
     public List<string> AdventurerTitleList = new List<string>();  // 칭호 리스트
-    public List<Sprite> AdventurerSpriteLDList = new List<Sprite>(); // 보조 모험가의 LD 스프라이트
+    public List<AdventurerSpritePair> AdventurerSpritePairList = new List<AdventurerSpritePair>();
 }
