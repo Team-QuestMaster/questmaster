@@ -55,6 +55,8 @@ public class GuideBookUI : MonoBehaviour
     {if(!_isGuideBookOpen)
         UIManager.Instance.PlayInteractableSound();
     }
+
+    
     
     void UIGuideBookShow()
     {
@@ -207,6 +209,11 @@ public class GuideBookUI : MonoBehaviour
         if (ReferenceEquals(_guideBookCanvasGroup, null) || index < 0 || index >= _guideBookCanvasGroup.Length)
             return;
         _indexButton[index].transform.DOScaleX(0.8f, 0.1f);
+
+        if (_guideBookCanvasGroup[index].alpha == 0)
+        {
+            UIManager.Instance.PlayInteractableSound();
+        }
 
     }
     
