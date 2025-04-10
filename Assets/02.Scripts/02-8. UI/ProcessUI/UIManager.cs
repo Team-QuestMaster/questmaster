@@ -73,9 +73,9 @@ public class UIManager : Singleton<UIManager>
                 out localPos                                     // 변환된 로컬 좌표
             );
 
-            _cursorBox.gameObject.SetActive(true);
             _cursorBox.rectTransform.localPosition = localPos;
             _cursorText.text = text;
+            _cursorBox.gameObject.SetActive(true);
         }
         else
         {
