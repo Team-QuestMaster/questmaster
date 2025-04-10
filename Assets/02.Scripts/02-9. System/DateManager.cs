@@ -13,7 +13,7 @@ public class DateManager : Singleton<DateManager>
         get => _currentDate;
         set => _currentDate = Mathf.Clamp(value, 1, _maxDate);
     }
-    private List<int> _nightEventDates = new List<int> { 2, 5, 10, 15, 20, 25 };
+    private List<int> _nightEventDates = new List<int> { 1,2, 5, 10, 15, 20, 25 };
     public List<int> NightEventDates { get => _nightEventDates; set => _nightEventDates = value; }
 
     private List<List<QuestResult>> _questResults = new List<List<QuestResult>>(_maxDate + 1);
