@@ -2854,6 +2854,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1229555301}
     m_Modifications:
     - target: {fileID: 1145560182882499520, guid: 976a507041ee7a84e92919936a979127, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145560182882499520, guid: 976a507041ee7a84e92919936a979127, type: 3}
       propertyPath: _boardZone
       value: 
       objectReference: {fileID: 587762473}
@@ -7144,6 +7148,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5113604689060639043, guid: abff45dcd4f55614c802cfcd3591faff, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5113604689060639043, guid: abff45dcd4f55614c802cfcd3591faff, type: 3}
       propertyPath: _boardZone
       value: 
       objectReference: {fileID: 587762473}
@@ -9313,6 +9321,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8695680449901917305, guid: 8048b08f2bd82a846865c2eadc964d2e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695680449901917305, guid: 8048b08f2bd82a846865c2eadc964d2e, type: 3}
       propertyPath: _boardZone
       value: 
       objectReference: {fileID: 587762473}
@@ -10385,6 +10397,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1229555301}
     m_Modifications:
+    - target: {fileID: 751402807562767095, guid: b7ae6be69cfe72a4daa19c87b7fb8332, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 751402807562767095, guid: b7ae6be69cfe72a4daa19c87b7fb8332, type: 3}
       propertyPath: _boardZone
       value: 
@@ -22456,6 +22472,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1998525492}
     - target: {fileID: 6709617259238124492, guid: cdf47e54eb1924045bc3ef46e745ab30, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6709617259238124492, guid: cdf47e54eb1924045bc3ef46e745ab30, type: 3}
       propertyPath: _boardZone
       value: 
       objectReference: {fileID: 587762473}
@@ -23779,6 +23799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _adventurerSO: {fileID: 11400000, guid: 6eb920d3ecae252488e84be1f9c71a68, type: 2}
+  _minerStatHandler: {fileID: 0}
   _idCardSprite: {fileID: 0}
 --- !u!4 &1943142304
 Transform:
@@ -24585,6 +24606,10 @@ PrefabInstance:
     - target: {fileID: 454181073374708276, guid: 37374bccabafc9642857788ec496c80c, type: 3}
       propertyPath: _itemState
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 951863030488151250, guid: 37374bccabafc9642857788ec496c80c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 951863030488151250, guid: 37374bccabafc9642857788ec496c80c, type: 3}
       propertyPath: _boardZone
