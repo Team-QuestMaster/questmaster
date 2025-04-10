@@ -48,26 +48,13 @@ public class AdventurerIDCardUI : MonoBehaviour
     public void Initialize(Adventurer adventurer)
     {
         _smallIDCardGO.transform.position = _smallIDCardActivateTransform.position;
-        _smallIDCardGO.SetActive(true);
         _bigIDCardGO.transform.position = _bigIDCardActivateTransform.position;
         InitializeBigAdventurerIDCardContent(adventurer.AdventurerData);
     }
 
     private void InitializeBigAdventurerIDCardContent(AdventurerData data)
     {
-        // 현재 초기화가 안된 부분
-        // AdventurerImage - 모험가 이미지
-        // _bigAdventurerIDCardContent.AdventurerImage.sprite = 모험가 이미지;
-        _bigAdventurerIDCardContent.AdventurerTierImage.sprite = adventurerTierSprites[(int)data.AdventurerTier];
-
-        string leftStat = $"근력 {data.CurrentSTR}\n민첩 {data.CurrentDEX}";
-        _bigAdventurerIDCardContent.LeftStatTMP.text = leftStat;
-
-        string rightStat = $"통찰력 {data.CurrentINS}\n손재주 {data.CurrentMAG}";
-        _bigAdventurerIDCardContent.RightStatTMP.text = rightStat;
-
-        _bigAdventurerIDCardContent.AdventurerNameTMP.text = data.AdventurerName;
-
+        // 모험가 칭호 TMP에 반영
         if (!string.IsNullOrEmpty(data.AdventurerTitle))
         {
             _bigAdventurerIDCardContent.TitleObject.SetActive(true);
@@ -75,7 +62,32 @@ public class AdventurerIDCardUI : MonoBehaviour
         }
         else
         {
-            _bigAdventurerIDCardContent.TitleObject.SetActive(false);
+            _bigAdventurerIDCardContent.AdventurerTitleTMP.text = "칭호없음";
         }
+        // 모험가 이름 TMP에 반영
+        if (!string.IsNullOrEmpty(data.AdventurerName))
+        {
+            _bigAdventurerIDCardContent.AdventurerNameTMP.text = data.AdventurerName;
+        }
+        else
+        {
+            _bigAdventurerIDCardContent.AdventurerNameTMP.text = "무명의 모험가";
+        }
+
+        // 모험가 스프라이트 반영
+        // 현재 구현이 안된 부분
+        // _bigAdventurerIDCardContent.AdventurerImage.sprite = LD 스프라이트에서 마스킹된 모험가 스프라이트;
+
+
+        // 모험가 티어 스프라이트 반영
+        _bigAdventurerIDCardContent.AdventurerTierImage.sprite = adventurerTierSprites[(int)data.AdventurerTier];
+
+
+        // 모험가 스탯 TMP에 반영
+        string leftStatSTRAndMAG = $"근력 {data.CurrentSTR}\n마력 {data.CurrentMAG}";
+        _bigAdventurerIDCardContent.LeftStatTMP.text = leftStatSTRAndMAG;
+
+        string rightStatINSAndDEX = $"통찰력 {data.CurrentINS}\n손재주 {data.CurrentDEX}";
+        _bigAdventurerIDCardContent.RightStatTMP.text = rightStatINSAndDEX;
     }
 }
