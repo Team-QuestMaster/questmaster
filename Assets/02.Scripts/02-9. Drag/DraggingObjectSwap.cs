@@ -22,9 +22,10 @@ public class DraggingObjectSwap : MonoBehaviour
     private DraggingObjectType _type = DraggingObjectType.Big;
 
     public DraggingObjectType Type => _type;
-    
+
     [SerializeField]
     private DraggingObjectSwap _swapTargetObject;
+
     public DraggingObjectSwap SwapTargetObject => _swapTargetObject;
 
     private RectTransform _myArea;
@@ -32,10 +33,8 @@ public class DraggingObjectSwap : MonoBehaviour
     private DraggableObject _draggableObject;
 
     private Camera _camera;
-    
-    private Image _image;
 
-    private event Action _onEnableEvent;
+    private Image _image;
 
     public event Action ItemSwapEvent;
 
@@ -46,7 +45,9 @@ public class DraggingObjectSwap : MonoBehaviour
         _draggableObject.OnDraggingEvent += SwapDraggingObject;
         _camera = Camera.main;
         _image = GetComponent<Image>();
+        _image.alphaHitTestMinimumThreshold = 1f;
     }
+
     private void Start()
     {
         ComparePair();
@@ -54,27 +55,17 @@ public class DraggingObjectSwap : MonoBehaviour
         // 항상 small 객체 먼저 보임
         if (_type == DraggingObjectType.Big)
         {
-            gameObject.SetActive(false);
+            _draggableObject.OnPointerDownEvent += () => _draggableObject.transform.SetSiblingIndex(_draggableObject.transform.GetSiblingIndex() - 1); // 최상위 레이보다 밑
             _draggableObject.OnPointerDownEvent += () => ImageShadowManager.Instance.SetTargetImage(_image);
             _draggableObject.OnPointerUpEvent += ImageShadowManager.Instance.DisableImageShadow;
-        }
-        
-        if (_type == DraggingObjectType.Big)
-        {
-            _onEnableEvent += () => ImageShadowManager.Instance.SetTargetImage(_image);
+            gameObject.SetActive(false);
         }
     }
-
-    private void OnEnable()
-    {
-        _onEnableEvent?.Invoke();
-    }
-
     private void SwapDraggingObject(PointerEventData eventData)
     {
         // 객체가 자신의 영역 안이면 return
         Vector2 mousePosition = _camera.ScreenToWorldPoint(ClampToDragArea(eventData.position));
-        
+
         if (_myArea.rect.Contains(_myArea.InverseTransformPoint(mousePosition)))
         {
             return;
@@ -87,14 +78,16 @@ public class DraggingObjectSwap : MonoBehaviour
             ImageShadowManager.Instance.DisableImageShadow();
             ItemSwapEvent?.Invoke();
         }
-        
+
         // 스왑 오브젝트 활성화
         _swapTargetObject.gameObject.SetActive(true);
-        
-        _swapTargetObject.transform.SetAsLastSibling();
-        
-        eventData.pointerPress = _swapTargetObject.gameObject;   // PointerDown다운 이벤트 전달 => PointerUp이벤트 호출을 위함
+
+        _swapTargetObject.transform.position = mousePosition;
+
+        eventData.pointerPress = _swapTargetObject.gameObject; // PointerDown다운 이벤트 전달 => PointerUp이벤트 호출을 위함
         eventData.pointerDrag = _swapTargetObject.gameObject;
+
+        ExecuteEvents.Execute(_swapTargetObject.gameObject, eventData, ExecuteEvents.pointerDownHandler);
         ExecuteEvents.Execute(_swapTargetObject.gameObject, eventData, ExecuteEvents.dragHandler);
     }
 
