@@ -108,6 +108,7 @@ public class ItemManager : Singleton <ItemManager>
             if (item.GetComponent<Item>().ItemState == ItemStateType.ReadyToUse && item.GetComponent<Item>().ItemEffectType == ItemEffectType.StatChange)
             {
                 item.GetComponent<StatItem>().StatUse(adventurer);
+                item.GetComponent<DraggingObjectSwap>().SwapTargetObject.gameObject.GetComponent<Image>().DOFade(0, 1).SetAutoKill(false);
                 item.SetActive(false); // 아이템 비활성화
                 item.GetComponent<Item>().ItemState = ItemStateType.UnBuy; // 아이템 상태 변경
                 removeList.Add(item); // 보유 아이템 리스트에서 제거
@@ -130,6 +131,7 @@ public class ItemManager : Singleton <ItemManager>
             if (item.GetComponent<Item>().ItemState == ItemStateType.ReadyToUse && item.GetComponent<Item>().ItemEffectType == ItemEffectType.QuestChange)
             {
                 sum += item.GetComponent<QuestItem>().QuestUse(quest);
+                item.GetComponent<DraggingObjectSwap>().SwapTargetObject.gameObject.GetComponent<Image>().DOFade(0, 1).SetAutoKill(false);
                 item.SetActive(false); // 아이템 비활성화
                 item.GetComponent<Item>().ItemState = ItemStateType.UnBuy; // 아이템 상태 변경
                 removeList.Add(item); // 보유 아이템 리스트에서 제거
