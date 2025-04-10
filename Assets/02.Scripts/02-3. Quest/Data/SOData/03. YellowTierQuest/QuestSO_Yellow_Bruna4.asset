@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO_Yellow_Bruna4
+  m_EditorClassIdentifier: 
+  QuestName: "[\uBE0C\uB8E8\uB098 \uD56D\uAD6C\uB3C4\uC2DC] - \uD56D\uAD6C\uC758
+    \uBC00\uC218\uC120 \uCD94\uC801 \uC791\uC804"
+  QuestDescription: "\uD56D\uAD6C\uC5D0 \uC815\uBC15\uD55C \uBC00\uC218\uC120\uC744
+    \uCD94\uC801\uD558\uACE0 \uC99D\uAC70\uB97C \uD655\uBCF4\uD574\uC57C \uD55C\uB2E4."
+  QuestTier: 2
+  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  STRWeight: 0.9
+  MAGWeight: 0.8
+  INSWeight: 1.2
+  DEXWeight: 1.1
+  PowerForClear: 8700
+  FameReward: 2400
+  GoldReward: 2400
+  FamePenalty: 960
+  GoldPenalty: 960
+  StateAfterFail: 0
+  Days: 2
+  IsQuesting: 0
+  QuestHint: 

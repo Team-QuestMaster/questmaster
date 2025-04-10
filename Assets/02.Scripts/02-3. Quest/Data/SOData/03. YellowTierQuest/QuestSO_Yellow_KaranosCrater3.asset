@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO_Yellow_KaranosCrater3
+  m_EditorClassIdentifier: 
+  QuestName: "[\uCE74\uB77C\uB178\uC2A4 \uBD84\uD654\uB300] - \uBD84\uD654\uB300
+    \uC6A9\uC871 \uD1F4\uCE58 \uC791\uC804"
+  QuestDescription: "\uD654\uC5FC \uC6A9\uC871\uC774 \uAC70\uC8FC\uC9C0 \uC778\uADFC\uC73C\uB85C
+    \uB0B4\uB824\uC624\uAE30 \uC2DC\uC791\uD588\uB2E4. \uC774\uB4E4\uC744 \uD1F4\uCE58\uD558\uC790."
+  QuestTier: 2
+  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  STRWeight: 1.3
+  MAGWeight: 1
+  INSWeight: 0.9
+  DEXWeight: 0.8
+  PowerForClear: 11400
+  FameReward: 5400
+  GoldReward: 4800
+  FamePenalty: 2160
+  GoldPenalty: 1920
+  StateAfterFail: 0
+  Days: 3
+  IsQuesting: 0
+  QuestHint: "\uAC15\uB825\uD55C \uD654\uC5FC \uC800\uD56D\uACFC \uADFC\uC811 \uC804\uD22C
+    \uB2A5\uB825\uC774 \uD544\uC694\uD558\uB2E4."

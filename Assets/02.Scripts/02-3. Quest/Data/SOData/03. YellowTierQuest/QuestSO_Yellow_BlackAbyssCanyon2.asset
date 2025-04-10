@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO_Yellow_BlackAbyssCanyon2
+  m_EditorClassIdentifier: 
+  QuestName: "[\uAC80\uC740 \uC2EC\uC5F0 \uD611\uACE1] - \uC2EC\uC5F0\uC758 \uC18D\uC0AD\uC784
+    \uC870\uC0AC \uC784\uBB34"
+  QuestDescription: "\uBD09\uC778\uB41C \uAE08\uB2E8 \uB9C8\uBC95\uC758 \uD754\uC801\uC5D0\uC11C
+    \uB4E4\uB824\uC624\uB294 \uC18D\uC0AD\uC784\uC758 \uC6D0\uC778\uC744 \uADDC\uBA85\uD558\uB77C."
+  QuestTier: 2
+  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  STRWeight: 0.7
+  MAGWeight: 1.3
+  INSWeight: 1.4
+  DEXWeight: 0.7
+  PowerForClear: 11500
+  FameReward: 5250
+  GoldReward: 5400
+  FamePenalty: 1400
+  GoldPenalty: 1500
+  StateAfterFail: 0
+  Days: 3
+  IsQuesting: 0
+  QuestHint: "\uAC15\uC778\uD55C \uC815\uC2E0\uB825\uC774 \uC694\uAD6C\uB41C\uB2E4."
