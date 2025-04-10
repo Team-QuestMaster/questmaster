@@ -31,7 +31,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8192123574709209299}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -129,6 +129,8 @@ MonoBehaviour:
   _description: "\uC131\uACF5\uB960\uC774 10%\uC99D\uAC00"
   _price: 1000
   _itemState: 0
+  _itemEffectType: 1
+  _increasePersentPoint: 10
 --- !u!114 &668828294829655395
 MonoBehaviour:
   m_ObjectHideFlags: 0

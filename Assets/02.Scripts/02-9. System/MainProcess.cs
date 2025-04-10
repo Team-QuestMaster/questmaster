@@ -66,10 +66,9 @@ public class MainProcess : MonoBehaviour
     {
         Adventurer currentAdventurer = _todayRequest[_requestCount].Item1;
         Quest currentQuest = UIManager.Instance.QuestUI.CurrentQuest;
-        ItemManager.Instance.UsingItems(currentAdventurer, currentQuest);
+        ItemManager.Instance.StatItemUse(currentAdventurer, currentQuest);
         bool isQuestSuccess = MakeQuestResult(currentAdventurer, currentQuest);
         UpdateCalender(currentQuest, isQuestSuccess);
-        ItemManager.Instance.RollbackItems(currentAdventurer, currentQuest);
 
         // currentAdventurer.AdventurerData.AdventurerState = AdventurerStateType.Questing;
         EndRequest();
@@ -77,6 +76,8 @@ public class MainProcess : MonoBehaviour
     private bool MakeQuestResult(Adventurer adventurer, Quest quest)
     {
         float probability = CalculateManager.Instance.CalculateProbability(adventurer, quest);
+        float itemProbability = ItemManager.Instance.QuestItemUse(adventurer, quest);
+        probability = Math.Clamp(probability+itemProbability,0f,100f);
         bool isQuestSuccess = CalculateManager.Instance.JudgeQuestResult(adventurer, quest, probability);
         DateManager.Instance.AddQuestResultToList(adventurer, quest, isQuestSuccess, probability);
 
