@@ -102,7 +102,6 @@ public class Adventurer : MonoBehaviour
     }
     private void SetMinorTypeData(MinorASO minorAdventurerSO)
     {
-        Debug.Log("SetMinorTypeData »£√‚");
         _adventurerData.AdventurerType = AdventurerType.Minor;
         _adventurerData.AdventurerName = minorAdventurerSO.AdventurerNameList[Random.Range(0, minorAdventurerSO.AdventurerNameList.Count)];
         _adventurerData.AdventurerClass = minorAdventurerSO.AdventurerClassList[Random.Range(0, minorAdventurerSO.AdventurerClassList.Count)];
