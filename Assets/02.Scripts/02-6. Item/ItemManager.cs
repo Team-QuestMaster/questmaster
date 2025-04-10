@@ -102,21 +102,29 @@ public class ItemManager : Singleton <ItemManager>
 
     public void StatItemUse(Adventurer adventurer, Quest quest)
     {
-        foreach(GameObject item in _havingItemList)
+        List<GameObject> removeList = new List<GameObject>(); // 사용한 아이템 리스트
+        foreach (GameObject item in _havingItemList)
         {
             if (item.GetComponent<Item>().ItemState == ItemStateType.ReadyToUse && item.GetComponent<Item>().ItemEffectType == ItemEffectType.StatChange)
             {
                 item.GetComponent<StatItem>().StatUse(adventurer);
                 item.SetActive(false); // 아이템 비활성화
                 item.GetComponent<Item>().ItemState = ItemStateType.UnBuy; // 아이템 상태 변경
+                removeList.Add(item); // 보유 아이템 리스트에서 제거
                 RemainItemList.Add(item); // 미보유 아이템 리스트에 추가
             }
         }
+        foreach(GameObject item in removeList)
+        {
+            _havingItemList.Remove(item); // 보유 아이템 리스트에서 제거
+         }
     }
 
     public float QuestItemUse(Adventurer adventurer, Quest quest)
     {
         float sum = 0;
+
+        List<GameObject> removeList = new List<GameObject>(); // 사용한 아이템 리스트
         foreach (GameObject item in _havingItemList)
         {
             if (item.GetComponent<Item>().ItemState == ItemStateType.ReadyToUse && item.GetComponent<Item>().ItemEffectType == ItemEffectType.QuestChange)
@@ -124,8 +132,13 @@ public class ItemManager : Singleton <ItemManager>
                 sum += item.GetComponent<QuestItem>().QuestUse(quest);
                 item.SetActive(false); // 아이템 비활성화
                 item.GetComponent<Item>().ItemState = ItemStateType.UnBuy; // 아이템 상태 변경
+                removeList.Add(item); // 보유 아이템 리스트에서 제거
                 RemainItemList.Add(item); // 미보유 아이템 리스트에 추가
             }
+        }
+        foreach (GameObject item in removeList)
+        {
+            _havingItemList.Remove(item); // 보유 아이템 리스트에서 제거
         }
         return sum;
     }
