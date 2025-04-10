@@ -136,12 +136,13 @@ public class ItemManager : Singleton <ItemManager>
                 yield break;
             }
             GameObject item = _remainItemList[UnityEngine.Random.Range(0, _remainItemList.Count)];
+            GameObject smallItem = item.GetComponent<DraggingObjectSwap>().SwapTargetObject.gameObject;
             _shoppingList.Add(item); // 상점 아이템 리스트에 추가
             _remainItemList.Remove(item); // 미보유 아이템 리스트에서 제거   
 
-            item.GetComponent<RectTransform>().position = new Vector3(-8 + i * 1.5f, -4, 0); // 상점에 아이템 위치 초기화
-            item.SetActive(true);
-            item.GetComponent<Image>().DOFade(1, 1).SetAutoKill(false);
+            smallItem.GetComponent<RectTransform>().position = new Vector3(-8 + i * 1.5f, -4, 0); // 상점에 아이템 위치 초기화
+            smallItem.SetActive(true);
+            smallItem.GetComponent<Image>().DOFade(1, 1).SetAutoKill(false);
             yield return new WaitForSeconds(0.5f); // 1초 대기
         }
     }
@@ -160,11 +161,12 @@ public class ItemManager : Singleton <ItemManager>
             if (item.GetComponent<Item>().ItemState == ItemStateType.Bought)
                 continue;
 
-            item.GetComponent<Image>().DOFade(0, 1).SetAutoKill(false); // 아이템 페이드 아웃
+            GameObject smallItem = item.GetComponent<DraggingObjectSwap>().SwapTargetObject.gameObject;
+            smallItem.GetComponent<Image>().DOFade(0, 1).SetAutoKill(false); // 아이템 페이드 아웃
 
             yield return new WaitForSeconds(1f); // 1초 대기
             _remainItemList.Add(item); 
-            item.SetActive(false);
+            smallItem.SetActive(false);
         }
             _shoppingList.Clear(); // 상점 아이템 리스트 초기화
 
