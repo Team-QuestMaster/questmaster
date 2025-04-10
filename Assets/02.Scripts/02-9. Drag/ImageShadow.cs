@@ -32,8 +32,8 @@ public class ImageShadow : MonoBehaviour
 
     private void Start()
     {
-        transform.SetAsLastSibling();
-        Setting();
+        //transform.SetAsLastSibling();
+        //Setting();
         DisableShadow();
     }
 
@@ -62,6 +62,7 @@ public class ImageShadow : MonoBehaviour
         // 컬러 적용
         _shadowImage.color = _shadowColor;
         
+        transform.SetParent(_targetImage.transform.parent);
         transform.SetSiblingIndex(_targetImage.transform.GetSiblingIndex()-1);
     }
 
