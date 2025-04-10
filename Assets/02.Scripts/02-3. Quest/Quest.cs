@@ -53,7 +53,6 @@ public class Quest : MonoBehaviour
         int currentDate = DateManager.Instance.CurrentDate;
 
         SetQuestPowerForClearOnDate(ref currentDate);
-        SetQuestTierAndImageColorOnDate(ref currentDate);
         SetQuestRewardOnDate(ref currentDate);
         SetQuestPenaltyOnDate(ref currentDate);
         SetQuestStateAfterFailOnDate(ref currentDate);
