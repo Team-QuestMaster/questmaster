@@ -119,7 +119,6 @@ public class CharacterUI : MonoBehaviour
 
     void ShowDialogueUI(int i)
     {
-        Debug.Log("ShowDialogueUI");
         string prefix = StageShowManager.Instance.ShowCharacter.Prefix;
         if (_dialogIndex < _characterData.DialogSet.Dialog.Count)
         {
@@ -154,7 +153,6 @@ public class CharacterUI : MonoBehaviour
     public void ShowSpeechBubbleButtonUI()
     {
         isCloseable = false;
-        Debug.Log("ShowSpeechBubbleButtonUI");
         ShowSpeechBubbleUI();
         ShowButtonSpeechBubbleUI();
     }
@@ -181,14 +179,10 @@ public class CharacterUI : MonoBehaviour
         }
         else
         {
-            Debug.Log("하루가 끝남");
             _currentCharacter = 0;
             UIManager.Instance.OneCycleStartAndEnd.EndCycle(); 
         }
-        
-        
+
     }
 
-
-    
 }
