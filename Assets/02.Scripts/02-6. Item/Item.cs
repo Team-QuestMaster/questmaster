@@ -8,10 +8,11 @@ public enum ItemStateType
     UnBuy,
     ReadyToBuy,
     Bought,
-    ReadyToUse
+    ReadyToUse,
+    Small
 }
 
-public abstract class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler // 아이템 추상 클래스
+public abstract class Item : MonoBehaviour // 아이템 추상 클래스
 {
     
 
@@ -36,7 +37,10 @@ public abstract class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         set
         {
             _itemState = value;
-            _readyToUseEffect.enabled = _itemState == ItemStateType.ReadyToUse;
+            if(_readyToUseEffect != null)
+            {
+                _readyToUseEffect.enabled = _itemState == ItemStateType.ReadyToUse;
+            }
         }
     }
 
@@ -45,14 +49,12 @@ public abstract class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private void Awake()
     {
         _readyToUseEffect = GetComponent<UIEffect>();
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        //UIManager.Instance.ShowTooltip(this);
-    }
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        //UIManager.Instance.HideTooltip();
+        GetComponent<DraggingObjectSwap>().ItemSwapEvent += () =>
+        {
+            if (ItemState == ItemStateType.ReadyToBuy)
+            {
+                ItemState = ItemStateType.UnBuy;
+            }
+        };
     }
 }
