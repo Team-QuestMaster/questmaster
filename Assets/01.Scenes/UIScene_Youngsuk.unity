@@ -2069,7 +2069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a1533071c18d141bab8b01f708bcb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0
+  _type: 1
   _swapTargetObject: {fileID: 1745381363}
 --- !u!114 &191237481
 MonoBehaviour:
@@ -13599,7 +13599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a1533071c18d141bab8b01f708bcb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0
+  _type: 1
   _swapTargetObject: {fileID: 1361252097}
 --- !u!114 &1176600296
 MonoBehaviour:
@@ -14215,7 +14215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a1533071c18d141bab8b01f708bcb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0
+  _type: 1
   _swapTargetObject: {fileID: 1212210201}
 --- !u!114 &1191025852
 MonoBehaviour:
@@ -19131,7 +19131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a1533071c18d141bab8b01f708bcb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0
+  _type: 1
   _swapTargetObject: {fileID: 44627543}
 --- !u!114 &1564965506
 MonoBehaviour:
@@ -22547,7 +22547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a1533071c18d141bab8b01f708bcb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0
+  _type: 1
   _swapTargetObject: {fileID: 325016708}
 --- !u!114 &1798952591
 MonoBehaviour:
