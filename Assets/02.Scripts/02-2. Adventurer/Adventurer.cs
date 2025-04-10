@@ -67,7 +67,7 @@ public class Adventurer : MonoBehaviour
             = minorAdventurerSO.AdventurerTitleList[Random.Range(0, minorAdventurerSO.AdventurerTitleList.Count)];
         DialogSet dialogSet
             = minorAdventurerSO.DialogList[Random.Range(0, minorAdventurerSO.DialogList.Count)];
-        AdventurerTierType adventurerTier = AdventurerTierType.A;
+        AdventurerTierType adventurerTier = AdventurerTierType.D;
         AdventurerSpritePair spritesPair
             = minorAdventurerSO.AdventurerSpritePairList[Random.Range(0, minorAdventurerSO.AdventurerSpritePairList.Count)];
 
@@ -122,23 +122,23 @@ public class Adventurer : MonoBehaviour
     private void SetAdventurerTierOnPower()
     {
         int currentPower = _adventurerData.CurrentSTR + _adventurerData.CurrentMAG + _adventurerData.CurrentINS + _adventurerData.CurrentDEX;
-        int tierIndex = 0;
+        AdventurerTierType adventurerTier = AdventurerTierType.D;
         if (currentPower < 3200)
         {
-            tierIndex = 0;
+            adventurerTier = AdventurerTierType.D;
         }
         else if (3200 <= currentPower && currentPower < 6000)
         {
-            tierIndex = 1;
+            adventurerTier = AdventurerTierType.C;
         }
         else if (6000 <= currentPower && currentPower < 8800)
         {
-            tierIndex = 2;
+            adventurerTier = AdventurerTierType.C;
         }
         else
         {
-            tierIndex = 3;
+            adventurerTier = AdventurerTierType.A;
         }
-        _adventurerData.AdventurerTier = (AdventurerTierType)tierIndex;
+        _adventurerData.AdventurerTier = adventurerTier;
     }
 }
