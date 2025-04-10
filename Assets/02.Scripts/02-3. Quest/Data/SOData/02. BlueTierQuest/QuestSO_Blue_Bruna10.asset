@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO_Blue_Bruna10
+  m_EditorClassIdentifier: 
+  QuestName: "[\uBE0C\uB8E8\uB098 \uD56D\uAD6C\uB3C4\uC2DC] - \uD56D\uAD6C \uBB3C\uB958
+    \uB9C8\uCC28 \uD638\uC704 \uC694\uCCAD"
+  QuestDescription: "\uADC0\uC911\uD488\uC744 \uC2E4\uC740 \uB9C8\uCC28\uB97C \uB2E4\uB978
+    \uB3C4\uC2DC\uB85C \uC548\uC804\uD558\uAC8C \uD638\uC704\uD558\uC790."
+  QuestTier: 3
+  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  STRWeight: 1.3
+  MAGWeight: 0.8
+  INSWeight: 0.9
+  DEXWeight: 1.4
+  PowerForClear: 7100
+  FameReward: 1100
+  GoldReward: 1100
+  FamePenalty: 360
+  GoldPenalty: 300
+  StateAfterFail: 0
+  Days: 1
+  IsQuesting: 0
+  QuestHint: 

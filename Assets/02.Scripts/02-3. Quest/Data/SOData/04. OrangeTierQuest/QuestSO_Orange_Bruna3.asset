@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO_Orange_Bruna3
+  m_EditorClassIdentifier: 
+  QuestName: "[\uBE0C\uB8E8\uB098 \uD56D\uAD6C\uB3C4\uC2DC] - \uD56D\uAD6C\uB3C4\uC2DC
+    \uC57C\uAC04 \uACBD\uBE44 \uAC15\uD654"
+  QuestDescription: "\uCD5C\uADFC \uB298\uC5B4\uB09C \uC57C\uAC04 \uAC15\uB3C4 \uC0AC\uAC74\uC5D0
+    \uB300\uC751\uD558\uAE30 \uC704\uD55C \uCD94\uAC00 \uACBD\uBE44 \uC694\uCCAD\uC774\uB2E4."
+  QuestTier: 1
+  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  STRWeight: 0.9
+  MAGWeight: 1
+  INSWeight: 0.8
+  DEXWeight: 1.1
+  PowerForClear: 11600
+  FameReward: 1700
+  GoldReward: 1800
+  FamePenalty: 850
+  GoldPenalty: 1000
+  StateAfterFail: 0
+  Days: 1
+  IsQuesting: 0
+  QuestHint: 
