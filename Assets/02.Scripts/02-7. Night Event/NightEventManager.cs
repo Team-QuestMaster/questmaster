@@ -7,6 +7,8 @@ public class NightEventManager : Singleton<NightEventManager>
     private GameObject _dealer;
     public GameObject Dealer { get => _dealer; set => _dealer = value; }
     private bool _isIsNightEventDay = false;
+    private bool _tryBuy;
+    public bool TryBuy { get => _tryBuy; set => _tryBuy = value; }
     public bool IsNightEventDay
     {
         get => _isIsNightEventDay;
@@ -23,7 +25,8 @@ public class NightEventManager : Singleton<NightEventManager>
 
     private void Start()
     {
-        UIManager.Instance.CharacterUI.PositiveButtonEvent += AfterMarketEvent;
+        UIManager.Instance.CharacterUI.PositiveButtonEvent += () => AfterMarketEvent();
+        UIManager.Instance.CharacterUI.NegativeButtonEvent += () => AfterMarketEvent();
     }
 
     public void MarketEvent() // 밤이 되면 호출
@@ -39,7 +42,7 @@ public class NightEventManager : Singleton<NightEventManager>
     [ContextMenu("TestMarketEvent")]
     public void AfterMarketEvent() 
     {
-        if (!ItemManager.Instance.TryBuyall())
+        if (_tryBuy && !ItemManager.Instance.TryBuyall())
         {
             return;
         }
