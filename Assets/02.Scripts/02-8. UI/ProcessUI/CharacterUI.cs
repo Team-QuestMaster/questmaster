@@ -53,7 +53,7 @@ public class CharacterUI : MonoBehaviour
         _adventurerIDCardUI.Initialize(adventurer);
 
         StageShowManager.Instance.ShowCharacter.CharacterDisappearShow += HideSpeechBubbleUI;
-        PositiveButtonEvent += () => isCloseable = false;
+        PositiveButtonEvent += () => isCloseable = true;
         NegativeButtonEvent += () => isCloseable = true;
         
         
