@@ -45,7 +45,7 @@ public class DraggingObjectSwap : MonoBehaviour
         _draggableObject.OnDraggingEvent += SwapDraggingObject;
         _camera = Camera.main;
         _image = GetComponent<Image>();
-        _image.alphaHitTestMinimumThreshold = 1f;
+        _image.alphaHitTestMinimumThreshold = 0.1f;
     }
 
     private void Start()
