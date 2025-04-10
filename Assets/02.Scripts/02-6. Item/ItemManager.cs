@@ -55,8 +55,8 @@ public class ItemManager : Singleton <ItemManager>
         }
         Sequence seq = DOTween.Sequence();
 
-        seq.Append(item.transform.DOScale(transform.localScale * 1.2f, 0.5f).SetEase(Ease.OutQuad));
-        seq.Append(item.transform.DOScale(transform.localScale, 0.5f).SetEase(Ease.InQuad));
+        seq.Append(item.transform.DOScale(transform.localScale * 1.4f, 0.25f).SetEase(Ease.OutQuad));
+        seq.Append(item.transform.DOScale(transform.localScale, 0.25f).SetEase(Ease.InQuad));
         itemComponent.ItemState = ItemStateType.Bought; // 아이템 상태 변경
     }
 
@@ -73,6 +73,18 @@ public class ItemManager : Singleton <ItemManager>
         if (goldSum > GuildStatManager.Instance.Gold)
         {
             Debug.Log("골드가 부족합니다.");
+            foreach (GameObject item in _shoppingList)
+            {
+                if (item.GetComponent<Item>().ItemState == ItemStateType.ReadyToBuy)
+                {
+                    Sequence shakeSeq = DOTween.Sequence();
+
+                    shakeSeq.Append(item.transform.DORotate(new Vector3(0, 0, 15f), 0.1f).SetEase(Ease.InOutSine))
+                            .Append(item.transform.DORotate(new Vector3(0, 0, -15f), 0.1f).SetEase(Ease.InOutSine))
+                            .Append(item.transform.DORotate(Vector3.zero, 0.1f).SetEase(Ease.InOutSine));
+                }
+            }
+
             return false;
         }
         else
@@ -127,7 +139,7 @@ public class ItemManager : Singleton <ItemManager>
     private IEnumerator SellingItemsCoroutine()
     {
 
-        yield return new WaitForSeconds(1.5f); // 1초 대기
+        yield return new WaitForSeconds(1f); // 1초 대기
         for (int i = 0; i < SHOP_ITEM_COUNT; i++)
         {
             if (_remainItemList.Count == 0) // 미보유 아이템 리스트가 비어있으면 종료
@@ -136,12 +148,13 @@ public class ItemManager : Singleton <ItemManager>
                 yield break;
             }
             GameObject item = _remainItemList[UnityEngine.Random.Range(0, _remainItemList.Count)];
+            GameObject smallItem = item.GetComponent<DraggingObjectSwap>().SwapTargetObject.gameObject;
             _shoppingList.Add(item); // 상점 아이템 리스트에 추가
             _remainItemList.Remove(item); // 미보유 아이템 리스트에서 제거   
 
-            item.GetComponent<RectTransform>().position = new Vector3(-8 + i * 1.5f, -4, 0); // 상점에 아이템 위치 초기화
-            item.SetActive(true);
-            item.GetComponent<Image>().DOFade(1, 1).SetAutoKill(false);
+            smallItem.GetComponent<RectTransform>().position = new Vector3(-8 + i * 1.5f, -4, 0); // 상점에 아이템 위치 초기화
+            smallItem.SetActive(true);
+            smallItem.GetComponent<Image>().DOFade(1, 1).SetAutoKill(false);
             yield return new WaitForSeconds(0.5f); // 1초 대기
         }
     }
@@ -160,11 +173,12 @@ public class ItemManager : Singleton <ItemManager>
             if (item.GetComponent<Item>().ItemState == ItemStateType.Bought)
                 continue;
 
-            item.GetComponent<Image>().DOFade(0, 1).SetAutoKill(false); // 아이템 페이드 아웃
+            GameObject smallItem = item.GetComponent<DraggingObjectSwap>().SwapTargetObject.gameObject;
+            smallItem.GetComponent<Image>().DOFade(0, 1).SetAutoKill(false); // 아이템 페이드 아웃
 
             yield return new WaitForSeconds(1f); // 1초 대기
             _remainItemList.Add(item); 
-            item.SetActive(false);
+            smallItem.SetActive(false);
         }
             _shoppingList.Clear(); // 상점 아이템 리스트 초기화
 
