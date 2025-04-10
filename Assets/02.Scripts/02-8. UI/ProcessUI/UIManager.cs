@@ -82,9 +82,4 @@ public class UIManager : Singleton<UIManager>
             Debug.LogError("커서박스가 할당돼지 않음");
         }
     }
-
-    public void CursorBoxDebug(string text)
-    {
-        Debug.Log(text);
-    }
 }
