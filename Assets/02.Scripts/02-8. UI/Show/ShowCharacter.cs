@@ -11,13 +11,6 @@ public class ShowCharacter : MonoBehaviour
     public event Action CharacterAppearShow; 
     public event Action CharacterDisappearShow;
     
-    
-    private Animator _characterAnimator;
-    private Image  _characterImage;
-    
-    private Tweener _characterAppearTweener;
-    private Tweener _characterDisappearTweener;
-    
     public string Prefix = "!!";
     [SerializeField] private AudioClip _appearSound;
     private void Start()
@@ -28,12 +21,6 @@ public class ShowCharacter : MonoBehaviour
     {
         CharacterAppearShow += UIManager.Instance.CharacterUI.Initialize;
         CharacterAppearShow += () => CharacterAppear();
-    }
-    //모험가의 애니메이터를 등록한다.
-    public void SetCharacter(Animator characterAnimator, Image characterImage)
-    {
-        _characterAnimator = characterAnimator;
-        _characterImage = characterImage;
     }
     public void Appear()
     {

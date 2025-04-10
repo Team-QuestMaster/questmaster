@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5920889275324192532}
   - component: {fileID: 5793571951716984718}
   - component: {fileID: 1813346340252683813}
-  - component: {fileID: 8552999786323783474}
   - component: {fileID: 2329552873946414326}
   - component: {fileID: 7780723263146253595}
   m_Layer: 0
@@ -68,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2036455193332455462, guid: 2349893ae37fefa428fb3bb65dbf9e2e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -78,28 +77,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &8552999786323783474
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 897576238885240338}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 95bd59209cdbef041857924075a29f15, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &2329552873946414326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,4 +134,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _adventurerSO: {fileID: 11400000, guid: 9c57a3efe99c2a146a0098693bc34ed1, type: 2}
+  _minerStatHandler: {fileID: 0}
   _idCardSprite: {fileID: 0}
