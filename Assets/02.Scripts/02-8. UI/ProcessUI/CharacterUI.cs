@@ -152,7 +152,7 @@ public class CharacterUI : MonoBehaviour
 
     public void ShowSpeechBubbleButtonUI()
     {
-        isCloseable = true;
+        isCloseable = false;
         Debug.Log("ShowSpeechBubbleButtonUI");
         ShowSpeechBubbleUI();
         ShowButtonSpeechBubbleUI();

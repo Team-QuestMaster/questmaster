@@ -19,7 +19,7 @@ MonoBehaviour:
   OriginalDEX: 1
   DialogList:
   - Dialog:
-    - "\uB098\uB984\uC758"
+    - "!!\uB098\uB984\uC758"
     - "\uB300\uD654\uAC00\uC788\uC5B4\uC694"
   SpriteSD: {fileID: 0}
   AdventurerName: "\uC774\uC138\uB9B0"
