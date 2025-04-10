@@ -48,7 +48,6 @@ public class AdventurerIDCardUI : MonoBehaviour
     public void Initialize(Adventurer adventurer)
     {
         _smallIDCardGO.transform.position = _smallIDCardActivateTransform.position;
-        _smallIDCardGO.SetActive(true);
         _bigIDCardGO.transform.position = _bigIDCardActivateTransform.position;
         InitializeBigAdventurerIDCardContent(adventurer.AdventurerData);
     }
