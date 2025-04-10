@@ -20,16 +20,16 @@ public class DayChangeUI : MonoBehaviour
     void Start()
     {
         Initialize();
-        
     }
-    public void Initialize()
+    private void Initialize()
     {
+        DateManager.Instance.OnDateChanged += ReturnDay;
         StageShowManager.Instance.MiniCharacter.MinisMoveEvent += TimeFlow;
         _currentStep = 0;
         _characterCount = UIManager.Instance.CharacterUI.Characters.Count;
     }
     
-    public void ReturnDay()
+    private void ReturnDay()
     {
         for (int i = 1; i < SkyImages.Length; i++)
         {
