@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO_Lumiel9
+  m_EditorClassIdentifier: 
+  QuestName: "[\uB8E8\uBBF8\uC5D8 \uC232] - \uC815\uB839\uC758 \uC131\uC5ED \uC815\uD654
+    \uC758\uC2DD \uBCF4\uC870"
+  QuestDescription: "\uC624\uC5FC\uB41C \uC131\uC5ED\uC5D0\uC11C \uC815\uB839\uC0AC\uB4E4\uC774
+    \uCE58\uB974\uB294 \uC815\uD654 \uC758\uC2DD\uC744 \uBCF4\uC870\uD558\uC790."
+  QuestTier: 4
+  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  STRWeight: 0.9
+  MAGWeight: 1.3
+  INSWeight: 1.3
+  DEXWeight: 1.1
+  PowerForClear: 1500
+  FameReward: 400
+  GoldReward: 400
+  FamePenalty: 30
+  GoldPenalty: 30
+  StateAfterFail: 0
+  Days: 2
+  IsQuesting: 0
+  QuestHint: "\uC601\uC801 \uAE30\uB958\uC5D0 \uBBFC\uAC10\uD55C \uC790\uC5D0\uAC8C
+    \uC720\uB9AC\uD558\uB2E4."

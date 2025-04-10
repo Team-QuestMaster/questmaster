@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO_Orange_KaranosCrater6
+  m_EditorClassIdentifier: 
+  QuestName: "[\uCE74\uB77C\uB178\uC2A4 \uBD84\uD654\uB300] - \uBD88\uC528 \uC815\uB839
+    \uACA9\uB9AC \uC791\uC804"
+  QuestDescription: "\uD1B5\uC81C \uBD88\uAC00\uB2A5\uD55C \uBD88\uC528 \uC815\uB839\uC744
+    \uBD09\uC778\uD574\uC57C \uD55C\uB2E4."
+  QuestTier: 1
+  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  STRWeight: 1
+  MAGWeight: 1.3
+  INSWeight: 1.1
+  DEXWeight: 0.6
+  PowerForClear: 14400
+  FameReward: 2150
+  GoldReward: 2000
+  FamePenalty: 1100
+  GoldPenalty: 1050
+  StateAfterFail: 0
+  Days: 1
+  IsQuesting: 0
+  QuestHint: "\uC815\uB839 \uC57D\uD654 \uB9C8\uBC95\uC774 \uD544\uC694\uD558\uB2E4."

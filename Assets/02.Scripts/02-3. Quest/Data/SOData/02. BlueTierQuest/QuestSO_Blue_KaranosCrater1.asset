@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO_Blue_KaranosCrater1
+  m_EditorClassIdentifier: 
+  QuestName: "[\uCE74\uB77C\uB178\uC2A4 \uBD84\uD654\uB300] - \uC6A9\uC554 \uC774\uAE00
+    \uC815\uCC30 \uBC0F \uC0DD\uD0DC \uBCF4\uACE0"
+  QuestDescription: "\uC6A9\uC554 \uC9C0\uB300\uC5D0\uC11C \uBAA9\uACA9\uB41C \uAC70\uB300
+    \uC870\uB958\uC5D0 \uB300\uD55C \uBCF4\uACE0\uAC00 \uD544\uC694\uD558\uB2E4."
+  QuestTier: 3
+  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  STRWeight: 0.9
+  MAGWeight: 1
+  INSWeight: 1.3
+  DEXWeight: 1.3
+  PowerForClear: 6800
+  FameReward: 1100
+  GoldReward: 1100
+  FamePenalty: 330
+  GoldPenalty: 330
+  StateAfterFail: 0
+  Days: 2
+  IsQuesting: 0
+  QuestHint: 

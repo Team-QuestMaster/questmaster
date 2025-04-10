@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO_Yellow_Zerdin4
+  m_EditorClassIdentifier: 
+  QuestName: "[\uC81C\uB974\uB518 \uC218\uB3C4\uC6D0] - \uC131\uC5ED \uC218\uD638\uC790\uC758
+    \uC2DC\uD5D8 \uD1B5\uACFC"
+  QuestDescription: "\uC218\uB3C4\uC6D0\uC758 \uC2E0\uC131 \uB9C8\uB825\uC744 \uC9C0\uD0A4\uAE30
+    \uC704\uD574 \uC2DC\uB828\uC744 \uD1B5\uACFC\uD574\uC57C \uD55C\uB2E4."
+  QuestTier: 2
+  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  STRWeight: 0.9
+  MAGWeight: 1.2
+  INSWeight: 1.1
+  DEXWeight: 0.8
+  PowerForClear: 10100
+  FameReward: 2700
+  GoldReward: 2400
+  FamePenalty: 1080
+  GoldPenalty: 960
+  StateAfterFail: 0
+  Days: 2
+  IsQuesting: 0
+  QuestHint: "\uC815\uC2E0 \uC9D1\uC911\uB825\uACFC \uB9C8\uBC95 \uC800\uD56D \uB2A5\uB825\uC774
+    \uC911\uC694\uD558\uB2E4."
