@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5fc265a3c155e504781497efb567ffcf
+guid: 47ff684c2b00baf42ada4ad4d93e947a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3965758638191431310
-    second: 0009_0
+      213: -6164905745536609159
+    second: woodFrame_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,7 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,7 +110,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 0009_0
+      name: woodFrame_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1000
-        height: 1000
+        x: 2891
+        y: 535
+        width: 106
+        height: 2129
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a29140a01fe37bb448a6579d902080d9
-      internalID: 1391166622
+      spriteID: 974968333ead17aa0800000000000000
+      internalID: -6164905745536609159
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 934cbe529a9591e4bbd819c822b9cf4f
+    spriteID: de8978cab161633409cd5ae03418231b
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      0009_0: 1391166622
+      woodFrame_0: -6164905745536609159
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
