@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Adventurer : MonoBehaviour
 {
@@ -17,10 +18,6 @@ public class Adventurer : MonoBehaviour
     {
         InitAdventurerData();
         gameObject.SetActive(false);
-    }
-    private void OnDisable()
-    {
-
     }
     private void InitAdventurerData()
     {
@@ -64,9 +61,8 @@ public class Adventurer : MonoBehaviour
         DialogSet dialogSet
             = minorAdventurerSO.DialogList[Random.Range(0, minorAdventurerSO.DialogList.Count)];
         AdventurerTierType adventurerTier = AdventurerTierType.D;
-        AdventurerSpritePair spritesPair
-            = minorAdventurerSO.AdventurerSpritePairList[Random.Range(0, minorAdventurerSO.AdventurerSpritePairList.Count)];
-
+        Sprite spritesLD
+            = minorAdventurerSO.AdventurerSpriteLDList[Random.Range(0, minorAdventurerSO.AdventurerSpriteLDList.Count)];
         _adventurerData = new AdventurerData(
             minorAdventurerSO.AdventurerType,
             adventurerName,
@@ -79,9 +75,10 @@ public class Adventurer : MonoBehaviour
             minorAdventurerSO.OriginalDEX,
             AdventurerStateType.Idle,
             dialogSet,
-            spritesPair.SDSprite,
-            spritesPair.LDSprite
+            minorAdventurerSO.AdventurerSpriteSD,
+            spritesLD
         );
+        GetComponent<Image>().sprite = _adventurerData.SpriteLD;
     }
     public void SetAdventurerData()
     {
@@ -107,11 +104,9 @@ public class Adventurer : MonoBehaviour
         _adventurerData.AdventurerClass = minorAdventurerSO.AdventurerClassList[Random.Range(0, minorAdventurerSO.AdventurerClassList.Count)];
         _adventurerData.AdventurerTitle = minorAdventurerSO.AdventurerTitleList[Random.Range(0, minorAdventurerSO.AdventurerTitleList.Count)];
         _adventurerData.DialogSet = minorAdventurerSO.DialogList[Random.Range(0, minorAdventurerSO.DialogList.Count)];
-        AdventurerSpritePair spritesPair
-            = minorAdventurerSO.AdventurerSpritePairList[Random.Range(0, minorAdventurerSO.AdventurerSpritePairList.Count)];
-        _adventurerData.SpriteSD = spritesPair.SDSprite;
-        _adventurerData.SpriteLD = spritesPair.LDSprite;
-
+        _adventurerData.SpriteLD = 
+            minorAdventurerSO.AdventurerSpriteLDList[Random.Range(0, minorAdventurerSO.AdventurerSpriteLDList.Count)];
+        GetComponent<Image>().sprite = _adventurerData.SpriteLD;
         _minerStatHandler.SetRandomStat(this, DateManager.Instance.CurrentDate);
         SetAdventurerTierOnPower();
     }
