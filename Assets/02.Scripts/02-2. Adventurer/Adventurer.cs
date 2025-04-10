@@ -67,8 +67,7 @@ public class Adventurer : MonoBehaviour
             = minorAdventurerSO.AdventurerTitleList[Random.Range(0, minorAdventurerSO.AdventurerTitleList.Count)];
         DialogSet dialogSet
             = minorAdventurerSO.DialogList[Random.Range(0, minorAdventurerSO.DialogList.Count)];
-        AdventurerTierType adventurerTier
-            = (AdventurerTierType)Random.Range((int)AdventurerTierType.A, (int)AdventurerTierType.D + 1);
+        AdventurerTierType adventurerTier = AdventurerTierType.D;
         AdventurerSpritePair spritesPair
             = minorAdventurerSO.AdventurerSpritePairList[Random.Range(0, minorAdventurerSO.AdventurerSpritePairList.Count)];
 
@@ -112,12 +111,34 @@ public class Adventurer : MonoBehaviour
         _adventurerData.AdventurerClass = minorAdventurerSO.AdventurerClassList[Random.Range(0, minorAdventurerSO.AdventurerClassList.Count)];
         _adventurerData.AdventurerTitle = minorAdventurerSO.AdventurerTitleList[Random.Range(0, minorAdventurerSO.AdventurerTitleList.Count)];
         _adventurerData.DialogSet = minorAdventurerSO.DialogList[Random.Range(0, minorAdventurerSO.DialogList.Count)];
-        _adventurerData.AdventurerTier = (AdventurerTierType)Random.Range((int)AdventurerTierType.A, (int)AdventurerTierType.D + 1);
         AdventurerSpritePair spritesPair
             = minorAdventurerSO.AdventurerSpritePairList[Random.Range(0, minorAdventurerSO.AdventurerSpritePairList.Count)];
         _adventurerData.SpriteSD = spritesPair.SDSprite;
         _adventurerData.SpriteLD = spritesPair.LDSprite;
 
         _minerStatHandler.SetRandomStat(this, DateManager.Instance.CurrentDate);
+        SetAdventurerTierOnPower();
+    }
+    private void SetAdventurerTierOnPower()
+    {
+        int currentPower = _adventurerData.CurrentSTR + _adventurerData.CurrentMAG + _adventurerData.CurrentINS + _adventurerData.CurrentDEX;
+        AdventurerTierType adventurerTier = AdventurerTierType.D;
+        if (currentPower < 3200)
+        {
+            adventurerTier = AdventurerTierType.D;
+        }
+        else if (3200 <= currentPower && currentPower < 6000)
+        {
+            adventurerTier = AdventurerTierType.C;
+        }
+        else if (6000 <= currentPower && currentPower < 8800)
+        {
+            adventurerTier = AdventurerTierType.C;
+        }
+        else
+        {
+            adventurerTier = AdventurerTierType.A;
+        }
+        _adventurerData.AdventurerTier = adventurerTier;
     }
 }

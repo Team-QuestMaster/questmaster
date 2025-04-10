@@ -17,7 +17,9 @@ MonoBehaviour:
   OriginalMAG: 100
   OriginalINS: 100
   OriginalDEX: 100
-  DialogList: []
+  DialogList:
+  - Dialog:
+    - "\uC800\uB294 \uB9C8\uC774\uB108\uD569\uB2C8\uB2E4."
   SpriteSD: {fileID: 8724442871279778623, guid: 1236ac23c388d9447a048937a1ce4233, type: 3}
   AdventurerNameList:
   - "\uB77C\uC628"
@@ -216,4 +218,6 @@ MonoBehaviour:
   - "\uB0A8\uC744 \uBA3C\uC800 \uC0DD\uAC01\uD558\uB294 \uC790"
   - "\uBE44\uC6C3\uC74C\uC744 \uC78A\uC740 \uC790"
   - "\uC57D\uC18D\uC744 \uC9C0\uD0A4\uB294 \uC790"
-  AdventurerSpritePairList: []
+  AdventurerSpritePairList:
+  - SDSprite: {fileID: 8724442871279778623, guid: 1236ac23c388d9447a048937a1ce4233, type: 3}
+    LDSprite: {fileID: -2036455193332455462, guid: 2349893ae37fefa428fb3bb65dbf9e2e, type: 3}

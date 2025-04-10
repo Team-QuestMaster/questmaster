@@ -25,6 +25,7 @@ public class ShowIDCard : MonoBehaviour
 
     private void IDCardAppear()
     {
+        UIManager.Instance.AdventurerIDCardUI.SmallIDCardGO.SetActive(true);
         UIManager.Instance.AdventurerIDCardUI.SmallIDCardGO
             .GetComponent<Image>().DOFade(1, 1f);
         UIManager.Instance.AdventurerIDCardUI.BigIDCardGO
