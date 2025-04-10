@@ -18,10 +18,6 @@ public class Adventurer : MonoBehaviour
         InitAdventurerData();
         gameObject.SetActive(false);
     }
-    private void OnEnable()
-    {
-        SetAdventurerData();
-    }
     private void OnDisable()
     {
 
@@ -87,7 +83,7 @@ public class Adventurer : MonoBehaviour
             spritesPair.LDSprite
         );
     }
-    private void SetAdventurerData()
+    public void SetAdventurerData()
     {
         if (_adventurerSO.AdventurerType == AdventurerType.Major || _adventurerSO.AdventurerType == AdventurerType.Dealer)
         {
@@ -106,6 +102,7 @@ public class Adventurer : MonoBehaviour
     }
     private void SetMinorTypeData(MinorASO minorAdventurerSO)
     {
+        Debug.Log("SetMinorTypeData »£√‚");
         _adventurerData.AdventurerType = AdventurerType.Minor;
         _adventurerData.AdventurerName = minorAdventurerSO.AdventurerNameList[Random.Range(0, minorAdventurerSO.AdventurerNameList.Count)];
         _adventurerData.AdventurerClass = minorAdventurerSO.AdventurerClassList[Random.Range(0, minorAdventurerSO.AdventurerClassList.Count)];
