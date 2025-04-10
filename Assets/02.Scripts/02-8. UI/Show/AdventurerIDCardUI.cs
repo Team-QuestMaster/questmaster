@@ -79,11 +79,10 @@ public class AdventurerIDCardUI : MonoBehaviour
         // 현재 구현이 안된 부분
         // _bigAdventurerIDCardContent.AdventurerImage.sprite = LD 스프라이트에서 마스킹된 모험가 스프라이트;
 
+
         // 모험가 티어 스프라이트 반영
         _bigAdventurerIDCardContent.AdventurerTierImage.sprite = adventurerTierSprites[(int)data.AdventurerTier];
 
-        Debug.Log($"근력 : {data.CurrentSTR}, 민첩 : {data.CurrentDEX}, " +
-            $"통찰력 : {data.CurrentINS}, 손재주 : {data.CurrentMAG}");
 
         // 모험가 스탯 TMP에 반영
         string leftStatSTRAndMAG = $"근력 {data.CurrentSTR}\n마력 {data.CurrentMAG}";
