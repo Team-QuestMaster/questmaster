@@ -11355,14 +11355,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dontDestroy: 1
-  _remainItemList:
-  - {fileID: 1212210194}
-  - {fileID: 1745381356}
-  - {fileID: 44627536}
-  - {fileID: 325016701}
-  - {fileID: 1361252090}
-  _havingItemList:
-  - {fileID: 0}
+  _remainItemList: []
+  _havingItemList: []
   _inventoryMaxCount: 10
   _inventoryCount: 10
 --- !u!1 &1513825160
