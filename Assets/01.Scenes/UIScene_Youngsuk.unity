@@ -2109,7 +2109,7 @@ MonoBehaviour:
           m_MethodName: ItemCursorBox
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 191237482}
+            m_ObjectArgument: {fileID: 1745381357}
             m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -2125,24 +2125,13 @@ MonoBehaviour:
           m_MethodName: ItemCursorBox
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 191237482}
+            m_ObjectArgument: {fileID: 1745381357}
             m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &191237482 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2782497267633748998, guid: 976a507041ee7a84e92919936a979127, type: 3}
-  m_PrefabInstance: {fileID: 239538669}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191237478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b23594bab9a42134cab5991ad9c0de20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &194998439
 GameObject:
   m_ObjectHideFlags: 0
@@ -2968,11 +2957,16 @@ PrefabInstance:
       propertyPath: _itemState
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3713977887536481213, guid: 976a507041ee7a84e92919936a979127, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7349697548645357037, guid: 976a507041ee7a84e92919936a979127, type: 3}
       propertyPath: _dragArea
       value: 
       objectReference: {fileID: 1998525492}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2782497267633748998, guid: 976a507041ee7a84e92919936a979127, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -7057,6 +7051,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1229555301}
     m_Modifications:
+    - target: {fileID: 1339847786383571576, guid: abff45dcd4f55614c802cfcd3591faff, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3212241705937323432, guid: abff45dcd4f55614c802cfcd3591faff, type: 3}
       propertyPath: m_Name
       value: SmallReducePenalty
@@ -7165,7 +7163,8 @@ PrefabInstance:
       propertyPath: _dragArea
       value: 
       objectReference: {fileID: 1998525492}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6781644219844464012, guid: abff45dcd4f55614c802cfcd3591faff, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -9217,6 +9216,10 @@ PrefabInstance:
       propertyPath: _itemState
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3952206153174612931, guid: 8048b08f2bd82a846865c2eadc964d2e, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6192824212696491632, guid: 8048b08f2bd82a846865c2eadc964d2e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -9321,7 +9324,8 @@ PrefabInstance:
       propertyPath: _eventSystem
       value: 
       objectReference: {fileID: 513163688}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3627916671514542557, guid: 8048b08f2bd82a846865c2eadc964d2e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -10393,6 +10397,10 @@ PrefabInstance:
       propertyPath: _eventSystem
       value: 
       objectReference: {fileID: 513163688}
+    - target: {fileID: 3571451733454878411, guid: b7ae6be69cfe72a4daa19c87b7fb8332, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4296047684587366379, guid: b7ae6be69cfe72a4daa19c87b7fb8332, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -10489,7 +10497,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8298080219709234640, guid: b7ae6be69cfe72a4daa19c87b7fb8332, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -13639,7 +13648,7 @@ MonoBehaviour:
           m_MethodName: ItemCursorBox
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 1176600297}
+            m_ObjectArgument: {fileID: 1361252091}
             m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -13655,24 +13664,13 @@ MonoBehaviour:
           m_MethodName: ItemCursorBox
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 1176600297}
+            m_ObjectArgument: {fileID: 1361252091}
             m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1176600297 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8298080219709234640, guid: b7ae6be69cfe72a4daa19c87b7fb8332, type: 3}
-  m_PrefabInstance: {fileID: 860037127}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1176600293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea9d4b716a931934ebb1d1998abc44fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1182641261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14255,7 +14253,7 @@ MonoBehaviour:
           m_MethodName: ItemCursorBox
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 1191025853}
+            m_ObjectArgument: {fileID: 1212210195}
             m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -14271,24 +14269,13 @@ MonoBehaviour:
           m_MethodName: ItemCursorBox
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 1191025853}
+            m_ObjectArgument: {fileID: 1212210195}
             m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1191025853 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6781644219844464012, guid: abff45dcd4f55614c802cfcd3591faff, type: 3}
-  m_PrefabInstance: {fileID: 607017786}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191025849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15634de8bce20134c9bc17688a4bd6bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1192909050
 GameObject:
   m_ObjectHideFlags: 0
@@ -19171,7 +19158,7 @@ MonoBehaviour:
           m_MethodName: ItemCursorBox
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 1564965507}
+            m_ObjectArgument: {fileID: 44627537}
             m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -19187,24 +19174,13 @@ MonoBehaviour:
           m_MethodName: ItemCursorBox
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 1564965507}
+            m_ObjectArgument: {fileID: 44627537}
             m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1564965507 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8790966566022428246, guid: cdf47e54eb1924045bc3ef46e745ab30, type: 3}
-  m_PrefabInstance: {fileID: 1796789688}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1564965503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04318fc998204104d88db0d98f30b3f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1577621717
 GameObject:
   m_ObjectHideFlags: 0
@@ -21843,7 +21819,7 @@ MonoBehaviour:
           m_MethodName: ItemCursorBox
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 1759590396}
+            m_ObjectArgument: {fileID: 563470560}
             m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -21859,24 +21835,13 @@ MonoBehaviour:
           m_MethodName: ItemCursorBox
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 1759590396}
+            m_ObjectArgument: {fileID: 563470560}
             m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1759590396 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 454181073374708276, guid: 37374bccabafc9642857788ec496c80c, type: 3}
-  m_PrefabInstance: {fileID: 2032477573}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1759590389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a7dcb9fa27965e42be173d1dad8d513, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1762325788
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22502,6 +22467,10 @@ PrefabInstance:
       propertyPath: _eventSystem
       value: 
       objectReference: {fileID: 513163688}
+    - target: {fileID: 6967756351614920139, guid: cdf47e54eb1924045bc3ef46e745ab30, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8634826102728758423, guid: cdf47e54eb1924045bc3ef46e745ab30, type: 3}
       propertyPath: m_Name
       value: SmallPreventDie
@@ -22514,7 +22483,8 @@ PrefabInstance:
       propertyPath: _itemState
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8790966566022428246, guid: cdf47e54eb1924045bc3ef46e745ab30, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -22587,7 +22557,7 @@ MonoBehaviour:
           m_MethodName: ItemCursorBox
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 1798952592}
+            m_ObjectArgument: {fileID: 325016702}
             m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -22603,24 +22573,13 @@ MonoBehaviour:
           m_MethodName: ItemCursorBox
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 1798952592}
+            m_ObjectArgument: {fileID: 325016702}
             m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1798952592 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3627916671514542557, guid: 8048b08f2bd82a846865c2eadc964d2e, type: 3}
-  m_PrefabInstance: {fileID: 764013702}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1798952588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d50d05a6feb2c4c45b50123791c5eb5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1801261235
 GameObject:
   m_ObjectHideFlags: 0
@@ -24620,6 +24579,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1229555301}
     m_Modifications:
     - target: {fileID: 454181073374708276, guid: 37374bccabafc9642857788ec496c80c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454181073374708276, guid: 37374bccabafc9642857788ec496c80c, type: 3}
       propertyPath: _itemState
       value: 4
       objectReference: {fileID: 0}
@@ -24643,6 +24606,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -2880734798192188640, guid: 2b1f073a2a910544ab914f64590c7c6d, type: 3}
+    - target: {fileID: 7369804614813641008, guid: 37374bccabafc9642857788ec496c80c, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7369804614813641008, guid: 37374bccabafc9642857788ec496c80c, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -24735,7 +24702,8 @@ PrefabInstance:
       propertyPath: _dragArea
       value: 
       objectReference: {fileID: 1998525492}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 454181073374708276, guid: 37374bccabafc9642857788ec496c80c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
