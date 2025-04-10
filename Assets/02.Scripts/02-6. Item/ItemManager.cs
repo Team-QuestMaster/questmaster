@@ -100,34 +100,34 @@ public class ItemManager : Singleton <ItemManager>
         }
     }
 
-    public void UsingItems(Adventurer adventurer, Quest quest)
+    public void StatItemUse(Adventurer adventurer, Quest quest)
     {
         foreach(GameObject item in _havingItemList)
         {
-            if (item.GetComponent<Item>().ItemState == ItemStateType.ReadyToUse)
+            if (item.GetComponent<Item>().ItemState == ItemStateType.ReadyToUse && item.GetComponent<Item>().ItemEffectType == ItemEffectType.StatChange)
             {
-                item.GetComponent<Item>().Use(adventurer, quest);
-                item.gameObject.SetActive(false); // 아이템 비활성화
+                item.GetComponent<StatItem>().StatUse(adventurer);
+                item.SetActive(false); // 아이템 비활성화
+                item.GetComponent<Item>().ItemState = ItemStateType.UnBuy; // 아이템 상태 변경
+                RemainItemList.Add(item); // 미보유 아이템 리스트에 추가
             }
         }
     }
 
-    public void RollbackItems(Adventurer adventurer, Quest quest)
+    public float QuestItemUse(Adventurer adventurer, Quest quest)
     {
-        List<GameObject> toRemove = new List<GameObject>();
+        float sum = 0;
         foreach (GameObject item in _havingItemList)
         {
-            if (item.GetComponent<Item>().ItemState == ItemStateType.ReadyToUse)
+            if (item.GetComponent<Item>().ItemState == ItemStateType.ReadyToUse && item.GetComponent<Item>().ItemEffectType == ItemEffectType.QuestChange)
             {
-                item.GetComponent<Item>().Rollback(adventurer, quest);
+                sum += item.GetComponent<QuestItem>().QuestUse(quest);
+                item.SetActive(false); // 아이템 비활성화
                 item.GetComponent<Item>().ItemState = ItemStateType.UnBuy; // 아이템 상태 변경
-                toRemove.Add(item);
+                RemainItemList.Add(item); // 미보유 아이템 리스트에 추가
             }
         }
-        foreach (GameObject item in toRemove)
-        {
-            _havingItemList.Remove(item);
-        }
+        return sum;
     }
 
     public void SellingItems()
@@ -175,10 +175,16 @@ public class ItemManager : Singleton <ItemManager>
 
             GameObject smallItem = item.GetComponent<DraggingObjectSwap>().SwapTargetObject.gameObject;
             smallItem.GetComponent<Image>().DOFade(0, 1).SetAutoKill(false); // 아이템 페이드 아웃
+            item.GetComponent<Image>().DOFade(0, 1).SetAutoKill(false); // 아이템 페이드 아웃
 
             yield return new WaitForSeconds(1f); // 1초 대기
             _remainItemList.Add(item); 
             smallItem.SetActive(false);
+            item.SetActive(false); // 아이템 비활성화
+            if(item.GetComponent<Item>().ItemState == ItemStateType.ReadyToBuy)
+            {
+                item.GetComponent<Item>().ItemState = ItemStateType.UnBuy; // 아이템 상태 변경
+            }
         }
             _shoppingList.Clear(); // 상점 아이템 리스트 초기화
 
