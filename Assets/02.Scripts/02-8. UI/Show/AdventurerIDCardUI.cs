@@ -74,9 +74,8 @@ public class AdventurerIDCardUI : MonoBehaviour
             _bigAdventurerIDCardContent.AdventurerNameTMP.text = "무명의 모험가";
         }
 
-        // 모험가 스프라이트 반영
-        // 현재 구현이 안된 부분
-        // _bigAdventurerIDCardContent.AdventurerImage.sprite = LD 스프라이트에서 마스킹된 모험가 스프라이트;
+        // 모험가 사진 스프라이트 반영
+        _bigAdventurerIDCardContent.AdventurerImage.sprite = data.SpriteLD;
 
 
         // 모험가 티어 스프라이트 반영
