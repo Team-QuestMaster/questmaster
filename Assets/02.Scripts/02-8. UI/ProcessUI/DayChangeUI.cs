@@ -12,15 +12,19 @@ public class DayChangeUI : MonoBehaviour
 
     private int _currentStep;
     private int _characterCount;
-    [SerializeField] private int _step = 3;
-    [SerializeField] private float _duration = 0.5f;
-    
+
+    [SerializeField]
+    private int _step = 3;
+
+    [SerializeField]
+    private float _duration = 0.5f;
 
 
     void Start()
     {
         Initialize();
     }
+
     private void Initialize()
     {
         DateManager.Instance.OnDateChanged += ReturnDay;
@@ -28,7 +32,7 @@ public class DayChangeUI : MonoBehaviour
         _currentStep = 0;
         _characterCount = UIManager.Instance.CharacterUI.Characters.Count;
     }
-    
+
     private void ReturnDay()
     {
         for (int i = 1; i < SkyImages.Length; i++)
@@ -37,11 +41,13 @@ public class DayChangeUI : MonoBehaviour
             color.a = 0;
             SkyImages[i].color = color;
         }
+
+        _currentStep = 0;
     }
 
     public void Night()
     {
-        Color color = SkyImages[SkyImages.Length-1].color;
+        Color color = SkyImages[SkyImages.Length - 1].color;
         color.a = 1;
         SkyImages[SkyImages.Length - 1].color = color;
     }
@@ -66,14 +72,7 @@ public class DayChangeUI : MonoBehaviour
         }
         else
         {
-            
             SkyImages[2].DOFade(1f, duration);
         }
     }
-    
-        
-        
-    }
-    
-    
-
+}
