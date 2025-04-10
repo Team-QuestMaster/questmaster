@@ -42,7 +42,7 @@ public class AdventurerData
         AdventurerTierType adventurerTier, int originalSTR, int originalMAG, int originalINS, int originalDEX,
         AdventurerStateType adventurerState, DialogSet dialogSet, Sprite spriteSD, Sprite spriteLD)
     {
-        _adventurerType = AdventurerType;
+        _adventurerType = adventurerType;
         _adventurerName = adventurerName;
         _adventurerClass = adventurerClass;
         _adventurerTitle = adventurerTitle;
@@ -55,6 +55,7 @@ public class AdventurerData
         _dialogSet = dialogSet;
         _spriteSD = spriteSD;
         _spriteLD = spriteLD;
+
     }
 
     public AdventurerData Clone()
