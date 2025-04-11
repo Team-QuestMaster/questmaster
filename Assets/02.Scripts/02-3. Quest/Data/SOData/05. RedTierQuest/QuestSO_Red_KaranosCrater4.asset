@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO_Red_KaranosCrater4
+  m_EditorClassIdentifier: 
+  QuestName: "[\uCE74\uB77C\uB178\uC2A4 \uBD84\uD654\uB300] - \uC5F0\uAE30 \uC18D\uC758
+    \uC0AC\uB77C\uC9C4 \uBD80\uB300"
+  QuestDescription: "\uC5F0\uAE30\uC5D0 \uD729\uC2F8\uC778 \uCC44 \uC5F0\uB77D\uC774
+    \uB450\uC808\uB41C \uC815\uCC30\uB300. \uAD6C\uC870\uC640 \uB3D9\uC2DC\uC5D0
+    \uADFC\uCC98 \uD654\uC5FC \uACE8\uB818\uC744 \uC81C\uC555\uD574\uC57C \uD55C\uB2E4."
+  QuestTier: 0
+  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  STRWeight: 0.9
+  MAGWeight: 1.3
+  INSWeight: 0.8
+  DEXWeight: 0.8
+  PowerForClear: 16300
+  FameReward: 2600
+  GoldReward: 2500
+  FamePenalty: 1700
+  GoldPenalty: 1600
+  StateAfterFail: 0
+  Days: 1
+  IsQuesting: 0
+  QuestHint: "\uAD6C\uC870 \uB300\uC0C1\uC740 \uB3D9\uAD74 \uB0B4\uBD80\uC5D0 \uC788\uB2E4.
+    \uBE5B \uC18D\uC131 \uB9C8\uBC95\uC744 \uB2E4\uB8E8\uB294 \uC790\uAC00 \uD544\uC694\uD558\uB2E4."

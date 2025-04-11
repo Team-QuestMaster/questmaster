@@ -77,10 +77,9 @@ public class MainProcess : MonoBehaviour
     {
         float probability = CalculateManager.Instance.CalculateProbability(adventurer, quest);
         float itemProbability = ItemManager.Instance.QuestItemUse(adventurer, quest);
-        probability = Math.Clamp(probability+itemProbability,0f,100f);
+        probability = Mathf.Clamp(probability + itemProbability, 0f, 100f);
         bool isQuestSuccess = CalculateManager.Instance.JudgeQuestResult(adventurer, quest, probability);
         DateManager.Instance.AddQuestResultToList(adventurer, quest, isQuestSuccess, probability);
-
         StageShowManager.Instance.ShowResult.ResultText(true, probability,quest.QuestData.GoldReward,quest.QuestData.GoldPenalty);
         return isQuestSuccess;
     }

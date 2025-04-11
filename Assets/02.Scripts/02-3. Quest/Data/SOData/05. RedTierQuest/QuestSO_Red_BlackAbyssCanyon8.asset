@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO_Red_BlackAbyssCanyon8
+  m_EditorClassIdentifier: 
+  QuestName: "[\uAC80\uC740 \uC2EC\uC5F0 \uD611\uACE1] - \uC5B4\uB460\uC758 \uB9F9\uC138\uB97C
+    \uD30C\uAE30\uD558\uB77C"
+  QuestDescription: "\uACE0\uB300 \uB9F9\uC57D\uC758 \uC81C\uB2E8\uC774 \uB2E4\uC2DC
+    \uD65C\uB3D9\uC744 \uC2DC\uC791\uD588\uB2E4. \uC5B4\uB460\uACFC \uACC4\uC57D\uD55C
+    \uC874\uC7AC\uAC00 \uB2E4\uC2DC \uC18C\uD658\uB418\uACE0 \uC788\uB2E4."
+  QuestTier: 0
+  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  STRWeight: 0.7
+  MAGWeight: 1.3
+  INSWeight: 1.1
+  DEXWeight: 0.5
+  PowerForClear: 19000
+  FameReward: 8400
+  GoldReward: 8100
+  FamePenalty: 5460
+  GoldPenalty: 5200
+  StateAfterFail: 0
+  Days: 3
+  IsQuesting: 0
+  QuestHint: "\uC5B4\uB460\uACFC \uC2F8\uC6B0\uAE30 \uC704\uD574\uC120, \uADF8 \uBCF8\uC9C8\uC744
+    \uC774\uD574\uD574\uC57C \uD55C\uB2E4."
