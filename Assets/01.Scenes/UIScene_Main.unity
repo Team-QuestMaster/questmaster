@@ -2940,6 +2940,7 @@ GameObject:
   - component: {fileID: 410904021}
   - component: {fileID: 410904019}
   - component: {fileID: 410904023}
+  - component: {fileID: 410904024}
   m_Layer: 0
   m_Name: RejectStamp
   m_TagString: Untagged
@@ -3100,6 +3101,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5ffd5ae8dac124c8077b8919b18e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stampedSound: {fileID: 8300000, guid: f2e34dc02d80cd34d871c099ef76dcf8, type: 3}
+--- !u!114 &410904024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410904015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f790ed299afe8744298d078f14fd028c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onClickAudioClip: {fileID: 0}
+  _onDownAudioClip: {fileID: 8300000, guid: 8ae64062d088bfb4fa9a75e9b0531e19, type: 3}
 --- !u!1 &413811589
 GameObject:
   m_ObjectHideFlags: 0
@@ -6560,6 +6576,7 @@ GameObject:
   - component: {fileID: 871035396}
   - component: {fileID: 871035394}
   - component: {fileID: 871035398}
+  - component: {fileID: 871035399}
   m_Layer: 0
   m_Name: ApproveStamp
   m_TagString: Untagged
@@ -6720,6 +6737,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5ffd5ae8dac124c8077b8919b18e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stampedSound: {fileID: 8300000, guid: f2e34dc02d80cd34d871c099ef76dcf8, type: 3}
+--- !u!114 &871035399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871035390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f790ed299afe8744298d078f14fd028c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onClickAudioClip: {fileID: 0}
+  _onDownAudioClip: {fileID: 8300000, guid: 8ae64062d088bfb4fa9a75e9b0531e19, type: 3}
 --- !u!1 &873877401
 GameObject:
   m_ObjectHideFlags: 0
@@ -12937,6 +12969,7 @@ MonoBehaviour:
   _popUpButton: {fileID: 2017492063}
   _approveUnderChecker: {fileID: 871035391}
   _rejectUnderChecker: {fileID: 410904016}
+  _onStampBoardMove: {fileID: 8300000, guid: 7bd6e8331939bf9478359235909aa231, type: 3}
 --- !u!114 &1543659081
 MonoBehaviour:
   m_ObjectHideFlags: 0
