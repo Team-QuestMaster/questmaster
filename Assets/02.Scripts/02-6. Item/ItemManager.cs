@@ -172,6 +172,7 @@ public class ItemManager : Singleton <ItemManager>
             smallItem.GetComponent<Image>().DOFade(1, 1).SetAutoKill(false);
             yield return new WaitForSeconds(0.5f); // 1초 대기
         }
+        NightEventManager.Instance.Selling = true;
     }
 
     public void ReturnItems(Action onComplete = null) // 상점에 남은 아이템 미보유아이템에 추가
