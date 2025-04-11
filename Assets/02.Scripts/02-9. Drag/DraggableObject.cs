@@ -77,15 +77,16 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     private Vector2 ClampToDragArea(Vector2 targetPosition)
     {
         // 객체의 크기
-        Vector2 halfSize = _rectTransform.sizeDelta / 2;
+        Vector2 sizeMinMargin = _rectTransform.sizeDelta * _rectTransform.pivot;
+        Vector2 sizeMaxMargin = _rectTransform.sizeDelta * (Vector2.one - _rectTransform.pivot);
 
         // 영역의 크기를 Pivot에 맞추어 계산
         Vector2 minSideSize = _dragArea.rect.size * (Vector2.one - _dragArea.pivot);
         Vector2 maxSideSize = _dragArea.rect.size * _dragArea.pivot;
         // sprite 크기와 영역 계산
         Vector2 screenPosition = _camera.WorldToScreenPoint(_dragArea.position);
-        Vector2 minBounds = screenPosition - minSideSize + halfSize;
-        Vector2 maxBounds = screenPosition + maxSideSize - halfSize;
+        Vector2 minBounds = screenPosition - minSideSize + sizeMinMargin;
+        Vector2 maxBounds = screenPosition + maxSideSize - sizeMaxMargin;
 
         // X, Y 좌표를 화면 내부로 제한
         float clampedX = Mathf.Clamp(targetPosition.x, minBounds.x, maxBounds.x);
