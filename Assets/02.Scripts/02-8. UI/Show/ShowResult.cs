@@ -24,6 +24,10 @@ public class ShowResult : MonoBehaviour
     
     [SerializeField]  private Image _backgroundImage;
     
+    [Header("Audio")]
+    [SerializeField] 
+    private AudioClip _onResultAudioClip;
+    
     void Start()
     {
         /*
@@ -40,6 +44,7 @@ public class ShowResult : MonoBehaviour
     
     public void Show()
     {
+        AudioManager.Instance.PlaySFX(_onResultAudioClip);
         //ResultShowEvent?.Invoke();
         _resultImage.gameObject.SetActive(true);
         _backgroundImage.gameObject.SetActive(true);
@@ -49,6 +54,7 @@ public class ShowResult : MonoBehaviour
 
     public void Hide()
     {
+        AudioManager.Instance.PlaySFX(_onResultAudioClip);
         //ResultHideEvent?.Invoke();
         _backgroundImage.DOFade(0, 0.5f).OnComplete(() =>  _backgroundImage.gameObject.SetActive(false));
         _resultImage.transform.DOLocalMove(new Vector3(-1470f,0, 0), 0.5f).OnComplete(() =>

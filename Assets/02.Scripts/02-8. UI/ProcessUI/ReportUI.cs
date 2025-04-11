@@ -12,6 +12,10 @@ public class ReportUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _questResultText;
     [SerializeField] private TextMeshProUGUI _specialCommentText;
     [SerializeField] private Button _closeButton;
+    
+    [Header("Audio")]
+    [SerializeField] 
+    private AudioClip _onReportAudioClip;
 
     private void Start()
     {
@@ -29,12 +33,14 @@ public class ReportUI : MonoBehaviour
 
     public void ShowReportUI()
     {
+        AudioManager.Instance.PlaySFX(_onReportAudioClip);
         _report.gameObject.SetActive(true);
         _report.transform.DOMove(Vector3.zero, 1f);
     }
 
-    public void HideReportUI()
+    private void HideReportUI()
     {
+        AudioManager.Instance.PlaySFX(_onReportAudioClip);
         _report.transform.DOMove(new Vector3(0,1003,0), 1f).OnComplete(() => _report.gameObject.SetActive(false));
     }
 
