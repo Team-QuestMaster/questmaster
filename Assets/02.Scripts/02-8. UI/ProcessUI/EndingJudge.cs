@@ -5,26 +5,29 @@ using UnityEngine.UI;
 
 public class EndingJudge : MonoBehaviour
 {
-    [SerializeField] private Image _endingImage;
-    [SerializeField] private TextMeshProUGUI _endingName;
-    [SerializeField] private TextMeshProUGUI _endingMent;
+    [SerializeField] 
+    private Image _endingImage;
+    [SerializeField] 
+    private TextMeshProUGUI _endingName;
+    [SerializeField] 
+    private TextMeshProUGUI _endingMent;
+    [SerializeField]
+    private TextMeshProUGUI _endingStat;
 
-    public int TestIndex;
 
-    [SerializeField] private int[] _questGrade = { 1, 2 }; // 예시 기준값, 실제 게임 값에 맞춰 조정 필요
-    [SerializeField] private int[] _moneyGrade = { 100, 500 }; // 예시 기준값, 실제 게임 값에 맞춰 조정 필요
-    [SerializeField] private int[] _fameGrade = { 5, 15 }; // 예시 기준값, 실제 게임 값에 맞춰 조정 필요
+    [SerializeField] 
+    private int[] _questGrade = { 1, 2 }; // 예시 기준값, 실제 게임 값에 맞춰 조정 필요
+    [SerializeField] 
+    private int[] _moneyGrade = { 100, 500 }; // 예시 기준값, 실제 게임 값에 맞춰 조정 필요
+    [SerializeField] 
+    private int[] _fameGrade = { 5, 15 }; // 예시 기준값, 실제 게임 값에 맞춰 조정 필요
 
     private int _fame;
-    public int EndingFame => _fame;
     private int _money;
-    public int EndingMoney => _money;
     private int _quest;
-    public int EndingQuest => _quest;
 
-    private int _code; // 현재 사용하지 않음
-
-    [SerializeField] private Sprite[] _endingImages = new Sprite[27]; // 크기 27로 조정 (사용자 직접 할당 필요)
+    [SerializeField] 
+    private Sprite[] _endingImages = new Sprite[27]; // 크기 27로 조정 (사용자 직접 할당 필요)
 
 
     string[] _endingMents = new string[]
@@ -101,7 +104,7 @@ public class EndingJudge : MonoBehaviour
     private void Start()
     {
         GetGuildStat();
-        EndingShow(TestIndex);
+        JudgeEnding();
     }
     private void GetGuildStat()
     {
@@ -109,7 +112,30 @@ public class EndingJudge : MonoBehaviour
         _money = GuildStatManager.Instance.Gold;
         _quest = GuildStatManager.Instance.NumOfCompletedQuests;
     }
+    private void JudgeEnding()
+    {
+        GradeEnding(); // 먼저 등급화
 
+        // 3진법을 사용하여 인덱스 계산 (0 ~ 26)
+        int endingIndex = _fame * 9 + _quest * 3 + _money;
+
+        // 엔딩 데이터 가져오기
+        Sprite endingImage = GetEndingImage(endingIndex);
+        string endingMent = GetEndingMent(endingIndex);
+        string endingName = GetEndingName(endingIndex);
+
+        // 결과 처리
+        if (endingImage != null && endingMent != null && endingName != null)
+        {
+            EndingShow(endingIndex);
+        }
+        else
+        {
+            Debug.LogError($"Error: Could not retrieve ending data for index {endingIndex}. " +
+                           "Please ensure all ending arrays (_endingImages, _endingMents, _endingNames) " +
+                           "are properly populated and have the correct size (27).");
+        }
+    }
     private void GradeEnding()
     {
         if (_fame < _fameGrade[0])
@@ -151,39 +177,13 @@ public class EndingJudge : MonoBehaviour
             _quest = 2;
         }
     }
-
-    private void JudgingEnding()
-    {
-        GradeEnding(); // 먼저 등급화
-
-        // 3진법을 사용하여 인덱스 계산 (0 ~ 26)
-        int endingIndex = _fame * 9 + _quest * 3 + _money;
-
-        // 엔딩 데이터 가져오기
-        Sprite endingImage = GetEndingImage(endingIndex);
-        string endingMent = GetEndingMent(endingIndex);
-        string endingName = GetEndingName(endingIndex);
-
-        // 결과 처리
-        if (endingImage != null && endingMent != null && endingName != null)
-        {
-            EndingShow(endingIndex);
-        }
-        else
-        {
-            Debug.LogError($"Error: Could not retrieve ending data for index {endingIndex}. " +
-                           "Please ensure all ending arrays (_endingImages, _endingMents, _endingNames) " +
-                           "are properly populated and have the correct size (27).");
-        }
-    }
-
     void EndingShow(int endingIndex)
     {
         _endingImage.sprite = GetEndingImage(endingIndex);
         _endingMent.text = GetEndingMent(endingIndex);
         _endingName.text = GetEndingName(endingIndex);
+        _endingStat.text = GetEndingStat();
     }
-
     private Sprite GetEndingImage(int index)
     {
         if (index >= 0 && index < _endingImages.Length)
@@ -196,7 +196,6 @@ public class EndingJudge : MonoBehaviour
             return null; // 또는 기본 이미지 반환
         }
     }
-
     private string GetEndingMent(int index)
     {
         if (index >= 0 && index < _endingMents.Length)
@@ -209,7 +208,6 @@ public class EndingJudge : MonoBehaviour
             return null; // 또는 기본 텍스트 반환
         }
     }
-
     private string GetEndingName(int index)
     {
         if (index >= 0 && index < _endingNames.Length)
@@ -221,5 +219,9 @@ public class EndingJudge : MonoBehaviour
             Debug.LogError($"Error: Ending name index ({index}) is out of bounds (0-{_endingNames.Length - 1}).");
             return null; // 또는 기본 이름 반환
         }
+    }
+    private string GetEndingStat()
+    {
+        return $"길드의 획득 명성: {_fame} \n 길드의 획득 골드: {_fame} \n 성공한 퀘스트의 수: {_quest}";
     }
 }
