@@ -18,14 +18,14 @@ MonoBehaviour:
     \uCCAD\uC18C\uD558\uC790."
   QuestTier: 4
   QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
-  STRWeight: 0.8
+  STRWeight: 0.9
   MAGWeight: 1.4
   INSWeight: 1.2
   DEXWeight: 1
-  PowerForClear: 750
-  FameReward: 400
-  GoldReward: 400
-  FamePenalty: 30
+  PowerForClear: 640
+  FameReward: 100
+  GoldReward: 120
+  FamePenalty: 20
   GoldPenalty: 30
   StateAfterFail: 0
   Days: 1

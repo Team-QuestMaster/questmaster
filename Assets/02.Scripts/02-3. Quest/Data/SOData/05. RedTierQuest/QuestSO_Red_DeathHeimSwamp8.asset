@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO_Red_DeathHeimSwamp8
+  m_EditorClassIdentifier: 
+  QuestName: "[\uB370\uC2A4\uD558\uC784 \uB2AA\uC9C0] - \uB9C8\uB825 \uB204\uCD9C
+    \uC9C0\uC810 \uBD09\uC778"
+  QuestDescription: "\uC624\uB798\uB41C \uB9C8\uBC95 \uD0D1\uC758 \uBD95\uAD34\uB85C
+    \uB9C8\uB825\uC774 \uB204\uCD9C\uB418\uACE0 \uC788\uB2E4. \uD63C\uB3C8\uC758
+    \uADE0\uC5F4\uC744 \uB530\uB77C\uAC00 \uC911\uC2EC \uC9C0\uC810\uC744 \uBD09\uC778\uD574\uC57C
+    \uD55C\uB2E4."
+  QuestTier: 0
+  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  STRWeight: 0.6
+  MAGWeight: 1.4
+  INSWeight: 0.7
+  DEXWeight: 1.4
+  PowerForClear: 21000
+  FameReward: 6350
+  GoldReward: 6200
+  FamePenalty: 3800
+  GoldPenalty: 3800
+  StateAfterFail: 0
+  Days: 2
+  IsQuesting: 0
+  QuestHint: 
