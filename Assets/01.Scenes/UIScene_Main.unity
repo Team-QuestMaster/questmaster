@@ -3388,6 +3388,7 @@ MonoBehaviour:
   _rewardText: {fileID: 1654394284}
   _penalityText: {fileID: 1536556389}
   _backgroundImage: {fileID: 244203182}
+  _onResultAudioClip: {fileID: 0}
 --- !u!114 &417627150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3433,6 +3434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cec2452428f20e4aa8178202f9fa15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _onAppearAudioClip: {fileID: 0}
 --- !u!114 &417627153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13089,6 +13091,7 @@ MonoBehaviour:
   _questResultText: {fileID: 831687016}
   _specialCommentText: {fileID: 1116869593}
   _closeButton: {fileID: 860084705}
+  _onReportAudioClip: {fileID: 0}
 --- !u!114 &1543659080
 MonoBehaviour:
   m_ObjectHideFlags: 0
