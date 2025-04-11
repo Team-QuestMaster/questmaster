@@ -7,6 +7,10 @@ public class ShowQuest : MonoBehaviour
 {
     public event Action QuestAppearShow;
     public event Action QuestDisappearShow;
+    [Header("Audio")]
+    [SerializeField]
+    private AudioClip _onAppearAudioClip;
+    
     private void Start()
     {
         QuestDisappearShow += QuestDisappear;
@@ -19,6 +23,7 @@ public class ShowQuest : MonoBehaviour
     }
     public void Appear()
     {
+        AudioManager.Instance.PlaySFX(_onAppearAudioClip);
         QuestAppearShow?.Invoke();
     }
     public void Disappear()

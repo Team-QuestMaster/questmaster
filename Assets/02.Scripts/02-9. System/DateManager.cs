@@ -19,11 +19,11 @@ public class DateManager : Singleton<DateManager>
     private List<List<QuestResult>> _questResults = new List<List<QuestResult>>(_maxDate + 1);
 
     [SerializeField]
-    private int _endingDate = 2; // ¿£µù ³¯Â¥, ÇØ´ç ³¯Â¥ ÀÌÀü±îÁö¸¸ ÁøÇàÇÕ´Ï´Ù. Áï _endingDateÀÏÂ÷´Â ÁøÇàµÇÁö ¾Ê½À´Ï´Ù.
+    private int _endingDate = 2; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥, ï¿½Ø´ï¿½ ï¿½ï¿½Â¥ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½. ï¿½ï¿½ _endingDateï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.
     public int EndingDate { get => _endingDate; set => _endingDate = value; }
 
 
-    public Action OnDateChanged; // ³¯Â¥°¡ ¹Ù²î¾úÀ» ¶§ ÀÌº¥Æ® Ã³¸®¸¦ À§ÇÑ Action
+    public Action OnDateChanged; // ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ìºï¿½Æ® Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Action
 
     protected override void Awake()
     {
@@ -50,7 +50,7 @@ public class DateManager : Singleton<DateManager>
         {
             return;
         }
-        if (!CheckNightEventDate()) // ¸ÅÀÏ ¹ã ÀÌº¥Æ®ÀÎÁö Ã¼Å©
+        if (!CheckNightEventDate()) // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ìºï¿½Æ®ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
         {
             _currentDate++;
             OnDateChanged?.Invoke();
@@ -69,12 +69,12 @@ public class DateManager : Singleton<DateManager>
         NightEventManager.Instance.IsNightEventDay = isNightEventDay;
         return isNightEventDay;
     }
-    // ¿À´Ã ¿Ï·áµÈ Äù½ºÆ® °á°ú ¸®½ºÆ®¸¦ ¹ÝÈ¯ÇÏ´Â ¸Þ¼­µå
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     public List<QuestResult> GetTodayQuestResults()
     {
         return _questResults[_currentDate];
     }
-    // ¿À´ÃÀ» ±âÁØÀ¸·Î ÁøÇàÁßÀÎ Äù½ºÆ® ¸®½ºÆ®(2Â÷¿ø)¸¦ ¹ÝÈ¯ÇÏ´Â ¸Þ¼­µå
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ®(2ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     public List<List<QuestResult>> GetAllQuestResultsInProgress()
     {
         List<List<QuestResult>> questResultsInProgress = new List<List<QuestResult>>();

@@ -8,6 +8,7 @@ public class ShowIDCard : MonoBehaviour
 {
     public event Action OnIDCardAppear;
     public event Action OnIDCardDisappear;
+    
     private void Start()
     {
         OnIDCardAppear += IDCardAppear;
