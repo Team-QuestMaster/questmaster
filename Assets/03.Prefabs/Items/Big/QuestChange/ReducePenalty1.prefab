@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15634de8bce20134c9bc17688a4bd6bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: "\uD328\uB110\uD2F0\uAC10\uC18C"
+  _name: "\uC250\uC774\uB4DC\uBCF8\uC758 \uCE68\uBB35\uC758 \uBD80\uC801"
   _description: "\uD328\uB110\uD2F0 10% \uAC10\uC18C"
   _price: 500
   _itemState: 0

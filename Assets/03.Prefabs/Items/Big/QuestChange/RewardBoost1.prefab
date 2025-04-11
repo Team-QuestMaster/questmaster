@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2158989029903079216}
   - component: {fileID: 4272290890196034177}
   m_Layer: 0
-  m_Name: RewardFameBoost4
+  m_Name: RewardBoost1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,12 +125,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23594bab9a42134cab5991ad9c0de20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: "\uBCF4\uC0C1 \uC99D\uAC00"
-  _description: "\uBA85\uC131\uBCF4\uC0C1 600% \uC99D\uAC00"
-  _price: 10000
+  _name: "\uC5D8\uB354\uC708 \uC0C1\uC778\uC758 \uCD94\uCC9C\uC7A5"
+  _description: "\uBCF4\uC0C1 50% \uC99D\uAC00"
+  _price: 1000
   _itemState: 0
   _itemEffectType: 1
-  _boostPersent: 600
+  _boostPersent: 50
   _rewardQuestType: 0
 --- !u!114 &5990420310013034474
 MonoBehaviour:

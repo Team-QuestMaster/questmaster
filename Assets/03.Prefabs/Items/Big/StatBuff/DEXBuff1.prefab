@@ -93,8 +93,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7dcb9fa27965e42be173d1dad8d513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: "\uC2A4\uD0EF\uBC84\uD504"
-  _description: "\uC190\uC7AC\uC8FC 100 \uC99D\uAC00"
+  _name: "\uB178\uB780 \uC54C\uC57D"
+  _description: "\uBBFC\uCCA9 100 \uC99D\uAC00"
   _price: 100
   _itemState: 0
   _itemEffectType: 0
