@@ -1,7 +1,9 @@
 using System;
 using Coffee.UIEffects;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public enum ItemStateType
 {
@@ -18,7 +20,7 @@ public enum ItemEffectType
     QuestChange
 }
 
-public abstract class Item : MonoBehaviour // æ∆¿Ã≈€ √ﬂªÛ ≈¨∑°Ω∫
+public abstract class Item : MonoBehaviour // ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩﬂªÔøΩ ≈¨ÔøΩÔøΩÔøΩÔøΩ
 {
     
 
@@ -41,9 +43,9 @@ public abstract class Item : MonoBehaviour // æ∆¿Ã≈€ √ﬂªÛ ≈¨∑°Ω∫
         set
         {
             _itemState = value;
-            if(_readyToUseEffect != null)
+            if(!ReferenceEquals(_itemEffect, null))
             {
-                _readyToUseEffect.enabled = _itemState == ItemStateType.ReadyToUse;
+                _itemEffect.enabled = _itemState == ItemStateType.ReadyToUse;
             }
         }
     }
@@ -52,11 +54,18 @@ public abstract class Item : MonoBehaviour // æ∆¿Ã≈€ √ﬂªÛ ≈¨∑°Ω∫
     private ItemEffectType _itemEffectType;
     public ItemEffectType ItemEffectType { get => _itemEffectType; }
 
-    private UIEffect _readyToUseEffect;
+    private UIEffect _itemEffect;
+    private UIEffectTweener _itemEffectTweener;
+    
+    private const string ITEM_SHINY = "ItemShiny";
+    private const string ITEM_USE = "ItemUse";
 
     private void Awake()
     {
-        _readyToUseEffect = GetComponent<UIEffect>();
+        _itemEffect = GetComponent<UIEffect>();
+        _itemEffectTweener = GetComponent<UIEffectTweener>();
+        _itemEffect.LoadPreset(ITEM_SHINY);
+        _itemEffectTweener.wrapMode = UIEffectTweener.WrapMode.Loop;
         GetComponent<DraggingObjectSwap>().ItemSwapEvent += () =>
         {
             if (ItemState == ItemStateType.ReadyToBuy)
@@ -64,5 +73,14 @@ public abstract class Item : MonoBehaviour // æ∆¿Ã≈€ √ﬂªÛ ≈¨∑°Ω∫
                 ItemState = ItemStateType.UnBuy;
             }
         };
+    }
+
+    public void PlayUseEffect()
+    {
+        _itemEffectTweener.enabled = false;
+        _itemEffect.LoadPreset(ITEM_USE);
+        _itemEffectTweener.wrapMode = UIEffectTweener.WrapMode.Once;
+        _itemEffect.enabled = true;
+        _itemEffectTweener.enabled = true;
     }
 }

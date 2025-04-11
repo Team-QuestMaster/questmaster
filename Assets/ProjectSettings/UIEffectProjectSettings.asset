@@ -11,6 +11,8 @@ ShaderVariantCollection:
   - first: {fileID: 4800000, guid: 96246b1ead49a4c5a996fd477bc5a117, type: 3}
     second:
       variants:
+      - keywords: COLOR_ADDITIVE TRANSITION_COLOR_MULTIPLY_ADDITIVE TRANSITION_SHINY
+        passType: 0
       - keywords: COLOR_MULTIPLY
         passType: 0
       - keywords: COLOR_MULTIPLY TONE_GRAYSCALE
@@ -25,7 +27,11 @@ ShaderVariantCollection:
         passType: 0
       - keywords: TONE_SEPIA
         passType: 0
+      - keywords: TRANSITION_COLOR_MULTIPLY_ADDITIVE TRANSITION_DISSOLVE
+        passType: 0
       - keywords: TRANSITION_COLOR_MULTIPLY_ADDITIVE TRANSITION_SHINY
+        passType: 0
+      - keywords: TRANSITION_COLOR_MULTIPLY_LUMINANCE TRANSITION_DISSOLVE
         passType: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -40,7 +46,9 @@ MonoBehaviour:
   m_Name: UIEffectProjectSettings
   m_EditorClassIdentifier: 
   m_TransformSensitivity: 1
-  m_RuntimePresets: []
+  m_RuntimePresets:
+  - {fileID: 6256946097535186491, guid: 56ecd962c49f76b42828e378bc6685c8, type: 3}
+  - {fileID: 5345633839792285671, guid: 8add7ee2cddc6a548a937d4fda688727, type: 3}
   m_UseHDRColorPicker: 1
   m_ShaderVariantCollection: {fileID: 0}
   m_ShaderVariantRegistry:
