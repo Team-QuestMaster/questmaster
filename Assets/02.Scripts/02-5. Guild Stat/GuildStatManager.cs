@@ -32,6 +32,10 @@ public class GuildStatManager : Singleton<GuildStatManager>
     }
     private const int FIRST_GOLD = 100; // 초기 골드
 
+    private int _numOfCompletedQuests; // 완료된 퀘스트 수
+    public int NumOfCompletedQuests { get => _numOfCompletedQuests; set => _numOfCompletedQuests = value; }
+
+
     public event Action OnFameChanged;
     public event Action OnGoldChanged;
     
@@ -59,5 +63,14 @@ public class GuildStatManager : Singleton<GuildStatManager>
         _gold -= amount;
         OnGoldChanged?.Invoke();
         return true;
+    }
+    public void InitilaizeStatOnScene(string sceneName)
+    {
+        if (sceneName != nameof(SceneNameEnum.EndingScene))
+        {
+            _fame = FIRST_FAME;
+            _gold = FIRST_GOLD;
+            _numOfCompletedQuests = 0;
+        }
     }
 }

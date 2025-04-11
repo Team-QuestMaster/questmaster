@@ -11,8 +11,6 @@ public enum SceneNameEnum
     UIScene_Main,
     EndingScene
 }
-
-
 public class SceneChangeManager : Singleton<SceneChangeManager>
 {
     [SerializeField]
@@ -35,7 +33,10 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
     }
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        BackGroundFadeIn(() => _backgroundImage.gameObject.SetActive(false));
+        BackGroundFadeIn
+            (() => _backgroundImage.gameObject.SetActive(false),
+             () => GuildStatManager.Instance.InitilaizeStatOnScene
+             (SceneManager.GetActiveScene().name));
     }
     private void BackGroundFadeOut(params Action[] onCompleteActions)
     {
