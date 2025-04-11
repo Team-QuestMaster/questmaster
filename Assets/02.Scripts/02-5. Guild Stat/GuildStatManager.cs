@@ -73,4 +73,10 @@ public class GuildStatManager : Singleton<GuildStatManager>
             _numOfCompletedQuests = 0;
         }
     }
+
+    [ContextMenu("Test")]
+    private void SetGoldMax()
+    {
+        Gold = 10000000;
+    }
 }

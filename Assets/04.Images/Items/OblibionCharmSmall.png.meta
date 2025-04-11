@@ -36,7 +36,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -247,7 +247,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      OblibionCharmSmall_0: 277291178301091680
+      OblibionCharmSmall_1: 4739345020753153526
+      OblibionCharmSmall_2: 3945073279259010075
+      OblibionCharmSmall_3: -878390543351147690
+      OblibionCharmSmall_4: -109980917507836506
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
