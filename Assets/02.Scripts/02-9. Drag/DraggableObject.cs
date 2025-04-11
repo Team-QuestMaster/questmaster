@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(RectTransform))]
 public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IPointerDownHandler,  IPointerUpHandler
@@ -34,6 +35,10 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         _camera = Camera.main;
         _parentRectTransform = transform.parent.GetComponent<RectTransform>();
         _rectTransform = GetComponent<RectTransform>();
+        if (TryGetComponent(out Image image))
+        {
+            image.alphaHitTestMinimumThreshold = 0.1f;  // 이미지라면 투명 영역 클릭 방지
+        }
         if (ReferenceEquals(_dragArea, null))
         {
             _dragArea = transform.root.GetComponent<RectTransform>();
