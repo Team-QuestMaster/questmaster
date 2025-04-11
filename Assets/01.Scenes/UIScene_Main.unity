@@ -11528,6 +11528,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 703589288}
     m_Modifications:
+    - target: {fileID: 2217264505750506750, guid: 5e5f5eb1b483e634ea883b36b73ac3fb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2217264505750506750, guid: 5e5f5eb1b483e634ea883b36b73ac3fb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2217264505750506750, guid: 5e5f5eb1b483e634ea883b36b73ac3fb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2217264505750506750, guid: 5e5f5eb1b483e634ea883b36b73ac3fb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2774704033445755858, guid: 5e5f5eb1b483e634ea883b36b73ac3fb, type: 3}
       propertyPath: m_Name
       value: Card
@@ -11536,6 +11552,18 @@ PrefabInstance:
       propertyPath: _dragArea
       value: 
       objectReference: {fileID: 1998525492}
+    - target: {fileID: 5878673687795934975, guid: 5e5f5eb1b483e634ea883b36b73ac3fb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5878673687795934975, guid: 5e5f5eb1b483e634ea883b36b73ac3fb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5878673687795934975, guid: 5e5f5eb1b483e634ea883b36b73ac3fb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7762794192913263188, guid: 5e5f5eb1b483e634ea883b36b73ac3fb, type: 3}
       propertyPath: _smallIDCardGO
       value: 
