@@ -4881,6 +4881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b293520bbe5594cb499b0cb7d60163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _adjustmentValue: 3
 --- !u!1 &513163686
 GameObject:
   m_ObjectHideFlags: 0
@@ -7056,7 +7057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4480553533208288987, guid: abff45dcd4f55614c802cfcd3591faff, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1623.5101
+      value: -1504
       objectReference: {fileID: 0}
     - target: {fileID: 4480553533208288987, guid: abff45dcd4f55614c802cfcd3591faff, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -12095,7 +12096,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5221305262900270185, guid: 5e5f5eb1b483e634ea883b36b73ac3fb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -40.605
+      value: -40.604996
       objectReference: {fileID: 0}
     - target: {fileID: 5745540047244660869, guid: 5e5f5eb1b483e634ea883b36b73ac3fb, type: 3}
       propertyPath: m_Color.b

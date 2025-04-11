@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6001605919397278858}
   - component: {fileID: 6364757932776417897}
   - component: {fileID: 3229071155142720556}
+  - component: {fileID: -4962503146073296436}
   m_Layer: 0
   m_Name: MAGBuff3
   m_TagString: Untagged
@@ -41,7 +42,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -612.51, y: 36.94995}
-  m_SizeDelta: {x: 150, y: 210}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1752341257224341730
 CanvasRenderer:
@@ -71,9 +72,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2880734798192188640, guid: 2b1f073a2a910544ab914f64590c7c6d, type: 3}
+  m_Sprite: {fileID: -972386546628543062, guid: 8af5829d575a17844b3dc5324e4c7ee2, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -326,3 +327,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _swapTargetObject: {fileID: 0}
+--- !u!114 &-4962503146073296436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4170675679940597665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e7b73ca138f67343b3ce76b2d49f27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _grabSound: {fileID: 8300000, guid: 9a2a538b12bccca4ba0a3c37eecfa95d, type: 3}
+  _dropSound: {fileID: 8300000, guid: d8129a27d25d31b4f86cf27ddff7b4e6, type: 3}

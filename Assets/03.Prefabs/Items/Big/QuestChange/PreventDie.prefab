@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1424984503170094703}
   - component: {fileID: 8357671223095782059}
   - component: {fileID: 8448488348047175429}
+  - component: {fileID: -4115378277710789675}
   m_Layer: 0
   m_Name: PreventDie
   m_TagString: Untagged
@@ -41,7 +42,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1369.51, y: -239.05002}
-  m_SizeDelta: {x: 150, y: 210}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8093644998447401487
 CanvasRenderer:
@@ -64,16 +65,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9712733, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2880734798192188640, guid: 2b1f073a2a910544ab914f64590c7c6d, type: 3}
+  m_Sprite: {fileID: 7800262145868272892, guid: 99eb89312163b8f4ab8efa57e5b8cad0, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -323,3 +324,17 @@ MonoBehaviour:
   m_DetailTexSpeed: {x: 0, y: 0}
   m_CustomRoot: {fileID: 0}
   m_Flip: 0
+--- !u!114 &-4115378277710789675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8634826102728758423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e7b73ca138f67343b3ce76b2d49f27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _grabSound: {fileID: 8300000, guid: 9a2a538b12bccca4ba0a3c37eecfa95d, type: 3}
+  _dropSound: {fileID: 8300000, guid: d8129a27d25d31b4f86cf27ddff7b4e6, type: 3}
