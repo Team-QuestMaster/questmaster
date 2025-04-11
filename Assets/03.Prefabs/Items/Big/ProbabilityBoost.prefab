@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8412670730035718626}
   - component: {fileID: 2640505607585106550}
   - component: {fileID: -2456410039079329418}
+  - component: {fileID: 985700735586874924}
   m_Layer: 0
   m_Name: ProbabilityBoost
   m_TagString: Untagged
@@ -274,3 +275,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c823b6854c18c545a5046279b2d3786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &985700735586874924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8192123574709209299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e7b73ca138f67343b3ce76b2d49f27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _grabSound: {fileID: 8300000, guid: 9a2a538b12bccca4ba0a3c37eecfa95d, type: 3}
+  _dropSound: {fileID: 8300000, guid: d8129a27d25d31b4f86cf27ddff7b4e6, type: 3}

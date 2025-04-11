@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -20,6 +21,24 @@ public class UnderChecker : MonoBehaviour
 public bool Interactable = true;
     //public MainProcess Process;
     [SerializeField] private Type _type;
+
+    public event Action OnChecked;
+
+    private void Awake()
+    {
+        if (TryGetComponent(out StampAnimation stampAnimation))
+        {
+            if (_type == Type.Approve)
+            {
+                stampAnimation.OnStamped += UIManager.Instance.StampUI.Approve;
+            }
+            else if (_type == Type.Reject)
+            {
+                stampAnimation.OnStamped += UIManager.Instance.StampUI.Reject;
+            }
+        }
+    }
+
     private void OnEnable()
     {
         if (_draggableObject != null)
@@ -134,15 +153,8 @@ public bool Interactable = true;
                 else if (hasQuestTag)
                 {
                     Debug.Log("Quest 태그를 가진 UI 오브젝트를 찾았습니다!");
-
-                    if (_type == Type.Approve)
-                    {
-                        UIManager.Instance.StampUI.Approve();
-                    }
-                    else if (_type == Type.Reject)
-                    {
-                        UIManager.Instance.StampUI.Reject();
-                    }
+                    
+                    OnChecked?.Invoke();
 
                     return; // 성공했으니 더 이상 진행 X
                 }

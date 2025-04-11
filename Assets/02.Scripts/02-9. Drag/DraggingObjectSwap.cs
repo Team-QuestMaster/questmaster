@@ -45,7 +45,6 @@ public class DraggingObjectSwap : MonoBehaviour
         _draggableObject.OnDraggingEvent += SwapDraggingObject;
         _camera = Camera.main;
         _image = GetComponent<Image>();
-        _image.alphaHitTestMinimumThreshold = 0.1f;
     }
 
     private void Start()
@@ -55,12 +54,14 @@ public class DraggingObjectSwap : MonoBehaviour
         // 항상 small 객체 먼저 보임
         if (_type == DraggingObjectType.Big)
         {
-            _draggableObject.OnPointerDownEvent += () => _draggableObject.transform.SetSiblingIndex(_draggableObject.transform.GetSiblingIndex() - 1); // 최상위 레이보다 밑
+            _draggableObject.OnPointerDownEvent += () =>
+                _draggableObject.transform.SetSiblingIndex(_draggableObject.transform.GetSiblingIndex() - 1); // 최상위 레이보다 밑
             _draggableObject.OnPointerDownEvent += () => ImageShadowManager.Instance.SetTargetImage(_image);
             _draggableObject.OnPointerUpEvent += ImageShadowManager.Instance.DisableImageShadow;
             gameObject.SetActive(false);
         }
     }
+
     private void SwapDraggingObject(PointerEventData eventData)
     {
         // 객체가 자신의 영역 안이면 return
@@ -73,10 +74,19 @@ public class DraggingObjectSwap : MonoBehaviour
 
         // 영역을 벗어나는 경우
         gameObject.SetActive(false); // 비활성화
+
+        _swapTargetObject.transform.SetAsLastSibling();
+        // 조건은 빅 => 스몰로 갈때 동작
         if (_type == DraggingObjectType.Big)
         {
             ImageShadowManager.Instance.DisableImageShadow();
             ItemSwapEvent?.Invoke();
+        }
+        // 조건은 스몰 => 빅로 갈때 동작
+        if (_type == DraggingObjectType.Small)
+        {
+            _swapTargetObject.transform.SetSiblingIndex(_swapTargetObject.transform.GetSiblingIndex() - 1); // 최상위 레이보다 밑
+            ImageShadowManager.Instance.SetTargetImage(_swapTargetObject._image);
         }
 
         // 스왑 오브젝트 활성화
@@ -87,7 +97,6 @@ public class DraggingObjectSwap : MonoBehaviour
         eventData.pointerPress = _swapTargetObject.gameObject; // PointerDown다운 이벤트 전달 => PointerUp이벤트 호출을 위함
         eventData.pointerDrag = _swapTargetObject.gameObject;
 
-        ExecuteEvents.Execute(_swapTargetObject.gameObject, eventData, ExecuteEvents.pointerDownHandler);
         ExecuteEvents.Execute(_swapTargetObject.gameObject, eventData, ExecuteEvents.dragHandler);
     }
 

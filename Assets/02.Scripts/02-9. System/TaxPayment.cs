@@ -13,7 +13,13 @@ public class TaxPayment : MonoBehaviour
         {
             return false;
         }
-
+        if (GuildStatManager.Instance.Gold < _tax)
+        {
+            GuildStatManager.Instance.Fame = 0;
+            GuildStatManager.Instance.Gold = 0;
+            GuildStatManager.Instance.NumOfCompletedQuests = 0;
+            SceneChangeManager.Instance.LoadScene(nameof(SceneNameEnum.EndingScene));
+        }
         GuildStatManager.Instance.Gold -= _tax;
         IncreaseTax();
         return true;
