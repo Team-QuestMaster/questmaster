@@ -1,7 +1,9 @@
 using System;
 using Coffee.UIEffects;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public enum ItemStateType
 {
@@ -18,7 +20,7 @@ public enum ItemEffectType
     QuestChange
 }
 
-public abstract class Item : MonoBehaviour // ¾ÆÀÌÅÛ Ãß»ó Å¬·¡½º
+public abstract class Item : MonoBehaviour // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
 {
     
 
@@ -41,9 +43,9 @@ public abstract class Item : MonoBehaviour // ¾ÆÀÌÅÛ Ãß»ó Å¬·¡½º
         set
         {
             _itemState = value;
-            if(_readyToUseEffect != null)
+            if(!ReferenceEquals(_itemEffect, null))
             {
-                _readyToUseEffect.enabled = _itemState == ItemStateType.ReadyToUse;
+                _itemEffect.enabled = _itemState == ItemStateType.ReadyToUse;
             }
         }
     }
@@ -52,11 +54,19 @@ public abstract class Item : MonoBehaviour // ¾ÆÀÌÅÛ Ãß»ó Å¬·¡½º
     private ItemEffectType _itemEffectType;
     public ItemEffectType ItemEffectType { get => _itemEffectType; }
 
-    private UIEffect _readyToUseEffect;
+    private UIEffect _itemEffect;
+    private UIEffectTweener _itemEffectTweener;
+    
+    private const string ITEM_SHINY = "ItemShiny";
+    private const string ITEM_USE = "ItemUse";
 
     private void Awake()
     {
-        _readyToUseEffect = GetComponent<UIEffect>();
+        _itemEffect = GetComponent<UIEffect>();
+        _itemEffect.enabled = false;
+        _itemEffectTweener = GetComponent<UIEffectTweener>();
+        _itemEffect.LoadPreset(ITEM_SHINY);
+        _itemEffectTweener.wrapMode = UIEffectTweener.WrapMode.Loop;
         GetComponent<DraggingObjectSwap>().ItemSwapEvent += () =>
         {
             if (ItemState == ItemStateType.ReadyToBuy)
@@ -64,5 +74,16 @@ public abstract class Item : MonoBehaviour // ¾ÆÀÌÅÛ Ãß»ó Å¬·¡½º
                 ItemState = ItemStateType.UnBuy;
             }
         };
+    }
+
+    public void PlayUseEffect()
+    {
+        // ì•„ì´í…œ ê´€ë ¨ íš¨ê³¼ ë¹„í™œì„±í™” í›„ ì…‹íŒ…í•˜ê³  ë‹¤ì‹œ í™œì„±í™”
+        _itemEffect.enabled = false;
+        _itemEffectTweener.enabled = false;
+        _itemEffect.LoadPreset(ITEM_USE);
+        _itemEffectTweener.wrapMode = UIEffectTweener.WrapMode.Once;
+        _itemEffect.enabled = true;
+        _itemEffectTweener.enabled = true;
     }
 }

@@ -56,7 +56,7 @@ public bool Interactable = true;
 
     public void HandleDragEnd()
     {
-        if (Interactable)
+        if (Interactable && gameObject.activeInHierarchy)
         {
             if (_type != Type.Item)
             {

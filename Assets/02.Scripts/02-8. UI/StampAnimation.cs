@@ -31,8 +31,21 @@ public class StampAnimation : MonoBehaviour
     {
         _sequence = DOTween.Sequence()
             .Append(transform.DOPunchPosition(new Vector3(0f, 200f, 0f), 0.4f, 1, 0f).SetEase(Ease.InBack))
+            .JoinCallback(PlayUsingItemEffect)
             .InsertCallback(0.2f, () => AudioManager.Instance.PlaySFX(_stampedSound))
             .Insert(0.3f, transform.DOPunchScale(new Vector3(0.3f, -0.3f, 0f), 0.4f, 1, 0f).SetEase(Ease.OutQuad))
             .OnComplete(() => OnStamped?.Invoke());
+    }
+
+    private void PlayUsingItemEffect()
+    {
+        foreach (var item in ItemManager.Instance.HavingItemList)
+        {
+            Item itemComponent = item.GetComponent<Item>();
+            if (itemComponent.ItemState == ItemStateType.ReadyToUse)
+            {
+                itemComponent.PlayUseEffect();
+            }
+        }
     }
 }
