@@ -18,6 +18,11 @@ public class DateManager : Singleton<DateManager>
 
     private List<List<QuestResult>> _questResults = new List<List<QuestResult>>(_maxDate + 1);
 
+    [SerializeField]
+    private int _endingDate = 2; // 엔딩 날짜, 해당 날짜 이전까지만 진행합니다. 즉 _endingDate일차는 진행되지 않습니다.
+    public int EndingDate { get => _endingDate; set => _endingDate = value; }
+
+
     public Action OnDateChanged; // 날짜가 바뀌었을 때 이벤트 처리를 위한 Action
 
     protected override void Awake()
@@ -27,6 +32,7 @@ public class DateManager : Singleton<DateManager>
         {
             _questResults.Add(new List<QuestResult>());
         }
+        OnDateChanged += (() => CheckEndingDate());
     }
     public void AddQuestResultToList(Adventurer adventurer, Quest quest, bool isSuccess, float probability)
     {
@@ -89,5 +95,12 @@ public class DateManager : Singleton<DateManager>
             }
         }
         return questResultsInProgress;
+    }
+    private void CheckEndingDate()
+    {
+        if (_currentDate == _endingDate)
+        {
+            SceneChangeManager.Instance.LoadScene(nameof(SceneNameEnum.EndingScene));
+        }
     }
 }

@@ -122,6 +122,7 @@ public class MainProcess : MonoBehaviour
             {
                 GuildStatManager.Instance.Fame += questResult.QuestData.FameReward;
                 GuildStatManager.Instance.Gold += questResult.QuestData.GoldReward;
+                GuildStatManager.Instance.NumOfCompletedQuests++;
                 UIManager.Instance.ReportUI.QuestResultTextAdd($"성공: {questResult.QuestData.QuestName} | {questResult.Probability}%");
                // UIManager.Instance.ReportUI.SpecialCommentText($"성공: {questResult.QuestData.QuestName}: {questResult.QuestData.QuestHint}");
             }
