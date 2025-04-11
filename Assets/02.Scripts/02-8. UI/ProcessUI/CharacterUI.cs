@@ -28,6 +28,7 @@ public class CharacterUI : MonoBehaviour
 
     [SerializeField] private AdventurerIDCardUI _adventurerIDCardUI;
     private bool isCloseable = true;
+ 
     
     public event Action PositiveButtonEvent;
     public event Action NegativeButtonEvent;
@@ -56,6 +57,8 @@ public class CharacterUI : MonoBehaviour
         PositiveButtonEvent += () => isCloseable = true;
         NegativeButtonEvent += () => isCloseable = true;
         
+       
+
         
     }
 
