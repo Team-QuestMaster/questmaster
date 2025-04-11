@@ -18,16 +18,16 @@ MonoBehaviour:
     \uBA85\uC0C1 \uAD6C\uC5ED\uC744 \uC548\uB0B4\uD558\uC790."
   QuestTier: 4
   QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
-  STRWeight: 0.8
+  STRWeight: 1
   MAGWeight: 1.1
   INSWeight: 1.3
   DEXWeight: 1
-  PowerForClear: 2200
-  FameReward: 450
-  GoldReward: 500
-  FamePenalty: 80
-  GoldPenalty: 100
+  PowerForClear: 1250
+  FameReward: 360
+  GoldReward: 390
+  FamePenalty: 65
+  GoldPenalty: 70
   StateAfterFail: 0
-  Days: 1
+  Days: 2
   IsQuesting: 0
   QuestHint: "\uCE5C\uC808, \uD56D\uC0C1 \uCE5C\uC808\uC774\uB2E4."

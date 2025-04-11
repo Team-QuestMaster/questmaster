@@ -84,7 +84,7 @@ public class AdventurerIDCardUI : MonoBehaviour
         string leftStatSTRAndMAG = $"근력 {data.CurrentSTR}\n마력 {data.CurrentMAG}";
         _bigAdventurerIDCardContent.LeftStatTMP.text = leftStatSTRAndMAG;
 
-        string rightStatINSAndDEX = $"통찰력 {data.CurrentINS}\n손재주 {data.CurrentDEX}";
+        string rightStatINSAndDEX = $"통찰력 {data.CurrentINS}\n민첩성 {data.CurrentDEX}";
         _bigAdventurerIDCardContent.RightStatTMP.text = rightStatINSAndDEX;
     }
 }

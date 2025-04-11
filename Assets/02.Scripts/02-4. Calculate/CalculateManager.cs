@@ -18,9 +18,11 @@ public class CalculateManager : Singleton<CalculateManager>
         float powerForClear = quest.QuestData.PowerForClear;
 
         float probability = Mathf.Clamp((calculatedPower / powerForClear) * 100f, 0f, 100f);
-
-
         return probability;
+    }
+    public float CalculateProbability(float adventurerPower, float powerForClear)
+    {
+        return Mathf.Clamp((adventurerPower / powerForClear) * 100f, 0f, 100f);
     }
     public bool JudgeQuestResult(Adventurer adventurer, Quest quest, float probability)
     {
