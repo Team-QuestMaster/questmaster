@@ -78,6 +78,8 @@ public abstract class Item : MonoBehaviour // ������ �߻� Ŭ��
 
     public void PlayUseEffect()
     {
+        // 아이템 관련 효과 비활성화 후 셋팅하고 다시 활성화
+        _itemEffect.enabled = false;
         _itemEffectTweener.enabled = false;
         _itemEffect.LoadPreset(ITEM_USE);
         _itemEffectTweener.wrapMode = UIEffectTweener.WrapMode.Once;
