@@ -17,9 +17,9 @@ MonoBehaviour:
   QuestDescription: "\uC0C1\uC810\uAC00 \uB3C4\uB85C\uC758 \uD3EC\uC7A5\uC7AC \uC218\uB9AC\uB97C
     \uBCF4\uC870\uD558\uC790."
   QuestTier: 4
-  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  QuestTierImageColor: {r: 0, g: 1, b: 0, a: 1}
   STRWeight: 1.3
-  MAGWeight: 0.9
+  MAGWeight: 1
   INSWeight: 1
   DEXWeight: 1
   PowerForClear: 1430

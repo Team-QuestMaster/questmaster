@@ -19,7 +19,7 @@ MonoBehaviour:
   QuestTier: 4
   QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
   STRWeight: 1.3
-  MAGWeight: 0.9
+  MAGWeight: 1
   INSWeight: 1
   DEXWeight: 1
   PowerForClear: 2250

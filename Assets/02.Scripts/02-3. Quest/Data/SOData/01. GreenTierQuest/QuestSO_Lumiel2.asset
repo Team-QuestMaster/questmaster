@@ -17,7 +17,7 @@ MonoBehaviour:
     \uACE0\uC591\uC774 \uAD6C\uC870"
   QuestTier: 4
   QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
-  STRWeight: 0.9
+  STRWeight: 1
   MAGWeight: 1.1
   INSWeight: 1.2
   DEXWeight: 1.3
