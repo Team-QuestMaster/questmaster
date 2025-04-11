@@ -17,6 +17,9 @@ public class StampUI : MonoBehaviour
     
     [SerializeField] private UnderChecker _approveUnderChecker;
     [SerializeField] private UnderChecker _rejectUnderChecker;
+
+    [SerializeField]
+    private AudioClip _onStampBoardMove;
     
     private Vector3 _approvePosition;
     private Vector3 _rejectPosition;
@@ -43,17 +46,13 @@ public class StampUI : MonoBehaviour
         _rejectPosition = _rejectStamp.transform.localPosition;
         UIApproveEvent += () =>
         {
-            Debug.Log("StampUI Approve");
             _approveAnimator.SetTrigger("Stamp");
             _approveAnimator.SetBool("Hover", false);
-            HideStampPopUp();
         };
         UIRejectEvent += () =>
         {
-            Debug.Log("StampUI Reject");
             _rejectAnimator.SetTrigger("Stamp");
             _rejectAnimator.SetBool("Hover", false);
-            HideStampPopUp();
         };
         
         
@@ -117,12 +116,14 @@ public class StampUI : MonoBehaviour
     
     void ShowStampPopUp()
     {
+        AudioManager.Instance.PlaySFX(_onStampBoardMove);
         _moving = true;
         _stampZone.transform.DOLocalMove(new Vector3(280, -500, 0), 0.5f).OnComplete(() => _moving = false);
     }
 
     void HideStampPopUp()
     {
+        AudioManager.Instance.PlaySFX(_onStampBoardMove);
         _moving = true;
         
         StampBack();
