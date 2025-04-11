@@ -18,6 +18,7 @@ public class StampUI : MonoBehaviour
     [SerializeField] private UnderChecker _approveUnderChecker;
     [SerializeField] private UnderChecker _rejectUnderChecker;
 
+    [Header("Audio")]
     [SerializeField]
     private AudioClip _onStampBoardMove;
     
