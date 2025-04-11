@@ -71,9 +71,9 @@ public class ShowResult : MonoBehaviour
         _questNameText.text = _questData.QuestData.QuestName;
         _adventurerNameText.text = _adventurerData.AdventurerData.AdventurerName;
         _timeText.text = _questData.QuestData.Days.ToString();
-        _questProbabilityText.text = $"{probability}%";
-        _rewardText.text = $"{reward}골드";
-        _penalityText.text = $"{penalty}골드";
+        _questProbabilityText.text = $"{probability:N1}%";
+        _rewardText.text = $"{reward}<color=yellow>골드</color>";
+        _penalityText.text = $"{penalty}<color=yellow>골드</color>";
         Show();
     }
     
