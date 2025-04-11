@@ -33,7 +33,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      LostCharmSmall_0: 6690911634806524246
+      LostCharmSmall_1: 5966448161430210979
+      LostCharmSmall_2: 903842289749685927
+      LostCharmSmall_3: 7793914908451695243
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

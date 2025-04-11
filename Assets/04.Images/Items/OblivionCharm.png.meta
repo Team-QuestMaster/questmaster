@@ -51,7 +51,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -372,7 +372,17 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      OblivionCharm_0: 3391215347704105784
+      OblivionCharm_1: -4888545637491261318
+      OblivionCharm_2: -1517128598713836342
+      OblivionCharm_3: 3272985299778602571
+      OblivionCharm_4: -7944736135031799436
+      OblivionCharm_5: 3908175576275383383
+      OblivionCharm_6: 6581869646283073559
+      OblivionCharm_7: -6848536376842536038
+      OblivionCharm_8: 1577410693261885615
+      OblivionCharm_9: 5962367634495084372
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

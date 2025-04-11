@@ -30,7 +30,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SilenceCharm_0: 9146462769176546834
+      SilenceCharm_1: 3514412293983483920
+      SilenceCharm_2: -2624232586557882625
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 99eb89312163b8f4ab8efa57e5b8cad0
+guid: 51f6804b6734ca748af62a9c7bc43c30
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7800262145868272892
-    second: CrystalHeart_0
+      213: -6123196760004327306
+    second: Dealer_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -24,7 +24,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 1
+  isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CrystalHeart_0
+      name: Dealer_0
       rect:
         serializedVersion: 2
-        x: 60
-        y: 48
-        width: 638
-        height: 615
+        x: 1132
+        y: 67
+        width: 1653
+        height: 3900
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cf497671819104c60800000000000000
-      internalID: 7800262145868272892
+      spriteID: 6788e162df8060ba0800000000000000
+      internalID: -6123196760004327306
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      CrystalHeart_0: 7800262145868272892
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

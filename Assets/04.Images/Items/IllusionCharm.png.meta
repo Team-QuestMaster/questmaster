@@ -33,7 +33,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      IllusionCharm_0: 2194031650955096888
+      IllusionCharm_1: -4849430995456793923
+      IllusionCharm_2: -5522703740531548958
+      IllusionCharm_3: -8616934865128262683
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

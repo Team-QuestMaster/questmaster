@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 469689666391604537}
   - component: {fileID: 2102057848080103253}
   - component: {fileID: 7451132082562210886}
-  - component: {fileID: 5764080072799311068}
   - component: {fileID: 2720238122190542814}
   - component: {fileID: 6874216839330794063}
   - component: {fileID: 3313087979726178736}
+  - component: {fileID: 5914526158836635695}
   m_Layer: 0
   m_Name: SmallMAGBuff 1
   m_TagString: Untagged
@@ -30,7 +30,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4468220222985870799}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -93,67 +93,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dragArea: {fileID: 0}
---- !u!114 &5764080072799311068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4468220222985870799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-          m_MethodName: HideCursorBox
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-          m_MethodName: ItemCursorBox
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 5
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-          m_MethodName: ItemCursorBox
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &2720238122190542814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,3 +238,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _grabSound: {fileID: 8300000, guid: 9a2a538b12bccca4ba0a3c37eecfa95d, type: 3}
   _dropSound: {fileID: 8300000, guid: d8129a27d25d31b4f86cf27ddff7b4e6, type: 3}
+--- !u!114 &5914526158836635695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4468220222985870799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c823b6854c18c545a5046279b2d3786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
