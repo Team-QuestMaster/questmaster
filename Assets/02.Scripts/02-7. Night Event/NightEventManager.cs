@@ -9,6 +9,8 @@ public class NightEventManager : Singleton<NightEventManager>
     private bool _isIsNightEventDay = false;
     private bool _tryBuy;
     public bool TryBuy { get => _tryBuy; set => _tryBuy = value; }
+    private bool _selling = false;
+    public bool Selling { get => _selling; set => _selling = value; }
     public bool IsNightEventDay
     {
         get => _isIsNightEventDay;
@@ -42,10 +44,15 @@ public class NightEventManager : Singleton<NightEventManager>
     [ContextMenu("TestMarketEvent")]
     public void AfterMarketEvent() 
     {
+        if (_selling == false)
+        {
+            return;
+        }
         if (_tryBuy && !ItemManager.Instance.TryBuyall())
         {
             return;
         }
+        _selling = false;
         ItemManager.Instance.ReturnItems(() =>
         {
             UIManager.Instance.OneCycleStartAndEnd.NextCycleOptionalEvent += () => {

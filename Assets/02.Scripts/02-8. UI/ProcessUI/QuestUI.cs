@@ -60,14 +60,13 @@ public class QuestUI : MonoBehaviour
     }
     private void InitializeBigQuestPaperContent()
     {
-        // SealingImageÀÇ °æ¿ì, QuestDataÀÇ QuestTier¿¡ µû¶ó ´Ù¸£°Ô ¼³Á¤ÇÒ ÇÊ¿ä
-        // ±×³É Imageµµ QuestData¿¡ ³Ö¾î¹ö¸±±î?
+        // SealingImageï¿½ï¿½ ï¿½ï¿½ï¿½, QuestDataï¿½ï¿½ QuestTierï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½
+        // ï¿½×³ï¿½ Imageï¿½ï¿½ QuestDataï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?
         bigQuestPaperContent.SealingImage.color = _currentQuest.QuestData.QuestTierImageColor;
-        bigQuestPaperContent.TitleTMP.text = _currentQuestData.QuestName;
+        bigQuestPaperContent.TitleTMP.text = _currentQuestData.QuestName.Replace("- ", "\n");
         bigQuestPaperContent.MainBodyTMP.text = _currentQuestData.QuestDescription;
-        bigQuestPaperContent.RewardTMP.text = _currentQuestData.GoldReward.ToString();
-        bigQuestPaperContent.RewardTMP.text += " / " + _currentQuestData.FameReward.ToString();
-        bigQuestPaperContent.NeedTimeTMP.text = _currentQuestData.Days.ToString();
+        bigQuestPaperContent.RewardTMP.text = $"<color=yellow>ê³¨ë“œ</color> {_currentQuestData.GoldReward} <color=#90FFEB>ëª…ì„±ì¹˜</color> {_currentQuestData.FameReward}";
+        bigQuestPaperContent.NeedTimeTMP.text = $"<color=#8B4513>ì†Œìš”ì‹œê°„</color> {_currentQuestData.Days}ì¼";
     }
 
     public void ChangeQuest()
@@ -83,7 +82,7 @@ public class QuestUI : MonoBehaviour
         }
         else
         {
-            Debug.Log("»Ì¾Æ¿Â Äù½ºÆ® ¸®½ºÆ®ÀÇ Å©±â°¡ ÀÏÀÏ ¸ğÇè°¡ÀÇ Äù½ºÆ® ¿äÃ» ¼öº¸´Ù Àû½À´Ï´Ù.");
+            Debug.Log("ï¿½Ì¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Å©ï¿½â°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½è°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
         }
     }
 }
