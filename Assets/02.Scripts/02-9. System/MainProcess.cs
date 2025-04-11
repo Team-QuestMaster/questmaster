@@ -122,15 +122,15 @@ public class MainProcess : MonoBehaviour
             {
                 GuildStatManager.Instance.Fame += questResult.QuestData.FameReward;
                 GuildStatManager.Instance.Gold += questResult.QuestData.GoldReward;
-                UIManager.Instance.ReportUI.QuestResultTextAdd($"성공: {questResult.QuestData.QuestName} {questResult.Probability}");
-                UIManager.Instance.ReportUI.SpecialCommentText($"성공: {questResult.QuestData.QuestName}: {questResult.QuestData.QuestHint}");
+                UIManager.Instance.ReportUI.QuestResultTextAdd($"성공: {questResult.QuestData.QuestName} | {questResult.Probability}%");
+               // UIManager.Instance.ReportUI.SpecialCommentText($"성공: {questResult.QuestData.QuestName}: {questResult.QuestData.QuestHint}");
             }
             else
             {
                 GuildStatManager.Instance.Fame -= questResult.QuestData.FamePenalty;
                 GuildStatManager.Instance.Gold -= questResult.QuestData.GoldPenalty;
-                UIManager.Instance.ReportUI.QuestResultTextAdd($"실패: {questResult.QuestData.QuestName} {questResult.Probability}");
-                UIManager.Instance.ReportUI.SpecialCommentText($"실패: {questResult.QuestData.QuestName}: {questResult.QuestData.QuestHint}");
+                UIManager.Instance.ReportUI.QuestResultTextAdd($"실패: {questResult.QuestData.QuestName} | {questResult.Probability}%");
+                UIManager.Instance.ReportUI.SpecialCommentText($"{questResult.QuestData.QuestName} : {questResult.QuestData.QuestHint}");
             }
         }
         UIManager.Instance.ReportUI.GoldText(beforeGold, GuildStatManager.Instance.Gold);
