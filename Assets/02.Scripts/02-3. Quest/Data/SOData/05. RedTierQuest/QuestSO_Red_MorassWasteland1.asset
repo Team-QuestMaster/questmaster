@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO_Red_MorassWasteland1
+  m_EditorClassIdentifier: 
+  QuestName: "[\uBAA8\uB77C\uC2A4 \uD669\uBB34\uC9C0] - \uB9D0\uB77C\uBD99\uC740
+    \uC0DD\uBA85\uC758 \uC6B8\uC74C"
+  QuestDescription: "\uD669\uBB34\uC9C0 \uC5B4\uB518\uAC00, \uC8FD\uC5B4\uAC00\uB294
+    \uC0DD\uBA85\uC758 \uAE30\uCC99\uC774 \uB290\uAEF4\uC9C4\uB2E4. \uADF8\uAC83\uC740
+    \uB3C4\uC6C0\uC744 \uAD6C\uD558\uACE0 \uC788\uB294\uAC00, \uC544\uB2C8\uBA74
+    \uB36B\uC778\uAC00."
+  QuestTier: 0
+  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  STRWeight: 0.6
+  MAGWeight: 0.9
+  INSWeight: 1.5
+  DEXWeight: 0.6
+  PowerForClear: 16700
+  FameReward: 2600
+  GoldReward: 2500
+  FamePenalty: 1690
+  GoldPenalty: 1500
+  StateAfterFail: 0
+  Days: 1
+  IsQuesting: 0
+  QuestHint: "\uADF8 \uC18C\uB9AC\uC5D0 \uADC0 \uAE30\uC6B8\uC774\uB294 \uC790\uB294,
+    \uBB34\uC5B8\uAC00\uB97C '\uB290\uB084' \uC218 \uC788\uC5B4\uC57C \uD55C\uB2E4."

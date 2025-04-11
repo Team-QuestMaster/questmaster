@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e40a8793ca5284b8fb8593dfd52da0, type: 3}
+  m_Name: QuestSO_Red_BlackAbyssCanyon1
+  m_EditorClassIdentifier: 
+  QuestName: "[\uAC80\uC740 \uC2EC\uC5F0 \uD611\uACE1] - \uC18D\uC0AD\uC774\uB294
+    \uADF8\uB9BC\uC790\uC758 \uBD80\uB984"
+  QuestDescription: "\uD611\uACE1 \uAE4A\uC219\uD55C \uD2C8\uC0C8\uC5D0\uC11C \uB4E4\uB824\uC624\uB294
+    \uC800\uC8FC\uBC1B\uC740 \uC18D\uC0AD\uC784\uC774 \uC815\uC2E0\uC744 \uC880\uBA39\uB294\uB2E4.
+    \uC758\uC2DD\uC744 \uC783\uC740 \uC790\uB4E4\uC740 \uB2E4\uC2DC \uB3CC\uC544\uC624\uC9C0
+    \uBABB\uD588\uB2E4."
+  QuestTier: 0
+  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  STRWeight: 0.6
+  MAGWeight: 1.1
+  INSWeight: 1.4
+  DEXWeight: 0.5
+  PowerForClear: 16400
+  FameReward: 2400
+  GoldReward: 2500
+  FamePenalty: 1880
+  GoldPenalty: 1800
+  StateAfterFail: 0
+  Days: 1
+  IsQuesting: 0
+  QuestHint: "\uAC15\uC778\uD55C \uC815\uC2E0\uB825\uC744 \uC9C0\uB2CC \uC790\uB9CC\uC774
+    \uD658\uCCAD\uC5D0 \uC7A0\uC2DD\uB418\uC9C0 \uC54A\uACE0 \uB05D\uAE4C\uC9C0 \uBC1C\uC744
+    \uB5C4 \uC218 \uC788\uB2E4."
