@@ -12,9 +12,11 @@ public class EndingJudge : MonoBehaviour
     [SerializeField] 
     private TextMeshProUGUI _endingMent;
     [SerializeField]
-    private TextMeshProUGUI _endingStat;
-
-
+    private TextMeshProUGUI _endingStatFame;
+    [SerializeField]
+    private TextMeshProUGUI _endingStatGold;
+    [SerializeField]
+    private TextMeshProUGUI _endingStatNumOfCompletedQuests;
     [SerializeField] 
     private int[] _questGrade = { 1, 2 }; // 예시 기준값, 실제 게임 값에 맞춰 조정 필요
     [SerializeField] 
@@ -182,7 +184,7 @@ public class EndingJudge : MonoBehaviour
         _endingImage.sprite = GetEndingImage(endingIndex);
         _endingMent.text = GetEndingMent(endingIndex);
         _endingName.text = GetEndingName(endingIndex);
-        _endingStat.text = GetEndingStat();
+        GetEndingStat();
     }
     private Sprite GetEndingImage(int index)
     {
@@ -220,8 +222,10 @@ public class EndingJudge : MonoBehaviour
             return null; // 또는 기본 이름 반환
         }
     }
-    private string GetEndingStat()
+    private void GetEndingStat()
     {
-        return $"길드의 획득 명성: {_fame} \n 길드의 획득 골드: {_fame} \n 성공한 퀘스트의 수: {_quest}";
+        _endingStatFame.text = _fame.ToString();
+        _endingStatGold.text = _money.ToString();
+        _endingStatNumOfCompletedQuests.text = _quest.ToString();
     }
 }
