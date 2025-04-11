@@ -19,7 +19,7 @@ public class DateManager : Singleton<DateManager>
     private List<List<QuestResult>> _questResults = new List<List<QuestResult>>(_maxDate + 1);
 
     [SerializeField]
-    private int _endingDate = 4; // 엔딩 날짜, 해당 날짜 이전까지만 진행합니다. 즉 _endingDate일차는 진행되지 않습니다.
+    private int _endingDate = 2; // 엔딩 날짜, 해당 날짜 이전까지만 진행합니다. 즉 _endingDate일차는 진행되지 않습니다.
     public int EndingDate { get => _endingDate; set => _endingDate = value; }
 
 
