@@ -8,10 +8,12 @@ public class GuideBookUI : MonoBehaviour
 {
     [SerializeField] private Button _guideBook;
     [SerializeField] private Button[] _indexButton;
+    [SerializeField] private Image[] _indexImage;
     [SerializeField] private Animator _guideBookAnimator;
     [SerializeField] private CanvasGroup[] _guideBookCanvasGroup;
     [SerializeField] private Image _fadeOutImage;
     [SerializeField] private Button _backButton;
+    
 
     private bool _isGuideBookOpen;
 
@@ -174,6 +176,11 @@ public class GuideBookUI : MonoBehaviour
         {
             foreach (var button in _indexButton)
                 if (!ReferenceEquals(button, null)) button.interactable = true;
+            foreach (var index in _indexImage)
+                if (!ReferenceEquals(index, null)) index.gameObject.SetActive(true);
+            {
+                
+            }
         }
     }
 
@@ -185,6 +192,8 @@ public class GuideBookUI : MonoBehaviour
         {
             foreach (var button in _indexButton)
                 if (!ReferenceEquals(button, null)) button.interactable = false;
+            foreach (var index in _indexImage)
+                if (!ReferenceEquals(index, null)) index.gameObject.SetActive(false);
         }
     }
 
