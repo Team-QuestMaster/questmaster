@@ -142,10 +142,10 @@ TextureImporter:
       name: Major5-removebg-preview(Layer 1) _0003_0
       rect:
         serializedVersion: 2
-        x: 109
-        y: 18
-        width: 429
-        height: 605
+        x: 0
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: aa74d1928ca2b004f9b7817761fee2b9
     internalID: 0
     vertices: []
     indices: 
