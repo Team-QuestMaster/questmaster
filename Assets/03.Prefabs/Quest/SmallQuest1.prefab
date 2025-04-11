@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8967329536261977897}
   - component: {fileID: 3343944887652924374}
   - component: {fileID: 506673510913302066}
+  - component: {fileID: 535173421242379479}
   m_Layer: 0
   m_Name: SmallQuest1
   m_TagString: Untagged
@@ -28,7 +29,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1063521730689222915}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -61,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -119,3 +120,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _questSO: {fileID: 11400000, guid: c1fb420a76642ec4f80dc7dceb8a1d0b, type: 2}
   _questTierMinCombatPowers: e80300008813000010270000204e0000
+--- !u!114 &535173421242379479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063521730689222915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f790ed299afe8744298d078f14fd028c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onClickAudioClip: {fileID: 0}
+  _onDownAudioClip: {fileID: 8300000, guid: c873e7380c1b63a47a9b3196ca0f99bf, type: 3}

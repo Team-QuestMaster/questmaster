@@ -17,12 +17,12 @@ public class PickManager : Singleton<PickManager>
             { QuestTierType.Yellow, (12, 18) },
             { QuestTierType.Orange, (17, 25) },
             { QuestTierType.Red, (24, 30) }};
-    private Dictionary<QuestTierType, float> tierMinimumProbability = new Dictionary<QuestTierType, float>{
-            { QuestTierType.Green, 60f },
-            { QuestTierType.Blue, 55f },
-            { QuestTierType.Yellow, 50f },
-            { QuestTierType.Orange, 45f },
-            { QuestTierType.Red, 35f }};
+    private Dictionary<QuestTierType, (float min, float max)> tierMinMaxProbability = new Dictionary<QuestTierType, (float min, float max)>{
+            { QuestTierType.Green, (50f, 95f) },
+            { QuestTierType.Blue, (50f, 95f) },
+            { QuestTierType.Yellow, (45f, 90f) },
+            { QuestTierType.Orange, (40f, 90f) },
+            { QuestTierType.Red, (30f, 90f) }};
     protected override void Awake()
     {
         base.Awake();
@@ -112,11 +112,12 @@ public class PickManager : Singleton<PickManager>
     private bool isQuestPickValid(int currentDate, float todayAdventurerPower, QuestSO questSO)
     {
         var range = tierDateRange[questSO.QuestTier];
-        var minimumProbability = tierMinimumProbability[questSO.QuestTier];
+        var minimumProbability = tierMinMaxProbability[questSO.QuestTier].min;
+        var maximumProbability = tierMinMaxProbability[questSO.QuestTier].max;
         float probability = CalculateManager.Instance.CalculateProbability
             (todayAdventurerPower, questSO.PowerForClear);
         return (!questSO.IsQuesting && range.start <= currentDate && currentDate <= range.end
-            && minimumProbability <= probability 
+            && minimumProbability <= probability && probability <= maximumProbability
             && todayAdventurerPower < questSO.PowerForClear);
     }
 }
