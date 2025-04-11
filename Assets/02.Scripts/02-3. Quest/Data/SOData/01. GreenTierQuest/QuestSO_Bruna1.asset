@@ -23,8 +23,8 @@ MonoBehaviour:
   INSWeight: 1.1
   DEXWeight: 1.3
   PowerForClear: 750
-  FameReward: 400
-  GoldReward: 400
+  FameReward: 120
+  GoldReward: 150
   FamePenalty: 30
   GoldPenalty: 30
   StateAfterFail: 0

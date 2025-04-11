@@ -19,14 +19,14 @@ MonoBehaviour:
   QuestTier: 4
   QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
   STRWeight: 1.2
-  MAGWeight: 0.9
+  MAGWeight: 1
   INSWeight: 1
   DEXWeight: 1.2
-  PowerForClear: 5100
-  FameReward: 400
-  GoldReward: 400
-  FamePenalty: 30
-  GoldPenalty: 30
+  PowerForClear: 2850
+  FameReward: 840
+  GoldReward: 800
+  FamePenalty: 290
+  GoldPenalty: 280
   StateAfterFail: 0
   Days: 2
   IsQuesting: 0

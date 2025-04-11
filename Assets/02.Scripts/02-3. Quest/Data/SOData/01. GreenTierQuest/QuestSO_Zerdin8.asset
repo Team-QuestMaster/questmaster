@@ -17,18 +17,18 @@ MonoBehaviour:
   QuestDescription: "\uBB35\uC5B8 \uC218\uD589 \uC911\uC778 \uC218\uB3C4\uC790\uC758
     \uC57C\uAC04 \uC774\uB3D9\uC744 \uACBD\uD638\uD558\uB294 \uC784\uBB34\uC774\uB2E4."
   QuestTier: 4
-  QuestTierImageColor: {r: 0, g: 0, b: 0, a: 0}
+  QuestTierImageColor: {r: 0, g: 1, b: 0, a: 1}
   STRWeight: 0.8
   MAGWeight: 1.2
   INSWeight: 1.4
   DEXWeight: 1.2
-  PowerForClear: 2350
-  FameReward: 400
-  GoldReward: 400
-  FamePenalty: 30
-  GoldPenalty: 30
+  PowerForClear: 5050
+  FameReward: 750
+  GoldReward: 780
+  FamePenalty: 170
+  GoldPenalty: 185
   StateAfterFail: 0
   Days: 1
   IsQuesting: 0
-  QuestHint: "\uC815\uBC00\uD55C \uC791\uC5C5\uACFC \uC624\uB798\uB41C \uC9C0\uC2DD\uC5D0
-    \uB300\uD55C \uC774\uD574\uAC00 \uD544\uC694\uD558\uB2E4."
+  QuestHint: "\uC815\uBC00\uD55C \uC2DC\uC57C\uC640 \uC218\uC0C1\uD55C \uACF3\uC744
+    \uC608\uCE21\uD558\uB294 \uB2A5\uB825\uC774 \uC694\uAD6C\uB41C\uB2E4."

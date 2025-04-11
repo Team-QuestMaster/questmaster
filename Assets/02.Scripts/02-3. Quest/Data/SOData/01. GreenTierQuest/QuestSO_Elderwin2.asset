@@ -22,11 +22,11 @@ MonoBehaviour:
   MAGWeight: 1
   INSWeight: 1.1
   DEXWeight: 0.9
-  PowerForClear: 2200
-  FameReward: 450
-  GoldReward: 500
-  FamePenalty: 80
-  GoldPenalty: 100
+  PowerForClear: 950
+  FameReward: 140
+  GoldReward: 180
+  FamePenalty: 60
+  GoldPenalty: 50
   StateAfterFail: 0
   Days: 1
   IsQuesting: 0
