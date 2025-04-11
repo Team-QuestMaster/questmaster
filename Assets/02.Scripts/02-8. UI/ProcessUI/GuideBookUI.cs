@@ -53,6 +53,8 @@ public class GuideBookUI : MonoBehaviour
 
         // 처음에는 모든 페이지 비활성화
         HideAllCanvasGroups();
+        
+        
     }
     public void GuideBoxInteractable()
     {if(!_isGuideBookOpen)

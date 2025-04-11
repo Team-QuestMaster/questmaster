@@ -2,12 +2,14 @@ using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class ShowCharacter : MonoBehaviour
 {
 
-    
-    
+
+    private Sequence _appearSequence;
+    private Sequence _disappearSequence;
     public event Action CharacterAppearShow; 
     public event Action CharacterDisappearShow;
     
@@ -16,6 +18,8 @@ public class ShowCharacter : MonoBehaviour
     private void Start()
     {
         CharacterDisappearShow += () => CharacterDisappear();
+        
+        
     }
     public void AppearEventSet()
     {
@@ -58,13 +62,23 @@ public class ShowCharacter : MonoBehaviour
     void CharacterAppear(System.Action onComplete = null)
     {
         UIManager.Instance.CharacterUI.CurrentCharacter.gameObject.SetActive(true);
-        UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().DOFade(1, 1).SetAutoKill(false)
+        Image currentImage = UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>();
+        currentImage.DOColor(Color.gray, 0f);
+        currentImage.DOColor(Color.white, 2.5f).SetDelay(1f);
+        currentImage.DOFade(1, 2).SetAutoKill(false)
             .OnComplete(()=>onComplete?.Invoke());
+        currentImage.rectTransform.DOPunchPosition(new Vector3(0, -50, 0), 2f,3,0);
+        currentImage.rectTransform.DOLocalMoveX(-650f,2f).SetAutoKill(false);
+
         AudioManager.Instance.PlaySFX(_appearSound);
     }
     void CharacterDisappear(System.Action onComplete = null)
     {
-        UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().rectTransform.DOLocalMove(new Vector3(-1200, 0, 0), 2f).SetEase(Ease.InBack)
+        Image currentImage = UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>();
+        currentImage.DOColor(Color.gray, 2.5f).SetDelay(1f);
+        currentImage.DOFade(0, 2).SetAutoKill(false)
+            .OnComplete(()=>onComplete?.Invoke()).SetDelay(1f);
+        UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Image>().rectTransform.DOLocalMoveX(-1152f, 2f).SetEase(Ease.InBack)
             .OnComplete(() =>
             {
                 UIManager.Instance.CharacterUI.ChangeCharacter();
