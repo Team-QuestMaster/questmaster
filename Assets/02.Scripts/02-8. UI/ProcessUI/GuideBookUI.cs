@@ -46,7 +46,8 @@ public class GuideBookUI : MonoBehaviour
                 if (!ReferenceEquals(_indexButton[index], null))
                     _indexButton[index].onClick.AddListener(() => ChangeIndex(index));
 
-                _indexButton[i].interactable = false;
+                _indexButton[i].gameObject.SetActive(false);
+                _indexImage[i].gameObject.SetActive(false);
             }
         }
 
@@ -175,7 +176,7 @@ public class GuideBookUI : MonoBehaviour
         if (!ReferenceEquals(_indexButton, null))
         {
             foreach (var button in _indexButton)
-                if (!ReferenceEquals(button, null)) button.interactable = true;
+                if (!ReferenceEquals(button, null)) button.gameObject.SetActive(true);
             foreach (var index in _indexImage)
                 if (!ReferenceEquals(index, null)) index.gameObject.SetActive(true);
             {
@@ -191,7 +192,7 @@ public class GuideBookUI : MonoBehaviour
         if (!ReferenceEquals(_indexButton, null))
         {
             foreach (var button in _indexButton)
-                if (!ReferenceEquals(button, null)) button.interactable = false;
+                if (!ReferenceEquals(button, null)) button.gameObject.SetActive(false);
             foreach (var index in _indexImage)
                 if (!ReferenceEquals(index, null)) index.gameObject.SetActive(false);
         }
@@ -213,11 +214,16 @@ public class GuideBookUI : MonoBehaviour
         }
     }
 
+    public void BookIn()
+    {
+        if(!_isGuideBookOpen)
+            UIManager.Instance.PlayInteractableSound();
+    }
     public void IndexIn(int index)
     {
         if (ReferenceEquals(_guideBookCanvasGroup, null) || index < 0 || index >= _guideBookCanvasGroup.Length)
             return;
-        _indexButton[index].transform.DOScaleX(0.8f, 0.1f);
+        _indexButton[index].transform.DOScaleX(1.2f, 0.1f);
 
         if (_guideBookCanvasGroup[index].alpha == 0)
         {
@@ -238,7 +244,7 @@ public class GuideBookUI : MonoBehaviour
     {
         if (ReferenceEquals(_backButton, null))
             return;
-        _backButton.transform.DOScaleX(0.8f, 0.1f);
+        _backButton.transform.DOScaleX(1.2f, 0.1f);
 
     }
     
