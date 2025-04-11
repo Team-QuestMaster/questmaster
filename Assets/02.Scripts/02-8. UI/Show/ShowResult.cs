@@ -67,7 +67,7 @@ public class ShowResult : MonoBehaviour
     {
         _resultImage.gameObject.SetActive(true);
         _isApprove = isApproved;
-        _approveResultText.text = _isApprove ? "<color=green>승낙함</color>" : "<color=red>거절됨</color>";
+        _approveResultText.text = _isApprove ? "<color=#6FFF3D>승낙함</color>" : "<color=#FF5C2D>거절됨</color>";
         _questNameText.text = _questData.QuestData.QuestName;
         _adventurerNameText.text = _adventurerData.AdventurerData.AdventurerName;
         _timeText.text = _questData.QuestData.Days.ToString();

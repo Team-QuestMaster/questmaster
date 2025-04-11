@@ -49,12 +49,12 @@ public class ReportUI : MonoBehaviour
 
     public void GoldText(int before, int after)
     {
-        _goldChangeText.text = $"{before} -> {after}";
+        _goldChangeText.text = $"골드 변화 \n{before} -> {after}";
     }
 
     public void FameText(int before, int after)
     {
-        _fameChangeText.text = $"{before} -> {after}";
+        _fameChangeText.text = $"명성치 변화 \n{before} -> {after}";
     }
 
     public void QuestResultTextAdd(string text)
