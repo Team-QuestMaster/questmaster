@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070d95666a9c0464babfb3724f2c1c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shadowColor: {r: 0.7921569, g: 0.54901963, b: 0.23529412, a: 1}
+  _shadowColor: {r: 0.7921569, g: 0.54901963, b: 0.23529412, a: 0.5019608}
   _shadowMargin: {x: 10, y: -10}
 --- !u!1 &4347429904576146312
 GameObject:
