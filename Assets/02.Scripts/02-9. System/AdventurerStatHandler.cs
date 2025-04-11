@@ -11,7 +11,6 @@ public class MinorAdventurerStatHandler : MonoBehaviour
         AdventurerSO adventurerSO = adventurer.AdventurerSO;
 
         List<float> weights = MakeRandomStatWeights();
-        Debug.Log($"{weights[0]}, {weights[1]}, {weights[2]}, {weights[3]}");
         float strMultiplier = weights[0], magMultiplier = weights[1],
             insMultiplier = weights[2], dexMultiplier = weights[3];
 
@@ -44,8 +43,8 @@ public class MinorAdventurerStatHandler : MonoBehaviour
     private List<int> MakeRandomStatAdjustments(int currentDate)
     {
         List<int> statAdjustments = new List<int>();
-        int min = -2 * currentDate;
-        int max = 2 * currentDate + 1;
+        int min = _adjustmentValue * currentDate;
+        int max = _adjustmentValue * currentDate + 1;
         for (int i = 0; i < 4; i++)
         {
             int adjustment = Random.Range(min, max);
