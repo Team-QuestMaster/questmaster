@@ -11,6 +11,16 @@ ShaderVariantCollection:
   - first: {fileID: 4800000, guid: 96246b1ead49a4c5a996fd477bc5a117, type: 3}
     second:
       variants:
+      - keywords: COLOR_MULTIPLY
+        passType: 0
+      - keywords: COLOR_MULTIPLY TONE_GRAYSCALE
+        passType: 0
+      - keywords: TONE_GRAYSCALE
+        passType: 0
+      - keywords: TONE_NEGATIVE
+        passType: 0
+      - keywords: TONE_SEPIA
+        passType: 0
       - keywords: TRANSITION_COLOR_MULTIPLY_ADDITIVE TRANSITION_SHINY
         passType: 0
 --- !u!114 &11400000
