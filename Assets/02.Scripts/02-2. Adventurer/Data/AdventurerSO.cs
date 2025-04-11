@@ -38,8 +38,8 @@ public class AdventurerSO : ScriptableObject
     public AdventurerType AdventurerType; // 모험가 타입
     public int OriginalSTR; // 근력
     public int OriginalMAG; // 마력
-    public int OriginalINS; //통찰력
-    public int OriginalDEX; // 손재주
+    public int OriginalINS; // 통찰력
+    public int OriginalDEX; // 민첩성
     public List<DialogSet> DialogList = new List<DialogSet>(); // 대사
     public Sprite SpriteSD; // 모험가의 SD 스프라이트
 }
