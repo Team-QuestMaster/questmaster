@@ -30,7 +30,6 @@ public class CursorUI : MonoBehaviour
     {
         // 객체의 크기
         Vector2 halfSize = _rectTransform.rect.size / 2;
-        Debug.Log(halfSize);
 
         // 영역의 크기를 Pivot에 맞추어 계산
         Vector2 minSideSize = _screenArea.rect.size * (Vector2.one - _screenArea.pivot);
