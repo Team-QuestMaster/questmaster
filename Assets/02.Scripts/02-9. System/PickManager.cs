@@ -11,6 +11,7 @@ public class PickManager : Singleton<PickManager>
     [SerializeField]
     private List<QuestSO> _questDatas = new List<QuestSO>();
     public List<QuestSO> QuestDatas { get => _questDatas; set => _questDatas = value; }
+
     protected override void Awake()
     {
         base.Awake();
@@ -60,7 +61,6 @@ public class PickManager : Singleton<PickManager>
         }
         return null;
     }
-
     private QuestSO PickQuest()
     {
         if (_questDatas.Count == 0)
@@ -68,24 +68,40 @@ public class PickManager : Singleton<PickManager>
             return null;
         }
 
-        List<bool> isChecked = new List<bool>();
+        int currentDate = DateManager.Instance.CurrentDate;
+
+        Dictionary<QuestTierType, (int start, int end)> tierDateRange = new Dictionary<QuestTierType, (int, int)>{
+            { QuestTierType.Green, (1, 8) }, 
+            { QuestTierType.Blue, (7, 13) },
+            { QuestTierType.Yellow, (12, 18) },
+            { QuestTierType.Orange, (17, 25) },
+            { QuestTierType.Red, (24, 30) }};
+
+        List<bool> isChecked = new List<bool>(_questDatas.Count);
         for (int i = 0; i < _questDatas.Count; i++)
         {
             isChecked.Add(false);
         }
+
         int count = 0;
         while (count < _questDatas.Count)
         {
             int randomIndex = UnityEngine.Random.Range(0, _questDatas.Count);
+
+            if (isChecked[randomIndex])
+            {
+                continue;
+            }
+
+            isChecked[randomIndex] = true;
+            count++;
+
             QuestSO questSO = _questDatas[randomIndex];
-            if (!questSO.IsQuesting)
+            var range = tierDateRange[questSO.QuestTier];
+
+            if (!questSO.IsQuesting && range.start <= currentDate && currentDate <= range.end)
             {
                 return questSO;
-            }
-            else if (!isChecked[randomIndex])
-            {
-                isChecked[randomIndex] = true;
-                count++;
             }
         }
         return null;
