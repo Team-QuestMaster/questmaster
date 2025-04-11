@@ -5,6 +5,8 @@ public class AudioManager : Singleton<AudioManager>
 {
     private AudioSource _sfxAudioSource;
     private AudioSource _bgmAudioSource;
+    [SerializeField]
+    private AudioClip _bgmClip;
 
     protected override void Awake()
     {
@@ -21,6 +23,8 @@ public class AudioManager : Singleton<AudioManager>
         _bgmAudioSource = BGM.AddComponent<AudioSource>();
         _bgmAudioSource.playOnAwake = false;
         _bgmAudioSource.loop = true;
+        PlayBGM(_bgmClip);
+        SetBGMVolume(0.25f);
     }
 
     public void SetSFXVolume(float volume)

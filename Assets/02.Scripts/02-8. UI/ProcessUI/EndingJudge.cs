@@ -10,7 +10,7 @@ public class EndingJudge : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _endingMent;
 
     public int TestIndex;
-    
+
     [SerializeField] private int[] _questGrade = { 1, 2 }; // 예시 기준값, 실제 게임 값에 맞춰 조정 필요
     [SerializeField] private int[] _moneyGrade = { 100, 500 }; // 예시 기준값, 실제 게임 값에 맞춰 조정 필요
     [SerializeField] private int[] _fameGrade = { 5, 15 }; // 예시 기준값, 실제 게임 값에 맞춰 조정 필요
@@ -25,11 +25,11 @@ public class EndingJudge : MonoBehaviour
     private int _code; // 현재 사용하지 않음
 
     [SerializeField] private Sprite[] _endingImages = new Sprite[27]; // 크기 27로 조정 (사용자 직접 할당 필요)
-    
-    
-string[] _endingMents = new string[]
-{
-     "한때는 모험과 희망으로 가득 찼던 작은 길드. 그러나 재정적 지원 없이 시작한 여정은 언제나 험난했다. 퀘스트는 드물었고, 후원자도 없었다. 하나둘씩 떠나는 동료들, 녹슬어가는 무기, 닫힌 의뢰 게시판. 그렇게 아무도 모르게 사라져간 그들. 무너진 벽과 비어버린 서재, 낡은 장비만이 이 길드가 존재했음을 증명한다. 언젠가 누군가 이 잿더미 속에서 작은 불씨 하나를 발견하길 바랄 뿐이다.", // LLL - 000
+
+
+    string[] _endingMents = new string[]
+    {
+    "한때는 모험과 희망으로 가득 찼던 작은 길드. 그러나 재정적 지원 없이 시작한 여정은 언제나 험난했다. 퀘스트는 드물었고, 후원자도 없었다. 하나둘씩 떠나는 동료들, 녹슬어가는 무기, 닫힌 의뢰 게시판. 그렇게 아무도 모르게 사라져간 그들. 무너진 벽과 비어버린 서재, 낡은 장비만이 이 길드가 존재했음을 증명한다. 언젠가 누군가 이 잿더미 속에서 작은 불씨 하나를 발견하길 바랄 뿐이다.", // LLL - 000
     "이 길드는 전설이 되고 싶었던 것이 아니라, 오늘을 살아내는 것이 목표였다. 거대한 적도, 신비한 유적도 아닌, 매일 반복되는 사냥과 배달, 경비 임무가 일상이었다. 모험이라는 단어보다는 노동에 가까웠던 삶. 효율을 추구하고 시간에 맞춰 마감하는 일상이 반복되었지만, 그 안에서도 서로를 챙기며 작지만 단단한 유대가 피어났다. 비록 역사에는 기록되지 않더라도, 이들은 자신들만의 방식으로 세상을 지탱했다.", // LLM - 001
     "찬란한 전투도, 위대한 승리도 없었다. 오직 일과 일, 그리고 또 일이 있었을 뿐이다. 거대한 도시의 가장 밑바닥에서 시작한 이 길드는, 땀과 피로 하루하루를 쌓아올렸다. 명예는 없어도, 이들은 늘 최선을 다했고, 어느새 마을 사람들은 이들을 없으면 안 될 존재로 여기게 되었다. 이곳은 노동의 신전, 평범하지만 성실한 이들이 일궈낸 거대한 의지의 집결체다.", // LLH - 002
     "누구도 주목하지 않았고, 누구도 기대하지 않았던 작은 모험단. 하지만 그들은 조용히, 그러나 꾸준히 퀘스트를 해결하고, 마을 사람들을 도왔다. 아이들에게는 웃음을, 노인들에게는 안식을, 상인들에게는 안전한 길을 제공했다. 풍요롭지 않았지만, 그 마음만은 가장 부유했다. 이들이 심은 작은 선의의 씨앗은, 시간이 지나 더 넓은 땅으로 뿌리를 내리고 있었다.", // LML - 010
@@ -61,7 +61,7 @@ string[] _endingMents = new string[]
     
     "이들은 돈, 명성, 퀘스트 모두 완벽했다. 최고의 이상향이자, 모두가 꿈꾸던 길드. 그러나 그만큼의 부담도 컸다. 끝없는 기대와 경쟁 속에, 이들은 마지막 순간에 스스로 문을 닫기로 했다. 영원히 빛나기 위해, 스스로를 종언에 봉인한 것. 그 이후로, 이 길드의 이름은 금기어처럼 남았고, 전설이 되었다. 전설은, 끝났기에 아름다웠다.", // HHH - 222
     "돈은 없었지만 명성은 있었다. 퀘스트도 많이 했고, 이름도 알려졌다. 그러나 그것은 언제나 허약한 토대 위에 세워졌다. 내부는 갈등이 끊이지 않았고, 재정은 언제나 빠듯했다. 결국 작은 실수가 도미노처럼 이어졌고, 그들은 아무 말 없이 해산했다. 기록 속 그들의 문장은 지금은 해독되지 않는다. 마치 부서진 언어처럼 남아, 그 의미를 잃었다."  // LHH - 022
-};
+    };
     string[] _endingNames = new string[]
     {
         "잊혀진 불씨", // 000
@@ -100,10 +100,15 @@ string[] _endingMents = new string[]
 
     private void Start()
     {
+        GetGuildStat();
         EndingShow(TestIndex);
-        
     }
-
+    private void GetGuildStat()
+    {
+        _fame = GuildStatManager.Instance.Fame;
+        _money = GuildStatManager.Instance.Gold;
+        _quest = GuildStatManager.Instance.NumOfCompletedQuests;
+    }
 
     private void GradeEnding()
     {
@@ -162,7 +167,7 @@ string[] _endingMents = new string[]
         // 결과 처리
         if (endingImage != null && endingMent != null && endingName != null)
         {
-           EndingShow(endingIndex);
+            EndingShow(endingIndex);
         }
         else
         {
@@ -178,7 +183,7 @@ string[] _endingMents = new string[]
         _endingMent.text = GetEndingMent(endingIndex);
         _endingName.text = GetEndingName(endingIndex);
     }
-    
+
     private Sprite GetEndingImage(int index)
     {
         if (index >= 0 && index < _endingImages.Length)
