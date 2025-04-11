@@ -68,9 +68,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2036455193332455462, guid: 2349893ae37fefa428fb3bb65dbf9e2e, type: 3}
+  m_Sprite: {fileID: -4802829237631453621, guid: d99032e65c58f59438ef5723d72e217f, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -157,4 +157,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _adventurerSO: {fileID: 11400000, guid: 37b66365781e1a544b44fbe1b585baae, type: 2}
-  _idCardSprite: {fileID: 7198130302240854080, guid: 0300f6d739995c442a131590a8104ec9, type: 3}
+  _minerStatHandler: {fileID: 0}
+  _idCardSprite: {fileID: 0}
