@@ -63,6 +63,7 @@ public abstract class Item : MonoBehaviour // ������ �߻� Ŭ��
     private void Awake()
     {
         _itemEffect = GetComponent<UIEffect>();
+        _itemEffect.enabled = false;
         _itemEffectTweener = GetComponent<UIEffectTweener>();
         _itemEffect.LoadPreset(ITEM_SHINY);
         _itemEffectTweener.wrapMode = UIEffectTweener.WrapMode.Loop;
