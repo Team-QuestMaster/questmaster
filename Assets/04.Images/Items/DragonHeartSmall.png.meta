@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: f4362cf6f87f540499a4366a9274a1c3
+guid: efd8c2f370c61af4faf7f9efa25b43d1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2081494079872701541
-    second: menInRobes1_1-removebg-preview_0
-  - first:
-      213: 6707751925627164529
-    second: menInRobes1_1-removebg-preview_1
-  - first:
-      213: -751857806682583420
-    second: menInRobes1_1-removebg-preview_2
+      213: -3764949172949037130
+    second: DragonHeartSmall_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,19 +97,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -145,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: menInRobes1_1-removebg-preview_0
+      name: DragonHeartSmall_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 5
-        width: 92
-        height: 157
+        x: 10
+        y: 1
+        width: 107
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,52 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 56414e066d3f2ec10800000000000000
-      internalID: 2081494079872701541
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menInRobes1_1-removebg-preview_1
-      rect:
-        serializedVersion: 2
-        x: 155
-        y: 5
-        width: 92
-        height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 177137056d8b61d50800000000000000
-      internalID: 6707751925627164529
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menInRobes1_1-removebg-preview_2
-      rect:
-        serializedVersion: 2
-        x: 291
-        y: 5
-        width: 92
-        height: 157
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 48e841fee4dd095f0800000000000000
-      internalID: -751857806682583420
+      spriteID: 6bfc8fcbca630cbc0800000000000000
+      internalID: -3764949172949037130
       vertices: []
       indices: 
       edges: []
@@ -223,10 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      menInRobes1_1-removebg-preview_0: 2081494079872701541
-      menInRobes1_1-removebg-preview_1: 6707751925627164529
-      menInRobes1_1-removebg-preview_2: -751857806682583420
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
