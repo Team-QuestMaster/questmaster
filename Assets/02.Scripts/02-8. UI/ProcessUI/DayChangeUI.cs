@@ -2,17 +2,20 @@ using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using DG.Tweening.Plugins.Options;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DayChangeUI : MonoBehaviour
 {
     //Morning -> Afternoon -> Night
-    public Image[] SkyImages;
-
+    public List<List<Image>> SkyImages = new List<List<Image>>(3);
+public List<Image>  MorningImages;
+public List<Image> AfternoonImages;
+public List<Image>  NightImages;
     private int _currentStep;
     private int _characterCount;
-
+    [SerializeField] private Image DayFadeImage;
     [SerializeField]
     private int _step = 3;
 
@@ -31,15 +34,21 @@ public class DayChangeUI : MonoBehaviour
         StageShowManager.Instance.MiniCharacter.MinisMoveEvent += TimeFlow;
         _currentStep = 0;
         _characterCount = UIManager.Instance.CharacterUI.Characters.Count;
+
+        SkyImages = new List<List<Image>> { MorningImages, AfternoonImages, NightImages };
     }
 
     private void ReturnDay()
     {
-        for (int i = 1; i < SkyImages.Length; i++)
+        for (int i = 1; i < SkyImages.Count; i++)
         {
-            Color color = SkyImages[i].color;
-            color.a = 0;
-            SkyImages[i].color = color;
+            foreach (Image image in SkyImages[i])
+            {
+                Color color = image.color;
+                color.a = 0;
+                image.color = color;
+            }
+            
         }
 
         _currentStep = 0;
@@ -47,32 +56,47 @@ public class DayChangeUI : MonoBehaviour
 
     public void Night()
     {
-        Color color = SkyImages[SkyImages.Length - 1].color;
-        color.a = 1;
-        SkyImages[SkyImages.Length - 1].color = color;
+        foreach (Image image in SkyImages[SkyImages.Count - 1])
+        {
+            Color color = image.color;
+            color.a = 1;
+            image.color = color;
+        }
     }
+
 
     public void TimeFlow()
     {
-        float duration = 1f; // 알파 변화 애니메이션 시간 (원하는 값으로 조절)
+        float duration = 1f;
 
         if (_currentStep + _step <= _characterCount * 1)
         {
             _currentStep += _step;
-
             float targetAlpha = (float)_currentStep / (float)_characterCount;
-            SkyImages[1].DOFade(targetAlpha, duration);
+
+            foreach (Image image in SkyImages[1])
+            {
+                image.DOFade(targetAlpha, duration);
+            }
         }
         else if (_currentStep + _step <= _characterCount * 2)
         {
             _currentStep += _step;
-
             float targetAlpha = (float)(_currentStep - _characterCount) / (float)_characterCount;
-            SkyImages[2].DOFade(targetAlpha, duration);
+
+            foreach (Image image in SkyImages[2])
+            {
+                image.DOFade(targetAlpha, duration);
+            }
         }
         else
         {
-            SkyImages[2].DOFade(1f, duration);
+            foreach (Image image in SkyImages[2])
+            {
+                image.DOFade(1f, duration);
+            }
         }
+        DayFadeImage.DOFade((float)(_currentStep/_characterCount)*0.5f, duration);
     }
+
 }

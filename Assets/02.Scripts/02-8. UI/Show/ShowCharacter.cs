@@ -74,7 +74,7 @@ public class ShowCharacter : MonoBehaviour
         currentImage.DOFade(1, 2).SetAutoKill(false)
             .OnComplete(()=>onComplete?.Invoke());
         currentImage.rectTransform.DOPunchPosition(new Vector3(0, -50, 0), 2f,3,0);
-        currentImage.rectTransform.DOLocalMoveX(-650f,2f).SetAutoKill(false);
+        currentImage.rectTransform.DOLocalMoveX(-680f,2f).SetAutoKill(false);
 
         AudioManager.Instance.PlaySFX(_appearSound);
         AudioManager.Instance.PlaySFX(_walkingSound);

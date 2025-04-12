@@ -65,8 +65,8 @@ public class QuestUI : MonoBehaviour
         bigQuestPaperContent.SealingImage.color = _currentQuest.QuestData.QuestTierImageColor;
         bigQuestPaperContent.TitleTMP.text = _currentQuestData.QuestName.Replace("- ", "\n");
         bigQuestPaperContent.MainBodyTMP.text = _currentQuestData.QuestDescription;
-        bigQuestPaperContent.RewardTMP.text = $"<color=yellow>골드</color> {_currentQuestData.GoldReward} <color=#90FFEB>명성치</color> {_currentQuestData.FameReward}";
-        bigQuestPaperContent.NeedTimeTMP.text = $"<color=#8B4513>소요시간</color> {_currentQuestData.Days}일";
+        bigQuestPaperContent.RewardTMP.text = $"골드 {_currentQuestData.GoldReward}\n명성치 {_currentQuestData.FameReward}";
+        bigQuestPaperContent.NeedTimeTMP.text = $"소요시간 {_currentQuestData.Days}일";
     }
 
     public void ChangeQuest()
