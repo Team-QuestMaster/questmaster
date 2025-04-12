@@ -17,7 +17,11 @@ public class ShowIDCard : MonoBehaviour
 
     public void Appear()
     {
-        OnIDCardAppear?.Invoke();
+        if (UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Adventurer>().AdventurerSO.AdventurerType !=
+            AdventurerType.Dealer)
+        {
+            OnIDCardAppear?.Invoke();
+        }
     }
     public void Disappear()
     {
@@ -35,10 +39,13 @@ public class ShowIDCard : MonoBehaviour
     private void IDCardDisappear()
     {
         UIManager.Instance.AdventurerIDCardUI.SmallIDCardGO
-            .GetComponent<Image>().DOFade(0, 1f)
+            .GetComponent<Image>().rectTransform.DOShakeRotation(0.3f, new Vector3(0,0,0.3f)).SetEase(Ease.InBack);
+        UIManager.Instance.AdventurerIDCardUI.SmallIDCardGO
+            .GetComponent<Image>().DOFade(0, 0.5f)
             .OnComplete
             (() => UIManager.Instance.AdventurerIDCardUI.SmallIDCardGO.SetActive(false));
 
+        UIManager.Instance.AdventurerIDCardUI.BigIDCardGO.GetComponent<Image>().rectTransform.DOShakeRotation(0.3f, new Vector3(0,0,0.3f)).SetEase(Ease.InBack);
         UIManager.Instance.AdventurerIDCardUI.BigIDCardGO
             .GetComponent<CanvasGroup>().DOFade(0, 1f)
             .OnComplete(() =>

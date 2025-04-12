@@ -37,7 +37,8 @@ public class NightEventManager : Singleton<NightEventManager>
         UIManager.Instance.CharacterUI.Characters.Clear();
         UIManager.Instance.CharacterUI.Characters.Add(_dealer);
         StageShowManager.Instance.ShowCharacter.Appear();        
-        ItemManager.Instance.SellingItems();
+        AudioManager.Instance.PlayBGM(AudioManager.Instance.DealerClip);
+        //ItemManager.Instance.SellingItems();
         
     }
 

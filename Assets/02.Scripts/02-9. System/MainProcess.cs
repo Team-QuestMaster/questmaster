@@ -123,14 +123,14 @@ public class MainProcess : MonoBehaviour
                 GuildStatManager.Instance.Fame += questResult.QuestData.FameReward;
                 GuildStatManager.Instance.Gold += questResult.QuestData.GoldReward;
                 GuildStatManager.Instance.NumOfCompletedQuests++;
-                UIManager.Instance.ReportUI.QuestResultTextAdd($"성공: {questResult.QuestData.QuestName} | {questResult.Probability}%");
+                UIManager.Instance.ReportUI.QuestResultTextAdd($"<color=#99A136>성공 :</color> {questResult.QuestData.QuestName} | {questResult.Probability.ToString("N1")}%");
                // UIManager.Instance.ReportUI.SpecialCommentText($"성공: {questResult.QuestData.QuestName}: {questResult.QuestData.QuestHint}");
             }
             else
             {
                 GuildStatManager.Instance.Fame -= questResult.QuestData.FamePenalty;
                 GuildStatManager.Instance.Gold -= questResult.QuestData.GoldPenalty;
-                UIManager.Instance.ReportUI.QuestResultTextAdd($"실패: {questResult.QuestData.QuestName} | {questResult.Probability}%");
+                UIManager.Instance.ReportUI.QuestResultTextAdd($"<color=#C4402E>실패 :</color> {questResult.QuestData.QuestName} | {questResult.Probability.ToString("N1")}%");
                 UIManager.Instance.ReportUI.SpecialCommentText($"{questResult.QuestData.QuestName} : {questResult.QuestData.QuestHint}");
             }
         }

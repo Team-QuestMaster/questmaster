@@ -556,8 +556,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uADFC\uB825 1000\n\uB9C8\uB825 1000"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e553e871f744ffb45a80e675b366ea24, type: 2}
-  m_sharedMaterial: {fileID: 6165726942619029145, guid: e553e871f744ffb45a80e675b366ea24, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 01072e9c3e57da543862deabc43b5770, type: 2}
+  m_sharedMaterial: {fileID: 8073085993620703776, guid: 01072e9c3e57da543862deabc43b5770, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -967,8 +967,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uD1B5\uCC30\uB825 1000\n\uC190\uC7AC\uC8FC 1000"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e553e871f744ffb45a80e675b366ea24, type: 2}
-  m_sharedMaterial: {fileID: 6165726942619029145, guid: e553e871f744ffb45a80e675b366ea24, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 01072e9c3e57da543862deabc43b5770, type: 2}
+  m_sharedMaterial: {fileID: 8073085993620703776, guid: 01072e9c3e57da543862deabc43b5770, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1545,8 +1545,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uBAA8\uD5D8\uAC00 \uC774\uB984"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b71b48ad8c24bf24f9331d3131bc55f3, type: 2}
-  m_sharedMaterial: {fileID: -3819399814866885699, guid: b71b48ad8c24bf24f9331d3131bc55f3, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 276b06281ce69194b9940ffc309908f0, type: 2}
+  m_sharedMaterial: {fileID: 8859146385478402100, guid: 276b06281ce69194b9940ffc309908f0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1570,7 +1570,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.7
+  m_fontSize: 24.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1681,8 +1681,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC5EC\uAE30\uC5D0 \uCE6D\uD638\uAC00 \uB4E4\uC5B4\uAC10"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e553e871f744ffb45a80e675b366ea24, type: 2}
-  m_sharedMaterial: {fileID: 6165726942619029145, guid: e553e871f744ffb45a80e675b366ea24, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 276b06281ce69194b9940ffc309908f0, type: 2}
+  m_sharedMaterial: {fileID: 8859146385478402100, guid: 276b06281ce69194b9940ffc309908f0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1706,7 +1706,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.65
+  m_fontSize: 18
   m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 1

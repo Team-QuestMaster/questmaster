@@ -90,7 +90,7 @@ public bool Interactable = true;
                 bool hasQuestTag = false;
                 bool hasBoardTag = false;
 
-                foreach (var result in results)
+                /*foreach (var result in results)
                 {
                     string tag = result.gameObject.tag;
                     hitTags.Add(tag);
@@ -100,7 +100,8 @@ public bool Interactable = true;
                         hasQuestTag = true;
                         break;
                     }
-                }
+                }*/
+                if(results[1].gameObject.CompareTag("Quest")) hasQuestTag = true;
 
                 foreach (var result in results)
                 {

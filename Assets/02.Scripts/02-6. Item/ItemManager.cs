@@ -11,22 +11,22 @@ using NUnit.Framework.Constraints;
 public class ItemManager : Singleton <ItemManager>
 {
     [SerializeField]
-    private List<GameObject> _remainItemList = new List<GameObject>(); // ¹Ìº¸À¯ ¾ÆÀÌÅÛ ¸®½ºÆ®
+    private List<GameObject> _remainItemList = new List<GameObject>(); // ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
     public List<GameObject> RemainItemList { get => _remainItemList; }
     [SerializeField]
-    private List<GameObject> _havingItemList = new List<GameObject>(); // º¸À¯ ¾ÆÀÌÅÛ ¸®½ºÆ®
+    private List<GameObject> _havingItemList = new List<GameObject>(); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
     public List<GameObject> HavingItemList { get => _havingItemList;}
 
-    private List<GameObject> _shoppingList = new List<GameObject>(); // »óÁ¡ ¾ÆÀÌÅÛ ¸®½ºÆ®
+    private List<GameObject> _shoppingList = new List<GameObject>(); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
     public List<GameObject> ShoppingList { get => _shoppingList; set => _shoppingList = value; }
-    private const int SHOP_ITEM_COUNT = 3; // ¾ß½ÃÀå ¹°Ç° ¼ö
+    private const int SHOP_ITEM_COUNT = 3; // ï¿½ß½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç° ï¿½ï¿½
 
     [SerializeField]
-    private int _inventoryMaxCount; // ÀÎº¥Åä¸® ÃÖ´ë Ä­ ¼ö, ºÒº¯
+    private int _inventoryMaxCount; // ï¿½Îºï¿½ï¿½ä¸® ï¿½Ö´ï¿½ Ä­ ï¿½ï¿½, ï¿½Òºï¿½
     public int InventoryMaxCount { get => _inventoryMaxCount;}
 
     [SerializeField]
-    private int _inventoryCount; // ÇöÀç ÀÎº¥Åä¸® Ä­ ¼ö (0 ÀÌ»ó MAX ÀÌÇÏ)
+    private int _inventoryCount; // ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸® Ä­ ï¿½ï¿½ (0 ï¿½Ì»ï¿½ MAX ï¿½ï¿½ï¿½ï¿½)
     public int InventoryCount { get => _inventoryCount; set => _inventoryCount = Mathf.Clamp(value, 0, _inventoryMaxCount); }
 
     protected override void Awake()
@@ -34,30 +34,30 @@ public class ItemManager : Singleton <ItemManager>
         base.Awake();
     }
 
-    public void BuyItem(GameObject item) // »óÁ¡¿¡¼­ Á¦°Å, º¸À¯ ¾ÆÀÌÅÛ¿¡ Ãß°¡
+    public void BuyItem(GameObject item) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ß°ï¿½
     {
         Item itemComponent = item.GetComponent<Item>();
         if (IsInventoryFull())
         {
-            Debug.Log("ÀÎº¥Åä¸®°¡ °¡µæ Ã¡½À´Ï´Ù.");
+            Debug.Log("ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¡ï¿½ï¿½ï¿½Ï´ï¿½.");
             return;
         }
         if(!GuildStatManager.Instance.TryConsumeGold(itemComponent.Price))
         {
-            Debug.Log("°ñµå°¡ ºÎÁ·ÇÕ´Ï´Ù.");
+            Debug.Log("ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.");
             return;
         }
         _havingItemList.Add(item);
         if(itemComponent.ItemState != ItemStateType.ReadyToBuy)
         {
-            Debug.Log("¾ÆÀÌÅÛ »óÅÂ°¡ ReadyToBuy°¡ ¾Æ´Õ´Ï´Ù.¿¡·¯.");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ ReadyToBuyï¿½ï¿½ ï¿½Æ´Õ´Ï´ï¿½.ï¿½ï¿½ï¿½ï¿½.");
             return;
         }
         Sequence seq = DOTween.Sequence();
 
         seq.Append(item.transform.DOScale(transform.localScale * 1.4f, 0.25f).SetEase(Ease.OutQuad));
         seq.Append(item.transform.DOScale(transform.localScale, 0.25f).SetEase(Ease.InQuad));
-        itemComponent.ItemState = ItemStateType.Bought; // ¾ÆÀÌÅÛ »óÅÂ º¯°æ
+        itemComponent.ItemState = ItemStateType.Bought; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     public bool TryBuyall()
@@ -72,7 +72,7 @@ public class ItemManager : Singleton <ItemManager>
         }
         if (goldSum > GuildStatManager.Instance.Gold)
         {
-            Debug.Log("°ñµå°¡ ºÎÁ·ÇÕ´Ï´Ù.");
+            Debug.Log("ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.");
             foreach (GameObject item in _shoppingList)
             {
                 if (item.GetComponent<Item>().ItemState == ItemStateType.ReadyToBuy)
@@ -102,22 +102,22 @@ public class ItemManager : Singleton <ItemManager>
 
     public void StatItemUse(Adventurer adventurer, Quest quest)
     {
-        List<GameObject> removeList = new List<GameObject>(); // »ç¿ëÇÑ ¾ÆÀÌÅÛ ¸®½ºÆ®
+        List<GameObject> removeList = new List<GameObject>(); // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
         foreach (GameObject item in _havingItemList)
         {
             if (item.GetComponent<Item>().ItemState == ItemStateType.ReadyToUse && item.GetComponent<Item>().ItemEffectType == ItemEffectType.StatChange)
             {
                 item.GetComponent<StatItem>().StatUse(adventurer);
                 item.GetComponent<DraggingObjectSwap>().SwapTargetObject.gameObject.GetComponent<Image>().DOFade(0, 1).SetAutoKill(false);
-                item.SetActive(false); // ¾ÆÀÌÅÛ ºñÈ°¼ºÈ­
-                item.GetComponent<Item>().ItemState = ItemStateType.UnBuy; // ¾ÆÀÌÅÛ »óÅÂ º¯°æ
-                removeList.Add(item); // º¸À¯ ¾ÆÀÌÅÛ ¸®½ºÆ®¿¡¼­ Á¦°Å
-                RemainItemList.Add(item); // ¹Ìº¸À¯ ¾ÆÀÌÅÛ ¸®½ºÆ®¿¡ Ãß°¡
+                item.SetActive(false); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
+                item.GetComponent<Item>().ItemState = ItemStateType.UnBuy; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+                removeList.Add(item); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+                RemainItemList.Add(item); // ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ß°ï¿½
             }
         }
         foreach(GameObject item in removeList)
         {
-            _havingItemList.Remove(item); // º¸À¯ ¾ÆÀÌÅÛ ¸®½ºÆ®¿¡¼­ Á¦°Å
+            _havingItemList.Remove(item); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
          }
     }
 
@@ -125,57 +125,60 @@ public class ItemManager : Singleton <ItemManager>
     {
         float sum = 0;
 
-        List<GameObject> removeList = new List<GameObject>(); // »ç¿ëÇÑ ¾ÆÀÌÅÛ ¸®½ºÆ®
+        List<GameObject> removeList = new List<GameObject>(); // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
         foreach (GameObject item in _havingItemList)
         {
             if (item.GetComponent<Item>().ItemState == ItemStateType.ReadyToUse && item.GetComponent<Item>().ItemEffectType == ItemEffectType.QuestChange)
             {
                 sum += item.GetComponent<QuestItem>().QuestUse(quest);
                 item.GetComponent<DraggingObjectSwap>().SwapTargetObject.gameObject.GetComponent<Image>().DOFade(0, 1).SetAutoKill(false);
-                item.SetActive(false); // ¾ÆÀÌÅÛ ºñÈ°¼ºÈ­
-                item.GetComponent<Item>().ItemState = ItemStateType.UnBuy; // ¾ÆÀÌÅÛ »óÅÂ º¯°æ
-                removeList.Add(item); // º¸À¯ ¾ÆÀÌÅÛ ¸®½ºÆ®¿¡¼­ Á¦°Å
-                RemainItemList.Add(item); // ¹Ìº¸À¯ ¾ÆÀÌÅÛ ¸®½ºÆ®¿¡ Ãß°¡
+                item.SetActive(false); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
+                item.GetComponent<Item>().ItemState = ItemStateType.UnBuy; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+                removeList.Add(item); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+                RemainItemList.Add(item); // ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ß°ï¿½
             }
         }
         foreach (GameObject item in removeList)
         {
-            _havingItemList.Remove(item); // º¸À¯ ¾ÆÀÌÅÛ ¸®½ºÆ®¿¡¼­ Á¦°Å
+            _havingItemList.Remove(item); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
         return sum;
     }
 
     public void SellingItems()
     {
-        Debug.Log("SellingItems È£ÃâµÊ\n" + Environment.StackTrace);
+        Debug.Log("SellingItems È£ï¿½ï¿½ï¿½\n" + Environment.StackTrace);
         StartCoroutine(SellingItemsCoroutine());
     }
 
     private IEnumerator SellingItemsCoroutine()
     {
 
-        yield return new WaitForSeconds(1f); // 1ÃÊ ´ë±â
+        yield return new WaitForSeconds(1f); // 1ï¿½ï¿½ ï¿½ï¿½ï¿½
         for (int i = 0; i < SHOP_ITEM_COUNT; i++)
         {
-            if (_remainItemList.Count == 0) // ¹Ìº¸À¯ ¾ÆÀÌÅÛ ¸®½ºÆ®°¡ ºñ¾îÀÖÀ¸¸é Á¾·á
+            if (_remainItemList.Count == 0) // ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             {
-                Debug.Log("¹Ìº¸À¯ ¾ÆÀÌÅÛ ¸®½ºÆ®°¡ ºñ¾ú½À´Ï´Ù.");
+                Debug.Log("ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
                 yield break;
             }
             GameObject item = _remainItemList[UnityEngine.Random.Range(0, _remainItemList.Count)];
             GameObject smallItem = item.GetComponent<DraggingObjectSwap>().SwapTargetObject.gameObject;
-            _shoppingList.Add(item); // »óÁ¡ ¾ÆÀÌÅÛ ¸®½ºÆ®¿¡ Ãß°¡
-            _remainItemList.Remove(item); // ¹Ìº¸À¯ ¾ÆÀÌÅÛ ¸®½ºÆ®¿¡¼­ Á¦°Å   
+            _shoppingList.Add(item); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ß°ï¿½
+            _remainItemList.Remove(item); // ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½   
 
-            smallItem.GetComponent<RectTransform>().position = new Vector3(-8 + i * 1.5f, -4, 0); // »óÁ¡¿¡ ¾ÆÀÌÅÛ À§Ä¡ ÃÊ±âÈ­
+            smallItem.GetComponent<RectTransform>().position = new Vector3(-8 + i * 1.5f, -4, 0); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Ê±ï¿½È­
             smallItem.SetActive(true);
-            smallItem.GetComponent<Image>().DOFade(1, 1).SetAutoKill(false);
-            yield return new WaitForSeconds(0.5f); // 1ÃÊ ´ë±â
+            Image smallItemImage = smallItem.GetComponent<Image>();
+            smallItemImage.DOFade(1, 0.3f).SetAutoKill(false);
+            smallItemImage.rectTransform.DOShakeScale(0.3f,0.3f).SetAutoKill(false);
+            
+            yield return new WaitForSeconds(0.5f); // 1ï¿½ï¿½ ï¿½ï¿½ï¿½
         }
         NightEventManager.Instance.Selling = true;
     }
 
-    public void ReturnItems(Action onComplete = null) // »óÁ¡¿¡ ³²Àº ¾ÆÀÌÅÛ ¹Ìº¸À¯¾ÆÀÌÅÛ¿¡ Ãß°¡
+    public void ReturnItems(Action onComplete = null) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ß°ï¿½
     {
         StartCoroutine(ReturnItemsCoroutine(onComplete));
     }
@@ -190,30 +193,36 @@ public class ItemManager : Singleton <ItemManager>
                 continue;
 
             GameObject smallItem = item.GetComponent<DraggingObjectSwap>().SwapTargetObject.gameObject;
-            smallItem.GetComponent<Image>().DOFade(0, 1).SetAutoKill(false); // ¾ÆÀÌÅÛ ÆäÀÌµå ¾Æ¿ô
-            item.GetComponent<Image>().DOFade(0, 1).SetAutoKill(false); // ¾ÆÀÌÅÛ ÆäÀÌµå ¾Æ¿ô
+            
+            Image smallItemImage = smallItem.GetComponent<Image>();
+            smallItemImage.DOFade(0, 0.5f).SetAutoKill(false); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Æ¿ï¿½
+            smallItemImage.rectTransform.DOScale(0, 0.5f).SetAutoKill(false).SetEase(Ease.InBack);    
+            
+            Image itemImage = smallItem.GetComponent<Image>();
+            itemImage.DOFade(0, 1).SetAutoKill(false); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Æ¿ï¿½
+            itemImage.rectTransform.DOScale(0, 0.5f).SetAutoKill(false).SetEase(Ease.InBack);
 
-            yield return new WaitForSeconds(1f); // 1ÃÊ ´ë±â
+            yield return new WaitForSeconds(1f); // 1ï¿½ï¿½ ï¿½ï¿½ï¿½
             _remainItemList.Add(item); 
             smallItem.SetActive(false);
-            item.SetActive(false); // ¾ÆÀÌÅÛ ºñÈ°¼ºÈ­
+            item.SetActive(false); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
             if(item.GetComponent<Item>().ItemState == ItemStateType.ReadyToBuy)
             {
-                item.GetComponent<Item>().ItemState = ItemStateType.UnBuy; // ¾ÆÀÌÅÛ »óÅÂ º¯°æ
+                item.GetComponent<Item>().ItemState = ItemStateType.UnBuy; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             }
         }
-            _shoppingList.Clear(); // »óÁ¡ ¾ÆÀÌÅÛ ¸®½ºÆ® ÃÊ±âÈ­
+            _shoppingList.Clear(); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ê±ï¿½È­
 
-        onComplete?.Invoke(); // ¸ðµç ¾ÆÀÌÅÛÀÌ ¹ÝÈ¯µÈ ÈÄ È£Ãâ
+        onComplete?.Invoke(); // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ È£ï¿½ï¿½
     }
 
 
-    public bool IsInventoryFull() // ÀÎº¥Åä¸® °¡µæ Ã¡´ÂÁö È®ÀÎ
+    public bool IsInventoryFull() // ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ Ã¡ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
     {
         return _inventoryCount <= _havingItemList.Count;
     }
 
-    public bool IsInventoryMax() // ÀÎº¥Åä¸® È®Àå °¡´É ¿©ºÎ È®ÀÎ
+    public bool IsInventoryMax() // ï¿½Îºï¿½ï¿½ä¸® È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
     {
         return _inventoryCount == _inventoryMaxCount;
     }
