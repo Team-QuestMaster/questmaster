@@ -1,13 +1,15 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class AudioManager : Singleton<AudioManager>
 {
     private AudioSource _sfxAudioSource;
     private AudioSource _bgmAudioSource;
     [SerializeField]
-    private AudioClip _bgmClip;
-
+    public AudioClip BgmClip;
+    
+    public AudioClip DealerClip;
     protected override void Awake()
     {
         base.Awake();
@@ -23,7 +25,7 @@ public class AudioManager : Singleton<AudioManager>
         _bgmAudioSource = BGM.AddComponent<AudioSource>();
         _bgmAudioSource.playOnAwake = false;
         _bgmAudioSource.loop = true;
-        PlayBGM(_bgmClip);
+        PlayBGM(BgmClip);
         SetBGMVolume(0.25f);
     }
 

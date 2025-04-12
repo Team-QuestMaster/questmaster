@@ -23,8 +23,12 @@ public class ShowQuest : MonoBehaviour
     }
     public void Appear()
     {
-        AudioManager.Instance.PlaySFX(_onAppearAudioClip);
-        QuestAppearShow?.Invoke();
+        if (UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Adventurer>().AdventurerSO.AdventurerType != AdventurerType.Dealer)
+        {
+            AudioManager.Instance.PlaySFX(_onAppearAudioClip);
+            QuestAppearShow?.Invoke();
+        }
+        
     }
     public void Disappear()
     {
@@ -32,15 +36,19 @@ public class ShowQuest : MonoBehaviour
     }
     private void QuestAppear()
     {
-        UIManager.Instance.QuestUI.SmallQuestGO.GetComponent<Image>().DOFade(1, 1f);
-        UIManager.Instance.QuestUI.BigQuestPaperGO.GetComponent<CanvasGroup>().DOFade(1, 1f);
+        UIManager.Instance.QuestUI.SmallQuestGO.GetComponent<Image>().DOFade(1, 0.5f);
+        UIManager.Instance.QuestUI.BigQuestPaperGO.GetComponent<CanvasGroup>().DOFade(1, 0.5f);
     }
     private void QuestDisappear()
     {
-        UIManager.Instance.QuestUI.SmallQuestGO.GetComponent<Image>().DOFade(0, 1f)
+
+        UIManager.Instance.QuestUI.SmallQuestGO.GetComponent<Image>().rectTransform.DOShakeRotation(0.3f, new Vector3(0,0,0.3f)).SetEase(Ease.InBack);
+        UIManager.Instance.QuestUI.SmallQuestGO.GetComponent<Image>().DOFade(0, 0.5f)
             .OnComplete(() => UIManager.Instance.QuestUI.SmallQuestGO.SetActive(false));
 
-        UIManager.Instance.QuestUI.BigQuestPaperGO.GetComponent<CanvasGroup>().DOFade(0, 1f)
+
+        UIManager.Instance.QuestUI.BigQuestPaperGO.GetComponent<Image>().rectTransform.DOShakeRotation(0.3f, new Vector3(0,0,0.3f)).SetEase(Ease.InBack);
+        UIManager.Instance.QuestUI.BigQuestPaperGO.GetComponent<CanvasGroup>().DOFade(0, 0.5f)
             .OnComplete(() =>
             {
                 UIManager.Instance.QuestUI.BigQuestPaperGO.SetActive(false);

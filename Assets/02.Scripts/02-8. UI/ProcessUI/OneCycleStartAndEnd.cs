@@ -60,8 +60,8 @@ public class OneCycleStartAndEnd : MonoBehaviour
         // 세금 나가고
         int currentDate = DateManager.Instance.CurrentDate;
         string taxMessage = _taxPayment.TryPayTax(currentDate)
-            ? $"**{_taxPayment.Tax}만큼 세금으로 나갔습니다**"
-            : $"**세금 납부일까지 {_taxPayment.GetPaymentTerm(currentDate)}일 남았습니다.\n 납부할 세금 {_taxPayment.Tax}**";
+            ? $"<color=#9A5195>**{_taxPayment.Tax}만큼 세금으로 나갔습니다**</color>"
+            : $"<color=#9A5195>**세금 납부일까지 {_taxPayment.GetPaymentTerm(currentDate)}일 남았습니다.\n 납부할 세금 {_taxPayment.Tax}**</color>";
         UIManager.Instance.ReportUI.SpecialCommentText(taxMessage);
         // 레포트 보여주고
         UIManager.Instance.ReportUI.ShowReportUI();

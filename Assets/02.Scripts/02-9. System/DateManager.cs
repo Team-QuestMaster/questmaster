@@ -61,6 +61,7 @@ public class DateManager : Singleton<DateManager>
     {
         _currentDate++;
         OnDateChanged?.Invoke();
+        AudioManager.Instance.PlayBGM(AudioManager.Instance.BgmClip);
     }
 
     private bool CheckNightEventDate()

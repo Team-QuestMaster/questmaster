@@ -1016,7 +1016,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dontDestroy: 1
-  _bgmClip: {fileID: 8300000, guid: 7ee70ff9185f5eb438341a9da29066e1, type: 3}
+  BgmClip: {fileID: 8300000, guid: 7ee70ff9185f5eb438341a9da29066e1, type: 3}
+  DealerClip: {fileID: 8300000, guid: 3816b7da077b3174dbd1b0cf4e75a81e, type: 3}
 --- !u!4 &1407509276
 Transform:
   m_ObjectHideFlags: 0

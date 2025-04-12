@@ -3316,6 +3316,22 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 0.8627451
       objectReference: {fileID: 0}
+    - target: {fileID: 4932645757579695327, guid: 8cffbc4f6b398a9448a41fe35ed2f592, type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932645757579695327, guid: 8cffbc4f6b398a9448a41fe35ed2f592, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932645757579695327, guid: 8cffbc4f6b398a9448a41fe35ed2f592, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932645757579695327, guid: 8cffbc4f6b398a9448a41fe35ed2f592, type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: -15
+      objectReference: {fileID: 0}
     - target: {fileID: 8967329536261977897, guid: 8cffbc4f6b398a9448a41fe35ed2f592, type: 3}
       propertyPath: _dragArea
       value: 
@@ -4071,6 +4087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefix: '!!'
   _appearSound: {fileID: 8300000, guid: 7ecc83075fdf48241917a375285becc0, type: 3}
+  _knockingSound: {fileID: 8300000, guid: a980eada4bed13b4ab3cf0c8a90cd826, type: 3}
   _walkingSound: {fileID: 8300000, guid: 551b86602394c35478e30c4c0f1e08fe, type: 3}
 --- !u!114 &417627154
 MonoBehaviour:
@@ -15704,9 +15721,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.8964853, b: 0.79811317, a: 1}
+  m_Color: {r: 1, g: 0.8964853, b: 0.79811317, a: 0}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: -15, y: -15, z: -15, w: -15}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -15746,7 +15763,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -20, y: -298.43}
-  m_SizeDelta: {x: 100, y: 136.87}
+  m_SizeDelta: {x: 58.51, y: 80.07}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1421628270
 MonoBehaviour:
@@ -22766,6 +22783,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 703589288}
     m_Modifications:
+    - target: {fileID: 36519912966748041, guid: a2654e553fb2fa84fad1be2b724ac3e6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 442325139799184298, guid: a2654e553fb2fa84fad1be2b724ac3e6, type: 3}
       propertyPath: m_Name
       value: BigQuestPaper
