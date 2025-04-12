@@ -145,10 +145,10 @@ TextureImporter:
       name: 10__5_-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 172
-        y: 9
-        width: 311
-        height: 619
+        x: 0
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,33 +163,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: 10__5_-removebg-preview_1
-      rect:
-        serializedVersion: 2
-        x: 173
-        y: 366
-        width: 9
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 83da563b7c2eef0c0800000000000000
-      internalID: -4539942027006726856
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 46480f0000497e2419fda7adcc9ac119
     internalID: 0
     vertices: []
     indices: 
@@ -200,7 +178,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       10__5_-removebg-preview_0: 3712419384747525831
-      10__5_-removebg-preview_1: -4539942027006726856
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

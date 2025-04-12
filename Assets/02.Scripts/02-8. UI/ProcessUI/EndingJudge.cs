@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -182,8 +183,10 @@ public class EndingJudge : MonoBehaviour
     void EndingShow(int endingIndex)
     {
         _endingImage.sprite = GetEndingImage(endingIndex);
-        _endingMent.text = GetEndingMent(endingIndex);
-        _endingName.text = GetEndingName(endingIndex);
+        _endingName.text = "";
+        _endingMent.text = "";
+        _endingMent.DOText(GetEndingMent(endingIndex), 3f);
+        _endingName.DOText(GetEndingName(endingIndex), 3f);
         GetEndingStat();
     }
     private Sprite GetEndingImage(int index)

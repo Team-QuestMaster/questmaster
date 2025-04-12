@@ -15,6 +15,7 @@ public class ShowCharacter : MonoBehaviour
     
     public string Prefix = "!!";
     [SerializeField] private AudioClip _appearSound;
+    [SerializeField] private AudioClip _walkingSound;
     private void Start()
     {
         CharacterDisappearShow += () => CharacterDisappear();
@@ -24,12 +25,17 @@ public class ShowCharacter : MonoBehaviour
     public void AppearEventSet()
     {
         CharacterAppearShow += UIManager.Instance.CharacterUI.Initialize;
-        CharacterAppearShow += () => CharacterAppear();
+        CharacterAppearShow += () => CharacterAppear(CharacterSpeak);
     }
     public void Appear()
     {
         CharacterAppearShow?.Invoke();
 
+        
+    }
+
+    void CharacterSpeak()
+    {
         Adventurer adventurer = UIManager.Instance.CharacterUI.CurrentCharacter.GetComponent<Adventurer>();
         string original = adventurer.AdventurerData.DialogSet.Dialog[0];
         
@@ -71,6 +77,7 @@ public class ShowCharacter : MonoBehaviour
         currentImage.rectTransform.DOLocalMoveX(-650f,2f).SetAutoKill(false);
 
         AudioManager.Instance.PlaySFX(_appearSound);
+        AudioManager.Instance.PlaySFX(_walkingSound);
     }
     void CharacterDisappear(System.Action onComplete = null)
     {
@@ -84,5 +91,6 @@ public class ShowCharacter : MonoBehaviour
                 UIManager.Instance.CharacterUI.ChangeCharacter();
                 onComplete?.Invoke();
             });
+        AudioManager.Instance.PlaySFX(_walkingSound);
     }
 }
