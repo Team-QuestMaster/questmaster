@@ -55,6 +55,10 @@ public class OneCycleStartAndEnd : MonoBehaviour
 
     private void StartDayCycle()
     {
+        if (DateManager.Instance.CurrentDate == DateManager.Instance.EndingDate) 
+        {
+            return;
+        }
         Debug.Log("Cycle이 시작된다");
         // 아침이면
         // 세금 나가고
