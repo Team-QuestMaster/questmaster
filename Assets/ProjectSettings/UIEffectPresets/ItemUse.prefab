@@ -73,7 +73,7 @@ MonoBehaviour:
   m_TransitionColor: {r: 0, g: 0.5, b: 1, a: 1}
   m_TransitionColorGlow: 1
   m_TransitionPatternReverse: 0
-  m_TransitionAutoPlaySpeed: 0.2
+  m_TransitionAutoPlaySpeed: 0
   m_TargetMode: 0
   m_TargetColor: {r: 1, g: 1, b: 1, a: 1}
   m_TargetRange: 1
