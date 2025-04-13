@@ -29,6 +29,9 @@ public class ItemManager : Singleton <ItemManager>
     private int _inventoryCount; // ���� �κ��丮 ĭ �� (0 �̻� MAX ����)
     public int InventoryCount { get => _inventoryCount; set => _inventoryCount = Mathf.Clamp(value, 0, _inventoryMaxCount); }
 
+    [SerializeField] private AudioClip _appearAudio;
+    [SerializeField] private AudioClip _disappearAudio;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -169,6 +172,7 @@ public class ItemManager : Singleton <ItemManager>
 
             smallItem.GetComponent<RectTransform>().position = new Vector3(-8 + i * 1.5f, -4, 0); // ������ ������ ��ġ �ʱ�ȭ
             smallItem.SetActive(true);
+            AudioManager.Instance.PlaySFX(_appearAudio);
             Image smallItemImage = smallItem.GetComponent<Image>();
             smallItemImage.DOFade(1, 0.3f).SetAutoKill(false);
             smallItemImage.rectTransform.DOShakeScale(0.3f,0.3f).SetAutoKill(false);
@@ -197,7 +201,7 @@ public class ItemManager : Singleton <ItemManager>
             Image smallItemImage = smallItem.GetComponent<Image>();
             smallItemImage.DOFade(0, 0.5f).SetAutoKill(false); // ������ ���̵� �ƿ�
             smallItemImage.rectTransform.DOScale(0, 0.5f).SetAutoKill(false).SetEase(Ease.InBack);    
-            
+            AudioManager.Instance.PlaySFX(_disappearAudio);
             Image itemImage = smallItem.GetComponent<Image>();
             itemImage.DOFade(0, 1).SetAutoKill(false); // ������ ���̵� �ƿ�
             itemImage.rectTransform.DOScale(0, 0.5f).SetAutoKill(false).SetEase(Ease.InBack);

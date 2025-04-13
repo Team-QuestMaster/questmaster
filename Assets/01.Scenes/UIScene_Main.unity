@@ -4087,7 +4087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefix: '!!'
   _appearSound: {fileID: 8300000, guid: 7ecc83075fdf48241917a375285becc0, type: 3}
-  _knockingSound: {fileID: 8300000, guid: a980eada4bed13b4ab3cf0c8a90cd826, type: 3}
+  _knockingSound: {fileID: 8300000, guid: ece57078695e10b4895fdedeb5da58e8, type: 3}
   _walkingSound: {fileID: 8300000, guid: 551b86602394c35478e30c4c0f1e08fe, type: 3}
 --- !u!114 &417627154
 MonoBehaviour:
@@ -16637,6 +16637,8 @@ MonoBehaviour:
   _havingItemList: []
   _inventoryMaxCount: 30
   _inventoryCount: 30
+  _appearAudio: {fileID: 8300000, guid: a2675e102aba1634b9b40c386484a4d8, type: 3}
+  _disappearAudio: {fileID: 8300000, guid: e7b26c25a4411f74192ae21dd8872246, type: 3}
 --- !u!1 &1520344650
 GameObject:
   m_ObjectHideFlags: 0
@@ -22870,6 +22872,26 @@ PrefabInstance:
     - target: {fileID: 4296788238066079870, guid: a2654e553fb2fa84fad1be2b724ac3e6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5481034426571218381, guid: a2654e553fb2fa84fad1be2b724ac3e6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 5481034426571218381, guid: a2654e553fb2fa84fad1be2b724ac3e6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 175.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5481034426571218381, guid: a2654e553fb2fa84fad1be2b724ac3e6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 147.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5481034426571218381, guid: a2654e553fb2fa84fad1be2b724ac3e6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -239.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920504343431933032, guid: a2654e553fb2fa84fad1be2b724ac3e6, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6200170176537267967, guid: a2654e553fb2fa84fad1be2b724ac3e6, type: 3}
       propertyPath: _swapTargetObject
