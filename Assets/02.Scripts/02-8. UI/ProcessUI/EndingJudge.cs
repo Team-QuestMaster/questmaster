@@ -6,6 +6,15 @@ using UnityEngine.UI;
 
 public class EndingJudge : MonoBehaviour
 {
+    
+    [SerializeField]
+    private TextMeshProUGUI _dialText;
+
+    private int _currentDial;
+    
+    [SerializeField]
+    private CanvasGroup[] _canvasGroups;
+    
     [SerializeField] 
     private Image _endingImage;
     [SerializeField] 
@@ -29,9 +38,23 @@ public class EndingJudge : MonoBehaviour
     private int _money;
     private int _quest;
 
+    private int _index;
+    
+    
+    
     [SerializeField] 
     private Sprite[] _endingImages = new Sprite[27]; // 크기 27로 조정 (사용자 직접 할당 필요)
 
+    private string[] _endingDials =
+    {
+        "당신은 약 한 달간, 길드의 일을 수행해 왔습니다.",
+        "그 시간 동안,",
+        "수많은 모험가들을 만나고,",
+        "여러 의뢰를 수주하며,",
+        "그들과 함께 이 세계의 면면을 알아갔습니다.",
+        "그렇게 쌓인 당신의 기록은,",
+        "과연, 이 길드를 어떤 모습으로 빚어냈을까요?"
+    };
 
     string[] _endingMents = new string[]
     {
@@ -108,7 +131,68 @@ public class EndingJudge : MonoBehaviour
     {
         GetGuildStat();
         JudgeEnding();
+        _currentDial = 0;
+        _dialText.DOText(_endingDials[_currentDial],1f);
     }
+
+    public void EndingMentsButton()
+    {
+        _canvasGroups[1].alpha = 0;
+        _canvasGroups[2].alpha = 1;
+        _canvasGroups[2].interactable = true;
+        
+        _endingName.text = "";
+        _endingName.DOText(GetEndingName(_index), 3f).SetDelay(0.1f);
+        
+        _endingStatFame.DOFade(1, 0.1f).SetDelay(0.1f);
+        _endingStatGold.DOFade(1, 0.1f).SetDelay(0.1f);
+        _endingStatNumOfCompletedQuests.DOFade(1, 0.1f).SetDelay(0.1f);
+    }
+    
+    public void ShowDial()
+    {
+        _canvasGroups[0].interactable = false;
+        _canvasGroups[0].blocksRaycasts = false;
+
+        _canvasGroups[1].DOFade(1, 0.5f);
+        _canvasGroups[1].interactable = true;
+        _canvasGroups[1].blocksRaycasts = true;
+
+        _endingMent.text = "";
+        _endingMent.DOText(GetEndingMent(_index), 10f).SetDelay(0.1f);
+
+    }
+    
+    public void NextDial()
+    {
+        _currentDial++;
+        if (_currentDial < _endingDials.Length)
+        {
+            _dialText.DOKill();
+            _dialText.text = "";
+            _dialText.DOText(_endingDials[_currentDial], 1f,false, ScrambleMode.None);
+        }
+        else
+        {
+            // 엔딩 데이터 가져오기
+            Sprite endingImage = GetEndingImage(_index);
+            string endingMent = GetEndingMent(_index);
+            string endingName = GetEndingName(_index);
+            
+            // 결과 처리
+            if (endingImage != null && endingMent != null && endingName != null)
+            {
+                EndingShow(_index);
+            }
+            else
+            {
+                Debug.LogError($"Error: Could not retrieve ending data for index {_index}. " +
+                               "Please ensure all ending arrays (_endingImages, _endingMents, _endingNames) " +
+                               "are properly populated and have the correct size (27).");
+            }
+        }
+    }
+    
     private void GetGuildStat()
     {
         _fame = GuildStatManager.Instance.Fame;
@@ -120,24 +204,8 @@ public class EndingJudge : MonoBehaviour
         GradeEnding(); // 먼저 등급화
 
         // 3진법을 사용하여 인덱스 계산 (0 ~ 26)
-        int endingIndex = _fame * 9 + _quest * 3 + _money;
+        _index = _fame * 9 + _quest * 3 + _money;
 
-        // 엔딩 데이터 가져오기
-        Sprite endingImage = GetEndingImage(endingIndex);
-        string endingMent = GetEndingMent(endingIndex);
-        string endingName = GetEndingName(endingIndex);
-
-        // 결과 처리
-        if (endingImage != null && endingMent != null && endingName != null)
-        {
-            EndingShow(endingIndex);
-        }
-        else
-        {
-            Debug.LogError($"Error: Could not retrieve ending data for index {endingIndex}. " +
-                           "Please ensure all ending arrays (_endingImages, _endingMents, _endingNames) " +
-                           "are properly populated and have the correct size (27).");
-        }
     }
     private void GradeEnding()
     {
@@ -182,11 +250,17 @@ public class EndingJudge : MonoBehaviour
     }
     void EndingShow(int endingIndex)
     {
+        _canvasGroups[3].DOFade(0, 1f);
+        _canvasGroups[3].interactable = false;
+        _canvasGroups[3].blocksRaycasts = false;
+        
+        
+        _canvasGroups[0].DOFade(1, 1f);//엔딩 이미지 출연
         _endingImage.sprite = GetEndingImage(endingIndex);
-        _endingName.text = "";
-        _endingMent.text = "";
-        _endingMent.DOText(GetEndingMent(endingIndex), 3f);
-        _endingName.DOText(GetEndingName(endingIndex), 3f);
+        _canvasGroups[0].interactable = true;
+        _canvasGroups[0].blocksRaycasts = true;
+        
+        
         GetEndingStat();
     }
     private Sprite GetEndingImage(int index)
