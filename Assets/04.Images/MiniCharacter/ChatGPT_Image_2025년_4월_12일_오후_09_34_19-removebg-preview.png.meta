@@ -143,6 +143,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -335,7 +348,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "ChatGPT_Image_2025\uB144_4\uC6D4_12\uC77C_\uC624\uD6C4_09_34_19-removebg-preview_0": -1814612496811324739
+      "ChatGPT_Image_2025\uB144_4\uC6D4_12\uC77C_\uC624\uD6C4_09_34_19-removebg-preview_1": 1175498446829358957
+      "ChatGPT_Image_2025\uB144_4\uC6D4_12\uC77C_\uC624\uD6C4_09_34_19-removebg-preview_2": 986435073235063875
+      "ChatGPT_Image_2025\uB144_4\uC6D4_12\uC77C_\uC624\uD6C4_09_34_19-removebg-preview_3": 4814198352632730522
+      "ChatGPT_Image_2025\uB144_4\uC6D4_12\uC77C_\uC624\uD6C4_09_34_19-removebg-preview_4": -9071157409470273718
+      "ChatGPT_Image_2025\uB144_4\uC6D4_12\uC77C_\uC624\uD6C4_09_34_19-removebg-preview_5": 2404365260410398423
+      "ChatGPT_Image_2025\uB144_4\uC6D4_12\uC77C_\uC624\uD6C4_09_34_19-removebg-preview_6": -6365517435324757044
+      "ChatGPT_Image_2025\uB144_4\uC6D4_12\uC77C_\uC624\uD6C4_09_34_19-removebg-preview_7": 790493866127750916
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

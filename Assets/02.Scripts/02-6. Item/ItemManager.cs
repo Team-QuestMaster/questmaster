@@ -171,7 +171,7 @@ public class ItemManager : Singleton <ItemManager>
             smallItem.SetActive(true);
             Image smallItemImage = smallItem.GetComponent<Image>();
             smallItemImage.DOFade(1, 0.3f).SetAutoKill(false);
-            smallItemImage.rectTransform.DOShakeScale(0.3f,0.3f).SetAutoKill(false);
+            smallItemImage.rectTransform.DOShakeScale(0.5f,0.3f).SetAutoKill(false);
             
             yield return new WaitForSeconds(0.5f); // 1�� ���
         }
@@ -198,15 +198,22 @@ public class ItemManager : Singleton <ItemManager>
             smallItemImage.DOFade(0, 0.5f).SetAutoKill(false); // ������ ���̵� �ƿ�
             smallItemImage.rectTransform.DOScale(0, 0.5f).SetAutoKill(false).SetEase(Ease.InBack);    
             
-            Image itemImage = smallItem.GetComponent<Image>();
-            itemImage.DOFade(0, 1).SetAutoKill(false); // ������ ���̵� �ƿ�
+            Image itemImage = item.GetComponent<Image>();
+            itemImage.DOFade(0, 0.5f).SetAutoKill(false); // ������ ���̵� �ƿ�
             itemImage.rectTransform.DOScale(0, 0.5f).SetAutoKill(false).SetEase(Ease.InBack);
 
             yield return new WaitForSeconds(1f); // 1�� ���
             _remainItemList.Add(item); 
             smallItem.SetActive(false);
             item.SetActive(false); // ������ ��Ȱ��ȭ
-            if(item.GetComponent<Item>().ItemState == ItemStateType.ReadyToBuy)
+
+            smallItemImage.DOFade(1, 0.5f).SetAutoKill(false); // ������ ���̵� �ƿ�
+            smallItemImage.rectTransform.DOScale(1, 0.5f).SetAutoKill(false).SetEase(Ease.InBack);
+
+            itemImage.DOFade(1, 0.5f).SetAutoKill(false); // ������ ���̵� �ƿ�
+            itemImage.rectTransform.DOScale(1, 0.5f).SetAutoKill(false).SetEase(Ease.InBack);
+
+            if (item.GetComponent<Item>().ItemState == ItemStateType.ReadyToBuy)
             {
                 item.GetComponent<Item>().ItemState = ItemStateType.UnBuy; // ������ ���� ����
             }
