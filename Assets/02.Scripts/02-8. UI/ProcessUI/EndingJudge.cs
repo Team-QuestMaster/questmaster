@@ -143,6 +143,54 @@ public class EndingJudge : MonoBehaviour
         
         _endingName.text = "";
         _endingName.DOText(GetEndingName(_index), 3f).SetDelay(0.1f);
+        switch (_fame)
+        {
+            case 0:
+                _endingStatFame.text = "하";
+                break;
+            
+            case 1:
+                _endingStatFame.text = "중";
+                break;
+            
+            case 2:
+                _endingStatFame.text = "상";
+                break;
+            
+        }
+        
+        
+        switch (_money)
+        {
+            case 0:
+                _endingStatGold.text = "하";
+                break;
+            
+            case 1:
+                _endingStatGold.text = "중";
+                break;
+            
+            case 2:
+                _endingStatGold.text = "상";
+                break;
+            
+        }
+        
+        switch (_quest)
+        {
+            case 0:
+                _endingStatNumOfCompletedQuests.text = "하";
+                break;
+            
+            case 1:
+                _endingStatNumOfCompletedQuests.text = "중";
+                break;
+            
+            case 2:
+                _endingStatNumOfCompletedQuests.text = "상";
+                break;
+            
+        }
         
         _endingStatFame.DOFade(1, 0.1f).SetDelay(0.1f);
         _endingStatGold.DOFade(1, 0.1f).SetDelay(0.1f);
