@@ -45,7 +45,13 @@ public abstract class Item : MonoBehaviour // ������ �߻� Ŭ��
             _itemState = value;
             if(!ReferenceEquals(_itemEffect, null))
             {
+                _itemEffect.LoadPreset(ITEM_SHINY);
+                _itemEffectTweener.enabled = true;
                 _itemEffect.enabled = _itemState == ItemStateType.ReadyToUse;
+            }
+            else
+            {
+                _itemEffectTweener.enabled = false;
             }
         }
     }
@@ -67,6 +73,7 @@ public abstract class Item : MonoBehaviour // ������ �߻� Ŭ��
         _itemEffectTweener = GetComponent<UIEffectTweener>();
         _itemEffect.LoadPreset(ITEM_SHINY);
         _itemEffectTweener.wrapMode = UIEffectTweener.WrapMode.Loop;
+        _itemEffectTweener.enabled = false;
         GetComponent<DraggingObjectSwap>().ItemSwapEvent += () =>
         {
             if (ItemState == ItemStateType.ReadyToBuy)
@@ -79,10 +86,13 @@ public abstract class Item : MonoBehaviour // ������ �߻� Ŭ��
     public void PlayUseEffect()
     {
         // 아이템 관련 효과 비활성화 후 셋팅하고 다시 활성화
-        _itemEffect.enabled = false;
+        _itemEffectTweener.Stop();
         _itemEffectTweener.enabled = false;
-        _itemEffect.LoadPreset(ITEM_USE);
+        _itemEffect.enabled = false;
         _itemEffectTweener.wrapMode = UIEffectTweener.WrapMode.Once;
+        // 셋팅
+        _itemEffectTweener.ResetTime();
+        _itemEffect.LoadPreset(ITEM_USE);
         _itemEffect.enabled = true;
         _itemEffectTweener.enabled = true;
     }
