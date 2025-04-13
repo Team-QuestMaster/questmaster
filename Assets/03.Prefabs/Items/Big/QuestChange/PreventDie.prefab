@@ -276,8 +276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e7b73ca138f67343b3ce76b2d49f27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _grabSound: {fileID: 8300000, guid: 9a2a538b12bccca4ba0a3c37eecfa95d, type: 3}
-  _dropSound: {fileID: 8300000, guid: d8129a27d25d31b4f86cf27ddff7b4e6, type: 3}
+  _grabSound: {fileID: 8300000, guid: f8999bbf15bf6af4893c7ff52a89d995, type: 3}
+  _dropSound: {fileID: 8300000, guid: 4bc17bf5d0c580a4b9fefb0047e0c858, type: 3}
 --- !u!114 &6191508203339653824
 MonoBehaviour:
   m_ObjectHideFlags: 0
