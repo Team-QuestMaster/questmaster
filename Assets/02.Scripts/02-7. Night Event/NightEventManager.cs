@@ -11,6 +11,10 @@ public class NightEventManager : Singleton<NightEventManager>
     public bool TryBuy { get => _tryBuy; set => _tryBuy = value; }
     private bool _selling = false;
     public bool Selling { get => _selling; set => _selling = value; }
+    [SerializeField]
+    private AudioClip _successBuy;
+    [SerializeField]
+    private AudioClip _couldnotBuy;
     public bool IsNightEventDay
     {
         get => _isIsNightEventDay;
@@ -49,10 +53,22 @@ public class NightEventManager : Singleton<NightEventManager>
         {
             return;
         }
-        if (_tryBuy && !ItemManager.Instance.TryBuyall())
+        if (_tryBuy )
         {
-            return;
+            if(!ItemManager.Instance.TryBuyall())
+            {
+                if (!ReferenceEquals(_couldnotBuy, null))
+                {
+                    AudioManager.Instance.PlaySFX(_couldnotBuy);
+                }
+                return;
+            }
+            if (!ReferenceEquals(_successBuy, null))
+            {
+                AudioManager.Instance.PlaySFX(_successBuy);
+            }
         }
+
         _selling = false;
         ItemManager.Instance.ReturnItems(() =>
         {
