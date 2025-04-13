@@ -67,8 +67,7 @@ public class MainProcess : MonoBehaviour
         Adventurer currentAdventurer = _todayRequest[_requestCount].Item1;
         Quest currentQuest = UIManager.Instance.QuestUI.CurrentQuest;
         ItemManager.Instance.StatItemUse(currentAdventurer, currentQuest);
-        bool isQuestSuccess = MakeQuestResult(currentAdventurer, currentQuest);
-        UpdateCalender(currentQuest, isQuestSuccess);
+        MakeQuestResult(currentAdventurer, currentQuest);
 
         // currentAdventurer.AdventurerData.AdventurerState = AdventurerStateType.Questing;
         EndRequest();
@@ -81,12 +80,13 @@ public class MainProcess : MonoBehaviour
         bool isQuestSuccess = CalculateManager.Instance.JudgeQuestResult(adventurer, quest, probability);
         DateManager.Instance.AddQuestResultToList(adventurer, quest, isQuestSuccess, probability);
         StageShowManager.Instance.ShowResult.ResultText(true, probability,quest.QuestData.GoldReward,quest.QuestData.GoldPenalty);
+        UpdateCalender(quest, probability);
         return isQuestSuccess;
     }
-    private void UpdateCalender(Quest quest, bool isQuestSuccess)
+    private void UpdateCalender(Quest quest, float isQuestSuccess)
     {
         int questEndDay = DateManager.Instance.CurrentDate + quest.QuestData.Days;
-        string questCalenderInfoText = $"{quest.QuestData.QuestName} <color=green>{isQuestSuccess}</color>";
+        string questCalenderInfoText = $"{quest.QuestData.QuestName} <color=green>{isQuestSuccess:N1}</color>";
         UIManager.Instance.CalenderManager.AddCalenderText(questEndDay, questCalenderInfoText);
     }
     public void RejectRequest()

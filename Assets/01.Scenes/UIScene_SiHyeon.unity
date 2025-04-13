@@ -15301,7 +15301,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2102057848080103253, guid: dede9b2eb69ba6242991258c54e240fe, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4468220222985870799, guid: dede9b2eb69ba6242991258c54e240fe, type: 3}
       propertyPath: m_Name
@@ -15373,7 +15373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5044456941902786872, guid: dede9b2eb69ba6242991258c54e240fe, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -541
+      value: -304
       objectReference: {fileID: 0}
     - target: {fileID: 5044456941902786872, guid: dede9b2eb69ba6242991258c54e240fe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
