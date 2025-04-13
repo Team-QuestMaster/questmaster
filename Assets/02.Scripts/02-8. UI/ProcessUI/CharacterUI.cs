@@ -44,6 +44,7 @@ public class CharacterUI : MonoBehaviour
 
         _characterText.text = "";
         //_characterButton.onClick.AddListener(ShowSpeechBubbleUI);
+        _speechButton.onClick.RemoveAllListeners();
         _speechButton.onClick.AddListener(NextDialogue);
         CurrentCharacter = Characters[_currentCharacter];
         CurrentCharacter.transform.position = _characterActivateTransform.position;
