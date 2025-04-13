@@ -52,6 +52,7 @@ public class ImageShadow : MonoBehaviour
         // 기본 셋팅
         _mask.showMaskGraphic = false;
         _maskImage.sprite = _targetImage.sprite;
+        _maskImage.preserveAspect = _targetImage.preserveAspect;
 
         // 타겟의 크기 설정을 따라감
         _maskRectTransform.anchorMin = _targetImage.rectTransform.anchorMin;
