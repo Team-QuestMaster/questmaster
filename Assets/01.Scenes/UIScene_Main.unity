@@ -19622,6 +19622,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dontDestroy: 1
   _dealer: {fileID: 766268960}
+  _successBuy: {fileID: 8300000, guid: e7e78577301b94d4bb01c5030d35c1e0, type: 3}
+  _couldnotBuy: {fileID: 8300000, guid: 281622c03f5ebda499d494b35d6e72af, type: 3}
 --- !u!1 &1802308446
 GameObject:
   m_ObjectHideFlags: 0
