@@ -112,7 +112,7 @@ public class ItemManager : Singleton <ItemManager>
                 item.SetActive(false); // ������ ��Ȱ��ȭ
                 item.GetComponent<Item>().ItemState = ItemStateType.UnBuy; // ������ ���� ����
                 removeList.Add(item); // ���� ������ ����Ʈ���� ����
-                RemainItemList.Add(item); // �̺��� ������ ����Ʈ�� �߰�
+                //RemainItemList.Add(item); // �̺��� ������ ����Ʈ�� �߰�
             }
         }
         foreach(GameObject item in removeList)
@@ -135,7 +135,7 @@ public class ItemManager : Singleton <ItemManager>
                 item.SetActive(false); // ������ ��Ȱ��ȭ
                 item.GetComponent<Item>().ItemState = ItemStateType.UnBuy; // ������ ���� ����
                 removeList.Add(item); // ���� ������ ����Ʈ���� ����
-                RemainItemList.Add(item); // �̺��� ������ ����Ʈ�� �߰�
+                //RemainItemList.Add(item); // �̺��� ������ ����Ʈ�� �߰�
             }
         }
         foreach (GameObject item in removeList)
