@@ -13,13 +13,13 @@ public class DateManager : Singleton<DateManager>
         get => _currentDate;
         set => _currentDate = Mathf.Clamp(value, 1, _maxDate);
     }
-    private List<int> _nightEventDates = new List<int> { 1,2, 5, 10, 15, 20, 25 };
+    private List<int> _nightEventDates = new List<int> { 3, 5, 10, 15, 20, 25 };
     public List<int> NightEventDates { get => _nightEventDates; set => _nightEventDates = value; }
 
     private List<List<QuestResult>> _questResults = new List<List<QuestResult>>(_maxDate + 1);
 
     [SerializeField]
-    private int _endingDate = 2; // ���� ��¥, �ش� ��¥ ���������� �����մϴ�. �� _endingDate������ ������� �ʽ��ϴ�.
+    private int _endingDate = 30; // ���� ��¥, �ش� ��¥ ���������� �����մϴ�. �� _endingDate������ ������� �ʽ��ϴ�.
     public int EndingDate { get => _endingDate; set => _endingDate = value; }
 
 
