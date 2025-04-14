@@ -5559,7 +5559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dontDestroy: 1
-  _endingDate: 3
+  _endingDate: 30
 --- !u!1 &596895426
 GameObject:
   m_ObjectHideFlags: 0
