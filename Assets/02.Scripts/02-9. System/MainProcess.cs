@@ -86,7 +86,7 @@ public class MainProcess : MonoBehaviour
     private void UpdateCalender(Quest quest, float isQuestSuccess)
     {
         int questEndDay = DateManager.Instance.CurrentDate + quest.QuestData.Days;
-        string questCalenderInfoText = $"{quest.QuestData.QuestName} <color=green>{isQuestSuccess:N1}</color>";
+        string questCalenderInfoText = $"{quest.QuestData.QuestName} <color=#99A136>{isQuestSuccess:N1}</color>";
         UIManager.Instance.CalenderManager.AddCalenderText(questEndDay, questCalenderInfoText);
     }
     public void RejectRequest()

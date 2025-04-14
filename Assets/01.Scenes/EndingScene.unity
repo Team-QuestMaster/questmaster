@@ -956,7 +956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3620,9 +3620,9 @@ MonoBehaviour:
   _endingStatFame: {fileID: 1237934336}
   _endingStatGold: {fileID: 790443217}
   _endingStatNumOfCompletedQuests: {fileID: 758110277}
-  _questGrade: 00000000050000000a000000
-  _moneyGrade: 00000000050000000a000000
-  _fameGrade: 00000000050000000a000000
+  _questGrade: 000000003200000050000000
+  _moneyGrade: 00000000f4010000e8030000
+  _fameGrade: 000000003200000064000000
   _endingImages:
   - {fileID: -855298285791758126, guid: 1bfd604cad622d94bbcb429447db612b, type: 3}
   - {fileID: -5099292496197868168, guid: 02016a099b11d5e47962e60f8150dd80, type: 3}

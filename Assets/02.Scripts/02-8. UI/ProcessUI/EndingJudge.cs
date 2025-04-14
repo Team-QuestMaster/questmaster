@@ -51,7 +51,7 @@ public class EndingJudge : MonoBehaviour
         "그 시간 동안,",
         "수많은 모험가들을 만나고,",
         "여러 의뢰를 수주하며,",
-        "그들과 함께 이 세계의 면면을 알아갔습니다.",
+        "그들과 함께 이 세계의 여러 면을 알아갔습니다.",
         "그렇게 쌓인 당신의 기록은,",
         "과연, 이 길드를 어떤 모습으로 빚어냈을까요?"
     };
@@ -140,7 +140,7 @@ public class EndingJudge : MonoBehaviour
         _canvasGroups[1].alpha = 0;
         _canvasGroups[2].alpha = 1;
         _canvasGroups[2].interactable = true;
-        
+        _canvasGroups[2].blocksRaycasts = true;
         _endingName.text = "";
         _endingName.DOText(GetEndingName(_index), 3f).SetDelay(0.1f);
         switch (_fame)
@@ -253,6 +253,7 @@ public class EndingJudge : MonoBehaviour
 
         // 3진법을 사용하여 인덱스 계산 (0 ~ 26)
         _index = _fame * 9 + _quest * 3 + _money;
+        Debug.Log(_index);
 
     }
     private void GradeEnding()
@@ -295,6 +296,8 @@ public class EndingJudge : MonoBehaviour
         {
             _quest = 2;
         }
+        
+        Debug.Log($"명성치 : {_fame},돈 : {_money}, 퀘스트 : {_quest}");
     }
     void EndingShow(int endingIndex)
     {
