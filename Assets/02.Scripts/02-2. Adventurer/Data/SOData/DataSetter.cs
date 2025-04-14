@@ -37,7 +37,7 @@ public class DataSetter : MonoBehaviour
         };
         MinorAso.AdventurerNameList.Clear();
         MinorAso.AdventurerNameList.AddRange(fantasyNames);
-        EditorUtility.SetDirty(MinorAso);
+        // EditorUtility.SetDirty(MinorAso);
     }
 
     [ContextMenu("SetClasses")]
@@ -61,7 +61,7 @@ public class DataSetter : MonoBehaviour
         };
         MinorAso.AdventurerClassList.Clear();
         MinorAso.AdventurerClassList.AddRange(adventurerClasses);
-        EditorUtility.SetDirty(MinorAso);
+        // EditorUtility.SetDirty(MinorAso);
     }
 
     [ContextMenu("SetTitles")]
@@ -129,7 +129,7 @@ public class DataSetter : MonoBehaviour
         MinorAso.AdventurerTitleList.Clear();
         MinorAso.AdventurerTitleList.AddRange(adventurerTitles);
         MinorAso.AdventurerTitleList.AddRange(personalityTitles);
-        EditorUtility.SetDirty(MinorAso);
+        // EditorUtility.SetDirty(MinorAso);
     }
 
     [ContextMenu("SetDialogs")]
