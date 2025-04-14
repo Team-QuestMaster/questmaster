@@ -57,6 +57,7 @@ public class OneCycleStartAndEnd : MonoBehaviour
     {
         if (DateManager.Instance.CurrentDate == DateManager.Instance.EndingDate) 
         {
+            AudioManager.Instance.PlayBGM(AudioManager.Instance.EndingClip);
             return;
         }
         Debug.Log("Cycle이 시작된다");

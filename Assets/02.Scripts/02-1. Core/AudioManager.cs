@@ -6,9 +6,9 @@ public class AudioManager : Singleton<AudioManager>
 {
     private AudioSource _sfxAudioSource;
     private AudioSource _bgmAudioSource;
-    [SerializeField]
+
     public AudioClip BgmClip;
-    
+    public AudioClip EndingClip;
     public AudioClip DealerClip;
     protected override void Awake()
     {
