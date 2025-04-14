@@ -4152,7 +4152,7 @@ GameObject:
   - component: {fileID: 8645783936558934279}
   - component: {fileID: 7166402596568659169}
   m_Layer: 0
-  m_Name: ResultInfos (1)
+  m_Name: Prefab_StampedReport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

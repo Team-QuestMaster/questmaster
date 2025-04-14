@@ -4013,7 +4013,7 @@ GameObject:
   - component: {fileID: 5867723611420396585}
   - component: {fileID: 1836582264255670809}
   m_Layer: 0
-  m_Name: GuideBook
+  m_Name: Prefab_GuideBook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

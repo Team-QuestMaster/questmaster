@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 506673510913302066}
   - component: {fileID: 535173421242379479}
   m_Layer: 0
-  m_Name: SmallQuest1
+  m_Name: Prefab_Small_QuestPaper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
