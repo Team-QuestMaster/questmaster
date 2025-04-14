@@ -1,12 +1,9 @@
-using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.UIElements;
 using UnityEngine;
 using System;
 using DG.Tweening;
 using UnityEngine.UI;
-using NUnit.Framework.Constraints;
 
 public class ItemManager : Singleton <ItemManager>
 {
