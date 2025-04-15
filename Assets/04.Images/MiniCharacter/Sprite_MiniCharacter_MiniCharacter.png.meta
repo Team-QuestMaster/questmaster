@@ -1,43 +1,31 @@
 fileFormatVersion: 2
-guid: 1236ac23c388d9447a048937a1ce4233
+guid: 8f94e08e6eac2cf48acc4c6d6aec234b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5901970061047254187
-    second: MiniCharacter_0
+      213: -1814612496811324739
+    second: "ChatGPT_Image_2025\uB144_4\uC6D4_12\uC77C_\uC624\uD6C4_09_34_19-removebg-preview_0"
   - first:
-      213: 1491161630743585398
-    second: MiniCharacter_1
+      213: 1175498446829358957
+    second: "ChatGPT_Image_2025\uB144_4\uC6D4_12\uC77C_\uC624\uD6C4_09_34_19-removebg-preview_1"
   - first:
-      213: 8569908638680628549
-    second: MiniCharacter_2
+      213: 986435073235063875
+    second: "ChatGPT_Image_2025\uB144_4\uC6D4_12\uC77C_\uC624\uD6C4_09_34_19-removebg-preview_2"
   - first:
-      213: 8724442871279778623
-    second: MiniCharacter_3
+      213: 4814198352632730522
+    second: "ChatGPT_Image_2025\uB144_4\uC6D4_12\uC77C_\uC624\uD6C4_09_34_19-removebg-preview_3"
   - first:
-      213: -9021078148332923471
-    second: MiniCharacter_4
+      213: -9071157409470273718
+    second: "ChatGPT_Image_2025\uB144_4\uC6D4_12\uC77C_\uC624\uD6C4_09_34_19-removebg-preview_4"
   - first:
-      213: -7385537559767355256
-    second: MiniCharacter_5
+      213: 2404365260410398423
+    second: "ChatGPT_Image_2025\uB144_4\uC6D4_12\uC77C_\uC624\uD6C4_09_34_19-removebg-preview_5"
   - first:
-      213: -7841253415461242841
-    second: MiniCharacter_6
+      213: -6365517435324757044
+    second: "ChatGPT_Image_2025\uB144_4\uC6D4_12\uC77C_\uC624\uD6C4_09_34_19-removebg-preview_6"
   - first:
-      213: -2527845726937842836
-    second: MiniCharacter_7
-  - first:
-      213: 6225946101067019101
-    second: MiniCharacter_8
-  - first:
-      213: 5212491361739174976
-    second: MiniCharacter_9
-  - first:
-      213: 8894655420031444310
-    second: MiniCharacter_10
-  - first:
-      213: 3509356717199365660
-    second: MiniCharacter_11
+      213: 790493866127750916
+    second: "ChatGPT_Image_2025\uB144_4\uC6D4_12\uC77C_\uC624\uD6C4_09_34_19-removebg-preview_7"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -130,7 +118,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -143,7 +131,20 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -159,265 +160,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MiniCharacter_0
+      name: Sprite_MiniCharacter_MiniCharacter_1
       rect:
         serializedVersion: 2
-        x: 7
-        y: 335
-        width: 33
-        height: 42
+        x: 17
+        y: 252
+        width: 121
+        height: 211
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 553b94cdf7df71ea0800000000000000
-      internalID: -5901970061047254187
+      spriteID: dba83926c8331d6e0800000000000000
+      internalID: -1814612496811324739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniCharacter_1
+      name: Sprite_MiniCharacter_MiniCharacter_2
       rect:
         serializedVersion: 2
-        x: 55
-        y: 335
-        width: 33
-        height: 43
+        x: 135
+        y: 253
+        width: 117
+        height: 205
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 672e9274a9ba1b410800000000000000
-      internalID: 1491161630743585398
+      spriteID: d6f894dfb95305010800000000000000
+      internalID: 1175498446829358957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniCharacter_2
+      name: Sprite_MiniCharacter_MiniCharacter_3
       rect:
         serializedVersion: 2
-        x: 102
-        y: 335
-        width: 34
-        height: 42
+        x: 252
+        y: 252
+        width: 120
+        height: 206
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 54d3c16608e6ee670800000000000000
-      internalID: 8569908638680628549
+      spriteID: 3449926097580bd00800000000000000
+      internalID: 986435073235063875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniCharacter_3
+      name: Sprite_MiniCharacter_MiniCharacter_4
       rect:
         serializedVersion: 2
-        x: 6
-        y: 287
-        width: 36
-        height: 43
+        x: 369
+        y: 252
+        width: 119
+        height: 205
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f3bf1dd3192731970800000000000000
-      internalID: 8724442871279778623
+      spriteID: a93d1fe15e77fc240800000000000000
+      internalID: 4814198352632730522
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniCharacter_4
+      name: Sprite_MiniCharacter_MiniCharacter_5
       rect:
         serializedVersion: 2
-        x: 54
-        y: 287
-        width: 35
-        height: 44
+        x: 23
+        y: 35
+        width: 123
+        height: 204
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1b5d3954831bec280800000000000000
-      internalID: -9021078148332923471
+      spriteID: a472fdaa566cc1280800000000000000
+      internalID: -9071157409470273718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniCharacter_5
+      name: Sprite_MiniCharacter_MiniCharacter_6
       rect:
         serializedVersion: 2
-        x: 102
-        y: 287
-        width: 35
-        height: 43
+        x: 148
+        y: 35
+        width: 118
+        height: 204
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 880f2ca38bc418990800000000000000
-      internalID: -7385537559767355256
+      spriteID: 7d62d0927750e5120800000000000000
+      internalID: 2404365260410398423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniCharacter_6
+      name: Sprite_MiniCharacter_MiniCharacter_7
       rect:
         serializedVersion: 2
-        x: 5
-        y: 239
-        width: 35
-        height: 43
+        x: 263
+        y: 35
+        width: 119
+        height: 204
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7283d9930954e2390800000000000000
-      internalID: -7841253415461242841
+      spriteID: ccb89e75e9329a7a0800000000000000
+      internalID: -6365517435324757044
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniCharacter_7
+      name: Sprite_MiniCharacter_MiniCharacter_8
       rect:
         serializedVersion: 2
-        x: 54
-        y: 239
-        width: 34
-        height: 44
+        x: 382
+        y: 35
+        width: 116
+        height: 204
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6b71e654b94becd0800000000000000
-      internalID: -2527845726937842836
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MiniCharacter_8
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 239
-        width: 33
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d53f3d01ef0076650800000000000000
-      internalID: 6225946101067019101
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MiniCharacter_9
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 191
-        width: 35
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 044714bc64d765840800000000000000
-      internalID: 5212491361739174976
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MiniCharacter_10
-      rect:
-        serializedVersion: 2
-        x: 54
-        y: 191
-        width: 35
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6552a768af9207b70800000000000000
-      internalID: 8894655420031444310
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MiniCharacter_11
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 191
-        width: 35
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c169cc6475db3b030800000000000000
-      internalID: 3509356717199365660
+      spriteID: 4077ba7abf568fa00800000000000000
+      internalID: 790493866127750916
       vertices: []
       indices: 
       edges: []
@@ -426,7 +339,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d63008be855f7774e9bb7c1f2b96fb6c
     internalID: 0
     vertices: []
     indices: 
@@ -436,18 +349,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MiniCharacter_0: -5901970061047254187
-      MiniCharacter_1: 1491161630743585398
-      MiniCharacter_10: 8894655420031444310
-      MiniCharacter_11: 3509356717199365660
-      MiniCharacter_2: 8569908638680628549
-      MiniCharacter_3: 8724442871279778623
-      MiniCharacter_4: -9021078148332923471
-      MiniCharacter_5: -7385537559767355256
-      MiniCharacter_6: -7841253415461242841
-      MiniCharacter_7: -2527845726937842836
-      MiniCharacter_8: 6225946101067019101
-      MiniCharacter_9: 5212491361739174976
+      Sprite_MiniCharacter_MiniCharacter_1: -1814612496811324739
+      Sprite_MiniCharacter_MiniCharacter_2: 1175498446829358957
+      Sprite_MiniCharacter_MiniCharacter_3: 986435073235063875
+      Sprite_MiniCharacter_MiniCharacter_4: 4814198352632730522
+      Sprite_MiniCharacter_MiniCharacter_5: -9071157409470273718
+      Sprite_MiniCharacter_MiniCharacter_6: 2404365260410398423
+      Sprite_MiniCharacter_MiniCharacter_7: -6365517435324757044
+      Sprite_MiniCharacter_MiniCharacter_8: 790493866127750916
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

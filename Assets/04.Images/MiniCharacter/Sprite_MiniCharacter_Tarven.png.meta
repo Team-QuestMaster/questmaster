@@ -135,12 +135,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DALL_E_2025-04-12_21.22.59_-_A_pixel_art_wooden_cabin_that_matches_the_style_of_2D_pixel_characters_wearing_dark_gray_hooded_robes_with_green_eyes__in_a_warm_and_cozy_fantasy_RPG_-removebg-preview
-        1_1
+      name: Sprite_MiniCharacter_Tarven
       rect:
         serializedVersion: 2
         x: 246
@@ -175,7 +187,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DALL_E_2025-04-12_21.22.59_-_A_pixel_art_wooden_cabin_that_matches_the_style_of_2D_pixel_characters_wearing_dark_gray_hooded_robes_with_green_eyes__in_a_warm_and_cozy_fantasy_RPG_-removebg-preview 1_1: 5379332186869813077
+      Sprite_MiniCharacter_Tarven: 5379332186869813077
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
