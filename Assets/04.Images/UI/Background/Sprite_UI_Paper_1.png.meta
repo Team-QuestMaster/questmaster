@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b972ce357f07e7742ad65ea4498e9cf4
+guid: 382bd0eeec565904c9c182ae008d5959
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5213229242370633579
-    second: Door_0
+      213: -5833791218801934461
+    second: Paper_Page_01_Blank 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,27 +122,40 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Door_0
+      name: Sprite_UI_Paper_1
       rect:
         serializedVersion: 2
-        x: 15
-        y: 97
-        width: 316
-        height: 591
+        x: 0
+        y: 0
+        width: 1350
+        height: 842
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b6f2e24006c195840800000000000000
-      internalID: 5213229242370633579
+      spriteID: 38f74859bc53a0fa0800000000000000
+      internalID: -5833791218801934461
       vertices: []
       indices: 
       edges: []
@@ -151,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a1b86babd33d73e4bab74484eeb25864
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Door_0: 5213229242370633579
+      Sprite_UI_Paper_1: -5833791218801934461
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

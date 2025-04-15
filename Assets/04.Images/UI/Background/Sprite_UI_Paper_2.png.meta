@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: 71d39e22e7b645f4eb2585e982d4e951
+guid: 004f8caad8e13ea4e91bcf7dff2d00e8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8090474965123784846
-    second: DALL_E_2025-04-03_10.07.00_-_A_64x64_pixel_art_seamless_wooden_pillar_tile_in_a_medieval_fantasy_style__viewed_flat_from_the_front._The_pillar_has_visible_wood_grain__slight_weath-removebg-preview
-      14_0
+      213: -9147649766486412442
+    second: Rectangle 6_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -140,24 +139,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DALL_E_2025-04-03_10.07.00_-_A_64x64_pixel_art_seamless_wooden_pillar_tile_in_a_medieval_fantasy_style__viewed_flat_from_the_front._The_pillar_has_visible_wood_grain__slight_weath-removebg-preview
-        14_0
+      name: Sprite_UI_Paper_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 20
-        height: 218
+        width: 1350
+        height: 836
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e80e4689d14274070800000000000000
-      internalID: 8090474965123784846
+      spriteID: 66374e2f0050d0180800000000000000
+      internalID: -9147649766486412442
       vertices: []
       indices: 
       edges: []
@@ -166,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d21ced82b63a9fe44bc4ecf406472c13
     internalID: 0
     vertices: []
     indices: 
@@ -176,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DALL_E_2025-04-03_10.07.00_-_A_64x64_pixel_art_seamless_wooden_pillar_tile_in_a_medieval_fantasy_style__viewed_flat_from_the_front._The_pillar_has_visible_wood_grain__slight_weath-removebg-preview 14_0: 8090474965123784846
+      Sprite_UI_Paper_2: -9147649766486412442
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

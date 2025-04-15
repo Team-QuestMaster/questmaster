@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 8167661a77373f245b8a86b870f982b8
+guid: 82d4c92bcffb62a43adc4ee5dcafc289
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 944770712938805910
-    second: Wood_Planks_04_Vertical_1 4_0
+      213: -902940596985882221
+    second: SpeachBubble_0
+  - first:
+      213: -4231551684155453751
+    second: SpeachBubble_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,10 +75,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
+    maxTextureSize: 4096
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -85,19 +88,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -135,27 +125,62 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wood_Planks_04_Vertical_1 4_0
+      name: Sprite_UI_Adventurer_SpeachBubble_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 570
-        height: 215
+        x: 360
+        y: 504
+        width: 216
+        height: 74
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 69af8e235ff7c1d00800000000000000
-      internalID: 944770712938805910
+      spriteID: 399906f9f4c1873f0800000000000000
+      internalID: -902940596985882221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_UI_Adventurer_SpeachBubble_2
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 466
+        width: 608
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ce4539b9228645c0800000000000000
+      internalID: -4231551684155453751
       vertices: []
       indices: 
       edges: []
@@ -164,7 +189,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6318b321978585f4488e125956b7bdc2
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +199,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Wood_Planks_04_Vertical_1 4_0: 944770712938805910
+      Sprite_UI_Adventurer_SpeachBubble_1: -902940596985882221
+      Sprite_UI_Adventurer_SpeachBubble_2: -4231551684155453751
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
