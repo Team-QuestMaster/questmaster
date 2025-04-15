@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public enum SceneNameEnum
 {
     StartScene,
-    UIScene_Main,
+    GameScene,
     EndingScene
 }
 public class SceneChangeManager : Singleton<SceneChangeManager>
