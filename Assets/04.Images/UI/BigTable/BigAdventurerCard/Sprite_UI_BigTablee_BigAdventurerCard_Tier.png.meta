@@ -1,0 +1,358 @@
+fileFormatVersion: 2
+guid: 645b0c6bd8def9d4db0e7e7456a323a3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7544372282304566870
+    second: dsymbol-removebg-preview 1_0
+  - first:
+      213: 6982449468785828668
+    second: dsymbol-removebg-preview 1_1
+  - first:
+      213: 5216451652673368724
+    second: dsymbol-removebg-preview 1_2
+  - first:
+      213: -7014617973012106660
+    second: dsymbol-removebg-preview 1_3
+  - first:
+      213: 4424462015203674359
+    second: dsymbol-removebg-preview 1_4
+  - first:
+      213: 1723587733270146515
+    second: dsymbol-removebg-preview 1_5
+  - first:
+      213: 9057381904696637909
+    second: dsymbol-removebg-preview 1_6
+  - first:
+      213: -3648373884830471
+    second: dsymbol-removebg-preview 1_7
+  - first:
+      213: -9021318835929639376
+    second: dsymbol-removebg-preview 1_8
+  - first:
+      213: 273328225990275228
+    second: dsymbol-removebg-preview 1_9
+  - first:
+      213: 62066250987297313
+    second: dsymbol-removebg-preview 1_10
+  - first:
+      213: -6687632602496138819
+    second: dsymbol-removebg-preview 1_11
+  - first:
+      213: 5052269760303075318
+    second: dsymbol-removebg-preview 1_12
+  - first:
+      213: 1168825330287293018
+    second: dsymbol-removebg-preview 1_13
+  - first:
+      213: 2858907733065570976
+    second: dsymbol-removebg-preview 1_14
+  - first:
+      213: 7200316332144714624
+    second: dsymbol-removebg-preview 1_15
+  - first:
+      213: 417525358708721975
+    second: dsymbol-removebg-preview 1_16
+  - first:
+      213: -9143442400154525980
+    second: dsymbol-removebg-preview 1_17
+  - first:
+      213: 6333333615211208591
+    second: dsymbol-removebg-preview 1_18
+  - first:
+      213: 842433752876070549
+    second: dsymbol-removebg-preview 1_19
+  - first:
+      213: 617453337276659170
+    second: dsymbol-removebg-preview 1_20
+  - first:
+      213: -6220475459780661340
+    second: dsymbol-removebg-preview 1_21
+  - first:
+      213: -3916530355515761918
+    second: dsymbol-removebg-preview 1_22
+  - first:
+      213: 7965647944245820925
+    second: dsymbol-removebg-preview 1_23
+  - first:
+      213: -8658749871651198460
+    second: dsymbol-removebg-preview 1_24
+  - first:
+      213: 4728065026205230494
+    second: dsymbol-removebg-preview 1_25
+  - first:
+      213: -6990136364622477894
+    second: dsymbol-removebg-preview 1_26
+  - first:
+      213: 8045119114827280441
+    second: dsymbol-removebg-preview 1_27
+  - first:
+      213: 6341315963596231307
+    second: dsymbol-removebg-preview 1_28
+  - first:
+      213: 8978290470287717919
+    second: dsymbol-removebg-preview 1_29
+  - first:
+      213: -341716246936571232
+    second: dsymbol-removebg-preview 1_30
+  - first:
+      213: -1594355605637136628
+    second: dsymbol-removebg-preview 1_31
+  - first:
+      213: -6500540785671430650
+    second: dsymbol-removebg-preview 1_32
+  - first:
+      213: -6917495449305744399
+    second: dsymbol-removebg-preview 1_33
+  - first:
+      213: 5244258340077671652
+    second: dsymbol-removebg-preview 1_34
+  - first:
+      213: -2252415313220803378
+    second: dsymbol-removebg-preview 1_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sprite_UI_BigTablee_BigAdventurerCard_Tier_1
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 1278
+        width: 842
+        height: 988
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65611147e9ef2b860800000000000000
+      internalID: 7544372282304566870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_UI_BigTablee_BigAdventurerCard_Tier_2
+      rect:
+        serializedVersion: 2
+        x: 1347
+        y: 1301
+        width: 819
+        height: 965
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c52fa8b5e1217ae90800000000000000
+      internalID: -7014617973012106660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_UI_BigTablee_BigAdventurerCard_Tier_4
+      rect:
+        serializedVersion: 2
+        x: 1355
+        y: 178
+        width: 850
+        height: 1011
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8f54ba1e5584e750800000000000000
+      internalID: 6333333615211208591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_UI_BigTablee_BigAdventurerCard_Tier_3
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 209
+        width: 850
+        height: 965
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4af2dbdd68e6ca9a0800000000000000
+      internalID: -6220475459780661340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f24faa4c85ad99d45894c17cba099847
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Sprite_UI_BigTablee_BigAdventurerCard_Tier_1: 7544372282304566870
+      Sprite_UI_BigTablee_BigAdventurerCard_Tier_2: -7014617973012106660
+      Sprite_UI_BigTablee_BigAdventurerCard_Tier_3: -6220475459780661340
+      Sprite_UI_BigTablee_BigAdventurerCard_Tier_4: 6333333615211208591
+      dsymbol-removebg-preview 1_10: 62066250987297313
+      dsymbol-removebg-preview 1_7: -3648373884830471
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
