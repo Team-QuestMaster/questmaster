@@ -4,51 +4,30 @@ using UnityEngine.UI;
 
 public class Quest : MonoBehaviour
 {
-    [SerializeField]
-    private QuestSO _questSO;
-    public QuestSO QuestSO { get => _questSO; }
     private QuestData _questData;
     public QuestData QuestData { get => _questData; set => _questData = value; }
-    [SerializeField]
-    private List<int> _questTierMinCombatPowers = new List<int>();
 
+    private Color _questTierImageColor;
+    public Color QuestTierImageColor { get => _questTierImageColor; set => _questTierImageColor = value; }
 
-    private void Awake()
+    private void Start()
     {
-        InitQuestData();
+       // InitQuestData();
         gameObject.SetActive(false);
     }
     private void InitQuestData()
     {
-        _questSO.QuestTierImageColor = InitQuestTierImageColor();
-        _questData = new QuestData(
-            _questSO.QuestName,
-            _questSO.QuestDescription,
-            _questSO.QuestTier,
-            _questSO.QuestTierImageColor,
-            _questSO.STRWeight,
-            _questSO.MAGWeight,
-            _questSO.INSWeight,
-            _questSO.DEXWeight,
-            _questSO.PowerForClear,
-            _questSO.FameReward,
-            _questSO.GoldReward,
-            _questSO.FamePenalty,
-            _questSO.GoldPenalty,
-            _questSO.StateAfterFail,
-            _questSO.Days,
-            _questSO.QuestHint
-        );
+        _questTierImageColor = InitQuestTierImageColor();
     }
-    public void ChangeQuestData(QuestSO questSO)
+    public void ChangeQuestData(QuestData questData)
     {
-        _questSO = questSO;
+        _questData = questData;
         InitQuestData();
     }
     private Color InitQuestTierImageColor()
     {
         Color tierImageColor = Color.white;
-        switch (_questSO.QuestTier)
+        switch (_questData.QuestTier)
         {
             case QuestTierType.Green:
                 tierImageColor = Color.green;

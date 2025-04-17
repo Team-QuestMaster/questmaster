@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class PickManager : Singleton<PickManager>
@@ -9,8 +8,9 @@ public class PickManager : Singleton<PickManager>
     private List<Adventurer> _adventurers = new List<Adventurer>();
     public List<Adventurer> Adventurers { get => _adventurers; set => _adventurers = value; }
     [SerializeField]
-    private List<QuestSO> _questDatas = new List<QuestSO>();
-    public List<QuestSO> QuestDatas { get => _questDatas; set => _questDatas = value; }
+    private List<QuestData> _questDatas = new List<QuestData>();
+    public List<QuestData> QuestDatas { get => _questDatas; set => _questDatas = value; }
+
     private Dictionary<QuestTierType, (int start, int end)> tierDateRange = new Dictionary<QuestTierType, (int, int)>{
             { QuestTierType.Green, (1, 8) },
             { QuestTierType.Blue, (7, 13) },
@@ -26,21 +26,60 @@ public class PickManager : Singleton<PickManager>
     protected override void Awake()
     {
         base.Awake();
-        foreach (QuestSO questSO in _questDatas)
+        _questDatas = LoadQuest();
+        foreach (QuestData questData in _questDatas)
         {
-            questSO.IsQuesting = false;
+            questData.IsQuesting = false;
         }
     }
-    public (Adventurer, QuestSO) Pick()
+
+    private List<QuestData> LoadQuest()
+    {
+        List<QuestData> questList = new List<QuestData>();
+
+        List<Dictionary<string, object>> csv = CSVReader.Read("QuestData");
+
+        for(int i = 0; i < csv.Count; i++)
+        {
+            string questName = csv[i]["QuestName"].ToString();
+            string questDescription = csv[i]["QuestDescription"].ToString();
+            QuestTierType questTier = (QuestTierType)Enum.Parse(typeof(QuestTierType), csv[i]["QuestTier"].ToString());
+
+            float str = float.Parse(csv[i]["STRWeight"].ToString());
+            float mag = float.Parse(csv[i]["MAGWeight"].ToString());
+            float ins = float.Parse(csv[i]["INSWeight"].ToString());
+            float dex = float.Parse(csv[i]["DEXWeight"].ToString());
+            float power = float.Parse(csv[i]["PowerForClear"].ToString());
+            int fameReward = int.Parse(csv[i]["FameReward"].ToString());
+            int goldReward = int.Parse(csv[i]["GoldReward"].ToString());
+            int famePenalty = int.Parse(csv[i]["FamePenalty"].ToString());
+            int goldPenalty = int.Parse(csv[i]["GoldPenalty"].ToString());
+            AdventurerStateType failState = (AdventurerStateType)Enum.Parse(typeof(AdventurerStateType), csv[i]["QuestTier"].ToString());
+            int days = int.Parse(csv[i]["Days"].ToString());
+            string questHint = csv[i]["QuestHint"].ToString();
+
+            QuestData questData = new QuestData(
+                questName, questDescription, questTier,
+                str, mag, ins, dex, power,
+                fameReward, goldReward, famePenalty, goldPenalty,
+                failState, days, questHint
+            );
+            questList.Add(questData);
+        }
+
+        return questList;
+    }
+
+    public (Adventurer, QuestData) Pick()
     {
         Adventurer currentAdventurer = PickAdventurer();
-        QuestSO currentQuestSO = PickQuest();
-        if (ReferenceEquals(currentAdventurer, null) || ReferenceEquals(currentQuestSO, null))
+        QuestData currentQuestData = PickQuest();
+        if (ReferenceEquals(currentAdventurer, null) || ReferenceEquals(currentQuestData, null))
         {
             Debug.Log("현재 뽑아올 수 있는 유효한 모험가 또는 퀘스트가 없습니다.");
             return (null, null);
         }
-        return (currentAdventurer, currentQuestSO);
+        return (currentAdventurer, currentQuestData);
     }
     private Adventurer PickAdventurer()
     {
@@ -72,7 +111,7 @@ public class PickManager : Singleton<PickManager>
         }
         return null;
     }
-    private QuestSO PickQuest()
+    private QuestData PickQuest()
     {
         if (_questDatas.Count == 0)
         {
@@ -100,24 +139,24 @@ public class PickManager : Singleton<PickManager>
 
             isChecked[randomIndex] = true;
             count++;
-            QuestSO questSO = _questDatas[randomIndex];
-            if (isQuestPickValid(currentDate, todayAdventurerPower, questSO))
+            QuestData questData = _questDatas[randomIndex];
+            if (isQuestPickValid(currentDate, todayAdventurerPower, questData))
             {
 
-                return questSO;
+                return questData;
             }
         }
         return null;
     }
-    private bool isQuestPickValid(int currentDate, float todayAdventurerPower, QuestSO questSO)
+    private bool isQuestPickValid(int currentDate, float todayAdventurerPower, QuestData questData)
     {
-        var range = tierDateRange[questSO.QuestTier];
-        var minimumProbability = tierMinMaxProbability[questSO.QuestTier].min;
-        var maximumProbability = tierMinMaxProbability[questSO.QuestTier].max;
+        var range = tierDateRange[questData.QuestTier];
+        var minimumProbability = tierMinMaxProbability[questData.QuestTier].min;
+        var maximumProbability = tierMinMaxProbability[questData.QuestTier].max;
         float probability = CalculateManager.Instance.CalculateProbability
-            (todayAdventurerPower, questSO.PowerForClear);
-        return (!questSO.IsQuesting && range.start <= currentDate && currentDate <= range.end
+            (todayAdventurerPower, questData.PowerForClear);
+        return (!questData.IsQuesting && range.start <= currentDate && currentDate <= range.end
             && minimumProbability <= probability && probability <= maximumProbability
-            && todayAdventurerPower < questSO.PowerForClear);
+            && todayAdventurerPower < questData.PowerForClear);
     }
 }

@@ -20,9 +20,9 @@ public class BigQuestPaperContent
 public class QuestUI : MonoBehaviour
 {
     private int _currentQuestIndex = 0;
-    private List<QuestSO> _questDatas = new List<QuestSO>();
-    public List<QuestSO> QuestDatas { get => _questDatas; set => _questDatas = value; }
-    private QuestSO _currentQuestData;
+    private List<QuestData> _questDatas = new List<QuestData>();
+    public List<QuestData> QuestDatas { get => _questDatas; set => _questDatas = value; }
+    private QuestData _currentQuestData;
     private Quest _currentQuest;
     public Quest CurrentQuest { get => _currentQuest; }
 
@@ -62,7 +62,7 @@ public class QuestUI : MonoBehaviour
     {
         // SealingImage�� ���, QuestData�� QuestTier�� ���� �ٸ��� ������ �ʿ�
         // �׳� Image�� QuestData�� �־������?
-        bigQuestPaperContent.SealingImage.color = _currentQuest.QuestData.QuestTierImageColor;
+        bigQuestPaperContent.SealingImage.color = _currentQuest.QuestTierImageColor;
         bigQuestPaperContent.TitleTMP.text = _currentQuestData.QuestName.Replace("- ", "\n");
         bigQuestPaperContent.MainBodyTMP.text = _currentQuestData.QuestDescription;
         bigQuestPaperContent.RewardTMP.text = $"골드 {_currentQuestData.GoldReward}\n명성치 {_currentQuestData.FameReward}";

@@ -1,5 +1,14 @@
 using UnityEngine;
 
+public enum QuestTierType
+{
+    Red,
+    Orange,
+    Yellow,
+    Blue,
+    Green
+}
+
 public class QuestData
 {
     private string _questName; // 퀘스트 이름
@@ -10,10 +19,6 @@ public class QuestData
 
     private QuestTierType _questTier; // 퀘스트 등급
     public QuestTierType QuestTier { get => _questTier; set => _questTier = value; }
-
-    private Color _questTierImageColor; // 퀘스트 등급 이미지
-    public Color QuestTierImageColor { get => _questTierImageColor; set => _questTierImageColor = value; }
-
 
     private float _strWeight; // 퀘스트 근력 가중치
     public float STRWeight { get => _strWeight; set => _strWeight = value; }
@@ -55,14 +60,13 @@ public class QuestData
     public string QuestHint { get => _questHint; set => _questHint = value; }
 
     public QuestData(string questName, string questDescription, QuestTierType questTier, 
-        Color questTierImageColor, float strWeight, float magWeight, float insWeight, float dexWeight, 
+        float strWeight, float magWeight, float insWeight, float dexWeight, 
         float powerForClear, int fameReward, int goldReward, int famePenalty, int goldPenalty, 
         AdventurerStateType stateAfterFail, int days, string questHint)
     {
         _questName = questName;
         _questDescription = questDescription;
         _questTier = questTier;
-        _questTierImageColor = questTierImageColor;
         _strWeight = strWeight;
         _magWeight = magWeight;
         _insWeight = insWeight;
@@ -82,7 +86,6 @@ public class QuestData
             (_questName, 
             _questDescription, 
             _questTier,
-            _questTierImageColor,
             _strWeight, 
             _magWeight,
             _insWeight, 
