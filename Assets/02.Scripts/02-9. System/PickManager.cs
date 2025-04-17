@@ -37,26 +37,26 @@ public class PickManager : Singleton<PickManager>
     {
         List<QuestData> questList = new List<QuestData>();
 
-        List<Dictionary<string, object>> csv = CSVReader.Read("QuestData");
+        List<Dictionary<string, string>> csv = CSVReader.Read("QuestData");
 
         for(int i = 0; i < csv.Count; i++)
         {
-            string questName = csv[i]["QuestName"].ToString();
-            string questDescription = csv[i]["QuestDescription"].ToString();
-            QuestTierType questTier = (QuestTierType)Enum.Parse(typeof(QuestTierType), csv[i]["QuestTier"].ToString());
+            string questName = csv[i]["QuestName"];
+            string questDescription = csv[i]["QuestDescription"];
+            QuestTierType questTier = (QuestTierType)Enum.Parse(typeof(QuestTierType), csv[i]["QuestTier"]);
 
-            float str = float.Parse(csv[i]["STRWeight"].ToString());
-            float mag = float.Parse(csv[i]["MAGWeight"].ToString());
-            float ins = float.Parse(csv[i]["INSWeight"].ToString());
-            float dex = float.Parse(csv[i]["DEXWeight"].ToString());
-            float power = float.Parse(csv[i]["PowerForClear"].ToString());
-            int fameReward = int.Parse(csv[i]["FameReward"].ToString());
-            int goldReward = int.Parse(csv[i]["GoldReward"].ToString());
-            int famePenalty = int.Parse(csv[i]["FamePenalty"].ToString());
-            int goldPenalty = int.Parse(csv[i]["GoldPenalty"].ToString());
-            AdventurerStateType failState = (AdventurerStateType)Enum.Parse(typeof(AdventurerStateType), csv[i]["QuestTier"].ToString());
-            int days = int.Parse(csv[i]["Days"].ToString());
-            string questHint = csv[i]["QuestHint"].ToString();
+            float str = float.Parse(csv[i]["STRWeight"]);
+            float mag = float.Parse(csv[i]["MAGWeight"]);
+            float ins = float.Parse(csv[i]["INSWeight"]);
+            float dex = float.Parse(csv[i]["DEXWeight"]);
+            float power = float.Parse(csv[i]["PowerForClear"]);
+            int fameReward = int.Parse(csv[i]["FameReward"]);
+            int goldReward = int.Parse(csv[i]["GoldReward"]);
+            int famePenalty = int.Parse(csv[i]["FamePenalty"]);
+            int goldPenalty = int.Parse(csv[i]["GoldPenalty"]);
+            AdventurerStateType failState = (AdventurerStateType)Enum.Parse(typeof(AdventurerStateType), csv[i]["QuestTier"]);
+            int days = int.Parse(csv[i]["Days"]);
+            string questHint = csv[i]["QuestHint"];
 
             QuestData questData = new QuestData(
                 questName, questDescription, questTier,
@@ -66,7 +66,6 @@ public class PickManager : Singleton<PickManager>
             );
             questList.Add(questData);
         }
-
         return questList;
     }
 
@@ -142,7 +141,6 @@ public class PickManager : Singleton<PickManager>
             QuestData questData = _questDatas[randomIndex];
             if (isQuestPickValid(currentDate, todayAdventurerPower, questData))
             {
-
                 return questData;
             }
         }
