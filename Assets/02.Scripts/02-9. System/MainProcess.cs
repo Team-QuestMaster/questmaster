@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class MainProcess : MonoBehaviour
 {
-    private List<(Adventurer, QuestSO)> _todayRequest = new List<(Adventurer, QuestSO)>();
+    private List<(Adventurer, QuestData)> _todayRequest = new List<(Adventurer, QuestData)>();
 
     private const int _requestCountMaxPerDay = 5;
     private int _requestCount = 0;
@@ -44,7 +44,7 @@ public class MainProcess : MonoBehaviour
         int requestCount = 0;
         while (requestCount < _requestCountMaxPerDay)
         {
-            (Adventurer, QuestSO) request = PickManager.Instance.Pick();
+            (Adventurer, QuestData) request = PickManager.Instance.Pick();
             if (!ReferenceEquals(request.Item1, null) && !ReferenceEquals(request.Item2, null))
             {
                 // request.Item1.AdventurerData.AdventurerState = AdventurerStateType.TodayCome;
@@ -53,7 +53,7 @@ public class MainProcess : MonoBehaviour
             }
             requestCount++;
         }
-        foreach ((Adventurer, QuestSO) request in _todayRequest)
+        foreach ((Adventurer, QuestData) request in _todayRequest)
         {
             UIManager.Instance.CharacterUI.Characters.Add(request.Item1.gameObject);
 
@@ -64,6 +64,8 @@ public class MainProcess : MonoBehaviour
     }
     public void ApproveRequest()
     {
+        StageShowManager.Instance.ShowResult.Initialize
+            (_todayRequest[_requestCount].Item1, UIManager.Instance.QuestUI.CurrentQuest);
         Adventurer currentAdventurer = _todayRequest[_requestCount].Item1;
         Quest currentQuest = UIManager.Instance.QuestUI.CurrentQuest;
         ItemManager.Instance.StatItemUse(currentAdventurer, currentQuest);
@@ -91,6 +93,8 @@ public class MainProcess : MonoBehaviour
     }
     public void RejectRequest()
     {
+        StageShowManager.Instance.ShowResult.Initialize
+            (_todayRequest[_requestCount].Item1, UIManager.Instance.QuestUI.CurrentQuest);
         Adventurer currentAdventurer = _todayRequest[_requestCount].Item1;
         Quest currentQuest = UIManager.Instance.QuestUI.CurrentQuest;
         float probability = CalculateManager.Instance.CalculateProbability(currentAdventurer, currentQuest);
@@ -101,8 +105,6 @@ public class MainProcess : MonoBehaviour
     }
     public void EndRequest()
     {
-        StageShowManager.Instance.ShowResult.Initialize
-            (_todayRequest[_requestCount].Item1, UIManager.Instance.QuestUI.CurrentQuest);
         _requestCount++;
         OnRequestCountIncreased?.Invoke();
         //_todayRequest[_requestCount].Item1.gameObject.SetActive(false);
