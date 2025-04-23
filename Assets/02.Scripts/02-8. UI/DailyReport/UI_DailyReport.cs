@@ -33,6 +33,8 @@ public class UI_DailyReport : MonoBehaviour
     private void Start()
     {
         _closeButton.onClick.AddListener(HideDailyReport);
+        // TODO: 구조 수정 필요
+        _closeButton.onClick.AddListener(StageShowManager.Instance.Appear);
     }
     
     public void RefreshDailyReport(DailyReportData data)

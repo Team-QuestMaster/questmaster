@@ -116,7 +116,7 @@ public class MainProcess : MonoBehaviour
     private void ApplyQuestResult()
     {
         DailyReportData dailyReportData = new DailyReportData();
-        UIManager.Instance.ReportUI.TextClear();
+        //UIManager.Instance.ReportUI.TextClear();
         List<QuestResult> questResults = DateManager.Instance.GetTodayQuestResults();
 
         // UI data
@@ -129,24 +129,24 @@ public class MainProcess : MonoBehaviour
                 GuildStatManager.Instance.Fame += questResult.QuestData.FameReward;
                 GuildStatManager.Instance.Gold += questResult.QuestData.GoldReward;
                 GuildStatManager.Instance.NumOfCompletedQuests++;
-                UIManager.Instance.ReportUI.QuestResultTextAdd($"<color=#99A136>성공 :</color> {questResult.QuestData.QuestName} | {questResult.Probability.ToString("N1")}%");
+                //UIManager.Instance.ReportUI.QuestResultTextAdd($"<color=#99A136>성공 :</color> {questResult.QuestData.QuestName} | {questResult.Probability.ToString("N1")}%");
                 dailyReportData.AddQuestResultText($"<color=#99A136>성공 :</color> {questResult.QuestData.QuestName} | {questResult.Probability:N1}%");
-               // UIManager.Instance.ReportUI.SpecialCommentText($"성공: {questResult.QuestData.QuestName}: {questResult.QuestData.QuestHint}");
+                // UIManager.Instance.ReportUI.SpecialCommentText($"성공: {questResult.QuestData.QuestName}: {questResult.QuestData.QuestHint}");
             }
             else
             {
                 GuildStatManager.Instance.Fame -= questResult.QuestData.FamePenalty;
                 GuildStatManager.Instance.Gold -= questResult.QuestData.GoldPenalty;
-                UIManager.Instance.ReportUI.QuestResultTextAdd($"<color=#C4402E>실패 :</color> {questResult.QuestData.QuestName} | {questResult.Probability.ToString("N1")}%");
+                //UIManager.Instance.ReportUI.QuestResultTextAdd($"<color=#C4402E>실패 :</color> {questResult.QuestData.QuestName} | {questResult.Probability.ToString("N1")}%");
                 dailyReportData.AddQuestResultText($"<color=#C4402E>실패 :</color> {questResult.QuestData.QuestName} | {questResult.Probability:N1}%");
-                UIManager.Instance.ReportUI.SpecialCommentText($"{questResult.QuestData.QuestName} : {questResult.QuestData.QuestHint}");
+                //UIManager.Instance.ReportUI.SpecialCommentText($"{questResult.QuestData.QuestName} : {questResult.QuestData.QuestHint}");
                 dailyReportData.AddSpecialCommentText($"{questResult.QuestData.QuestName} : {questResult.QuestData.QuestHint}");
             }
         }
-        UIManager.Instance.ReportUI.GoldText(beforeGold, GuildStatManager.Instance.Gold);
+        //UIManager.Instance.ReportUI.GoldText(beforeGold, GuildStatManager.Instance.Gold);
         dailyReportData.BeforeGold = beforeGold;
         dailyReportData.AfterGold = GuildStatManager.Instance.Gold;
-        UIManager.Instance.ReportUI.FameText(beforeFame, GuildStatManager.Instance.Fame);
+        //UIManager.Instance.ReportUI.FameText(beforeFame, GuildStatManager.Instance.Fame);
         dailyReportData.BeforeFame = beforeFame;
         dailyReportData.AfterFame = GuildStatManager.Instance.Fame;
         _dailyReportModel.Data = dailyReportData;
