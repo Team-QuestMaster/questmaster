@@ -20,7 +20,7 @@ public class UI_QuestView : MonoBehaviour
     [SerializeField]
     private BigQuestPaperContent bigQuestPaperContent;
 
-    public void UpdateUI(QuestData questData, Color questTierImageColor)
+    public void RefreshUI(QuestData questData, Color questTierImageColor)
     {
         bigQuestPaperContent.SealingImage.color = questTierImageColor;
         bigQuestPaperContent.TitleTMP.text = questData.QuestName.Replace("- ", "\n");

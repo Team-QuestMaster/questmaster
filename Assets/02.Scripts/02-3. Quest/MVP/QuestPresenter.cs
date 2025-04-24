@@ -15,7 +15,7 @@ public class QuestPresenter : MonoBehaviour
     {
         if (!ReferenceEquals(_questModel, null))
         {
-            _questModel.OnQuestDataChanged += _questView.UpdateUI;
+            _questModel.OnQuestDataChanged += _questView.RefreshUI;
         }
     }
 }
