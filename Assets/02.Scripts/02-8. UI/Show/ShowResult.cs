@@ -9,7 +9,7 @@ public class ShowResult : MonoBehaviour
     public event Action ResultShowEvent;
     public  event Action ResultHideEvent;
  
-    private Quest _questData;
+    private QuestModel _questData;
     private Adventurer _adventurerData;
     [SerializeField] private bool _isApprove;
     [SerializeField] private Image _resultImage;
@@ -36,7 +36,7 @@ public class ShowResult : MonoBehaviour
         */
     }
 
-    public void Initialize(Adventurer adventurer, Quest questData)
+    public void Initialize(Adventurer adventurer, QuestModel questData)
     {
         _adventurerData = adventurer;
         _questData = questData;

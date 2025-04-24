@@ -8,8 +8,8 @@ public class QuestHandler : MonoBehaviour
     private List<QuestData> _questDatas = new List<QuestData>();
     public List<QuestData> QuestDatas { get => _questDatas; set => _questDatas = value; }
 
-    private Quest _quest;
-    public Quest Quest 
+    private QuestModel _quest;
+    public QuestModel Quest 
     { 
         get => _quest; 
         set
@@ -19,7 +19,7 @@ public class QuestHandler : MonoBehaviour
     }
     private void Awake()
     {
-        _quest = GetComponent<Quest>();
+        _quest = GetComponent<QuestModel>();
     }
     public void InitQuest()
     {

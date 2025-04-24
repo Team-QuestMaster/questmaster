@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Quest : MonoBehaviour
+public class QuestModel : MonoBehaviour
 {
     public Action<QuestData, Color> OnQuestDataChanged;
     private QuestData _questData;

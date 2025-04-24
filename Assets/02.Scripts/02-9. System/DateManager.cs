@@ -34,7 +34,7 @@ public class DateManager : Singleton<DateManager>
         }
         OnDateChanged += (() => CheckEndingDate());
     }
-    public void AddQuestResultToList(Adventurer adventurer, Quest quest, bool isSuccess, float probability)
+    public void AddQuestResultToList(Adventurer adventurer, QuestModel quest, bool isSuccess, float probability)
     {
         int endDay = quest.QuestData.Days + _currentDate;
         if (_maxDate < endDay)

@@ -65,7 +65,7 @@ public class MainProcess : MonoBehaviour
     }
     public void ApproveRequest()
     {
-        Quest currentQuest = _questHandler.Quest;
+        QuestModel currentQuest = _questHandler.Quest;
         StageShowManager.Instance.ShowResult.Initialize
             (_todayRequest[_requestCount].Item1, currentQuest);
         Adventurer currentAdventurer = _todayRequest[_requestCount].Item1;
@@ -75,7 +75,7 @@ public class MainProcess : MonoBehaviour
         // currentAdventurer.AdventurerData.AdventurerState = AdventurerStateType.Questing;
         EndRequest();
     }
-    private bool MakeQuestResult(Adventurer adventurer, Quest quest)
+    private bool MakeQuestResult(Adventurer adventurer, QuestModel quest)
     {
         float probability = CalculateManager.Instance.CalculateProbability(adventurer, quest);
         float itemProbability = ItemManager.Instance.QuestItemUse(adventurer, quest);
@@ -86,7 +86,7 @@ public class MainProcess : MonoBehaviour
         UpdateCalender(quest, probability);
         return isQuestSuccess;
     }
-    private void UpdateCalender(Quest quest, float isQuestSuccess)
+    private void UpdateCalender(QuestModel quest, float isQuestSuccess)
     {
         int questEndDay = DateManager.Instance.CurrentDate + quest.QuestData.Days;
         string questCalenderInfoText = $"{quest.QuestData.QuestName} <color=#99A136>{isQuestSuccess:N1}</color>";
@@ -97,7 +97,7 @@ public class MainProcess : MonoBehaviour
         StageShowManager.Instance.ShowResult.Initialize
             (_todayRequest[_requestCount].Item1, _questHandler.Quest);
         Adventurer currentAdventurer = _todayRequest[_requestCount].Item1;
-        Quest currentQuest = _questHandler.Quest;
+        QuestModel currentQuest = _questHandler.Quest;
         float probability = CalculateManager.Instance.CalculateProbability(currentAdventurer, currentQuest);
         StageShowManager.Instance.ShowResult.ResultText(false, probability, currentQuest.QuestData.GoldReward, currentQuest.QuestData.GoldPenalty);
         _todayRequest[_requestCount].Item1.AdventurerData.AdventurerState = AdventurerStateType.Idle;

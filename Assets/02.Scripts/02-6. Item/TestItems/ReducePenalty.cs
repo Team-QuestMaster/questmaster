@@ -3,10 +3,10 @@ using UnityEngine;
 public class ReducePenalty : QuestItem
 {
     [SerializeField]
-    private float _penaltyRate = 0.5f; // ÆÐ³ÎÆ¼ °¨¼Ò ºñÀ²
-    public override float QuestUse(Quest quest) // Àç±¸Çö
+    private float _penaltyRate = 0.5f; // ï¿½Ð³ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    public override float QuestUse(QuestModel quest) // ï¿½ç±¸ï¿½ï¿½
     {
-        quest.QuestData.FamePenalty = (int)(_penaltyRate * quest.QuestData.FamePenalty); // ÆÐ³ÎÆ¼ °¨¼Ò
+        quest.QuestData.FamePenalty = (int)(_penaltyRate * quest.QuestData.FamePenalty); // ï¿½Ð³ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½
         quest.QuestData.GoldPenalty = (int)(_penaltyRate * quest.QuestData.GoldPenalty);
         return 0f;
     }

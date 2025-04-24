@@ -97,7 +97,7 @@ public class ItemManager : Singleton <ItemManager>
         }
     }
 
-    public void StatItemUse(Adventurer adventurer, Quest quest)
+    public void StatItemUse(Adventurer adventurer, QuestModel quest)
     {
         List<GameObject> removeList = new List<GameObject>(); // ����� ������ ����Ʈ
         foreach (GameObject item in _havingItemList)
@@ -118,7 +118,7 @@ public class ItemManager : Singleton <ItemManager>
          }
     }
 
-    public float QuestItemUse(Adventurer adventurer, Quest quest)
+    public float QuestItemUse(Adventurer adventurer, QuestModel quest)
     {
         float sum = 0;
 
