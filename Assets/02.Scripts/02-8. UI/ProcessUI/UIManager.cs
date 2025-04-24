@@ -27,7 +27,7 @@ public class UIManager : Singleton<UIManager>
 
     private void Start()
     {
-        GuideBookUI.Initialize();
+        //GuideBookUI.Initialize();
         StampUI.Initialize();
         ReportUI.Initialize();
         SettingUI.Initialize();

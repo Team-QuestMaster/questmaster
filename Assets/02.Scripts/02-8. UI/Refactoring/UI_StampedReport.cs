@@ -44,7 +44,14 @@ public class UI_StampedReport : MonoBehaviour
     [SerializeField]
     private UI_FadeInOut _fadeInOutImage;
         
-    public void SetStampedReport(QuestData questData, AdventurerData adventurerData)
+    [Header("연출을 위한 파라미터")]
+    [SerializeField] private float _fadeInOutDuration = 0.1f;
+    [SerializeField] private float _showDuration = 0.5f;
+    [SerializeField] private Vector3 _showPosition = Vector3.zero;
+    [SerializeField] private Vector3 _hidePosition = new Vector3(-1470,0,0);
+    
+    
+    public void Refresh(QuestData questData, AdventurerData adventurerData)
     {
         
         _questNameText.text = questData.QuestName;
@@ -57,19 +64,21 @@ public class UI_StampedReport : MonoBehaviour
         _approveOrNotText.text= _approve? "<color=#99A136>승낙함</color>" : "<color=#C4402E>거절됨</color>";
     }
 
+    
+    
     public void ShowStampedReport()
     {
         
         //AudioManager.Instance.PlaySFX(_onResultAudioClip);
         _fadeInOutImage.FadeIn(0.1f);
-        this.transform.DOLocalMove(new Vector3(0, 0, 0), 0.5f);
+        this.transform.DOLocalMove(_showPosition, _showDuration);
         
     }
 
     public void HideStampedReport()
     {
         _fadeInOutImage.FadeOut(0.1f);
-        this.transform.DOLocalMove(new Vector3(-1470f,0, 0), 0.5f).OnComplete(() =>
+        this.transform.DOLocalMove(_hidePosition, _showDuration).OnComplete(() =>
         {
             //손님 퇴장
         });
