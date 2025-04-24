@@ -65,12 +65,12 @@ public class MainProcess : MonoBehaviour
     }
     public void ApproveRequest()
     {
-        QuestModel currentQuestModel = _questHandler.QuestModel;
+        QuestModel questModel = _questHandler.QuestModel;
         StageShowManager.Instance.ShowResult.Initialize
-            (_todayRequest[_requestCount].Item1, currentQuestModel);
+            (_todayRequest[_requestCount].Item1, questModel);
         Adventurer currentAdventurer = _todayRequest[_requestCount].Item1;
-        ItemManager.Instance.StatItemUse(currentAdventurer, currentQuestModel);
-        MakeQuestResult(currentAdventurer, currentQuestModel);
+        ItemManager.Instance.StatItemUse(currentAdventurer, questModel);
+        MakeQuestResult(currentAdventurer, questModel);
 
         // currentAdventurer.AdventurerData.AdventurerState = AdventurerStateType.Questing;
         EndRequest();
