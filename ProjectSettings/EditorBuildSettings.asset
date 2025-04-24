@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/01.Scenes/StartScene.unity
     guid: ba5093d198e3d3a43b55662536a2673e
   - enabled: 1
-    path: Assets/01.Scenes/UIScene_Main.unity
+    path: Assets/01.Scenes/GameScene.unity
     guid: d93b7b09bb6e3d340aa533fa40fd711a
   - enabled: 1
     path: Assets/01.Scenes/EndingScene.unity
