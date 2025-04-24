@@ -42,8 +42,6 @@ public class ShowCharacter : MonoBehaviour
     public void Appear()
     {
         CharacterAppearShow?.Invoke();
-
-        
     }
 
     void CharacterSpeak()

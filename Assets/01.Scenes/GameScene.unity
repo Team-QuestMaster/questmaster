@@ -1559,6 +1559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dailyReportModel: {fileID: 370555892}
+  _questHandler: {fileID: 366107712}
 --- !u!1001 &147251280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3187,7 +3188,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95b4ea14cf209eb478a0c900663420e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Approved: 0
 --- !u!4 &338782225
 Transform:
   m_ObjectHideFlags: 0
@@ -3331,6 +3331,26 @@ PrefabInstance:
       propertyPath: m_RaycastPadding.z
       value: -15
       objectReference: {fileID: 0}
+    - target: {fileID: 6863317357369014864, guid: 8cffbc4f6b398a9448a41fe35ed2f592, type: 3}
+      propertyPath: bigQuestPaperContent.TitleTMP
+      value: 
+      objectReference: {fileID: 7214393581521152546}
+    - target: {fileID: 6863317357369014864, guid: 8cffbc4f6b398a9448a41fe35ed2f592, type: 3}
+      propertyPath: bigQuestPaperContent.RewardTMP
+      value: 
+      objectReference: {fileID: 1824559828942216628}
+    - target: {fileID: 6863317357369014864, guid: 8cffbc4f6b398a9448a41fe35ed2f592, type: 3}
+      propertyPath: bigQuestPaperContent.MainBodyTMP
+      value: 
+      objectReference: {fileID: 5887082362045642881}
+    - target: {fileID: 6863317357369014864, guid: 8cffbc4f6b398a9448a41fe35ed2f592, type: 3}
+      propertyPath: bigQuestPaperContent.NeedTimeTMP
+      value: 
+      objectReference: {fileID: 8856225935325663677}
+    - target: {fileID: 6863317357369014864, guid: 8cffbc4f6b398a9448a41fe35ed2f592, type: 3}
+      propertyPath: bigQuestPaperContent.SealingImage
+      value: 
+      objectReference: {fileID: 4574427716474596682}
     - target: {fileID: 8967329536261977897, guid: 8cffbc4f6b398a9448a41fe35ed2f592, type: 3}
       propertyPath: _dragArea
       value: 
@@ -3361,6 +3381,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2594679754926929107, guid: 8cffbc4f6b398a9448a41fe35ed2f592, type: 3}
   m_PrefabInstance: {fileID: 366107708}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &366107712 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 784706699964327324, guid: 8cffbc4f6b398a9448a41fe35ed2f592, type: 3}
+  m_PrefabInstance: {fileID: 366107708}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366107710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28d851c975c31449bbd7ff0b4451e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &370555890
 GameObject:
   m_ObjectHideFlags: 0
@@ -3980,6 +4011,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _onAppearAudioClip: {fileID: 8300000, guid: c873e7380c1b63a47a9b3196ca0f99bf, type: 3}
+  _questHandler: {fileID: 366107712}
+  _smallQuestGO: {fileID: 366107710}
+  _smallQuestActivateTransform: {fileID: 1534218505}
+  _bigQuestPaperGO: {fileID: 8570329065990981918}
 --- !u!114 &417627153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15608,9 +15643,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63fd571c73aae3140bf3a453ce6bd0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _smallQuestGO: {fileID: 366107710}
-  _smallQuestActivateTransform: {fileID: 1534218505}
-  _bigQuestPaperGO: {fileID: 8570329065990981918}
   bigQuestPaperContent:
     SealingImage: {fileID: 4574427716474596682}
     TitleTMP: {fileID: 7214393581521152546}
@@ -15631,8 +15663,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Characters: []
   CurrentCharacter: {fileID: 0}
-  _characterAnimator: {fileID: 0}
-  _characterButton: {fileID: 0}
   _characterText: {fileID: 1639354956}
   _speechBubble: {fileID: 2099072141}
   _speechButton: {fileID: 2099072139}
@@ -18382,6 +18412,18 @@ PrefabInstance:
       propertyPath: _dailyReportModel
       value: 
       objectReference: {fileID: 370555892}
+    - target: {fileID: 3373740376490981344, guid: 3166634a2955f784eace980fcf9b818a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373740376490981344, guid: 3166634a2955f784eace980fcf9b818a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373740376490981344, guid: 3166634a2955f784eace980fcf9b818a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3472382811232706524, guid: 3166634a2955f784eace980fcf9b818a, type: 3}
       propertyPath: m_Size
       value: 0.6003698
@@ -18389,6 +18431,18 @@ PrefabInstance:
     - target: {fileID: 3472382811232706524, guid: 3166634a2955f784eace980fcf9b818a, type: 3}
       propertyPath: m_Value
       value: 1.0000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487537911642133712, guid: 3166634a2955f784eace980fcf9b818a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487537911642133712, guid: 3166634a2955f784eace980fcf9b818a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487537911642133712, guid: 3166634a2955f784eace980fcf9b818a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5116040920786341614, guid: 3166634a2955f784eace980fcf9b818a, type: 3}
       propertyPath: m_AnchorMax.x

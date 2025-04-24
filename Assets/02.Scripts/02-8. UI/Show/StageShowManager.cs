@@ -4,7 +4,7 @@ public class StageShowManager : Singleton<StageShowManager>
 {
     public ShowResult ShowResult;
     public ShowCharacter ShowCharacter;
-    public ShowQuest ShowQuest;
+    public UI_ShowQuest ShowQuest;
     public ShowIDCard ShowIDCard;
     public MiniCharacterUI MiniCharacter;
 

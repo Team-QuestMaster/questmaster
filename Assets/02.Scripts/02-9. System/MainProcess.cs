@@ -16,6 +16,9 @@ public class MainProcess : MonoBehaviour
     public event Action OnRequestCountIncreased;
     public event Action OnRequestMade;
 
+    [SerializeField]
+    private QuestHandler _questHandler;
+
     private void Start()
     {
         OnRequestCountIncreased +=
@@ -41,7 +44,7 @@ public class MainProcess : MonoBehaviour
     private void PickTodayRequests()
     {
         UIManager.Instance.CharacterUI.Characters.Clear();
-        UIManager.Instance.QuestUI.QuestDatas.Clear();
+        _questHandler.ClearQuests();
         _todayRequest.Clear();
 
         int requestCount = 0;
@@ -50,8 +53,6 @@ public class MainProcess : MonoBehaviour
             (Adventurer, QuestData) request = PickManager.Instance.Pick();
             if (!ReferenceEquals(request.Item1, null) && !ReferenceEquals(request.Item2, null))
             {
-                // request.Item1.AdventurerData.AdventurerState = AdventurerStateType.TodayCome;
-                // request.Item2.IsQuesting = true;
                 _todayRequest.Add(request);
             }
             requestCount++;
@@ -59,51 +60,50 @@ public class MainProcess : MonoBehaviour
         foreach ((Adventurer, QuestData) request in _todayRequest)
         {
             UIManager.Instance.CharacterUI.Characters.Add(request.Item1.gameObject);
-
-            UIManager.Instance.QuestUI.QuestDatas.Add(request.Item2);
+            _questHandler.QuestDatas.Add(request.Item2);
         }
+        _questHandler.InitQuest();
         StageShowManager.Instance.ShowResult.Initialize
-            (_todayRequest[_requestCount].Item1, UIManager.Instance.QuestUI.CurrentQuest);
+            (_todayRequest[_requestCount].Item1, _questHandler.QuestModel);
     }
     public void ApproveRequest()
     {
+        QuestModel questModel = _questHandler.QuestModel;
         StageShowManager.Instance.ShowResult.Initialize
-            (_todayRequest[_requestCount].Item1, UIManager.Instance.QuestUI.CurrentQuest);
+            (_todayRequest[_requestCount].Item1, questModel);
         Adventurer currentAdventurer = _todayRequest[_requestCount].Item1;
-        Quest currentQuest = UIManager.Instance.QuestUI.CurrentQuest;
-        ItemManager.Instance.StatItemUse(currentAdventurer, currentQuest);
-        MakeQuestResult(currentAdventurer, currentQuest);
+        ItemManager.Instance.StatItemUse(currentAdventurer, questModel);
+        MakeQuestResult(currentAdventurer, questModel);
 
         // currentAdventurer.AdventurerData.AdventurerState = AdventurerStateType.Questing;
         EndRequest();
     }
-    private bool MakeQuestResult(Adventurer adventurer, Quest quest)
+    private bool MakeQuestResult(Adventurer adventurer, QuestModel questModel)
     {
-        float probability = CalculateManager.Instance.CalculateProbability(adventurer, quest);
-        float itemProbability = ItemManager.Instance.QuestItemUse(adventurer, quest);
+        float probability = CalculateManager.Instance.CalculateProbability(adventurer, questModel);
+        float itemProbability = ItemManager.Instance.QuestItemUse(adventurer, questModel);
         probability = Mathf.Clamp(probability + itemProbability, 0f, 100f);
-        bool isQuestSuccess = CalculateManager.Instance.JudgeQuestResult(adventurer, quest, probability);
-        DateManager.Instance.AddQuestResultToList(adventurer, quest, isQuestSuccess, probability);
-        StageShowManager.Instance.ShowResult.ResultText(true, probability,quest.QuestData.GoldReward,quest.QuestData.GoldPenalty);
-        UpdateCalender(quest, probability);
+        bool isQuestSuccess = CalculateManager.Instance.JudgeQuestResult(adventurer, questModel, probability);
+        DateManager.Instance.AddQuestResultToList(adventurer, questModel, isQuestSuccess, probability);
+        StageShowManager.Instance.ShowResult.ResultText(true, probability,questModel.QuestData.GoldReward,questModel.QuestData.GoldPenalty);
+        UpdateCalender(questModel, probability);
         return isQuestSuccess;
     }
-    private void UpdateCalender(Quest quest, float isQuestSuccess)
+    private void UpdateCalender(QuestModel questModel, float isQuestSuccess)
     {
-        int questEndDay = DateManager.Instance.CurrentDate + quest.QuestData.Days;
-        string questCalenderInfoText = $"{quest.QuestData.QuestName} <color=#99A136>{isQuestSuccess:N1}</color>";
+        int questEndDay = DateManager.Instance.CurrentDate + questModel.QuestData.Days;
+        string questCalenderInfoText = $"{questModel.QuestData.QuestName} <color=#99A136>{isQuestSuccess:N1}</color>";
         UIManager.Instance.CalenderManager.AddCalenderText(questEndDay, questCalenderInfoText);
     }
     public void RejectRequest()
     {
         StageShowManager.Instance.ShowResult.Initialize
-            (_todayRequest[_requestCount].Item1, UIManager.Instance.QuestUI.CurrentQuest);
+            (_todayRequest[_requestCount].Item1, _questHandler.QuestModel);
         Adventurer currentAdventurer = _todayRequest[_requestCount].Item1;
-        Quest currentQuest = UIManager.Instance.QuestUI.CurrentQuest;
-        float probability = CalculateManager.Instance.CalculateProbability(currentAdventurer, currentQuest);
-        StageShowManager.Instance.ShowResult.ResultText(false, probability, currentQuest.QuestData.GoldReward, currentQuest.QuestData.GoldPenalty);
+        QuestModel currentQuestModel = _questHandler.QuestModel;
+        float probability = CalculateManager.Instance.CalculateProbability(currentAdventurer, currentQuestModel);
+        StageShowManager.Instance.ShowResult.ResultText(false, probability, currentQuestModel.QuestData.GoldReward, currentQuestModel.QuestData.GoldPenalty);
         _todayRequest[_requestCount].Item1.AdventurerData.AdventurerState = AdventurerStateType.Idle;
-        _todayRequest[_requestCount].Item2.IsQuesting = false;
         EndRequest();
     }
     public void EndRequest()

@@ -13,8 +13,11 @@ GameObject:
   - component: {fileID: 4932645757579695327}
   - component: {fileID: 8967329536261977897}
   - component: {fileID: 3343944887652924374}
-  - component: {fileID: 506673510913302066}
   - component: {fileID: 535173421242379479}
+  - component: {fileID: 506673510913302066}
+  - component: {fileID: 6863317357369014864}
+  - component: {fileID: 8526108133762069883}
+  - component: {fileID: 784706699964327324}
   m_Layer: 0
   m_Name: Prefab_Small_QuestPaper
   m_TagString: Untagged
@@ -106,20 +109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _swapTargetObject: {fileID: 0}
---- !u!114 &506673510913302066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1063521730689222915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 316e789f89dfa404390c24dd50251581, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _questSO: {fileID: 11400000, guid: c1fb420a76642ec4f80dc7dceb8a1d0b, type: 2}
-  _questTierMinCombatPowers: e80300008813000010270000204e0000
 --- !u!114 &535173421242379479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,3 +123,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _onClickAudioClip: {fileID: 0}
   _onDownAudioClip: {fileID: 8300000, guid: c873e7380c1b63a47a9b3196ca0f99bf, type: 3}
+--- !u!114 &506673510913302066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063521730689222915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 316e789f89dfa404390c24dd50251581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6863317357369014864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063521730689222915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63fd571c73aae3140bf3a453ce6bd0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bigQuestPaperContent:
+    SealingImage: {fileID: 0}
+    TitleTMP: {fileID: 0}
+    MainBodyTMP: {fileID: 0}
+    RewardTMP: {fileID: 0}
+    NeedTimeTMP: {fileID: 0}
+--- !u!114 &8526108133762069883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063521730689222915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159c60049e8fb8846b8773b97217a495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &784706699964327324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063521730689222915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28d851c975c31449bbd7ff0b4451e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

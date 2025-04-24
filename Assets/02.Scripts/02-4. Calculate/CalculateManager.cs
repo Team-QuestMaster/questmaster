@@ -7,9 +7,9 @@ public class CalculateManager : Singleton<CalculateManager>
         base.Awake();
     }
 
-    public float CalculateProbability(Adventurer adventurer, Quest quest)
+    public float CalculateProbability(Adventurer adventurer, QuestModel quest)
     {
-        // È®·ü : (¸ðÇè°¡ ½ºÅÈ¿¡ µû¸¥ °è»ê ÀüÅõ·Â / Äù½ºÆ®ÀÇ ÇÊ¿ä ÀüÅõ·Â) * 100; 
+        // È®ï¿½ï¿½ : (ï¿½ï¿½ï¿½è°¡ ï¿½ï¿½ï¿½È¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ / ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) * 100; 
         float calculatedPower =
             adventurer.AdventurerData.CurrentSTR * quest.QuestData.STRWeight +
             adventurer.AdventurerData.CurrentMAG * quest.QuestData.MAGWeight +
@@ -24,7 +24,7 @@ public class CalculateManager : Singleton<CalculateManager>
     {
         return Mathf.Clamp((adventurerPower / powerForClear) * 100f, 0f, 100f);
     }
-    public bool JudgeQuestResult(Adventurer adventurer, Quest quest, float probability)
+    public bool JudgeQuestResult(Adventurer adventurer, QuestModel quest, float probability)
     {
         float randomValue = Random.Range(0f, 100f);
         if (randomValue <= probability)

@@ -4,7 +4,7 @@ public class ProbabilityBoost : QuestItem
 {
     [SerializeField]
     private float _increasePersentPoint;
-    public override float QuestUse(Quest quest) // Àç±¸Çö
+    public override float QuestUse(QuestModel quest) // ï¿½ç±¸ï¿½ï¿½
     {
         return _increasePersentPoint;
     }

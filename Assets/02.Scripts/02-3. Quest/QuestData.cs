@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public enum QuestTierType
 {
@@ -11,52 +12,52 @@ public enum QuestTierType
 
 public class QuestData
 {
-    private string _questName; // 퀘스트 이름
+    private string _questName; // 트 見
     public string QuestName { get => _questName; set => _questName = value; }
 
-    private string _questDescription; // 퀘스트 설명
+    private string _questDescription; // 트 
     public string QuestDescription { get => _questDescription; set => _questDescription = value; }
 
-    private QuestTierType _questTier; // 퀘스트 등급
+    private QuestTierType _questTier; // 트 
     public QuestTierType QuestTier { get => _questTier; set => _questTier = value; }
 
-    private float _strWeight; // 퀘스트 근력 가중치
+    private float _strWeight; // 트 慕 치
     public float STRWeight { get => _strWeight; set => _strWeight = value; }
 
-    private float _magWeight; // 퀘스트 MAG 비율
+    private float _magWeight; // 트 MAG 
     public float MAGWeight { get => _magWeight; set => _magWeight = value; }
 
-    private float _insWeight; // 퀘스트 INS 비율
+    private float _insWeight; // 트 INS 
     public float INSWeight { get => _insWeight; set => _insWeight = value; }
 
-    private float _dexWeight; // 퀘스트 DEX 비율
+    private float _dexWeight; // 트 DEX 
     public float DEXWeight { get => _dexWeight; set => _dexWeight = value; }
 
-    private float _powerForClear; // 기준 전투력
+    private float _powerForClear; //  
     public float PowerForClear { get => _powerForClear; set => _powerForClear = value; }
 
-    private int _fameReward; // 명성 보상
+    private int _fameReward; //  
     public int FameReward { get => _fameReward; set => _fameReward = value; }
 
-    private int _goldReward; // 골드 보상
+    private int _goldReward; //  
     public int GoldReward { get => _goldReward; set => _goldReward = value; }
 
-    private int _famePenalty; // 명성 페널티
+    private int _famePenalty; //  티
     public int FamePenalty { get => _famePenalty; set => _famePenalty = value; }
 
-    private int _goldPenalty; // 골드 페널티
+    private int _goldPenalty; //  티
     public int GoldPenalty { get => _goldPenalty; set => _goldPenalty = value; }
 
-    private AdventurerStateType _stateAfterFail; // 실패 후 모험가 부상 상태
+    private AdventurerStateType _stateAfterFail; //   瘟♂� 
     public AdventurerStateType StateAfterFail { get => _stateAfterFail; set => _stateAfterFail = value; }
 
-    private int _days; // 퀘스트 소요 일수
-    public int Days { get => _days; set => _days = value; }
+    private int _days; // 트 奴 究
+    public int Days { get => _days; private set => _days = value; }
 
-    private bool _isQuesting; // 퀘스트 진행 중 여부
+    private bool _isQuesting; // 트   
     public bool IsQuesting { get => _isQuesting; set => _isQuesting = value; }
 
-    private string _questHint; // 퀘스트 힌트
+    private string _questHint; // 트 트
     public string QuestHint { get => _questHint; set => _questHint = value; }
 
     public QuestData(string questName, string questDescription, QuestTierType questTier, 

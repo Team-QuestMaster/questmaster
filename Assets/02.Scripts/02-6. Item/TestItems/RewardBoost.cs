@@ -5,10 +5,10 @@ public class RewardBoost : QuestItem
     [SerializeField]
     private float _boostPersent;
 
-    public override float QuestUse(Quest quest) // Àç±¸Çö
+    public override float QuestUse(QuestModel quest) // ï¿½ç±¸ï¿½ï¿½
     {
-        quest.QuestData.FameReward = (int)((1 + (_boostPersent / 100)) * quest.QuestData.FameReward); // º¸»ó Áõ°¡
-        quest.QuestData.GoldReward = (int)((1 + (_boostPersent / 100)) * quest.QuestData.GoldReward); // º¸»ó Áõ°¡
+        quest.QuestData.FameReward = (int)((1 + (_boostPersent / 100)) * quest.QuestData.FameReward); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        quest.QuestData.GoldReward = (int)((1 + (_boostPersent / 100)) * quest.QuestData.GoldReward); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         return 0f;
     }
 }

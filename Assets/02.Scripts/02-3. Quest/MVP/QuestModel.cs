@@ -1,30 +1,25 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Quest : MonoBehaviour
+public class QuestModel : MonoBehaviour
 {
+    public Action<QuestData, Color> OnQuestDataChanged;
     private QuestData _questData;
-    public QuestData QuestData { get => _questData; set => _questData = value; }
-
+    public QuestData QuestData 
+    { 
+        get => _questData;
+        set
+        {
+            _questData = value;
+            _questTierImageColor = SetQuestTierImageColor();
+            OnQuestDataChanged?.Invoke(_questData, _questTierImageColor);
+        }
+    }
     private Color _questTierImageColor;
     public Color QuestTierImageColor { get => _questTierImageColor; set => _questTierImageColor = value; }
-
-    private void Start()
-    {
-       // InitQuestData();
-        gameObject.SetActive(false);
-    }
-    private void InitQuestData()
-    {
-        _questTierImageColor = InitQuestTierImageColor();
-    }
-    public void ChangeQuestData(QuestData questData)
-    {
-        _questData = questData;
-        InitQuestData();
-    }
-    private Color InitQuestTierImageColor()
+    private Color SetQuestTierImageColor()
     {
         Color tierImageColor = Color.white;
         switch (_questData.QuestTier)
