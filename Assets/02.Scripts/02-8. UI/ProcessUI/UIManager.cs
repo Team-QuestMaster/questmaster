@@ -26,7 +26,7 @@ public class UIManager : Singleton<UIManager>
 
     private void Start()
     {
-        GuideBookUI.Initialize();
+        //GuideBookUI.Initialize();
         StampUI.Initialize();
         SettingUI.Initialize();
         _cursorBox.gameObject.SetActive(false);
