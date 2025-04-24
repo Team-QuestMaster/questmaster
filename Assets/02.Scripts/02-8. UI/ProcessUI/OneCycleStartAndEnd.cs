@@ -6,6 +6,11 @@ using UnityEngine.UI;
 public class OneCycleStartAndEnd : MonoBehaviour
 {
     [SerializeField]
+    private DailyReportModel _dailyReportModel;
+    [SerializeField]
+    private UI_ShowDailyReport _showDailyReport;
+    
+    [SerializeField]
     private TaxPayment _taxPayment;
 
     [SerializeField]
@@ -67,10 +72,12 @@ public class OneCycleStartAndEnd : MonoBehaviour
         string taxMessage = _taxPayment.TryPayTax(currentDate)
             ? $"<color=#9A5195>**{_taxPayment.Tax}만큼 세금으로 나갔습니다**</color>"
             : $"<color=#9A5195>**세금 납부일까지 {_taxPayment.GetPaymentTerm(currentDate)}일 남았습니다.\n 납부할 세금 {_taxPayment.Tax}**</color>";
-        UIManager.Instance.ReportUI.SpecialCommentText(taxMessage);
-        // 레포트 보여주고
-        UIManager.Instance.ReportUI.ShowReportUI();
-        // 레포트 닫으면 모험가 이벤트 시작
+        _dailyReportModel.AddSpecialCommentText(taxMessage);
+        _showDailyReport.ShowDailyReport();
+        // UIManager.Instance.ReportUI.SpecialCommentText(taxMessage);
+        // // 레포트 보여주고
+        // UIManager.Instance.ReportUI.ShowReportUI();
+        // // 레포트 닫으면 모험가 이벤트 시작
     }
 
     private void FirstCycle()
