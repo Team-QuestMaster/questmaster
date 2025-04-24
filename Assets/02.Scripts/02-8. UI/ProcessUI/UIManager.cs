@@ -7,7 +7,6 @@ public class UIManager : Singleton<UIManager>
 {
     public GuideBookUI GuideBookUI;
     public StampUI StampUI;
-    public ReportUI ReportUI;
     public CharacterUI CharacterUI;
     public QuestUI QuestUI;
     public AdventurerIDCardUI AdventurerIDCardUI;
@@ -27,9 +26,8 @@ public class UIManager : Singleton<UIManager>
 
     private void Start()
     {
-        GuideBookUI.Initialize();
+        //GuideBookUI.Initialize();
         StampUI.Initialize();
-        ReportUI.Initialize();
         SettingUI.Initialize();
         _cursorBox.gameObject.SetActive(false);
     }
