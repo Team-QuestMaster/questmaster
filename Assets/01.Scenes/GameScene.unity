@@ -14720,6 +14720,7 @@ MonoBehaviour:
   - {fileID: 506021170}
   - {fileID: 1751335453}
   - {fileID: 94302685}
+  _adventurerSO: {fileID: 11400000, guid: 9c57a3efe99c2a146a0098693bc34ed1, type: 2}
 --- !u!1 &1460655335
 GameObject:
   m_ObjectHideFlags: 0

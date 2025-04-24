@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +10,13 @@ public class PickManager : Singleton<PickManager>
     [SerializeField]
     private List<QuestData> _questDatas = new List<QuestData>();
     public List<QuestData> QuestDatas { get => _questDatas; set => _questDatas = value; }
+
+    private AdventurerDataPool _adventurerDataPool;
+    public AdventurerDataPool AdventurerDataPool { get => _adventurerDataPool; set => _adventurerDataPool = value; }
+
+    [SerializeField]
+    private MinorASO _adventurerSO;
+    public MinorASO AdventurerSO { get => _adventurerSO; set => _adventurerSO = value; }
 
     private Dictionary<QuestTierType, (int start, int end)> tierDateRange = new Dictionary<QuestTierType, (int, int)>{
             { QuestTierType.Green, (1, 8) },
@@ -26,14 +33,15 @@ public class PickManager : Singleton<PickManager>
     protected override void Awake()
     {
         base.Awake();
-        _questDatas = LoadQuest();
+        _questDatas = LoadQuestDatas();
+        _adventurerDataPool = LoadAdventurerDatas();
         foreach (QuestData questData in _questDatas)
         {
             questData.IsQuesting = false;
         }
     }
 
-    private List<QuestData> LoadQuest()
+    private List<QuestData> LoadQuestDatas()
     {
         List<QuestData> questList = new List<QuestData>();
 
@@ -69,13 +77,68 @@ public class PickManager : Singleton<PickManager>
         return questList;
     }
 
+    private AdventurerDataPool LoadAdventurerDatas()
+    {
+        AdventurerDataPool adventurerDataPool = new AdventurerDataPool();
+        List<Dictionary<string, string>> csv = CSVReader.Read("AdventurerData");
+        for (int i = 0; i < csv.Count; i++)
+        {
+            if (string.IsNullOrEmpty(csv[i]["AdventurerName"]))
+            {
+                break;
+            }
+            adventurerDataPool.AdventurerNameList.Add(csv[i]["AdventurerName"]);
+        }
+        for (int i = 0; i < csv.Count; i++)
+        {
+            if (string.IsNullOrEmpty(csv[i]["AdventurerClass"]))
+            {
+                break;
+            }
+            adventurerDataPool.AdventurerClassList.Add(csv[i]["AdventurerClass"]);
+        }
+        for (int i = 0; i < csv.Count; i++)
+        {
+            if (string.IsNullOrEmpty(csv[i]["AdventurerTitle"]))
+            {
+                break;
+            }
+            adventurerDataPool.AdventurerTitleList.Add(csv[i]["AdventurerTitle"]);
+        }
+        for (int i = 0; i < csv.Count; i++)
+        {
+            if (string.IsNullOrEmpty(csv[i]["Dialog"]))
+            {
+                break;
+            }
+            string dialogSet = csv[i]["Dialog"];
+            DialogSet dialog = new DialogSet();
+            dialog.Dialog = new List<string>(dialogSet.Split("|"));
+            adventurerDataPool.DialogList.Add(dialog);
+        }
+
+        adventurerDataPool.OriginalSTR = _adventurerSO.OriginalSTR;
+        adventurerDataPool.OriginalMAG = _adventurerSO.OriginalMAG;
+        adventurerDataPool.OriginalINS = _adventurerSO.OriginalINS;
+        adventurerDataPool.OriginalDEX = _adventurerSO.OriginalDEX;
+
+        for(int i = 0; i < _adventurerSO.AdventurerSpriteLDList.Count; i++)
+        {
+            adventurerDataPool.AdventurerSpriteLDList.Add(_adventurerSO.AdventurerSpriteLDList[i]);
+        }
+
+
+
+        return adventurerDataPool;
+    }
+
     public (Adventurer, QuestData) Pick()
     {
         Adventurer currentAdventurer = PickAdventurer();
         QuestData currentQuestData = PickQuest();
         if (ReferenceEquals(currentAdventurer, null) || ReferenceEquals(currentQuestData, null))
         {
-            Debug.Log("ÇöÀç »Ì¾Æ¿Ã ¼ö ÀÖ´Â À¯È¿ÇÑ ¸ðÇè°¡ ¶Ç´Â Äù½ºÆ®°¡ ¾ø½À´Ï´Ù.");
+            Debug.Log("í˜„ìž¬ ë½‘ì•„ì˜¬ ìˆ˜ ìžˆëŠ” ìœ íš¨í•œ ëª¨í—˜ê°€ ë˜ëŠ” í€˜ìŠ¤íŠ¸ê°€ ì—†ìŠµë‹ˆë‹¤.");
             return (null, null);
         }
         return (currentAdventurer, currentQuestData);
