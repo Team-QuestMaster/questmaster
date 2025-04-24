@@ -20,42 +20,11 @@ public class UI_DailyReport : MonoBehaviour
     [SerializeField] 
     private TextMeshProUGUI _specialCommentText;    // 특수 텍스트
     
-    [SerializeField] 
-    private Button _closeButton;
-    
-    [SerializeField]
-    private Vector3 _hidePosition;
-
-    [Header("Audio")]
-    [SerializeField]
-    private AudioClip _onReportAudioClip;
-
-    private void Start()
-    {
-        _closeButton.onClick.AddListener(HideDailyReport);
-        // TODO: 구조 수정 필요
-        _closeButton.onClick.AddListener(StageShowManager.Instance.Appear);
-    }
-    
     public void RefreshDailyReport(DailyReportData data)
     {
         _goldChangeText.text = $"{data.BeforeGold} -> {data.AfterGold}";
         _fameChangeText.text = $"{data.BeforeFame} -> {data.AfterFame}";
         _questResultText.text = data.QuestResult;
         _specialCommentText.text = data.SpecialComment;
-    }
-    
-    public void ShowDailyReport()
-    {
-        AudioManager.Instance.PlaySFX(_onReportAudioClip);
-        gameObject.SetActive(true);
-        transform.DOMove(Vector3.zero, 1f);
-    }
-    
-    private void HideDailyReport()
-    {
-        AudioManager.Instance.PlaySFX(_onReportAudioClip);
-        // TODO: 월드 위치로 이동함 수정필요
-        transform.DOMove(_hidePosition, 1f).OnComplete(() => gameObject.SetActive(false));
     }
 }
