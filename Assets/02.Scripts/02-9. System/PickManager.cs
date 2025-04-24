@@ -33,15 +33,15 @@ public class PickManager : Singleton<PickManager>
     protected override void Awake()
     {
         base.Awake();
-        _questDatas = LoadQuest();
-        _adventurerDataPool = LoadAdventurder();
+        _questDatas = LoadQuestDatas();
+        _adventurerDataPool = LoadAdventurerDatas();
         foreach (QuestData questData in _questDatas)
         {
             questData.IsQuesting = false;
         }
     }
 
-    private List<QuestData> LoadQuest()
+    private List<QuestData> LoadQuestDatas()
     {
         List<QuestData> questList = new List<QuestData>();
 
@@ -77,7 +77,7 @@ public class PickManager : Singleton<PickManager>
         return questList;
     }
 
-    private AdventurerDataPool LoadAdventurder()
+    private AdventurerDataPool LoadAdventurerDatas()
     {
         AdventurerDataPool adventurerDataPool = new AdventurerDataPool();
         List<Dictionary<string, string>> csv = CSVReader.Read("AdventurerData");
@@ -117,10 +117,10 @@ public class PickManager : Singleton<PickManager>
             adventurerDataPool.DialogList.Add(dialog);
         }
 
-        adventurerDataPool.OrignSTR = _adventurerSO.OriginalSTR;
-        adventurerDataPool.OrignMAG = _adventurerSO.OriginalMAG;
-        adventurerDataPool.OrignINS = _adventurerSO.OriginalINS;
-        adventurerDataPool.OrignDEX = _adventurerSO.OriginalDEX;
+        adventurerDataPool.OriginalSTR = _adventurerSO.OriginalSTR;
+        adventurerDataPool.OriginalMAG = _adventurerSO.OriginalMAG;
+        adventurerDataPool.OriginalINS = _adventurerSO.OriginalINS;
+        adventurerDataPool.OriginalDEX = _adventurerSO.OriginalDEX;
 
         for(int i = 0; i < _adventurerSO.AdventurerSpriteLDList.Count; i++)
         {

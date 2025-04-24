@@ -7,10 +7,10 @@ public class AdventurerDataPool : MonoBehaviour
     public List<string> AdventurerNameList= new List<string>();
     public List<string> AdventurerClassList = new List<string>();
     public List<string> AdventurerTitleList = new List<string>();
-    public int OrignSTR;
-    public int OrignMAG;
-    public int OrignINS;
-    public int OrignDEX;
+    public int OriginalSTR;
+    public int OriginalMAG;
+    public int OriginalINS;
+    public int OriginalDEX;
     public List<DialogSet> DialogList = new List<DialogSet>();
     public List<Sprite> AdventurerSpriteLDList = new List<Sprite>();
 }
