@@ -12,10 +12,7 @@ public class CharacterUI : MonoBehaviour
     private int _currentCharacter = 0;
     public GameObject CurrentCharacter;
 
-    
-    //[SerializeField] private Adventurer _adventurer;
-    [SerializeField] private Animator _characterAnimator;
-    [SerializeField] private Button _characterButton;
+ 
     [SerializeField] private TextMeshProUGUI _characterText;
     [SerializeField] private Image _speechBubble;
     [SerializeField] private Button _speechButton;
@@ -37,11 +34,6 @@ public class CharacterUI : MonoBehaviour
     private int _dialogIndex = 0;
     public void Initialize()
     {
-        _characterButton = Characters[_currentCharacter]
-            .GetComponent<Button>();
-        _characterAnimator = Characters[_currentCharacter]
-            .GetComponent<Animator>();
-
         _characterText.text = "";
         //_characterButton.onClick.AddListener(ShowSpeechBubbleUI);
         _speechButton.onClick.RemoveAllListeners();
@@ -57,10 +49,6 @@ public class CharacterUI : MonoBehaviour
         StageShowManager.Instance.ShowCharacter.CharacterDisappearShow += HideSpeechBubbleUI;
         PositiveButtonEvent += () => isCloseable = true;
         NegativeButtonEvent += () => isCloseable = true;
-        
-       
-
-        
     }
 
     public void ShowSpeechBubbleUI()
