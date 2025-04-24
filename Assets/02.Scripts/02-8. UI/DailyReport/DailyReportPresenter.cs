@@ -15,11 +15,7 @@ public class DailyReportPresenter : MonoBehaviour
 
     private void Start()
     {
-        _dailyReportModel.OnDailyReportChanged += OnChangeDailyReportData;
+        _dailyReportModel.OnDailyReportChanged += _dailyReport.RefreshDailyReport;
     }
 
-    private void OnChangeDailyReportData(DailyReportData data)
-    {
-        _dailyReport.RefreshDailyReport(data);
-    }
 }
