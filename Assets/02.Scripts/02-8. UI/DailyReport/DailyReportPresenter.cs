@@ -6,7 +6,7 @@ public class DailyReportPresenter : MonoBehaviour
     [SerializeField]
     private DailyReportModel _dailyReportModel;
     
-    private UI_DailyReport _dailyReport;
+    private UI_DailyReport _dailyReportView;
 
     private void Awake()
     {
