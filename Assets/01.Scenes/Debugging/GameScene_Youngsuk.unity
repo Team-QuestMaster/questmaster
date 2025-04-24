@@ -1558,6 +1558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ea68ca0f03cc23479ee3508fe7b216e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dailyReportModel: {fileID: 0}
 --- !u!1001 &147251280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16045,7 +16046,7 @@ MonoBehaviour:
   - {fileID: 506021170}
   - {fileID: 1751335453}
   - {fileID: 94302685}
-  csvFile: {fileID: 4900000, guid: 4cce8e9e3986d344faafcad006424f07, type: 3}
+  _adventurerSO: {fileID: 11400000, guid: 9c57a3efe99c2a146a0098693bc34ed1, type: 2}
 --- !u!1 &1460655335
 GameObject:
   m_ObjectHideFlags: 0
@@ -16943,7 +16944,6 @@ MonoBehaviour:
   _dontDestroy: 1
   GuideBookUI: {fileID: 1543659081}
   StampUI: {fileID: 1543659080}
-  ReportUI: {fileID: 1543659079}
   CharacterUI: {fileID: 1543659078}
   QuestUI: {fileID: 1543659077}
   AdventurerIDCardUI: {fileID: 7762794191648862948}
@@ -16967,6 +16967,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e6e37989b137594abe79cd7fc58168a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dailyReportModel: {fileID: 0}
+  _showDailyReport: {fileID: 0}
   _taxPayment: {fileID: 1206002024}
   _fadeImage: {fileID: 271821012}
 --- !u!114 &1543659075
