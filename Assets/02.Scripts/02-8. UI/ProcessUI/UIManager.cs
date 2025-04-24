@@ -9,7 +9,7 @@ public class UIManager : Singleton<UIManager>
     public StampUI StampUI;
     public ReportUI ReportUI;
     public CharacterUI CharacterUI;
-    public QuestUI QuestUI;
+    public UI_QuestView QuestUI;
     public AdventurerIDCardUI AdventurerIDCardUI;
     public SettingUI SettingUI;
     public CalenderManager CalenderManager;
